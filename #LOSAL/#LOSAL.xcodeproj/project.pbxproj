@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6588D02717A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
+		6588D02917A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
+		6588D02B17A4BCC500B6C498 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */; };
+		6588D03117A4BCC500B6C498 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6588D02F17A4BCC500B6C498 /* InfoPlist.strings */; };
+		6588D03317A4BCC500B6C498 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D03217A4BCC500B6C498 /* main.m */; };
+		6588D03717A4BCC500B6C498 /* LAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D03617A4BCC500B6C498 /* LAAppDelegate.m */; };
+		6588D03917A4BCC500B6C498 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D03817A4BCC500B6C498 /* Default.png */; };
+		6588D03B17A4BCC500B6C498 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D03A17A4BCC500B6C498 /* Default@2x.png */; };
+		6588D03D17A4BCC500B6C498 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D03C17A4BCC500B6C498 /* Default-568h@2x.png */; };
+		6588D04017A4BCC500B6C498 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */; };
+		6588D04317A4BCC500B6C498 /* LAMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D04217A4BCC500B6C498 /* LAMasterViewController.m */; };
+		6588D04617A4BCC500B6C498 /* LADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D04517A4BCC500B6C498 /* LADetailViewController.m */; };
+		6588D04E17A4BCC500B6C498 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D04D17A4BCC500B6C498 /* SenTestingKit.framework */; };
+		6588D04F17A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
+		6588D05017A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
+		6588D05817A4BCC500B6C498 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6588D05617A4BCC500B6C498 /* InfoPlist.strings */; };
+		6588D05B17A4BCC500B6C498 /* _LOSALTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D05A17A4BCC500B6C498 /* _LOSALTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6588D05117A4BCC500B6C498 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6588D01B17A4BCC500B6C498 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6588D02217A4BCC500B6C498;
+			remoteInfo = "#LOSAL";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6588D02317A4BCC500B6C498 /* #LOSAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#LOSAL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6588D02617A4BCC500B6C498 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6588D02817A4BCC500B6C498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6588D02E17A4BCC500B6C498 /* #LOSAL-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "#LOSAL-Info.plist"; sourceTree = "<group>"; };
+		6588D03017A4BCC500B6C498 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6588D03217A4BCC500B6C498 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6588D03417A4BCC500B6C498 /* #LOSAL-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "#LOSAL-Prefix.pch"; sourceTree = "<group>"; };
+		6588D03517A4BCC500B6C498 /* LAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAAppDelegate.h; sourceTree = "<group>"; };
+		6588D03617A4BCC500B6C498 /* LAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAAppDelegate.m; sourceTree = "<group>"; };
+		6588D03817A4BCC500B6C498 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		6588D03A17A4BCC500B6C498 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		6588D03C17A4BCC500B6C498 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6588D03F17A4BCC500B6C498 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		6588D04117A4BCC500B6C498 /* LAMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAMasterViewController.h; sourceTree = "<group>"; };
+		6588D04217A4BCC500B6C498 /* LAMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAMasterViewController.m; sourceTree = "<group>"; };
+		6588D04417A4BCC500B6C498 /* LADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LADetailViewController.h; sourceTree = "<group>"; };
+		6588D04517A4BCC500B6C498 /* LADetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LADetailViewController.m; sourceTree = "<group>"; };
+		6588D04C17A4BCC500B6C498 /* #LOSALTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "#LOSALTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6588D04D17A4BCC500B6C498 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		6588D05517A4BCC500B6C498 /* #LOSALTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "#LOSALTests-Info.plist"; sourceTree = "<group>"; };
+		6588D05717A4BCC500B6C498 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6588D05917A4BCC500B6C498 /* _LOSALTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _LOSALTests.h; sourceTree = "<group>"; };
+		6588D05A17A4BCC500B6C498 /* _LOSALTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _LOSALTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6588D02017A4BCC500B6C498 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6588D02717A4BCC500B6C498 /* UIKit.framework in Frameworks */,
+				6588D02917A4BCC500B6C498 /* Foundation.framework in Frameworks */,
+				6588D02B17A4BCC500B6C498 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6588D04817A4BCC500B6C498 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6588D04E17A4BCC500B6C498 /* SenTestingKit.framework in Frameworks */,
+				6588D04F17A4BCC500B6C498 /* UIKit.framework in Frameworks */,
+				6588D05017A4BCC500B6C498 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6588D01A17A4BCC500B6C498 = {
+			isa = PBXGroup;
+			children = (
+				6588D02C17A4BCC500B6C498 /* #LOSAL */,
+				6588D05317A4BCC500B6C498 /* #LOSALTests */,
+				6588D02517A4BCC500B6C498 /* Frameworks */,
+				6588D02417A4BCC500B6C498 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6588D02417A4BCC500B6C498 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6588D02317A4BCC500B6C498 /* #LOSAL.app */,
+				6588D04C17A4BCC500B6C498 /* #LOSALTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6588D02517A4BCC500B6C498 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6588D02617A4BCC500B6C498 /* UIKit.framework */,
+				6588D02817A4BCC500B6C498 /* Foundation.framework */,
+				6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */,
+				6588D04D17A4BCC500B6C498 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6588D02C17A4BCC500B6C498 /* #LOSAL */ = {
+			isa = PBXGroup;
+			children = (
+				6588D03517A4BCC500B6C498 /* LAAppDelegate.h */,
+				6588D03617A4BCC500B6C498 /* LAAppDelegate.m */,
+				6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */,
+				6588D04117A4BCC500B6C498 /* LAMasterViewController.h */,
+				6588D04217A4BCC500B6C498 /* LAMasterViewController.m */,
+				6588D04417A4BCC500B6C498 /* LADetailViewController.h */,
+				6588D04517A4BCC500B6C498 /* LADetailViewController.m */,
+				6588D02D17A4BCC500B6C498 /* Supporting Files */,
+			);
+			path = "#LOSAL";
+			sourceTree = "<group>";
+		};
+		6588D02D17A4BCC500B6C498 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6588D02E17A4BCC500B6C498 /* #LOSAL-Info.plist */,
+				6588D02F17A4BCC500B6C498 /* InfoPlist.strings */,
+				6588D03217A4BCC500B6C498 /* main.m */,
+				6588D03417A4BCC500B6C498 /* #LOSAL-Prefix.pch */,
+				6588D03817A4BCC500B6C498 /* Default.png */,
+				6588D03A17A4BCC500B6C498 /* Default@2x.png */,
+				6588D03C17A4BCC500B6C498 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6588D05317A4BCC500B6C498 /* #LOSALTests */ = {
+			isa = PBXGroup;
+			children = (
+				6588D05917A4BCC500B6C498 /* _LOSALTests.h */,
+				6588D05A17A4BCC500B6C498 /* _LOSALTests.m */,
+				6588D05417A4BCC500B6C498 /* Supporting Files */,
+			);
+			path = "#LOSALTests";
+			sourceTree = "<group>";
+		};
+		6588D05417A4BCC500B6C498 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6588D05517A4BCC500B6C498 /* #LOSALTests-Info.plist */,
+				6588D05617A4BCC500B6C498 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6588D02217A4BCC500B6C498 /* #LOSAL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6588D05E17A4BCC500B6C498 /* Build configuration list for PBXNativeTarget "#LOSAL" */;
+			buildPhases = (
+				6588D01F17A4BCC500B6C498 /* Sources */,
+				6588D02017A4BCC500B6C498 /* Frameworks */,
+				6588D02117A4BCC500B6C498 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "#LOSAL";
+			productName = "#LOSAL";
+			productReference = 6588D02317A4BCC500B6C498 /* #LOSAL.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6588D04B17A4BCC500B6C498 /* #LOSALTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6588D06117A4BCC500B6C498 /* Build configuration list for PBXNativeTarget "#LOSALTests" */;
+			buildPhases = (
+				6588D04717A4BCC500B6C498 /* Sources */,
+				6588D04817A4BCC500B6C498 /* Frameworks */,
+				6588D04917A4BCC500B6C498 /* Resources */,
+				6588D04A17A4BCC500B6C498 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6588D05217A4BCC500B6C498 /* PBXTargetDependency */,
+			);
+			name = "#LOSALTests";
+			productName = "#LOSALTests";
+			productReference = 6588D04C17A4BCC500B6C498 /* #LOSALTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6588D01B17A4BCC500B6C498 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LA;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Localism;
+			};
+			buildConfigurationList = 6588D01E17A4BCC500B6C498 /* Build configuration list for PBXProject "#LOSAL" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6588D01A17A4BCC500B6C498;
+			productRefGroup = 6588D02417A4BCC500B6C498 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6588D02217A4BCC500B6C498 /* #LOSAL */,
+				6588D04B17A4BCC500B6C498 /* #LOSALTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6588D02117A4BCC500B6C498 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6588D03117A4BCC500B6C498 /* InfoPlist.strings in Resources */,
+				6588D03917A4BCC500B6C498 /* Default.png in Resources */,
+				6588D03B17A4BCC500B6C498 /* Default@2x.png in Resources */,
+				6588D03D17A4BCC500B6C498 /* Default-568h@2x.png in Resources */,
+				6588D04017A4BCC500B6C498 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6588D04917A4BCC500B6C498 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6588D05817A4BCC500B6C498 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6588D04A17A4BCC500B6C498 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6588D01F17A4BCC500B6C498 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6588D03317A4BCC500B6C498 /* main.m in Sources */,
+				6588D03717A4BCC500B6C498 /* LAAppDelegate.m in Sources */,
+				6588D04317A4BCC500B6C498 /* LAMasterViewController.m in Sources */,
+				6588D04617A4BCC500B6C498 /* LADetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6588D04717A4BCC500B6C498 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6588D05B17A4BCC500B6C498 /* _LOSALTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6588D05217A4BCC500B6C498 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6588D02217A4BCC500B6C498 /* #LOSAL */;
+			targetProxy = 6588D05117A4BCC500B6C498 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6588D02F17A4BCC500B6C498 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6588D03017A4BCC500B6C498 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6588D03F17A4BCC500B6C498 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		6588D05617A4BCC500B6C498 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6588D05717A4BCC500B6C498 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6588D05C17A4BCC500B6C498 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6588D05D17A4BCC500B6C498 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6588D05F17A4BCC500B6C498 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "#LOSAL/#LOSAL-Prefix.pch";
+				INFOPLIST_FILE = "#LOSAL/#LOSAL-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6588D06017A4BCC500B6C498 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "#LOSAL/#LOSAL-Prefix.pch";
+				INFOPLIST_FILE = "#LOSAL/#LOSAL-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6588D06217A4BCC500B6C498 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/#LOSAL.app/#LOSAL";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "#LOSAL/#LOSAL-Prefix.pch";
+				INFOPLIST_FILE = "#LOSALTests/#LOSALTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		6588D06317A4BCC500B6C498 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/#LOSAL.app/#LOSAL";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "#LOSAL/#LOSAL-Prefix.pch";
+				INFOPLIST_FILE = "#LOSALTests/#LOSALTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6588D01E17A4BCC500B6C498 /* Build configuration list for PBXProject "#LOSAL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6588D05C17A4BCC500B6C498 /* Debug */,
+				6588D05D17A4BCC500B6C498 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6588D05E17A4BCC500B6C498 /* Build configuration list for PBXNativeTarget "#LOSAL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6588D05F17A4BCC500B6C498 /* Debug */,
+				6588D06017A4BCC500B6C498 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6588D06117A4BCC500B6C498 /* Build configuration list for PBXNativeTarget "#LOSALTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6588D06217A4BCC500B6C498 /* Debug */,
+				6588D06317A4BCC500B6C498 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6588D01B17A4BCC500B6C498 /* Project object */;
+}
