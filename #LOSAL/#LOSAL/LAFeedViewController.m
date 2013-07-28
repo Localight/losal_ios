@@ -1,21 +1,21 @@
 //
-//  LAMasterViewController.m
+//  LAFeedViewController.m
 //  #LOSAL
 //
 //  Created by James Orion Hall on 7/27/13.
 //  Copyright (c) 2013 Localism. All rights reserved.
 //
 
-#import "LAMasterViewController.h"
+#import "LAFeedViewController.h"
 
 #import "LADetailViewController.h"
 
-@interface LAMasterViewController () {
+@interface LAFeedViewController () {
     NSMutableArray *_objects;
 }
 @end
 
-@implementation LAMasterViewController
+@implementation LAFeedViewController
 
 - (void)awakeFromNib
 {
@@ -26,12 +26,34 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+
+    //grabbing left bar button from libary
+    UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuBtn.frame = CGRectMake(10, 10, 30, 21);
+    [menuBtn setBackgroundImage:[UIImage imageNamed:@"menuBtn.png"] forState:UIControlStateNormal];
+    [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
+    // You just need to set the opacity, radius, and color.
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
+        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+    
+    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
 }
 
+- (IBAction)revealMenu:(id)sender
+{
+    [self.slidingViewController anchorTopViewTo:ECRight];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

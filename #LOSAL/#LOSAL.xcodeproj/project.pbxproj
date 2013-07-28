@@ -17,13 +17,18 @@
 		6588D03B17A4BCC500B6C498 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D03A17A4BCC500B6C498 /* Default@2x.png */; };
 		6588D03D17A4BCC500B6C498 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D03C17A4BCC500B6C498 /* Default-568h@2x.png */; };
 		6588D04017A4BCC500B6C498 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */; };
-		6588D04317A4BCC500B6C498 /* LAMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D04217A4BCC500B6C498 /* LAMasterViewController.m */; };
+		6588D04317A4BCC500B6C498 /* LAFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D04217A4BCC500B6C498 /* LAFeedViewController.m */; };
 		6588D04617A4BCC500B6C498 /* LADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D04517A4BCC500B6C498 /* LADetailViewController.m */; };
 		6588D04E17A4BCC500B6C498 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D04D17A4BCC500B6C498 /* SenTestingKit.framework */; };
 		6588D04F17A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
 		6588D05017A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
 		6588D05817A4BCC500B6C498 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6588D05617A4BCC500B6C498 /* InfoPlist.strings */; };
 		6588D05B17A4BCC500B6C498 /* _LOSALTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D05A17A4BCC500B6C498 /* _LOSALTests.m */; };
+		6588D06617A4BEBF00B6C498 /* LASplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D06517A4BEBF00B6C498 /* LASplashViewController.m */; };
+		6588D0AA17A4C02D00B6C498 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0A717A4C02D00B6C498 /* ECSlidingViewController.m */; };
+		6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0A917A4C02D00B6C498 /* UIImage+ImageWithUIView.m */; };
+		6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */; };
+		6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D0B117A4C9CE00B6C498 /* menuBtn.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +56,8 @@
 		6588D03A17A4BCC500B6C498 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6588D03C17A4BCC500B6C498 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6588D03F17A4BCC500B6C498 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		6588D04117A4BCC500B6C498 /* LAMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAMasterViewController.h; sourceTree = "<group>"; };
-		6588D04217A4BCC500B6C498 /* LAMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAMasterViewController.m; sourceTree = "<group>"; };
+		6588D04117A4BCC500B6C498 /* LAFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAFeedViewController.h; sourceTree = "<group>"; };
+		6588D04217A4BCC500B6C498 /* LAFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAFeedViewController.m; sourceTree = "<group>"; };
 		6588D04417A4BCC500B6C498 /* LADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LADetailViewController.h; sourceTree = "<group>"; };
 		6588D04517A4BCC500B6C498 /* LADetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LADetailViewController.m; sourceTree = "<group>"; };
 		6588D04C17A4BCC500B6C498 /* #LOSALTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "#LOSALTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +66,15 @@
 		6588D05717A4BCC500B6C498 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6588D05917A4BCC500B6C498 /* _LOSALTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _LOSALTests.h; sourceTree = "<group>"; };
 		6588D05A17A4BCC500B6C498 /* _LOSALTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _LOSALTests.m; sourceTree = "<group>"; };
+		6588D06417A4BEBF00B6C498 /* LASplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LASplashViewController.h; sourceTree = "<group>"; };
+		6588D06517A4BEBF00B6C498 /* LASplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LASplashViewController.m; sourceTree = "<group>"; };
+		6588D0A617A4C02D00B6C498 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		6588D0A717A4C02D00B6C498 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		6588D0A817A4C02D00B6C498 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
+		6588D0A917A4C02D00B6C498 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAMenuViewController.h; sourceTree = "<group>"; };
+		6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAMenuViewController.m; sourceTree = "<group>"; };
+		6588D0B117A4C9CE00B6C498 /* menuBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtn.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,11 +134,16 @@
 		6588D02C17A4BCC500B6C498 /* #LOSAL */ = {
 			isa = PBXGroup;
 			children = (
+				6588D06717A4BF2300B6C498 /* External Libraries */,
 				6588D03517A4BCC500B6C498 /* LAAppDelegate.h */,
 				6588D03617A4BCC500B6C498 /* LAAppDelegate.m */,
 				6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */,
-				6588D04117A4BCC500B6C498 /* LAMasterViewController.h */,
-				6588D04217A4BCC500B6C498 /* LAMasterViewController.m */,
+				6588D06417A4BEBF00B6C498 /* LASplashViewController.h */,
+				6588D06517A4BEBF00B6C498 /* LASplashViewController.m */,
+				6588D04117A4BCC500B6C498 /* LAFeedViewController.h */,
+				6588D04217A4BCC500B6C498 /* LAFeedViewController.m */,
+				6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */,
+				6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */,
 				6588D04417A4BCC500B6C498 /* LADetailViewController.h */,
 				6588D04517A4BCC500B6C498 /* LADetailViewController.m */,
 				6588D02D17A4BCC500B6C498 /* Supporting Files */,
@@ -135,6 +154,7 @@
 		6588D02D17A4BCC500B6C498 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6588D0B117A4C9CE00B6C498 /* menuBtn.png */,
 				6588D02E17A4BCC500B6C498 /* #LOSAL-Info.plist */,
 				6588D02F17A4BCC500B6C498 /* InfoPlist.strings */,
 				6588D03217A4BCC500B6C498 /* main.m */,
@@ -163,6 +183,25 @@
 				6588D05617A4BCC500B6C498 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6588D06717A4BF2300B6C498 /* External Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6588D0A517A4C02D00B6C498 /* ECSlidingViewController */,
+			);
+			name = "External Libraries";
+			sourceTree = "<group>";
+		};
+		6588D0A517A4C02D00B6C498 /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6588D0A617A4C02D00B6C498 /* ECSlidingViewController.h */,
+				6588D0A717A4C02D00B6C498 /* ECSlidingViewController.m */,
+				6588D0A817A4C02D00B6C498 /* UIImage+ImageWithUIView.h */,
+				6588D0A917A4C02D00B6C498 /* UIImage+ImageWithUIView.m */,
+			);
+			path = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +281,7 @@
 				6588D03B17A4BCC500B6C498 /* Default@2x.png in Resources */,
 				6588D03D17A4BCC500B6C498 /* Default-568h@2x.png in Resources */,
 				6588D04017A4BCC500B6C498 /* MainStoryboard.storyboard in Resources */,
+				6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,8 +318,12 @@
 			files = (
 				6588D03317A4BCC500B6C498 /* main.m in Sources */,
 				6588D03717A4BCC500B6C498 /* LAAppDelegate.m in Sources */,
-				6588D04317A4BCC500B6C498 /* LAMasterViewController.m in Sources */,
+				6588D04317A4BCC500B6C498 /* LAFeedViewController.m in Sources */,
 				6588D04617A4BCC500B6C498 /* LADetailViewController.m in Sources */,
+				6588D06617A4BEBF00B6C498 /* LASplashViewController.m in Sources */,
+				6588D0AA17A4C02D00B6C498 /* ECSlidingViewController.m in Sources */,
+				6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */,
+				6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
