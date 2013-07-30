@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43DC44B717A79638005729D8 /* LAStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DC44B617A79638005729D8 /* LAStoreManager.m */; };
+		43DC44B917A7966E005729D8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44B817A7966E005729D8 /* Parse.framework */; };
+		43DC44BC17A7A0EF005729D8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44BB17A7A0EF005729D8 /* AudioToolbox.framework */; };
+		43DC44BE17A7A10A005729D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44BD17A7A10A005729D8 /* CoreLocation.framework */; };
+		43DC44C017A7A125005729D8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44BF17A7A125005729D8 /* CFNetwork.framework */; };
+		43DC44C217A7A159005729D8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C117A7A159005729D8 /* Security.framework */; };
+		43DC44C417A7A186005729D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C317A7A186005729D8 /* SystemConfiguration.framework */; };
+		43DC44C617A7A1BE005729D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */; };
 		6588D02717A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
 		6588D02917A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
 		6588D02B17A4BCC500B6C498 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */; };
@@ -42,6 +50,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43DC44B517A79638005729D8 /* LAStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAStoreManager.h; sourceTree = "<group>"; };
+		43DC44B617A79638005729D8 /* LAStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAStoreManager.m; sourceTree = "<group>"; };
+		43DC44B817A7966E005729D8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		43DC44BB17A7A0EF005729D8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		43DC44BD17A7A10A005729D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		43DC44BF17A7A125005729D8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		43DC44C117A7A159005729D8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		43DC44C317A7A186005729D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		6588D02317A4BCC500B6C498 /* #LOSAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#LOSAL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6588D02617A4BCC500B6C498 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6588D02817A4BCC500B6C498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,9 +99,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43DC44C617A7A1BE005729D8 /* MobileCoreServices.framework in Frameworks */,
+				43DC44C417A7A186005729D8 /* SystemConfiguration.framework in Frameworks */,
+				43DC44C217A7A159005729D8 /* Security.framework in Frameworks */,
+				43DC44C017A7A125005729D8 /* CFNetwork.framework in Frameworks */,
+				43DC44BE17A7A10A005729D8 /* CoreLocation.framework in Frameworks */,
+				43DC44BC17A7A0EF005729D8 /* AudioToolbox.framework in Frameworks */,
 				6588D02717A4BCC500B6C498 /* UIKit.framework in Frameworks */,
 				6588D02917A4BCC500B6C498 /* Foundation.framework in Frameworks */,
 				6588D02B17A4BCC500B6C498 /* CoreGraphics.framework in Frameworks */,
+				43DC44B917A7966E005729D8 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,9 +125,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43DC44BA17A796DC005729D8 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				43DC44B517A79638005729D8 /* LAStoreManager.h */,
+				43DC44B617A79638005729D8 /* LAStoreManager.m */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
 		6588D01A17A4BCC500B6C498 = {
 			isa = PBXGroup;
 			children = (
+				43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */,
+				43DC44C317A7A186005729D8 /* SystemConfiguration.framework */,
+				43DC44C117A7A159005729D8 /* Security.framework */,
+				43DC44BF17A7A125005729D8 /* CFNetwork.framework */,
+				43DC44BD17A7A10A005729D8 /* CoreLocation.framework */,
+				43DC44BB17A7A0EF005729D8 /* AudioToolbox.framework */,
 				6588D02C17A4BCC500B6C498 /* #LOSAL */,
 				6588D05317A4BCC500B6C498 /* #LOSALTests */,
 				6588D02517A4BCC500B6C498 /* Frameworks */,
@@ -123,6 +162,7 @@
 		6588D02517A4BCC500B6C498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43DC44B817A7966E005729D8 /* Parse.framework */,
 				6588D02617A4BCC500B6C498 /* UIKit.framework */,
 				6588D02817A4BCC500B6C498 /* Foundation.framework */,
 				6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */,
@@ -135,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				6588D06717A4BF2300B6C498 /* External Libraries */,
+				43DC44BA17A796DC005729D8 /* Store */,
 				6588D03517A4BCC500B6C498 /* LAAppDelegate.h */,
 				6588D03617A4BCC500B6C498 /* LAAppDelegate.m */,
 				6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */,
@@ -324,6 +365,7 @@
 				6588D0AA17A4C02D00B6C498 /* ECSlidingViewController.m in Sources */,
 				6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */,
 				6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */,
+				43DC44B717A79638005729D8 /* LAStoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +474,10 @@
 		6588D05F17A4BCC500B6C498 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "#LOSAL/#LOSAL-Prefix.pch";
 				INFOPLIST_FILE = "#LOSAL/#LOSAL-Info.plist";
@@ -443,6 +489,10 @@
 		6588D06017A4BCC500B6C498 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "#LOSAL/#LOSAL-Prefix.pch";
 				INFOPLIST_FILE = "#LOSAL/#LOSAL-Info.plist";
@@ -504,6 +554,7 @@
 				6588D06017A4BCC500B6C498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6588D06117A4BCC500B6C498 /* Build configuration list for PBXNativeTarget "#LOSALTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +563,7 @@
 				6588D06317A4BCC500B6C498 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

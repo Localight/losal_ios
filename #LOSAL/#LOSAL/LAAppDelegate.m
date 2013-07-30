@@ -7,12 +7,15 @@
 //
 
 #import "LAAppDelegate.h"
+#import "LAStoreManager.h"
 
 @implementation LAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    LAStoreManager *parseManager = [LAStoreManager sharedManager];
+    [parseManager trackOpen:launchOptions];
+    
     return YES;
 }
 							

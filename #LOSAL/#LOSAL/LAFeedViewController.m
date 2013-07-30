@@ -10,9 +10,14 @@
 
 #import "LADetailViewController.h"
 
+#import "LAStoreManager.h"
+
 @interface LAFeedViewController () {
     NSMutableArray *_objects;
 }
+
+@property (strong, nonatomic) LAStoreManager *storeManager;
+
 @end
 
 @implementation LAFeedViewController
@@ -28,11 +33,13 @@
 	// Do any additional setup after loading the view, typically from a nib.
 
     //grabbing left bar button from libary
-    UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    menuBtn.frame = CGRectMake(10, 10, 30, 21);
-    [menuBtn setBackgroundImage:[UIImage imageNamed:@"menuBtn.png"] forState:UIControlStateNormal];
-    [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:menuBtn];
+//    UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    menuBtn.frame = CGRectMake(10, 10, 30, 21);
+//    [menuBtn setBackgroundImage:[UIImage imageNamed:@"menuBtn.png"] forState:UIControlStateNormal];
+//    [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self action:@selector(revealMenu:)];
+    
+    self.navigationItem.leftBarButtonItem = menuButton;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
@@ -48,6 +55,15 @@
     }
     
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    
+    self.storeManager = [LAStoreManager sharedManager];
+    [self.storeManager getFeedWithCompletion:^(NSArray *posts, NSError *error) {
+        if (error) {
+            NSLog(@"error is %@", error);
+        } else {
+            NSLog(@"results are %@", posts);
+        }
+    }];
 }
 
 - (IBAction)revealMenu:(id)sender
