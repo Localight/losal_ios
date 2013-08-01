@@ -79,6 +79,7 @@
         NSLog(@"Completion block called!");
         if (!error)
         {
+            _objects = [NSMutableArray arrayWithArray:posts];
             [[self tableView] reloadData];
             NSLog(@"error is %@", error);
             
@@ -142,9 +143,8 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
-    [[self tableView] reloadData];
+    NSString *object = _objects[indexPath.row];
+    cell.textLabel.text = object;
 
     return cell;
 }
