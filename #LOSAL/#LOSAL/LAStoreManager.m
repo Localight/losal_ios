@@ -12,7 +12,9 @@
 @implementation LAStoreManager
 
 #pragma mark Singleton Methods
-+ (id)sharedManager {
+
++ (id)sharedManager
+{
     static LAStoreManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -21,7 +23,8 @@
     return sharedMyManager;
 }
 
-- (id)init {
+- (id)init
+{
     if (self = [super init]) {
         // Parse initialization
         [Parse setApplicationId:@"jqFXMdZ9RPlTUXUDWHWD4xw2QwJQDF0Ym3JpC7aO" clientKey:@"O8OkZplDkcCmukrD37rM2kVQVDZzecIzaG5X0llN"];
@@ -36,14 +39,17 @@
     return self;
 }
 
-- (void)trackOpen:(NSDictionary *)launchOptions {
+- (void)trackOpen:(NSDictionary *)launchOptions
+{
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 }
 
-- (void)getFeedWithCompletion:(void (^)(NSArray *posts, NSError *error))completionBlock {
+- (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
+{
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
+    {
         NSMutableArray *messages = nil;
          if (!error) {
              messages = [[NSMutableArray alloc] init];

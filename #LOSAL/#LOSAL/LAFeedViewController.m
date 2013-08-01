@@ -5,14 +5,15 @@
 //  Created by James Orion Hall on 7/27/13.
 //  Copyright (c) 2013 Localism. All rights reserved.
 //
-
+// all data is pulled from the store class.
 #import "LAFeedViewController.h"
 
 #import "LADetailViewController.h"
 
 #import "LAStoreManager.h"
 
-@interface LAFeedViewController () {
+@interface LAFeedViewController ()
+{
     NSMutableArray *_objects;
 }
 
@@ -22,11 +23,8 @@
 
 @implementation LAFeedViewController
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
 
+#pragma mark - UIViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -56,16 +54,53 @@
     
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
+    [self fetchEntries];        
+    
+}
+
+-(void)fetchEntries
+{
+    
+    UIView *currentTitleView = [[self navigationItem] titleView];
+    
+    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
+                                       initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [[self navigationItem] setTitleView:aiView];
+    
+    [aiView startAnimating];
+    
+    // This is where you populate the table with data
     self.storeManager = [LAStoreManager sharedManager];
-    [self.storeManager getFeedWithCompletion:^(NSArray *posts, NSError *error) {
-        if (error) {
+    
+    [[self navigationItem] setTitleView:currentTitleView];
+    
+    [self.storeManager getFeedWithCompletion:^(NSArray *posts, NSError *error)
+    {
+        NSLog(@"Completion block called!");
+        if (!error)
+        {
+            [[self tableView] reloadData];
             NSLog(@"error is %@", error);
+            
         } else {
+            // If things went bad, show an alert view
+            NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
+                                     [error localizedDescription]];
+            
+            // Create and show an alert view with this error displayed
+            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                         message:errorString
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+            [av show];
+            // If you come here you got the array
             NSLog(@"results are %@", posts);
         }
     }];
-}
 
+    
+}
 - (IBAction)revealMenu:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
@@ -76,6 +111,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//get rid of this later
 - (void)insertNewObject:(id)sender
 {
     if (!_objects) {
@@ -93,27 +129,36 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     return _objects.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //this is were you populate reload the data
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     NSDate *object = _objects[indexPath.row];
     cell.textLabel.text = [object description];
+    [[self tableView] reloadData];
+
     return cell;
 }
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView *)tableView
+canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [_objects removeObjectAtIndex:indexPath.row];

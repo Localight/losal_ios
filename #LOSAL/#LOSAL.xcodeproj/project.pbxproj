@@ -37,6 +37,8 @@
 		6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0A917A4C02D00B6C498 /* UIImage+ImageWithUIView.m */; };
 		6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */; };
 		6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D0B117A4C9CE00B6C498 /* menuBtn.png */; };
+		65FA587117A9CB70006598B1 /* LAPostItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FA587017A9CB70006598B1 /* LAPostItem.m */; };
+		65FA587417A9CCF2006598B1 /* LAPostManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FA587317A9CCF2006598B1 /* LAPostManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,10 @@
 		6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAMenuViewController.h; sourceTree = "<group>"; };
 		6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAMenuViewController.m; sourceTree = "<group>"; };
 		6588D0B117A4C9CE00B6C498 /* menuBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtn.png; sourceTree = "<group>"; };
+		65FA586F17A9CB70006598B1 /* LAPostItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostItem.h; sourceTree = "<group>"; };
+		65FA587017A9CB70006598B1 /* LAPostItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostItem.m; sourceTree = "<group>"; };
+		65FA587217A9CCF2006598B1 /* LAPostManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostManager.h; sourceTree = "<group>"; };
+		65FA587317A9CCF2006598B1 /* LAPostManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +187,7 @@
 				6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */,
 				6588D06417A4BEBF00B6C498 /* LASplashViewController.h */,
 				6588D06517A4BEBF00B6C498 /* LASplashViewController.m */,
-				6588D04117A4BCC500B6C498 /* LAFeedViewController.h */,
-				6588D04217A4BCC500B6C498 /* LAFeedViewController.m */,
+				65FA586E17A9880A006598B1 /* MainFeed */,
 				6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */,
 				6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */,
 				6588D04417A4BCC500B6C498 /* LADetailViewController.h */,
@@ -243,6 +248,19 @@
 				6588D0A917A4C02D00B6C498 /* UIImage+ImageWithUIView.m */,
 			);
 			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		65FA586E17A9880A006598B1 /* MainFeed */ = {
+			isa = PBXGroup;
+			children = (
+				6588D04117A4BCC500B6C498 /* LAFeedViewController.h */,
+				6588D04217A4BCC500B6C498 /* LAFeedViewController.m */,
+				65FA587217A9CCF2006598B1 /* LAPostManager.h */,
+				65FA587317A9CCF2006598B1 /* LAPostManager.m */,
+				65FA586F17A9CB70006598B1 /* LAPostItem.h */,
+				65FA587017A9CB70006598B1 /* LAPostItem.m */,
+			);
+			name = MainFeed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +384,8 @@
 				6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */,
 				6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */,
 				43DC44B717A79638005729D8 /* LAStoreManager.m in Sources */,
+				65FA587117A9CB70006598B1 /* LAPostItem.m in Sources */,
+				65FA587417A9CCF2006598B1 /* LAPostManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

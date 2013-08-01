@@ -10,8 +10,10 @@
 #import "ECSlidingViewController.h"
 #import "LAMenuViewController.h"
 
+
 @interface LAFeedViewController : UITableViewController
 
 - (IBAction)revealMenu:(id)sender;
 
+-(void)fetchEntries; 
 @end

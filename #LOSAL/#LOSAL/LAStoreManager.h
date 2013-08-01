@@ -11,6 +11,9 @@
 @interface LAStoreManager : NSObject
 
 + (id)sharedManager;
+
 - (void)trackOpen:(NSDictionary *)launchOptions;
+
 - (void)getFeedWithCompletion:(void (^)(NSArray *posts, NSError *error))completionBlock;
+
 @end
