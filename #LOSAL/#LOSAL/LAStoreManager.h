@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LAPostItem.h"
 
 @interface LAStoreManager : NSObject
 
