@@ -27,7 +27,7 @@
 {
     if (self = [super init]) {
         // Parse initialization
-        [Parse setApplicationId:@"jqFXMdZ9RPlTUXUDWHWD4xw2QwJQDF0Ym3JpC7aO" clientKey:@"O8OkZplDkcCmukrD37rM2kVQVDZzecIzaG5X0llN"];
+        [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg" clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
         
         [PFUser enableAutomaticUser];
         
@@ -55,7 +55,8 @@
              messages = [[NSMutableArray alloc] init];
              for (PFObject *post in posts) {
                  // This does not require a network access.
-                 NSString *text = [post objectForKey:@"Text"];
+                 NSLog(@"post looks like %@", post);
+                 NSString *text = [post objectForKey:@"text"];
                  [messages addObject:text];
              }
          } else {

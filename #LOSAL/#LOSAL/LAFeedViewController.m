@@ -81,6 +81,7 @@
         NSLog(@"Completion block called!");
         if (!error)
         {
+            _objects = [NSMutableArray arrayWithArray:posts];
             [[self tableView] reloadData];
             NSLog(@"error is %@", error);
             
