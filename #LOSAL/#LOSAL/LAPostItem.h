@@ -21,7 +21,7 @@ typedef enum
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *academicLevel;
-@property (nonatomic, readonly, strong) NSDate *datePosted;
+@property (nonatomic, readonly, strong) NSDate *publicationDate;
 
 @property (nonatomic, copy) NSString *imageKey;
 

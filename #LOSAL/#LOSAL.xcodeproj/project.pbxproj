@@ -15,6 +15,8 @@
 		43DC44C217A7A159005729D8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C117A7A159005729D8 /* Security.framework */; };
 		43DC44C417A7A186005729D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C317A7A186005729D8 /* SystemConfiguration.framework */; };
 		43DC44C617A7A1BE005729D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */; };
+		651A937417B160990072E359 /* photo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 651A937317B160990072E359 /* photo1.jpg */; };
+		651A937717B161D00072E359 /* LAPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 651A937617B161D00072E359 /* LAPostCell.m */; };
 		6588D02717A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
 		6588D02917A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
 		6588D02B17A4BCC500B6C498 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */; };
@@ -61,6 +63,9 @@
 		43DC44C117A7A159005729D8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		43DC44C317A7A186005729D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		651A937317B160990072E359 /* photo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpg; sourceTree = "<group>"; };
+		651A937517B161D00072E359 /* LAPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostCell.h; sourceTree = "<group>"; };
+		651A937617B161D00072E359 /* LAPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostCell.m; sourceTree = "<group>"; };
 		6588D02317A4BCC500B6C498 /* #LOSAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#LOSAL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6588D02617A4BCC500B6C498 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6588D02817A4BCC500B6C498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -185,6 +190,8 @@
 				6588D03517A4BCC500B6C498 /* LAAppDelegate.h */,
 				6588D03617A4BCC500B6C498 /* LAAppDelegate.m */,
 				6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */,
+				651A937517B161D00072E359 /* LAPostCell.h */,
+				651A937617B161D00072E359 /* LAPostCell.m */,
 				6588D06417A4BEBF00B6C498 /* LASplashViewController.h */,
 				6588D06517A4BEBF00B6C498 /* LASplashViewController.m */,
 				65FA586E17A9880A006598B1 /* MainFeed */,
@@ -200,6 +207,7 @@
 		6588D02D17A4BCC500B6C498 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				651A937317B160990072E359 /* photo1.jpg */,
 				6588D0B117A4C9CE00B6C498 /* menuBtn.png */,
 				6588D02E17A4BCC500B6C498 /* #LOSAL-Info.plist */,
 				6588D02F17A4BCC500B6C498 /* InfoPlist.strings */,
@@ -341,6 +349,7 @@
 				6588D03D17A4BCC500B6C498 /* Default-568h@2x.png in Resources */,
 				6588D04017A4BCC500B6C498 /* MainStoryboard.storyboard in Resources */,
 				6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */,
+				651A937417B160990072E359 /* photo1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +395,7 @@
 				43DC44B717A79638005729D8 /* LAStoreManager.m in Sources */,
 				65FA587117A9CB70006598B1 /* LAPostItem.m in Sources */,
 				65FA587417A9CCF2006598B1 /* LAPostManager.m in Sources */,
+				651A937717B161D00072E359 /* LAPostCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

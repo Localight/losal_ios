@@ -12,6 +12,8 @@
 
 #import "LAStoreManager.h"
 
+#import "LAPostCell.h"
+
 @interface LAFeedViewController ()
 {
     NSMutableArray *_objects;
@@ -139,11 +141,30 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //this is were you populate reload the data
+    //TODO: enter in the postitem to pull data from
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if(cell == nil)
+    {
+        cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+              
+    }
+    
+    [[cell userNameLabel] setText:@"James Hall"];
+    
+    [[cell gradeLabel] setText:@"Senior"];
+    
+    [[cell socialLabel] setText:@"Facebook here"];
+    
+    [[cell dateLabel] setText:@"today"];
+    UIImage *i = [UIImage imageNamed:@"photo1.jpg"];
+    
+    [[cell imageView] setImage:i];
+    
+    //NSDate *date = [[NSDate alloc] init];
+    
+   // NSDate *object = _objects[indexPath.row];
+    //cell.textLabel.text = [object description];
     [[self tableView] reloadData];
 
     return cell;
