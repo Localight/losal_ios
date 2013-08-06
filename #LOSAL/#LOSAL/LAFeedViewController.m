@@ -12,6 +12,8 @@
 
 #import "LAStoreManager.h"
 
+#import "LAPostCell.h"
+
 @interface LAFeedViewController ()
 {
     NSMutableArray *_objects;
@@ -39,8 +41,8 @@
     
     self.navigationItem.leftBarButtonItem = menuButton;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
     
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
     // You just need to set the opacity, radius, and color.
@@ -52,7 +54,8 @@
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
     
-    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    // This was messing up the scrolling in the UI table view so need to figure out a way to add this back - Joaquin
+    //[self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
     [self fetchEntries];        
     
@@ -133,20 +136,69 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return [_objects count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //this is were you populate reload the data
+    //TODO: enter in the postitem to pull data from
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//    LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCellIdentifier"];
+//    if(cell == nil)
+//    {
+//        cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"postCellIdentifier"];
+//              
+//    }
+//    
+//    [[cell userNameLabel] setText:@"James Hall"];
+//    
+//    [[cell gradeLabel] setText:@"Senior"];
+//    
+//    [[cell socialLabel] setText:@"Facebook here"];
+//    
+//    [[cell dateLabel] setText:@"today"];
+//    UIImage *i = [UIImage imageNamed:@"photo1.jpg"];
+//    
+//    [[cell imageView] setImage:i];
+    
+    //NSDate *date = [[NSDate alloc] init];
+    
+   // NSDate *object = _objects[indexPath.row];
+    //cell.textLabel.text = [object description];
+    //[[self tableView] reloadData];
 
-    NSString *object = _objects[indexPath.row];
-    cell.textLabel.text = object;
-
+    NSString *cellIdentifier = @"postCell";
+    LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    }
+    
+    [cell.userNameLabel setText:[_objects objectAtIndex:indexPath.row]];
+    
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Resize to fit in 320 width
+    UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:320];
+    return image.size.height;
+}
+
+-(UIImage*)imageWithImage: (UIImage*) sourceImage scaledToWidth: (float) i_width
+{
+    float oldWidth = sourceImage.size.width;
+    float scaleFactor = i_width / oldWidth;
+    
+    float newHeight = sourceImage.size.height * scaleFactor;
+    float newWidth = oldWidth * scaleFactor;
+    
+    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
+    [sourceImage drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 - (BOOL)tableView:(UITableView *)tableView

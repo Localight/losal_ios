@@ -46,9 +46,9 @@
 
 - (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"Likes"];
-    [query includeKey:@"Posts"];
-    [query includeKey:@"Persona"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    //[query includeKey:@"postID"];
+    //[query includeKey:@"personID"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
     {
         NSMutableArray *messages = nil;
@@ -56,12 +56,12 @@
              messages = [[NSMutableArray alloc] init];
              for (PFObject *post in posts) {
                  // This does not require a network access.
-                 NSLog(@"post looks like %@", post);
-                 PFObject *post2 = [post objectForKey:@"postID"];
-                 PFObject *persona = [post objectForKey:@"personaID"];
-                 NSLog(@"post looks like %@\npersona looks like %@", post2, persona);
-                 //NSString *text = [post objectForKey:@"text"];
-                 NSString *text = @"JOAQUIN IS TESTING PFQuery";
+                 //NSLog(@"post looks like %@", post);
+                 //PFObject *post2 = [post objectForKey:@"postID"];
+                 //PFObject *persona = [post objectForKey:@"personaID"];
+                 //NSLog(@"post looks like %@\npersona looks like %@", post2, persona);
+                 //NSString *text = @"JOAQUIN IS TESTING PFQuery";
+                 NSString *text = [post objectForKey:@"text"];
                  [messages addObject:text];
              }
          } else {

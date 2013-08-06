@@ -10,6 +10,7 @@
 
 @implementation LAPostItem
 
+@synthesize publicationDate;
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
@@ -17,7 +18,7 @@
     [aCoder encodeObject:_lastName forKey:@"lastName"];
     [aCoder encodeObject:_academicLevel forKey:@"academicLevel"];
     
-    [aCoder encodeObject:_datePosted forKey:@"datePosted"];
+    [aCoder encodeObject:publicationDate forKey:@"publicationDate"];
     [aCoder encodeObject:_imageKey forKey:@"imageKey"];
     [aCoder encodeObject:_postImage forKey:@"postImage"];
     [aCoder encodeObject:_imagePostData forKey:@"imagePostData"];
@@ -28,6 +29,10 @@
     self = [super init];
     if(self) {
        // [self setTitle:[aDecoder decodeObjectForKey:@"title"]];
+        [self setFirstName:[aDecoder decodeObjectForKey:@"firstName"]];
+        [self setLastName:[aDecoder decodeObjectForKey:@"lastName"]];
+        [self setAcademicLevel:[aDecoder decodeObjectForKey:@"AcademicLevel"]];
+        //[self publicationDate
         
     }
     return self;
