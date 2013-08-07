@@ -62,13 +62,18 @@
                  //NSLog(@"post looks like %@\npersona looks like %@", post2, persona);
                  //NSString *text = @"JOAQUIN IS TESTING PFQuery";
                  LAPostItem *postItem = [[LAPostItem alloc] init];
+                 postItem.postID = [post objectId];
                  postItem.postTime = [post objectForKey:@"postTime"];
                  postItem.socialNetwork = [post objectForKey:@"socialNetworkName"];
                  postItem.socialNetworkPostID = [post objectForKey:@"socialNetworkPostID"];
                  postItem.text = [post objectForKey:@"text"];
-                 [postItem.postImage loadImageAtURLString:[post objectForKey:@"url"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-                 postItem.postImage.showsLoadingActivity = YES;
-                 [messages addObject:postItem];
+                 //[postItem.postImage loadImageAtURLString:[post objectForKey:@"url"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                 //postItem.postImage.showsLoadingActivity = YES;
+                 postItem.imageURLString = [post objectForKey:@"url"];
+                 // only save status 1
+                 if ([[post objectForKey:@"status"] isEqualToString:@"1"]) {
+                     [messages addObject:postItem];
+                 }
              }
          } else {
              // Log details of the failure

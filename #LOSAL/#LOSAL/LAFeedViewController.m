@@ -12,6 +12,8 @@
 
 #import "LAStoreManager.h"
 
+#import "LAImageLoader.h"
+
 #import "LAPostCell.h"
 
 #import "LAPostItem.h"
@@ -22,7 +24,7 @@
 }
 
 @property (strong, nonatomic) LAStoreManager *storeManager;
-
+@property (strong, nonatomic) LAImageLoader *imageLoader;
 @end
 
 @implementation LAFeedViewController
@@ -76,6 +78,8 @@
     
     // This is where you populate the table with data
     self.storeManager = [LAStoreManager sharedManager];
+    
+    self.imageLoader = [LAImageLoader sharedManager];
     
     [[self navigationItem] setTitleView:currentTitleView];
     
@@ -167,10 +171,10 @@
     
     //NSDate *date = [[NSDate alloc] init];
     
-   // NSDate *object = _objects[indexPath.row];
+    // NSDate *object = _objects[indexPath.row];
     //cell.textLabel.text = [object description];
     //[[self tableView] reloadData];
-
+    
     NSString *cellIdentifier = @"postCell";
     
     LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -183,7 +187,16 @@
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
     
     [cell.userNameLabel setText:postItem.text];
-    cell.postImage = postItem.postImage;
+    [self.imageLoader processImageDataWithURLString:postItem.imageURLString forId:postItem.postID andBlock:^(UIImage *image) {
+        UITableViewCell *cellExists = [tableView cellForRowAtIndexPath:indexPath];
+        if (cellExists) {
+            [cell.postImage setImage:image];
+        }
+    }];
+
+    //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
+    //cell.postImage = postItem.postImage;
+    //[cell.imageView setImageWithURL:[NSURL URLWithString:postItem.imageURLString] placeholderImage:[UIImage imageNamed:@"placeholder"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
     [[cell userNameLabel]setText:postItem.text];
     [[cell dateLabel]setText:@"today"];
     [[cell socialLabel]setText:@"facebook"];
