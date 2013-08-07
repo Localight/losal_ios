@@ -170,13 +170,18 @@
     //[[self tableView] reloadData];
 
     NSString *cellIdentifier = @"postCell";
+    
     LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                 reuseIdentifier:cellIdentifier];
     }
     
-    [cell.userNameLabel setText:[_objects objectAtIndex:indexPath.row]];
     
+    [[cell userNameLabel]setText:[_objects objectAtIndex:[indexPath row]]];
+    [[cell dateLabel]setText:@"today"];
+    [[cell socialLabel]setText:@"facebook"];
     return cell;
 }
 
