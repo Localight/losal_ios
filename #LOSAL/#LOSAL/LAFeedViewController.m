@@ -175,7 +175,10 @@
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    [cell.userNameLabel setText:[_objects objectAtIndex:indexPath.row]];
+    LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
+    
+    [cell.userNameLabel setText:postItem.text];
+    cell.postImage = postItem.postImage;
     
     return cell;
 }

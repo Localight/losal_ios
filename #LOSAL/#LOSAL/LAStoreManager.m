@@ -56,13 +56,19 @@
              messages = [[NSMutableArray alloc] init];
              for (PFObject *post in posts) {
                  // This does not require a network access.
-                 //NSLog(@"post looks like %@", post);
+                 NSLog(@"post looks like %@", post);
                  //PFObject *post2 = [post objectForKey:@"postID"];
                  //PFObject *persona = [post objectForKey:@"personaID"];
                  //NSLog(@"post looks like %@\npersona looks like %@", post2, persona);
                  //NSString *text = @"JOAQUIN IS TESTING PFQuery";
-                 NSString *text = [post objectForKey:@"text"];
-                 [messages addObject:text];
+                 LAPostItem *postItem = [[LAPostItem alloc] init];
+                 postItem.postTime = [post objectForKey:@"postTime"];
+                 postItem.socialNetwork = [post objectForKey:@"socialNetworkName"];
+                 postItem.socialNetworkPostID = [post objectForKey:@"socialNetworkPostID"];
+                 postItem.text = [post objectForKey:@"text"];
+                 [postItem.postImage loadImageAtURLString:[post objectForKey:@"url"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                 postItem.postImage.showsLoadingActivity = YES;
+                 [messages addObject:postItem];
              }
          } else {
              // Log details of the failure

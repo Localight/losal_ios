@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FLImageView.h"
 
 @interface LAPostCell : UITableViewCell
 
@@ -14,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *socialLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *postImage;
+@property (weak, nonatomic) IBOutlet FLImageView *postImage;
 
 @end

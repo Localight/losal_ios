@@ -69,7 +69,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Instagram1.png" translatesAutoresizingMaskIntoConstraints="NO" id="HKZ-Gn-0BW"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="HKZ-Gn-0BW" customClass="FLImageView"/>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88F-Cq-LRr">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="33" id="VAk-xY-Veo"/>
@@ -91,6 +91,7 @@
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" type="default" id="wDf-9D-Ip4"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="postImage" destination="HKZ-Gn-0BW" id="irm-9B-cHz"/>
                                     <outlet property="userNameLabel" destination="88F-Cq-LRr" id="4gY-Bg-JSc"/>
                                     <segue destination="21" kind="push" identifier="showDetail" id="jZb-fq-zAk"/>
                                 </connections>
@@ -141,11 +142,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Instagram1.png" width="612" height="612"/>
+        <image name="placeholder.png" width="450" height="450"/>
     </resources>
     <classes>
         <class className="ECSlidingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="FLImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FLImageView.h"/>
         </class>
         <class className="LADetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailViewController.h"/>
@@ -167,7 +171,7 @@
             <relationships>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gradeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="postImage" candidateClass="FLImageView"/>
                 <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
             </relationships>

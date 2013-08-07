@@ -21,6 +21,8 @@
 		4397674017B06AE90040C947 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4397673F17B06AE80040C947 /* libz.dylib */; };
 		4397674417B16E470040C947 /* LAPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4397674217B16E350040C947 /* LAPostCell.m */; };
 		4397674617B1A89F0040C947 /* Instagram1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4397674517B1A89F0040C947 /* Instagram1.png */; };
+		4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4397674917B1BCD80040C947 /* LAPostItem.m */; };
+		4397674C17B2A75C0040C947 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4397674B17B2A75C0040C947 /* placeholder.png */; };
 		43DC44B717A79638005729D8 /* LAStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DC44B617A79638005729D8 /* LAStoreManager.m */; };
 		43DC44B917A7966E005729D8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44B817A7966E005729D8 /* Parse.framework */; };
 		43DC44BC17A7A0EF005729D8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44BB17A7A0EF005729D8 /* AudioToolbox.framework */; };
@@ -51,7 +53,7 @@
 		6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0A917A4C02D00B6C498 /* UIImage+ImageWithUIView.m */; };
 		6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */; };
 		6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D0B117A4C9CE00B6C498 /* menuBtn.png */; };
-		65FA587117A9CB70006598B1 /* LAPostItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FA587017A9CB70006598B1 /* LAPostItem.m */; };
+		65FA587117A9CB70006598B1 /* LAPostItem2.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FA587017A9CB70006598B1 /* LAPostItem2.m */; };
 		65FA587417A9CCF2006598B1 /* LAPostManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FA587317A9CCF2006598B1 /* LAPostManager.m */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,9 @@
 		4397674117B16E350040C947 /* LAPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostCell.h; sourceTree = "<group>"; };
 		4397674217B16E350040C947 /* LAPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostCell.m; sourceTree = "<group>"; };
 		4397674517B1A89F0040C947 /* Instagram1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instagram1.png; sourceTree = "<group>"; };
+		4397674817B1BCD80040C947 /* LAPostItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostItem.h; sourceTree = "<group>"; };
+		4397674917B1BCD80040C947 /* LAPostItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostItem.m; sourceTree = "<group>"; };
+		4397674B17B2A75C0040C947 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		43DC44B517A79638005729D8 /* LAStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAStoreManager.h; sourceTree = "<group>"; };
 		43DC44B617A79638005729D8 /* LAStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAStoreManager.m; sourceTree = "<group>"; };
 		43DC44B817A7966E005729D8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -139,8 +144,8 @@
 		6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAMenuViewController.h; sourceTree = "<group>"; };
 		6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAMenuViewController.m; sourceTree = "<group>"; };
 		6588D0B117A4C9CE00B6C498 /* menuBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtn.png; sourceTree = "<group>"; };
-		65FA586F17A9CB70006598B1 /* LAPostItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostItem.h; sourceTree = "<group>"; };
-		65FA587017A9CB70006598B1 /* LAPostItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostItem.m; sourceTree = "<group>"; };
+		65FA586F17A9CB70006598B1 /* LAPostItem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostItem2.h; sourceTree = "<group>"; };
+		65FA587017A9CB70006598B1 /* LAPostItem2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostItem2.m; sourceTree = "<group>"; };
 		65FA587217A9CCF2006598B1 /* LAPostManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostManager.h; sourceTree = "<group>"; };
 		65FA587317A9CCF2006598B1 /* LAPostManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,6 +223,15 @@
 			name = ASIHttpRequest;
 			sourceTree = "<group>";
 		};
+		4397674717B1BCB50040C947 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4397674817B1BCD80040C947 /* LAPostItem.h */,
+				4397674917B1BCD80040C947 /* LAPostItem.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		43DC44BA17A796DC005729D8 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +284,7 @@
 			children = (
 				6588D06717A4BF2300B6C498 /* External Libraries */,
 				43DC44BA17A796DC005729D8 /* Store */,
+				4397674717B1BCB50040C947 /* Model */,
 				6588D03517A4BCC500B6C498 /* LAAppDelegate.h */,
 				6588D03617A4BCC500B6C498 /* LAAppDelegate.m */,
 				6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */,
@@ -289,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				4397674517B1A89F0040C947 /* Instagram1.png */,
+				4397674B17B2A75C0040C947 /* placeholder.png */,
 				6588D0B117A4C9CE00B6C498 /* menuBtn.png */,
 				6588D02E17A4BCC500B6C498 /* #LOSAL-Info.plist */,
 				6588D02F17A4BCC500B6C498 /* InfoPlist.strings */,
@@ -350,8 +366,8 @@
 				65FA587317A9CCF2006598B1 /* LAPostManager.m */,
 				4397674117B16E350040C947 /* LAPostCell.h */,
 				4397674217B16E350040C947 /* LAPostCell.m */,
-				65FA586F17A9CB70006598B1 /* LAPostItem.h */,
-				65FA587017A9CB70006598B1 /* LAPostItem.m */,
+				65FA586F17A9CB70006598B1 /* LAPostItem2.h */,
+				65FA587017A9CB70006598B1 /* LAPostItem2.m */,
 			);
 			name = MainFeed;
 			sourceTree = "<group>";
@@ -435,6 +451,7 @@
 				6588D04017A4BCC500B6C498 /* MainStoryboard.storyboard in Resources */,
 				6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */,
 				4397674617B1A89F0040C947 /* Instagram1.png in Resources */,
+				4397674C17B2A75C0040C947 /* placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +495,7 @@
 				6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */,
 				6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */,
 				43DC44B717A79638005729D8 /* LAStoreManager.m in Sources */,
-				65FA587117A9CB70006598B1 /* LAPostItem.m in Sources */,
+				65FA587117A9CB70006598B1 /* LAPostItem2.m in Sources */,
 				65FA587417A9CCF2006598B1 /* LAPostManager.m in Sources */,
 				4397671617B05E280040C947 /* FLImageView.m in Sources */,
 				4397671717B05E2B0040C947 /* FullyLoaded.m in Sources */,
@@ -492,6 +509,7 @@
 				4397673B17B067B90040C947 /* ASIAuthenticationDialog.m in Sources */,
 				4397673E17B068800040C947 /* Reachability.m in Sources */,
 				4397674417B16E470040C947 /* LAPostCell.m in Sources */,
+				4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
