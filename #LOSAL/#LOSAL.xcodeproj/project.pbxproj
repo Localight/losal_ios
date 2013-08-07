@@ -53,6 +53,7 @@
 		6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0A917A4C02D00B6C498 /* UIImage+ImageWithUIView.m */; };
 		6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */; };
 		6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D0B117A4C9CE00B6C498 /* menuBtn.png */; };
+		65C5354817B2B70E005D4514 /* LAAlertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C5354717B2B70E005D4514 /* LAAlertsViewController.m */; };
 		65FA587117A9CB70006598B1 /* LAPostItem2.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FA587017A9CB70006598B1 /* LAPostItem2.m */; };
 		65FA587417A9CCF2006598B1 /* LAPostManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FA587317A9CCF2006598B1 /* LAPostManager.m */; };
 /* End PBXBuildFile section */
@@ -144,6 +145,8 @@
 		6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAMenuViewController.h; sourceTree = "<group>"; };
 		6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAMenuViewController.m; sourceTree = "<group>"; };
 		6588D0B117A4C9CE00B6C498 /* menuBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtn.png; sourceTree = "<group>"; };
+		65C5354617B2B70E005D4514 /* LAAlertsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAAlertsViewController.h; sourceTree = "<group>"; };
+		65C5354717B2B70E005D4514 /* LAAlertsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAAlertsViewController.m; sourceTree = "<group>"; };
 		65FA586F17A9CB70006598B1 /* LAPostItem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostItem2.h; sourceTree = "<group>"; };
 		65FA587017A9CB70006598B1 /* LAPostItem2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostItem2.m; sourceTree = "<group>"; };
 		65FA587217A9CCF2006598B1 /* LAPostManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostManager.h; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				65FA586E17A9880A006598B1 /* MainFeed */,
 				6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */,
 				6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */,
+				65C5354617B2B70E005D4514 /* LAAlertsViewController.h */,
+				65C5354717B2B70E005D4514 /* LAAlertsViewController.m */,
 				6588D04417A4BCC500B6C498 /* LADetailViewController.h */,
 				6588D04517A4BCC500B6C498 /* LADetailViewController.m */,
 				6588D02D17A4BCC500B6C498 /* Supporting Files */,
@@ -510,6 +515,7 @@
 				4397673E17B068800040C947 /* Reachability.m in Sources */,
 				4397674417B16E470040C947 /* LAPostCell.m in Sources */,
 				4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */,
+				65C5354817B2B70E005D4514 /* LAAlertsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

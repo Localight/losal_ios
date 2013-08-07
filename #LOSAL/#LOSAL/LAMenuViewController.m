@@ -40,7 +40,7 @@
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
     [[self view] setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     
-    _menuItems = @[@"Alerts", @"news", @"comments", @"map", @"calendar", @"wishlist", @"bookmark", @"tag"];
+    _menuItems = @[@"Feed", @"Alert"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -63,7 +63,20 @@
     
     return cell;
    }
-
+-(void)openView:(NSString *)uid{
+    
+    NSString *identifier = uid;
+    
+    UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+    
+    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+        CGRect frame = self.slidingViewController.topViewController.view.frame;
+        self.slidingViewController.topViewController = newTopViewController;
+        self.slidingViewController.topViewController.view.frame = frame;
+        [self.slidingViewController resetTopView];
+    }];
+    
+}
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
