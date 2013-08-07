@@ -31,6 +31,7 @@
 		43DC44C217A7A159005729D8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C117A7A159005729D8 /* Security.framework */; };
 		43DC44C417A7A186005729D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C317A7A186005729D8 /* SystemConfiguration.framework */; };
 		43DC44C617A7A1BE005729D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */; };
+		650E97EF17B30ABD002C7A41 /* LAAlertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650E97EE17B30ABD002C7A41 /* LAAlertsViewController.m */; };
 		6588D02717A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
 		6588D02917A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
 		6588D02B17A4BCC500B6C498 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */; };
@@ -111,6 +112,8 @@
 		43DC44C117A7A159005729D8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		43DC44C317A7A186005729D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		650E97ED17B30ABD002C7A41 /* LAAlertsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAAlertsViewController.h; sourceTree = "<group>"; };
+		650E97EE17B30ABD002C7A41 /* LAAlertsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAAlertsViewController.m; sourceTree = "<group>"; };
 		6588D02317A4BCC500B6C498 /* #LOSAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#LOSAL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6588D02617A4BCC500B6C498 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6588D02817A4BCC500B6C498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -362,6 +365,8 @@
 			children = (
 				6588D04117A4BCC500B6C498 /* LAFeedViewController.h */,
 				6588D04217A4BCC500B6C498 /* LAFeedViewController.m */,
+				650E97ED17B30ABD002C7A41 /* LAAlertsViewController.h */,
+				650E97EE17B30ABD002C7A41 /* LAAlertsViewController.m */,
 				65FA587217A9CCF2006598B1 /* LAPostManager.h */,
 				65FA587317A9CCF2006598B1 /* LAPostManager.m */,
 				4397674117B16E350040C947 /* LAPostCell.h */,
@@ -510,6 +515,7 @@
 				4397673E17B068800040C947 /* Reachability.m in Sources */,
 				4397674417B16E470040C947 /* LAPostCell.m in Sources */,
 				4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */,
+				650E97EF17B30ABD002C7A41 /* LAAlertsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
