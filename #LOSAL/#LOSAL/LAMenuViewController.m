@@ -9,15 +9,18 @@
 #import "LAMenuViewController.h"
 
 @interface LAMenuViewController ()
+
 @property (nonatomic, strong) NSArray *menuItems;
+//private array of items.
 @end
 
 @implementation LAMenuViewController
 
-- (void)awakeFromNib
-{
-    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", nil];
-}
+//- (void)awakeFromNib
+//{
+//    
+//    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", nil];
+//}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,17 +36,24 @@
     [super viewDidLoad];
 	
     [self.slidingViewController setAnchorRightRevealAmount:280.0f];
-    self.slidingViewController.underLeftWidthLayout = ECFullWidth;
+    [[self slidingViewController] setAnchorRightRevealAmount:280.f];
+    [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
+    [[self view] setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
+    
+    _menuItems = @[@"Alerts", @"news", @"comments", @"map", @"calendar", @"wishlist", @"bookmark", @"tag"];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return self.menuItems.count;
+    return [[self menuItems]count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"MenuItemCell";
+    NSString *cellIdentifier = [[self menuItems] objectAtIndex:[indexPath row]];
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
@@ -52,9 +62,10 @@
     cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
     
     return cell;
-}
+   }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifier = [NSString stringWithFormat:@"%@", [self.menuItems objectAtIndex:indexPath.row]];
     

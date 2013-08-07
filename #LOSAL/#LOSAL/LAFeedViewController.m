@@ -14,6 +14,8 @@
 
 #import "LAPostCell.h"
 
+#import "LAPostItem.h"
+
 @interface LAFeedViewController ()
 {
     NSMutableArray *_objects;
@@ -170,16 +172,21 @@
     //[[self tableView] reloadData];
 
     NSString *cellIdentifier = @"postCell";
+    
     LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                 reuseIdentifier:cellIdentifier];
     }
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
     
     [cell.userNameLabel setText:postItem.text];
     cell.postImage = postItem.postImage;
-    
+    [[cell userNameLabel]setText:postItem.text];
+    [[cell dateLabel]setText:@"today"];
+    [[cell socialLabel]setText:@"facebook"];
     return cell;
 }
 
