@@ -40,7 +40,8 @@
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
     [[self view] setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     
-    _menuItems = @[@"Feed", @"Alert"];
+    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", nil];
+    //_menuItems = @[@"Feed", @"Alert"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView

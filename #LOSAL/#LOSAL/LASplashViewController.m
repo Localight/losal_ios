@@ -8,26 +8,20 @@
 
 #import "LASplashViewController.h"
 
-@interface LASplashViewController ()
 
-@end
+//@interface LASplashViewController ()
+//
+//@end
 
 @implementation LASplashViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+
+   
     self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Feed"];
+    // this tells the splash screen which view to load after the app has loaded.
 }
 
 - (void)didReceiveMemoryWarning
