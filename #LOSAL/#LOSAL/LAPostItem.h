@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FLImageView.h"
 
 @interface LAPostItem : NSObject
 
-@property (nonatomic, strong) NSDate *postTime;
+@property (nonatomic, strong) NSString *postID;
+@property (nonatomic, strong) NSDate   *postTime;
 @property (nonatomic, strong) NSString *socialNetwork;
 @property (nonatomic, strong) NSString *socialNetworkPostID;
-@property (nonatomic, strong) FLImageView *postImage;
+@property (nonatomic, strong) NSString *imageURLString;
 @property (nonatomic, strong) NSString *text;
 
 @end
