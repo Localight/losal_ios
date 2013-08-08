@@ -10,7 +10,8 @@
 
 @interface LAImageLoader ()
 
-@property (nonatomic, strong) NSMutableDictionary *existingImages;
+@property (nonatomic, strong) NSCache *imageCache;
+@property (nonatomic, strong) NSCache *testCache;
 @end
 
 @implementation LAImageLoader
@@ -27,7 +28,8 @@
 
 - (id) init {
     if (self = [super init]) {
-        self.existingImages = [[NSMutableDictionary alloc] init];
+        self.imageCache = [[NSCache alloc] init];
+        self.testCache = [[NSCache alloc] init];
     }
     
     return self;
@@ -38,19 +40,29 @@
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Look for existing image
-    UIImage * image = [self.existingImages objectForKey:imageId];
+    NSString *test = [self.testCache objectForKey:imageId];
+    if (test != nil)
+        NSLog(@"test cache for %@ is %@", imageId, test);
+    UIImage * image = [self.imageCache objectForKey:imageId];
     if (image != nil) {
         processImage(image);
     } else {
         dispatch_queue_t callerQueue = dispatch_get_current_queue();
         dispatch_queue_t asyncQueue = dispatch_queue_create("com.myapp.asyncqueue", NULL);
         dispatch_async(asyncQueue, ^{
-            NSData *imageData = [NSData dataWithContentsOfURL:url];
-            UIImage *image = [UIImage imageWithData:imageData];
-            [self.existingImages addEntriesFromDictionary:[NSDictionary dictionaryWithObjectsAndKeys:image,imageId, nil]];
-            dispatch_async(callerQueue, ^{
-                processImage(image);
-            });
+            NSError *error;
+            NSData *imageData = [NSData dataWithContentsOfURL:url options:nil error:&error];
+            if (error) {
+                NSLog(@"Could not download photo for id %@", imageId);
+            } else {
+                UIImage *image = [UIImage imageWithData:imageData];
+                dispatch_async(callerQueue, ^{
+                    [self.imageCache setObject:image forKey:imageId];
+                    [self.testCache setObject:imageId forKey:imageId];
+                    NSLog(@"Downloaded %@ for id %@", imageId);                    
+                    processImage(image);
+                });
+            }
         });
     }
 }
