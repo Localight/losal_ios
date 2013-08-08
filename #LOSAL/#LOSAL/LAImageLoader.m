@@ -11,7 +11,6 @@
 @interface LAImageLoader ()
 
 @property (nonatomic, strong) NSCache *imageCache;
-@property (nonatomic, strong) NSCache *testCache;
 @end
 
 @implementation LAImageLoader
@@ -29,7 +28,6 @@
 - (id) init {
     if (self = [super init]) {
         self.imageCache = [[NSCache alloc] init];
-        self.testCache = [[NSCache alloc] init];
     }
     
     return self;
@@ -37,12 +35,14 @@
 
 - (void)processImageDataWithURLString:(NSString *)urlString forId:(NSString *)imageId andBlock:(void (^)(UIImage *image))processImage
 {
+    if (urlString == nil || [urlString length] == 0) {
+        processImage(nil);
+        return;
+    }
+    
     NSURL *url = [NSURL URLWithString:urlString];
     
     // Look for existing image
-    NSString *test = [self.testCache objectForKey:imageId];
-    if (test != nil)
-        NSLog(@"test cache for %@ is %@", imageId, test);
     UIImage * image = [self.imageCache objectForKey:imageId];
     if (image != nil) {
         processImage(image);
@@ -52,17 +52,16 @@
         dispatch_async(asyncQueue, ^{
             NSError *error;
             NSData *imageData = [NSData dataWithContentsOfURL:url options:nil error:&error];
+            UIImage *image = nil;
             if (error) {
                 NSLog(@"Could not download photo for id %@", imageId);
             } else {
-                UIImage *image = [UIImage imageWithData:imageData];
-                dispatch_async(callerQueue, ^{
-                    [self.imageCache setObject:image forKey:imageId];
-                    [self.testCache setObject:imageId forKey:imageId];
-                    NSLog(@"Downloaded %@ for id %@", imageId);                    
-                    processImage(image);
-                });
+                image = [UIImage imageWithData:imageData];
+                [self.imageCache setObject:image forKey:imageId];
             }
+            dispatch_async(callerQueue, ^{
+                processImage(image);
+            });
         });
     }
 }

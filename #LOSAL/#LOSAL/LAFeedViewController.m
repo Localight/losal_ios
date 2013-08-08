@@ -191,10 +191,7 @@
     [[cell gradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     
     [self.imageLoader processImageDataWithURLString:postItem.imageURLString forId:postItem.postID andBlock:^(UIImage *image) {
-        UITableViewCell *cellExists = [tableView cellForRowAtIndexPath:indexPath];
-        if (cellExists) {
-            [cell.postImage setImage:image];
-        }
+        [cell.postImage setImage:image];
     }];
 
     //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
