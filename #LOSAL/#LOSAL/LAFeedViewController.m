@@ -5,7 +5,9 @@
 //  Created by James Orion Hall on 7/27/13.
 //  Copyright (c) 2013 Localism. All rights reserved.
 //
+
 // all data is pulled from the store class.
+
 #import "LAFeedViewController.h"
 
 #import "LADetailViewController.h"
@@ -25,6 +27,7 @@
 
 @property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
+
 @end
 
 @implementation LAFeedViewController
@@ -35,20 +38,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-
-    //grabbing left bar button from libary
-//    UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    menuBtn.frame = CGRectMake(10, 10, 30, 21);
-//    [menuBtn setBackgroundImage:[UIImage imageNamed:@"menuBtn.png"] forState:UIControlStateNormal];
-//    [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self action:@selector(revealMenu:)];
+    
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:self
+                                                                  action:@selector(revealMenu:)];
     
     self.navigationItem.leftBarButtonItem = menuButton;
 
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
-    
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
     // You just need to set the opacity, radius, and color.
     self.view.layer.shadowOpacity = 0.75f;
@@ -62,13 +59,13 @@
     // This was messing up the scrolling in the UI table view so need to figure out a way to add this back - Joaquin
     //[self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
-    [self fetchEntries];        
+    [self fetchEntries];
+    
     
 }
 
 -(void)fetchEntries
 {
-    
     UIView *currentTitleView = [[self navigationItem] titleView];
     
     UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
@@ -188,6 +185,11 @@
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
     
     [cell.userNameLabel setText:postItem.text];
+    [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+    [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Light" size: 15]];
+    [[cell dateLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
+    [[cell gradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
+    
     [self.imageLoader processImageDataWithURLString:postItem.imageURLString forId:postItem.postID andBlock:^(UIImage *image) {
         UITableViewCell *cellExists = [tableView cellForRowAtIndexPath:indexPath];
         if (cellExists) {
@@ -210,7 +212,8 @@
     return image.size.height;
 }
 
--(UIImage*)imageWithImage: (UIImage*) sourceImage scaledToWidth: (float) i_width
+-(UIImage*)imageWithImage:(UIImage*)sourceImage
+            scaledToWidth:(float)i_width
 {
     float oldWidth = sourceImage.size.width;
     float scaleFactor = i_width / oldWidth;
@@ -219,9 +222,13 @@
     float newWidth = oldWidth * scaleFactor;
     
     UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
+    
     [sourceImage drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
+    
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
     UIGraphicsEndImageContext();
+    
     return newImage;
 }
 
@@ -236,9 +243,11 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
         [_objects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
