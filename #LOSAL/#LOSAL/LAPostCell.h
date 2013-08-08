@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *socialLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 
+@property (weak, nonatomic) IBOutlet UITextView *messageArea;
+
 @end

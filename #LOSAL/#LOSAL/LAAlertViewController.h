@@ -1,5 +1,5 @@
 //
-//  LAAlertsViewController.h
+//  LAAlertViewController.h
 //  #LOSAL
 //
 //  Created by James Orion Hall on 8/7/13.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ECSlidingViewController.h"
 
-@interface LAAlertsViewController : UITableViewController
+@interface LAAlertViewController : UITableViewController
 
 @end
