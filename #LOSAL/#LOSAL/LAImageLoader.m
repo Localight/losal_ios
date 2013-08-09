@@ -54,10 +54,14 @@
             NSData *imageData = [NSData dataWithContentsOfURL:url options:nil error:&error];
             UIImage *image = nil;
             if (error) {
-                NSLog(@"Could not download photo for id %@", imageId);
+                NSLog(@"Could not download photo for id %@ url %@", imageId, url);
             } else {
                 image = [UIImage imageWithData:imageData];
-                [self.imageCache setObject:image forKey:imageId];
+                if (image == nil) {
+                    NSLog(@"Image is nil for id %@ url %@", imageId, url);
+                } else {
+                    [self.imageCache setObject:image forKey:imageId];
+                }
             }
             dispatch_async(callerQueue, ^{
                 processImage(image);
