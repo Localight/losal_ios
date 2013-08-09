@@ -124,7 +124,7 @@
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Loved my first day of School! #LOSAL" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U0J-BC-HCK">
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="kqp-px-6ze"/>
+                                                <constraint firstAttribute="height" constant="49" id="4wA-Hf-pqz"/>
                                             </constraints>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -171,23 +171,24 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" type="default" id="6qF-68-BK6"/>
-                                    <constraint firstAttribute="trailing" secondItem="4vV-lK-OYB" secondAttribute="trailing" constant="12" id="7J8-ia-j3r"/>
                                     <constraint firstItem="eIF-PO-ceo" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="9" id="8U9-0m-Wu3"/>
                                     <constraint firstItem="3tL-ZA-FdU" firstAttribute="baseline" secondItem="jUi-bt-Nv5" secondAttribute="baseline" type="default" id="8gb-JE-dkd"/>
-                                    <constraint firstItem="3tL-ZA-FdU" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="101" id="ANA-xa-hWQ"/>
                                     <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="bottom" secondItem="eIF-PO-ceo" secondAttribute="bottom" type="default" id="G9n-yf-AKB"/>
-                                    <constraint firstItem="U0J-BC-HCK" firstAttribute="trailing" secondItem="lJ0-d7-vTF" secondAttribute="trailing" type="default" id="GcA-K8-1IB"/>
-                                    <constraint firstItem="U0J-BC-HCK" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" type="default" id="Gu0-8Z-HoD"/>
                                     <constraint firstItem="88F-Cq-LRr" firstAttribute="baseline" secondItem="4vV-lK-OYB" secondAttribute="baseline" type="default" id="HXq-I7-GQJ"/>
                                     <constraint firstItem="jUi-bt-Nv5" firstAttribute="centerY" secondItem="2Qz-Qk-Ivo" secondAttribute="centerY" type="default" id="IAt-P0-UZO"/>
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="bottom" secondItem="lJ0-d7-vTF" secondAttribute="bottom" type="default" id="OGh-w2-VRp"/>
-                                    <constraint firstItem="3tL-ZA-FdU" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="18" id="Omh-aL-aLw"/>
                                     <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="leading" secondItem="88F-Cq-LRr" secondAttribute="leading" type="default" id="S6J-TI-prM"/>
                                     <constraint firstItem="4vV-lK-OYB" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" type="default" id="SEk-2P-Bqu"/>
-                                    <constraint firstAttribute="bottom" secondItem="U0J-BC-HCK" secondAttribute="bottom" constant="1" id="VYc-vp-cVU"/>
+                                    <constraint firstItem="3tL-ZA-FdU" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="96" id="Sfj-Um-Agj"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="U0J-BC-HCK" secondAttribute="bottom" constant="1" type="user" id="T1G-oh-bte"/>
+                                    <constraint firstItem="eIF-PO-ceo" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="3" id="Uyr-UA-QWC"/>
+                                    <constraint firstItem="U0J-BC-HCK" firstAttribute="trailing" secondItem="lJ0-d7-vTF" secondAttribute="trailing" type="default" id="aKz-MQ-Dgw"/>
                                     <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="47" id="axB-Gb-YDU"/>
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="trailing" secondItem="lJ0-d7-vTF" secondAttribute="trailing" type="default" id="bZN-nN-Eqe"/>
+                                    <constraint firstAttribute="trailing" secondItem="4vV-lK-OYB" secondAttribute="trailing" constant="12" id="eVX-Wc-aA3"/>
                                     <constraint firstItem="88F-Cq-LRr" firstAttribute="centerX" secondItem="jUi-bt-Nv5" secondAttribute="centerX" type="default" id="fGZ-Cr-s14"/>
+                                    <constraint firstItem="U0J-BC-HCK" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" type="default" id="gmG-5Q-448"/>
+                                    <constraint firstAttribute="bottom" secondItem="U0J-BC-HCK" secondAttribute="bottom" constant="1" id="k8a-Bw-gmF"/>
                                     <constraint firstItem="88F-Cq-LRr" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" type="default" id="pJ6-Uu-ssv"/>
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" type="default" id="tXW-iS-wrW"/>
                                     <constraint firstItem="3tL-ZA-FdU" firstAttribute="top" secondItem="jUi-bt-Nv5" secondAttribute="top" type="default" id="wou-AM-3bo"/>
@@ -344,6 +345,46 @@
         <image name="Default.png" width="320" height="480"/>
         <image name="placeholder.png" width="450" height="450"/>
     </resources>
+    <classes>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="LAAlertViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAlertViewController.h"/>
+        </class>
+        <class className="LADetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAFeedViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAFeedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealMenu:"/>
+            </relationships>
+        </class>
+        <class className="LAMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
+        </class>
+        <class className="LAPostCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPostCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="gradeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LASplashViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

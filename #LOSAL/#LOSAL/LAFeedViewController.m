@@ -146,34 +146,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //this is were you populate reload the data
-    //TODO: enter in the postitem to pull data from
-    
-//    LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCellIdentifier"];
-//    if(cell == nil)
-//    {
-//        cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"postCellIdentifier"];
-//              
-//    }
-//    
-//    [[cell userNameLabel] setText:@"James Hall"];
-//    
-//    [[cell gradeLabel] setText:@"Senior"];
-//    
-//    [[cell socialLabel] setText:@"Facebook here"];
-//    
-//    [[cell dateLabel] setText:@"today"];
-//    UIImage *i = [UIImage imageNamed:@"photo1.jpg"];
-//    
-//    [[cell imageView] setImage:i];
-    
-    //NSDate *date = [[NSDate alloc] init];
-    
-    // NSDate *object = _objects[indexPath.row];
-    //cell.textLabel.text = [object description];
-    //[[self tableView] reloadData];
-    
-    NSString *cellIdentifier = @"postCell";
+        NSString *cellIdentifier = @"postCell";
     
     LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
@@ -184,22 +157,54 @@
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
     
-    [cell.userNameLabel setText:postItem.text];
+    
+    
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Light" size: 15]];
     [[cell dateLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     [[cell gradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     
-    [self.imageLoader processImageDataWithURLString:postItem.imageURLString forId:postItem.postID andBlock:^(UIImage *image) {
-        [cell.postImage setImage:image];
-    }];
+    NSDate *timePosted = [postItem postTime];
+    NSDate *timeNow = [[NSDate alloc]init];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSDateComponents *components = [calendar components:NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
+                                               fromDate:timePosted
+                                                 toDate:timeNow
+                                                options:0];
+   //TODO: work on fraction to figure out time.
+   // working on time algorithm
+    NSLog(@"%@",timePosted);
 
+    NSLog(@"it's been %i, %i, %i, %i, since your post:", [components day], [components hour], [components minute], [components second]);
+    
+    if ([[postItem imageURLString] length] == 0)
+    {
+        [[cell messageArea]setText:[postItem text]];
+        [[cell postImage]setImage:nil];
+        [[cell dateLabel]setText:[NSString stringWithFormat:@"%@|", [postItem postTime]]];
+        [[cell socialLabel]setText:@"facebook"];
+        [cell setBackgroundColor:[UIColor blackColor]];
+        [cell setAutoresizesSubviews:NO];
+        
+        
+        
+    } else{
+        
+        [self.imageLoader processImageDataWithURLString:postItem.imageURLString
+                                                  forId:postItem.postID
+                                               andBlock:^(UIImage *image)
+    {[cell.postImage setImage:image];}];
+        
+        [[cell messageArea] setText:[postItem text]];
+        [[cell dateLabel]setText:[NSString stringWithFormat:@"%@|", [postItem postTime]]];
+        [[cell socialLabel]setText:@"facebook"];
+    }
     //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
     //cell.postImage = postItem.postImage;
     //[cell.imageView setImageWithURL:[NSURL URLWithString:postItem.imageURLString] placeholderImage:[UIImage imageNamed:@"placeholder"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
-    [[cell userNameLabel]setText:postItem.text];
-    [[cell dateLabel]setText:@"today"];
-    [[cell socialLabel]setText:@"facebook"];
+   
+    
     return cell;
 }
 
