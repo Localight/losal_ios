@@ -77,4 +77,8 @@
      }];
 }
 
+- (NSString *)getUser {
+    return nil;
+}
+
 @end

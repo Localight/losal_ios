@@ -62,7 +62,17 @@
     
     [self fetchEntries];
     
-    
+    if ([self.storeManager getUser] == nil) {
+        UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+        
+        UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+        
+        [self presentViewController:loginController animated:YES
+                         completion:^{
+                             NSLog(@"showing add friends");
+                             //[self addFriends];
+                         }];
+    }
 }
 
 -(void)fetchEntries

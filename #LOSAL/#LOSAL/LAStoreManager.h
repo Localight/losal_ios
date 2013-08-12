@@ -17,4 +17,6 @@
 
 - (void)getFeedWithCompletion:(void (^)(NSArray *posts, NSError *error))completionBlock;
 
+- (NSString *)getUser;
+
 @end
