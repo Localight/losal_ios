@@ -172,54 +172,34 @@
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
-    [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Light" size: 15]];
-    [[cell dateLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
-    [[cell gradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
-    NSDate *timePosted = [postItem postTime];
+    [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size: 15]];
+    [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     
+    NSDate *timePosted = [postItem postTime];
+    NSLog(@"%@", timePosted); 
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     
-    [df setDateFormat:@"yyyy-MM-dd hh:mm:ss a"];
+    [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
-//    //NSDate *myDate = [df dateFromString:[];
-//     
-//    NSDate *timeNow = [[NSDate alloc]init];
-//    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-//    
-//    NSDateComponents *components = [calendar components:NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
-//                                               fromDate:timePosted
-//                                                 toDate:timeNow
-//                                                options:0];
-    
-    //NSLog(@"%@ this is the time passed", [self fuzzyTime:]);
-   
-   //TODO: work on fraction to figure out time.
-   // working on time algorithm
-//    NSLog(@"%@",timePosted);
-//
-//    NSLog(@"it's been %i, %i, %i, %i, since your post:", [components day], [components hour], [components minute], [components second]);
-    
+    //TODO: add in ENum for grade level
     if ([[postItem imageURLString] length] == 0)
     {
         [[cell messageArea]setText:[postItem text]];
         [[cell postImage]setImage:nil];
-        [[cell dateLabel]setText:[NSString stringWithFormat:@"%@|", [self fuzzyTime:[df stringFromDate:timePosted]]]];
+        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | grade here", [self fuzzyTime:[df stringFromDate:timePosted]]]];
         [[cell socialLabel]setText:@"facebook"];
         [cell setBackgroundColor:[UIColor blackColor]];
-        [cell setAutoresizesSubviews:NO];
+    }else{
         
-        
-        
-    } else{
-        
+        [cell.postImage setImage:nil];
         [self.imageLoader processImageDataWithURLString:postItem.imageURLString
                                                   forId:postItem.postID
-                                               andBlock:^(UIImage *image)
-    {[cell.postImage setImage:image];}];
-        
+                                               andBlock:^(UIImage *image) {
+            [cell.postImage setImage:image];
+        }];
         [[cell messageArea] setText:[postItem text]];
-        [[cell dateLabel]setText:[NSString stringWithFormat:@"%@|", [self fuzzyTime:[df stringFromDate:timePosted]]]];
+        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@|", [self fuzzyTime:[df stringFromDate:timePosted]]]];
         [[cell socialLabel]setText:@"facebook"];
     }
     //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
@@ -246,7 +226,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     [formatter setTimeZone:gmt];
     NSDate *date = [formatter dateFromString:datetime];
     NSDate *today = [NSDate date];
-    
     NSInteger minutes = [today minutesAfterDate:date];
     NSInteger hours = [today hoursAfterDate:date];
     NSInteger days = [today daysAfterDate:date];

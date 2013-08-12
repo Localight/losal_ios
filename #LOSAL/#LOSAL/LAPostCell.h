@@ -11,12 +11,11 @@
 @interface LAPostCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateAndGradeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *socialLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
+@property (weak, nonatomic) IBOutlet UITextField *messageArea;
 
-@property (weak, nonatomic) IBOutlet UITextView *messageArea;
 
 @end

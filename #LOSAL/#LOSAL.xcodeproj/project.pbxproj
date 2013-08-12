@@ -540,6 +540,8 @@
 				6523AE2B17B31DBD00AFD830 /* LAAlertViewController.m in Sources */,
 				43397B4317B93582003F4977 /* LAImage+Color.m in Sources */,
 				6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */,
+				43397B4817B95FBC003F4977 /* LALoginViewController.m in Sources */,
+				43397B4B17B96833003F4977 /* LAUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
