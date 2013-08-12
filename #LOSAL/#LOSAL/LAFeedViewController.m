@@ -98,7 +98,8 @@
         if (!error)
         {
             _objects = [NSMutableArray arrayWithArray:posts];
-            [[self tableView] reloadData];
+            //[[self tableView] reloadData];
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
             NSLog(@"error is %@", error);
             
         } else {
@@ -145,7 +146,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    if ([_objects count] > 0) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
