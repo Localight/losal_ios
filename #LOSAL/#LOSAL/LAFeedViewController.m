@@ -20,6 +20,8 @@
 
 #import "LAPostItem.h"
 
+#import "LAImage+Color.h"
+
 @interface LAFeedViewController ()
 {
     NSMutableArray *_objects;
@@ -27,7 +29,6 @@
 
 @property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
-
 @end
 
 @implementation LAFeedViewController

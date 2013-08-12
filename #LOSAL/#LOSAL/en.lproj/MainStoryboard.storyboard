@@ -196,6 +196,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="jUi-bt-Nv5" id="upz-op-9dS"/>
                                     <outlet property="gradeLabel" destination="3tL-ZA-FdU" id="tbB-b1-kOL"/>
+                                    <outlet property="iconImage" destination="eIF-PO-ceo" id="I8s-Uy-C51"/>
                                     <outlet property="messageArea" destination="U0J-BC-HCK" id="LlB-yJ-Gnf"/>
                                     <outlet property="postImage" destination="HKZ-Gn-0BW" id="DLn-g6-DYw"/>
                                     <outlet property="userNameLabel" destination="88F-Cq-LRr" id="4gY-Bg-JSc"/>

@@ -47,6 +47,8 @@
 - (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    query.limit = 50;
+    [query orderByDescending:@"postTime"];
     //[query includeKey:@"postID"];
     //[query includeKey:@"personID"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
@@ -57,18 +59,12 @@
              for (PFObject *post in posts) {
                  // This does not require a network access.
                  NSLog(@"post looks like %@", post);
-                 //PFObject *post2 = [post objectForKey:@"postID"];
-                 //PFObject *persona = [post objectForKey:@"personaID"];
-                 //NSLog(@"post looks like %@\npersona looks like %@", post2, persona);
-                 //NSString *text = @"JOAQUIN IS TESTING PFQuery";
                  LAPostItem *postItem = [[LAPostItem alloc] init];
                  postItem.postID = [post objectId];
                  postItem.postTime = [post objectForKey:@"postTime"];
                  postItem.socialNetwork = [post objectForKey:@"socialNetworkName"];
                  postItem.socialNetworkPostID = [post objectForKey:@"socialNetworkPostID"];
                  postItem.text = [post objectForKey:@"text"];
-                 //[postItem.postImage loadImageAtURLString:[post objectForKey:@"url"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-                 //postItem.postImage.showsLoadingActivity = YES;
                  postItem.imageURLString = [post objectForKey:@"url"];
                  // only save status 1
                  if ([[post objectForKey:@"status"] isEqualToString:@"1"]) {

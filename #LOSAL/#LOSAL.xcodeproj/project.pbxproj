@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43397B4317B93582003F4977 /* LAImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4217B93582003F4977 /* LAImage+Color.m */; };
+		43397B4517B93716003F4977 /* Mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = 43397B4417B93716003F4977 /* Mustache.png */; };
 		4378F31F17B2D28D00DEBE6A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4378F31E17B2D28D00DEBE6A /* ImageIO.framework */; };
 		4378F37817B2DF1F00DEBE6A /* LAImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */; };
 		4397674017B06AE90040C947 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4397673F17B06AE80040C947 /* libz.dylib */; };
@@ -72,6 +74,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43397B4117B93582003F4977 /* LAImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LAImage+Color.h"; sourceTree = "<group>"; };
+		43397B4217B93582003F4977 /* LAImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LAImage+Color.m"; sourceTree = "<group>"; };
+		43397B4417B93716003F4977 /* Mustache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mustache.png; sourceTree = "<group>"; };
 		4378F31E17B2D28D00DEBE6A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4378F37617B2DF1F00DEBE6A /* LAImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAImageLoader.h; sourceTree = "<group>"; };
 		4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAImageLoader.m; sourceTree = "<group>"; };
@@ -182,6 +187,8 @@
 			children = (
 				4378F37617B2DF1F00DEBE6A /* LAImageLoader.h */,
 				4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */,
+				43397B4117B93582003F4977 /* LAImage+Color.h */,
+				43397B4217B93582003F4977 /* LAImage+Color.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -287,6 +294,7 @@
 		6588D02D17A4BCC500B6C498 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				43397B4417B93716003F4977 /* Mustache.png */,
 				6523AE2D17B4261000AFD830 /* Fonts */,
 				4397674517B1A89F0040C947 /* Instagram1.png */,
 				4397674B17B2A75C0040C947 /* placeholder.png */,
@@ -449,6 +457,7 @@
 				6523AE4317B42A1E00AFD830 /* Roboto-Regular.ttf in Resources */,
 				6523AE4417B42A1E00AFD830 /* Roboto-Thin.ttf in Resources */,
 				6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */,
+				43397B4517B93716003F4977 /* Mustache.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +507,7 @@
 				4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */,
 				4378F37817B2DF1F00DEBE6A /* LAImageLoader.m in Sources */,
 				6523AE2B17B31DBD00AFD830 /* LAAlertViewController.m in Sources */,
+				43397B4317B93582003F4977 /* LAImage+Color.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
