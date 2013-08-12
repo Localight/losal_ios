@@ -20,6 +20,8 @@
 
 #import "LAPostItem.h"
 
+#import "LAImage+Color.h"
+
 @interface LAFeedViewController ()
 {
     NSMutableArray *_objects;
@@ -27,7 +29,6 @@
 
 @property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
-
 @end
 
 @implementation LAFeedViewController
@@ -200,6 +201,11 @@
     [[cell userNameLabel]setText:postItem.text];
     [[cell dateLabel]setText:@"today"];
     [[cell socialLabel]setText:@"facebook"];
+    
+    UIImage *coloredImage = [[UIImage imageNamed:@"Mustache"] imageWithOverlayColor:[UIColor redColor]];
+    
+    [cell.iconImage setImage:coloredImage];
+    
     return cell;
 }
 
