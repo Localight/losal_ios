@@ -190,7 +190,7 @@
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Light" size: 15]];
     [[cell dateLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     [[cell gradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
-    
+    [cell.postImage setImage:nil];
     [self.imageLoader processImageDataWithURLString:postItem.imageURLString forId:postItem.postID andBlock:^(UIImage *image) {
         [cell.postImage setImage:image];
     }];

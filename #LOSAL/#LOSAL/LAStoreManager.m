@@ -49,6 +49,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     query.limit = 50;
     [query orderByDescending:@"postTime"];
+    [query whereKey:@"status" equalTo:@"1"];
     //[query includeKey:@"postID"];
     //[query includeKey:@"personID"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
@@ -66,10 +67,7 @@
                  postItem.socialNetworkPostID = [post objectForKey:@"socialNetworkPostID"];
                  postItem.text = [post objectForKey:@"text"];
                  postItem.imageURLString = [post objectForKey:@"url"];
-                 // only save status 1
-                 if ([[post objectForKey:@"status"] isEqualToString:@"1"]) {
-                     [messages addObject:postItem];
-                 }
+                 [messages addObject:postItem];
              }
          } else {
              // Log details of the failure
