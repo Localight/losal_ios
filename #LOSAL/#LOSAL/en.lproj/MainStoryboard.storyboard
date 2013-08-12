@@ -286,16 +286,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fGi-4I-84q" firstAttribute="leading" secondItem="ApE-Hg-cA4" secondAttribute="leading" type="default" id="1g7-hj-wn5"/>
-                            <constraint firstItem="5mA-8U-IOf" firstAttribute="leading" secondItem="92j-Kc-p0i" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="6iy-bH-Teb"/>
-                            <constraint firstItem="ApE-Hg-cA4" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="170" id="6ja-N0-Ovo"/>
-                            <constraint firstItem="92j-Kc-p0i" firstAttribute="baseline" secondItem="5mA-8U-IOf" secondAttribute="baseline" type="default" id="744-57-9st"/>
-                            <constraint firstItem="fGi-4I-84q" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="231" id="D9d-fP-Oha"/>
-                            <constraint firstItem="ApE-Hg-cA4" firstAttribute="trailing" secondItem="fGi-4I-84q" secondAttribute="trailing" type="default" id="PhA-Di-YDk"/>
-                            <constraint firstItem="92j-Kc-p0i" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="85" id="Pqj-tl-E84"/>
-                            <constraint firstItem="92j-Kc-p0i" firstAttribute="top" secondItem="5mA-8U-IOf" secondAttribute="top" type="default" id="cTl-zH-CPE"/>
-                            <constraint firstItem="fGi-4I-84q" firstAttribute="centerX" secondItem="ReM-FO-bdQ" secondAttribute="centerX" type="default" id="u8t-dl-awv"/>
-                            <constraint firstAttribute="bottom" secondItem="92j-Kc-p0i" secondAttribute="bottom" constant="216" id="xN1-HK-bei"/>
+                            <constraint firstItem="92j-Kc-p0i" firstAttribute="baseline" secondItem="5mA-8U-IOf" secondAttribute="baseline" type="default" id="BqT-Ir-xuk"/>
+                            <constraint firstItem="92j-Kc-p0i" firstAttribute="top" secondItem="fGi-4I-84q" secondAttribute="bottom" constant="28" type="user" id="DHI-1L-jk4"/>
+                            <constraint firstItem="5mA-8U-IOf" firstAttribute="leading" secondItem="92j-Kc-p0i" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="HNo-qK-mDB"/>
+                            <constraint firstItem="fGi-4I-84q" firstAttribute="leading" secondItem="ApE-Hg-cA4" secondAttribute="leading" type="default" id="XAF-Va-JW4"/>
+                            <constraint firstItem="ApE-Hg-cA4" firstAttribute="centerX" secondItem="ReM-FO-bdQ" secondAttribute="centerX" type="default" id="XLF-Vp-fi6"/>
+                            <constraint firstItem="fGi-4I-84q" firstAttribute="trailing" secondItem="ApE-Hg-cA4" secondAttribute="trailing" type="default" id="XUL-yo-nLH"/>
+                            <constraint firstItem="ApE-Hg-cA4" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="62" id="d6y-jQ-JKK"/>
+                            <constraint firstItem="92j-Kc-p0i" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="85" id="jJJ-Sd-PQP"/>
+                            <constraint firstItem="fGi-4I-84q" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="123" id="mCD-sJ-d3S"/>
                         </constraints>
                     </view>
                     <connections>

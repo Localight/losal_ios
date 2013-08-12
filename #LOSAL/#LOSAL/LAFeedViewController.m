@@ -175,10 +175,13 @@
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size: 15]];
     [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     
+    [cell.userNameLabel setText:postItem.text];
+    [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+    [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Light" size: 15]];
+    [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     NSDate *timePosted = [postItem postTime];
-    NSLog(@"%@", timePosted); 
+    NSLog(@"%@", timePosted);
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    
     [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
@@ -205,7 +208,9 @@
     //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
     //cell.postImage = postItem.postImage;
     //[cell.imageView setImageWithURL:[NSURL URLWithString:postItem.imageURLString] placeholderImage:[UIImage imageNamed:@"placeholder"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
-   
+    UIImage *coloredImage = [[UIImage imageNamed:@"Mustache"] imageWithOverlayColor:[UIColor redColor]];
+    
+    [cell.iconImage setImage:coloredImage];
     
     return cell;
 }
