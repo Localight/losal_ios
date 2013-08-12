@@ -256,25 +256,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="297" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="106" id="npm-Jx-TC1" customClass="LAPostCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="297" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="106" id="npm-Jx-TC1" customClass="LAPostCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="106"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Announcment School is awesome!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7gJ-Mg-rWb">
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="K88-nv-4Er"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Alerts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="72H-mT-PrI">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="23" id="5dY-ov-Vbp"/>
                                                 <constraint firstAttribute="width" constant="79" id="prg-XQ-d5l"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Messages!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtO-e3-CM9">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="287" id="4aZ-Wf-aje"/>
-                                                <constraint firstAttribute="height" constant="54" id="9gD-WR-MSe"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -284,9 +284,10 @@
                                 </view>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="JtO-e3-CM9" firstAttribute="top" secondItem="72H-mT-PrI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8cq-mF-Fsk"/>
-                                    <constraint firstItem="72H-mT-PrI" firstAttribute="top" secondItem="npm-Jx-TC1" secondAttribute="top" type="default" id="L1I-SO-CZS"/>
-                                    <constraint firstItem="JtO-e3-CM9" firstAttribute="leading" secondItem="npm-Jx-TC1" secondAttribute="leading" constant="20" type="default" id="fT4-nv-Jmz"/>
+                                    <constraint firstItem="7gJ-Mg-rWb" firstAttribute="leading" secondItem="npm-Jx-TC1" secondAttribute="leading" type="default" id="5Hh-RS-TuH"/>
+                                    <constraint firstItem="7gJ-Mg-rWb" firstAttribute="trailing" secondItem="npm-Jx-TC1" secondAttribute="trailing" type="default" id="A2j-Zj-Pt4"/>
+                                    <constraint firstItem="72H-mT-PrI" firstAttribute="top" secondItem="npm-Jx-TC1" secondAttribute="top" type="default" id="IW5-eu-34x"/>
+                                    <constraint firstItem="7gJ-Mg-rWb" firstAttribute="top" secondItem="npm-Jx-TC1" secondAttribute="top" constant="46" id="kqy-fg-Q7y"/>
                                     <constraint firstItem="72H-mT-PrI" firstAttribute="leading" secondItem="npm-Jx-TC1" secondAttribute="leading" constant="20" type="default" id="vMl-FY-3AV"/>
                                 </constraints>
                                 <connections>

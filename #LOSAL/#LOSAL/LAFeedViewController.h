@@ -15,5 +15,6 @@
 
 - (IBAction)revealMenu:(id)sender;
 
--(void)fetchEntries; 
+-(void)fetchEntries;
++ (NSString *)fuzzyTime:(NSString *)datetime;
 @end

@@ -113,6 +113,7 @@
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -146,7 +147,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        NSString *cellIdentifier = @"postCell";
+    NSString *cellIdentifier = @"postCell";
+    
     
     LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
@@ -208,10 +210,51 @@
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Resize to fit in 320 width
     UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:320];
     return image.size.height;
+}
+//still working on
++ (NSString *)fuzzyTime:(NSString *)datetime;
+{
+    NSString *formatted;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    [formatter setTimeZone:gmt];
+    NSDate *date = [formatter dateFromString:datetime];
+    NSDate *today = [NSDate date];
+    NSInteger minutes = [today minutesAfterDate:date];
+    NSInteger hours = [today hoursAfterDate:date];
+    NSInteger days = [today daysAfterDate:date];
+    NSString *period;
+    if(days >= 365){
+        float years = round(days / 365) / 2.0f;
+        period = (years > 1) ? @"years" : @"year";
+        formatted = [NSString stringWithFormat:@"about %i %@ ago", years, period];
+    } else if(days < 365 && days >= 30) {
+        float months = round(days / 30) / 2.0f;
+        period = (months > 1) ? @"months" : @"month";
+        formatted = [NSString stringWithFormat:@"about %i %@ ago", months, period];
+    } else if(days < 30 && days >= 2) {
+        period = @"days";
+        formatted = [NSString stringWithFormat:@"about %i %@ ago", days, period];
+    } else if(days == 1){
+        period = @"day";
+        formatted = [NSString stringWithFormat:@"about %i %@ ago", days, period];
+    } else if(days < 1 && minutes > 60) {
+        period = (hours > 1) ? @"hours" : @"hour";
+        formatted = [NSString stringWithFormat:@"about %i %@ ago", hours, period];
+    } else {
+        period = (minutes < 60 && minutes > 1) ? @"minutes" : @"minute";
+        formatted = [NSString stringWithFormat:@"about %i %@ ago", minutes, period];
+        if(minutes < 1){
+            formatted = @"a moment ago";
+        }
+    }
+    return formatted;
 }
 
 -(UIImage*)imageWithImage:(UIImage*)sourceImage
