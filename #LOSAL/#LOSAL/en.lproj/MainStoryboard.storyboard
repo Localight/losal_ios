@@ -374,6 +374,7 @@
             <relationships>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gradeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iconImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>

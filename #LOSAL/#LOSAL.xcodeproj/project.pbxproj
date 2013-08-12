@@ -37,6 +37,9 @@
 		6523AE4317B42A1E00AFD830 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3717B42A1E00AFD830 /* Roboto-Regular.ttf */; };
 		6523AE4417B42A1E00AFD830 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */; };
 		6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */; };
+		6549236817B9591A003F39E3 /* do-git in Resources */ = {isa = PBXBuildFile; fileRef = 6549236417B9591A003F39E3 /* do-git */; };
+		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
+		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
 		6588D02717A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
 		6588D02917A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
 		6588D02B17A4BCC500B6C498 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */; };
@@ -110,6 +113,10 @@
 		6523AE3717B42A1E00AFD830 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		6549236417B9591A003F39E3 /* do-git */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.csh; path = "do-git"; sourceTree = "<group>"; };
+		6549236517B9591A003F39E3 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
+		6549236617B9591A003F39E3 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
+		6549236717B9591A003F39E3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		6588D02317A4BCC500B6C498 /* #LOSAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#LOSAL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6588D02617A4BCC500B6C498 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6588D02817A4BCC500B6C498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -230,6 +237,17 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		6549236317B9591A003F39E3 /* NSDate-Extensions-master */ = {
+			isa = PBXGroup;
+			children = (
+				6549236417B9591A003F39E3 /* do-git */,
+				6549236517B9591A003F39E3 /* NSDate-Utilities.h */,
+				6549236617B9591A003F39E3 /* NSDate-Utilities.m */,
+				6549236717B9591A003F39E3 /* README.md */,
+			);
+			path = "NSDate-Extensions-master";
+			sourceTree = "<group>";
+		};
 		6588D01A17A4BCC500B6C498 = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +350,7 @@
 		6588D06717A4BF2300B6C498 /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				6549236317B9591A003F39E3 /* NSDate-Extensions-master */,
 				6588D0A517A4C02D00B6C498 /* ECSlidingViewController */,
 			);
 			name = "External Libraries";
@@ -458,6 +477,8 @@
 				6523AE4417B42A1E00AFD830 /* Roboto-Thin.ttf in Resources */,
 				6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */,
 				43397B4517B93716003F4977 /* Mustache.png in Resources */,
+				6549236817B9591A003F39E3 /* do-git in Resources */,
+				6549236A17B9591A003F39E3 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +529,7 @@
 				4378F37817B2DF1F00DEBE6A /* LAImageLoader.m in Sources */,
 				6523AE2B17B31DBD00AFD830 /* LAAlertViewController.m in Sources */,
 				43397B4317B93582003F4977 /* LAImage+Color.m in Sources */,
+				6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

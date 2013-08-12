@@ -22,6 +22,8 @@
 
 #import "LAImage+Color.h"
 
+#import "NSDate-Utilities.h"
+
 @interface LAFeedViewController ()
 {
     NSMutableArray *_objects;
@@ -159,33 +161,40 @@
     }
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
-    
-    
-    
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Light" size: 15]];
     [[cell dateLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     [[cell gradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
-    
     NSDate *timePosted = [postItem postTime];
-    NSDate *timeNow = [[NSDate alloc]init];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     
-    NSDateComponents *components = [calendar components:NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
-                                               fromDate:timePosted
-                                                 toDate:timeNow
-                                                options:0];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    
+    [df setDateFormat:@"yyyy-MM-dd hh:mm:ss a"];
+    NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
+    
+//    //NSDate *myDate = [df dateFromString:[];
+//     
+//    NSDate *timeNow = [[NSDate alloc]init];
+//    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+//    
+//    NSDateComponents *components = [calendar components:NSMonthCalendarUnit|NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
+//                                               fromDate:timePosted
+//                                                 toDate:timeNow
+//                                                options:0];
+    
+    //NSLog(@"%@ this is the time passed", [self fuzzyTime:]);
+   
    //TODO: work on fraction to figure out time.
    // working on time algorithm
-    NSLog(@"%@",timePosted);
-
-    NSLog(@"it's been %i, %i, %i, %i, since your post:", [components day], [components hour], [components minute], [components second]);
+//    NSLog(@"%@",timePosted);
+//
+//    NSLog(@"it's been %i, %i, %i, %i, since your post:", [components day], [components hour], [components minute], [components second]);
     
     if ([[postItem imageURLString] length] == 0)
     {
         [[cell messageArea]setText:[postItem text]];
         [[cell postImage]setImage:nil];
-        [[cell dateLabel]setText:[NSString stringWithFormat:@"%@|", [postItem postTime]]];
+        [[cell dateLabel]setText:[NSString stringWithFormat:@"%@|", [self fuzzyTime:[df stringFromDate:timePosted]]]];
         [[cell socialLabel]setText:@"facebook"];
         [cell setBackgroundColor:[UIColor blackColor]];
         [cell setAutoresizesSubviews:NO];
@@ -200,7 +209,7 @@
     {[cell.postImage setImage:image];}];
         
         [[cell messageArea] setText:[postItem text]];
-        [[cell dateLabel]setText:[NSString stringWithFormat:@"%@|", [postItem postTime]]];
+        [[cell dateLabel]setText:[NSString stringWithFormat:@"%@|", [self fuzzyTime:[df stringFromDate:timePosted]]]];
         [[cell socialLabel]setText:@"facebook"];
     }
     //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
@@ -218,7 +227,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return image.size.height;
 }
 //still working on
-+ (NSString *)fuzzyTime:(NSString *)datetime;
+-(NSString *)fuzzyTime:(NSString *)datetime;
 {
     NSString *formatted;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -227,6 +236,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     [formatter setTimeZone:gmt];
     NSDate *date = [formatter dateFromString:datetime];
     NSDate *today = [NSDate date];
+    
     NSInteger minutes = [today minutesAfterDate:date];
     NSInteger hours = [today hoursAfterDate:date];
     NSInteger days = [today daysAfterDate:date];
@@ -234,11 +244,11 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(days >= 365){
         float years = round(days / 365) / 2.0f;
         period = (years > 1) ? @"years" : @"year";
-        formatted = [NSString stringWithFormat:@"about %i %@ ago", years, period];
+        formatted = [NSString stringWithFormat:@"about %f %@ ago", years, period];
     } else if(days < 365 && days >= 30) {
         float months = round(days / 30) / 2.0f;
         period = (months > 1) ? @"months" : @"month";
-        formatted = [NSString stringWithFormat:@"about %i %@ ago", months, period];
+        formatted = [NSString stringWithFormat:@"about %f %@ ago", months, period];
     } else if(days < 30 && days >= 2) {
         period = @"days";
         formatted = [NSString stringWithFormat:@"about %i %@ ago", days, period];
