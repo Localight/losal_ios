@@ -14,6 +14,10 @@
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastNumber;
-
+@property (nonatomic, strong) NSNumber *grade;
+@property (nonatomic, strong) NSNumber *iconID;
+@property (nonatomic, strong) NSNumber *iconColor;
+@property (nonatomic, strong) NSDate   *birthday;
+@property (nonatomic, strong) NSString *studentID;
 
 @end

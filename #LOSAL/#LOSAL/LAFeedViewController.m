@@ -190,7 +190,7 @@
     if (cell == nil)
     {
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                 reuseIdentifier:cellIdentifier];
+                                     reuseIdentifier:cellIdentifier];
     }
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
@@ -200,9 +200,15 @@
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Light" size: 15]];
     [[cell dateLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     [[cell gradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
+    
     [cell.postImage setImage:nil];
     [self.imageLoader processImageDataWithURLString:postItem.imageURLString forId:postItem.postID andBlock:^(UIImage *image) {
-        [cell.postImage setImage:image];
+        if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
+            [cell.postImage setImage:image];
+            NSLog(@"%@ was viewable", indexPath);
+        } else {
+            NSLog(@"%@ was NOT viewable", indexPath);
+        }
     }];
 
     //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];

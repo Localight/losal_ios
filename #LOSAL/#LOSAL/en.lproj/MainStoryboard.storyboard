@@ -262,7 +262,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Registration Pin" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fGi-4I-84q">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pin Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fGi-4I-84q">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
@@ -304,11 +304,15 @@
                             <constraint firstItem="fGi-4I-84q" firstAttribute="leading" secondItem="ApE-Hg-cA4" secondAttribute="leading" type="default" id="XAF-Va-JW4"/>
                             <constraint firstItem="ApE-Hg-cA4" firstAttribute="centerX" secondItem="ReM-FO-bdQ" secondAttribute="centerX" type="default" id="XLF-Vp-fi6"/>
                             <constraint firstItem="fGi-4I-84q" firstAttribute="trailing" secondItem="ApE-Hg-cA4" secondAttribute="trailing" type="default" id="XUL-yo-nLH"/>
+                            <constraint firstItem="ApE-Hg-cA4" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="62" id="d6y-jQ-JKK"/>
                             <constraint firstItem="92j-Kc-p0i" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="85" id="jJJ-Sd-PQP"/>
-                            <constraint firstItem="ApE-Hg-cA4" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="170" type="user" id="mQv-cr-5Eq"/>
-                            <constraint firstItem="fGi-4I-84q" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="231" id="zdi-Zd-v1L"/>
+                            <constraint firstItem="fGi-4I-84q" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="123" id="mCD-sJ-d3S"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="phoneNumber" destination="ApE-Hg-cA4" id="3Hf-bE-hbV"/>
+                        <outlet property="pinNumber" destination="fGi-4I-84q" id="hmH-Af-n2t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lT1-g1-62t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -436,6 +440,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="login:"/>
+                <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pinNumber" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="LAMenuViewController" superclassName="UIViewController">
