@@ -7,11 +7,12 @@
 //
 
 #import "LAMenuViewController.h"
+#import "LAStoreManager.h"
 
 @interface LAMenuViewController ()
 
 @property (nonatomic, strong) NSArray *menuItems;
-//private array of items.
+@property (nonatomic, strong) LAStoreManager *storeManager;
 @end
 
 @implementation LAMenuViewController
@@ -40,8 +41,9 @@
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
     [[self view] setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     
-    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", nil];
-    //_menuItems = @[@"Feed", @"Alert"];
+    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", @"Logout", nil];
+    
+    self.storeManager = [LAStoreManager sharedManager];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -81,7 +83,14 @@
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = [NSString stringWithFormat:@"%@", [self.menuItems objectAtIndex:indexPath.row]];
+    NSString *identifier;
+    // If this is the logout cell, then logout and redisplay Feed view
+    if ([[self.menuItems objectAtIndex:indexPath.row] isEqualToString:@"Logout"]) {
+        [self.storeManager logout];
+        identifier = [NSString stringWithFormat:@"Feed"];
+    } else {
+        identifier = [NSString stringWithFormat:@"%@", [self.menuItems objectAtIndex:indexPath.row]];
+    }
     
     UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
     
@@ -91,6 +100,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         self.slidingViewController.topViewController.view.frame = frame;
         [self.slidingViewController resetTopView];
     }];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

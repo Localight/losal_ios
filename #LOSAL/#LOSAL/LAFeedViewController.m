@@ -167,7 +167,7 @@
     if (cell == nil)
     {
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                 reuseIdentifier:cellIdentifier];
+                                     reuseIdentifier:cellIdentifier];
     }
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];

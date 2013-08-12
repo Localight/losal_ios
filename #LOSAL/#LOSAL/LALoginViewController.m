@@ -7,9 +7,13 @@
 //
 
 #import "LALoginViewController.h"
+#import "LAStoreManager.h"
 
 @interface LALoginViewController ()
 
+@property (strong, nonatomic) LAStoreManager *storeManager;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
+@property (weak, nonatomic) IBOutlet UITextField *pinNumber;
 - (IBAction)login:(id)sender;
 
 @end
@@ -20,7 +24,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -28,11 +31,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+    self.storeManager = [LAStoreManager sharedManager];
+    
 }
 
-- (IBAction)login:(id)sender {
+- (IBAction)skip:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)login:(id)sender {
+    
+    if ([self.storeManager loginWithPhoneNumber:self.phoneNumber.text pinNumber:self.pinNumber.text]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning

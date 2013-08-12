@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LAPostItem.h"
+#import "LAUser.h"
 
 @interface LAStoreManager : NSObject
 
@@ -17,6 +18,10 @@
 
 - (void)getFeedWithCompletion:(void (^)(NSArray *posts, NSError *error))completionBlock;
 
-- (NSString *)getUser;
+- (LAUser *)getUser;
+
+- (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber pinNumber:(NSString *)pinNumber;
+
+- (void)logout;
 
 @end

@@ -29,7 +29,7 @@
         // Parse initialization
         [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg" clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
         
-        [PFUser enableAutomaticUser];
+        //[PFUser enableAutomaticUser];
         
         PFACL *defaultACL = [PFACL ACL];
         // Enable public read access by default, with any newly created PFObjects belonging to the current user
@@ -77,8 +77,29 @@
      }];
 }
 
-- (NSString *)getUser {
-    return nil;
+- (LAUser *)getUser {
+    LAUser *user;
+    if ([PFUser currentUser]) {
+        user = [[LAUser alloc] init];
+        user.firstName = [[PFUser currentUser] objectForKey:@"firstName"];
+        NSLog(@"user is %@", [PFUser currentUser]);
+    }
+    return user;
 }
 
+- (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber pinNumber:(NSString *)pinNumber {
+    
+    NSError *error;
+    [PFUser logInWithUsername:phoneNumber password:pinNumber error:&error];
+    
+    if(error) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
+- (void)logout {
+    [PFUser logOut];
+}
 @end
