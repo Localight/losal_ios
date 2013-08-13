@@ -75,6 +75,12 @@
                              //[self addFriends];
                          }];
     }
+    // Set an image as the background of a UITableView called 'tableView'
+    // we will have to connect this to the imageloader at some point.
+    // works for testing the theory though. 
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo2.jpg"]];
+    [backgroundImage setAlpha:.50f];
+    [[self tableView]setBackgroundView:backgroundImage];
 }
 
 -(void)fetchEntries
@@ -167,7 +173,6 @@
 {
     NSString *cellIdentifier = @"postCell";
     
-    
     LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
     {
@@ -176,6 +181,7 @@
     }
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
+    
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
     [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
@@ -187,28 +193,29 @@
     NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
     //TODO: add in ENum for grade level
+    
     if ([[postItem imageURLString] length] == 0)
     {
         [[cell messageArea]setText:[postItem text]];
         [[cell postImage]setImage:nil];
         [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | grade here", [self fuzzyTime:[df stringFromDate:timePosted]]]];
         [[cell socialLabel]setText:@"facebook"];
-        [cell setBackgroundColor:[UIColor blackColor]];
+    
+        
+       // [cell setBackgroundColor:[UIColor blackColor]];
+       
     }else{
         
-        [cell.postImage setImage:nil];
+        //[cell.postImage setImage:nil];
         [self.imageLoader processImageDataWithURLString:postItem.imageURLString
                                                   forId:postItem.postID
                                                andBlock:^(UIImage *image) {
             [cell.postImage setImage:image];
         }];
         [[cell messageArea] setText:[postItem text]];
-        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@|", [self fuzzyTime:[df stringFromDate:timePosted]]]];
+        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@| grade here", [self fuzzyTime:[df stringFromDate:timePosted]]]];
         [[cell socialLabel]setText:@"facebook"];
     }
-    //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
-    //cell.postImage = postItem.postImage;
-    //[cell.imageView setImageWithURL:[NSURL URLWithString:postItem.imageURLString] placeholderImage:[UIImage imageNamed:@"placeholder"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
     UIImage *coloredImage = [[UIImage imageNamed:@"Mustache"] imageWithOverlayColor:[UIColor redColor]];
     
     [cell.iconImage setImage:coloredImage];
@@ -217,10 +224,20 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Resize to fit in 320 width
-    UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:320];
-    return image.size.height;
+heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // using postItem because cell hasn't been made yet.
+    CGFloat size;
+    LAPostItem *postItem = [_objects objectAtIndex:[indexPath row]];
+    
+    if ([postItem imageURLString] == 0) {
+        size = 150;
+    } else {
+        UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:320];
+        
+        size = image.size.height;
+    }
+    return size;
 }
 //still working on
 -(NSString *)fuzzyTime:(NSString *)datetime;
@@ -297,6 +314,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         [_objects removeObjectAtIndex:indexPath.row];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -322,7 +340,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"showDetail"])
+    {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];

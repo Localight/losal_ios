@@ -16,7 +16,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 @property (weak, nonatomic) IBOutlet UITextView *messageArea;
-//@property (weak, nonatomic) IBOutlet UITextField *messageArea;
 
-//-(void)ResizeForCellWithOutImage:(BOOL);
 @end
