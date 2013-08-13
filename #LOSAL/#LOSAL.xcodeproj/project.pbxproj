@@ -546,6 +546,7 @@
 				6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */,
 				43397B4817B95FBC003F4977 /* LALoginViewController.m in Sources */,
 				43397B4B17B96833003F4977 /* LAUser.m in Sources */,
+				651F0C1017B9FBC20018794A /* LAPostCell.m in Sources */,
 				43591F2F17BA9D99005775D1 /* LASocialAccessViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
