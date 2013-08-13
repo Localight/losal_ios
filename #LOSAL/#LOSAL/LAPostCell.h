@@ -15,7 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *socialLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
-@property (weak, nonatomic) IBOutlet UITextField *messageArea;
+@property (weak, nonatomic) IBOutlet UITextView *messageArea;
+//@property (weak, nonatomic) IBOutlet UITextField *messageArea;
 
-
+//-(void)ResizeForCellWithOutImage:(BOOL);
 @end

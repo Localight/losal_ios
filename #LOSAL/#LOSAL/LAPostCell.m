@@ -25,5 +25,11 @@
 
     // Configure the view for the selected state
 }
-
+//
+//-(void)ResizeForCellWithOutImage:(BOOL)hasImage{
+//    //do stuf
+//    if (hasImage == YES) {
+//        
+//    }
+//}
 @end

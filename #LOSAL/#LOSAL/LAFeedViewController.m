@@ -172,13 +172,9 @@
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
-    [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size: 15]];
+    [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
     [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     
-    [cell.userNameLabel setText:postItem.text];
-    [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
-    [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Light" size: 15]];
-    [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     NSDate *timePosted = [postItem postTime];
     NSLog(@"%@", timePosted);
     NSDateFormatter *df = [[NSDateFormatter alloc] init];

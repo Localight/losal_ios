@@ -10,4 +10,14 @@
 
 @implementation LAPostItem
 
+-(BOOL)CheckForImage
+{
+    BOOL check = NO;
+    
+    if ([[self imageURLString]length] == 0)
+    {
+        check = YES;
+    }
+return check;
+}
 @end

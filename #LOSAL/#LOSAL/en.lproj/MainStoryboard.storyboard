@@ -96,41 +96,40 @@
         <scene sceneID="18">
             <objects>
                 <tableViewController storyboardIdentifier="" title="Feed" id="12" customClass="LAFeedViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="124" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" alpha="0.40000000000000002" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="288" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="297" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="124" id="lJ0-d7-vTF" customClass="LAPostCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="124"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="297" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="288" id="lJ0-d7-vTF" customClass="LAPostCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="288"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="123"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="287"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="HKZ-Gn-0BW">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="HKZ-Gn-0BW">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="204" id="Vfe-sY-TAX"/>
-                                                <constraint firstAttribute="width" constant="301" type="user" id="mU8-ot-9H0"/>
+                                                <constraint firstAttribute="height" constant="223" id="tUF-8I-32L"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="eIF-PO-ceo">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="1b2-ex-V1B"/>
-                                                <constraint firstAttribute="height" constant="35" type="user" id="VJA-2v-4IJ"/>
+                                                <constraint firstAttribute="height" constant="35" type="user" id="0Ot-eB-FTm"/>
+                                                <constraint firstAttribute="width" constant="35" type="user" id="sWz-K5-YYW"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Qz-Qk-Ivo">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="16" type="user" id="3SD-HK-CDj"/>
-                                                <constraint firstAttribute="width" constant="16" id="A2W-Bq-M14"/>
+                                                <constraint firstAttribute="height" constant="15" type="user" id="Utx-EU-Sr9"/>
+                                                <constraint firstAttribute="width" constant="15" id="W4k-C5-aGc"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88F-Cq-LRr">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="28" id="0zb-4w-yRk"/>
-                                                <constraint firstAttribute="width" constant="79" id="E1E-bh-6Cb"/>
+                                                <constraint firstAttribute="height" constant="16" type="user" id="3Si-qc-mt1"/>
+                                                <constraint firstAttribute="width" constant="79" type="user" id="E1E-bh-6Cb"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -138,8 +137,7 @@
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date|Grade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUi-bt-Nv5">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="32" type="user" id="8el-XK-PDf"/>
-                                                <constraint firstAttribute="width" constant="89" id="x6u-WE-4cF"/>
+                                                <constraint firstAttribute="width" constant="108" id="YFl-ZP-j7V"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -147,47 +145,51 @@
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Social" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vV-lK-OYB">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="58" id="Mi0-TN-2s1"/>
+                                                <constraint firstAttribute="width" constant="58" type="user" id="Mi0-TN-2s1"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="I love Los AL!" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="shd-p4-epT">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1BT-y6-oBJ">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" type="user" id="4Pd-6u-5zE"/>
+                                                <constraint firstAttribute="width" constant="285" id="48m-C0-EOJ"/>
+                                                <constraint firstAttribute="height" constant="93" id="fQ9-4P-9ji"/>
                                             </constraints>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="shd-p4-epT" firstAttribute="leading" secondItem="eIF-PO-ceo" secondAttribute="leading" type="default" id="3h7-sI-wbh"/>
-                                    <constraint firstItem="shd-p4-epT" firstAttribute="trailing" secondItem="4vV-lK-OYB" secondAttribute="trailing" type="default" id="45d-ZM-5bp"/>
-                                    <constraint firstItem="4vV-lK-OYB" firstAttribute="baseline" secondItem="88F-Cq-LRr" secondAttribute="baseline" type="default" id="53N-mV-T8F"/>
-                                    <constraint firstItem="shd-p4-epT" firstAttribute="top" secondItem="eIF-PO-ceo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5nw-Ht-vAM"/>
-                                    <constraint firstItem="eIF-PO-ceo" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="20" type="user" id="AaW-UF-zhx"/>
-                                    <constraint firstItem="shd-p4-epT" firstAttribute="centerX" secondItem="lJ0-d7-vTF" secondAttribute="centerX" type="default" id="CDo-xl-1xU"/>
-                                    <constraint firstItem="eIF-PO-ceo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="20" type="user" id="FMe-8B-95R"/>
-                                    <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="39" type="user" id="Hbb-Ni-hQt"/>
-                                    <constraint firstItem="4vV-lK-OYB" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="20" type="default" id="NuS-Fg-W1G"/>
-                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="trailing" secondItem="shd-p4-epT" secondAttribute="trailing" type="default" id="OwJ-CA-aew"/>
-                                    <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="2Qz-Qk-Ivo" secondAttribute="leading" type="default" id="Qxc-9L-vQP"/>
-                                    <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="48" id="bBp-Gc-YkK"/>
-                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="4vV-lK-OYB" secondAttribute="bottom" constant="26" type="user" id="iaw-zx-e2M"/>
-                                    <constraint firstItem="jUi-bt-Nv5" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="31" type="user" id="ngn-H1-zii"/>
-                                    <constraint firstItem="jUi-bt-Nv5" firstAttribute="leading" secondItem="2Qz-Qk-Ivo" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="rzV-5S-iAJ"/>
-                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="leading" secondItem="shd-p4-epT" secondAttribute="leading" type="default" id="t6i-66-6hj"/>
-                                    <constraint firstItem="4vV-lK-OYB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="20" type="user" id="uKs-es-lWD"/>
-                                    <constraint firstItem="88F-Cq-LRr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="15" type="user" id="xKb-a5-2h7"/>
+                                    <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="eIF-PO-ceo" secondAttribute="trailing" constant="8" type="user" id="5tN-3L-Kgk"/>
+                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="centerX" secondItem="lJ0-d7-vTF" secondAttribute="centerX" type="default" id="A5K-6f-DR0"/>
+                                    <constraint firstItem="4vV-lK-OYB" firstAttribute="leading" secondItem="88F-Cq-LRr" secondAttribute="trailing" constant="120" type="user" id="EbT-2c-6Ee"/>
+                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="eIF-PO-ceo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GTt-Mf-XMI"/>
+                                    <constraint firstItem="4vV-lK-OYB" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="top" type="user" id="HW1-Sy-bWm"/>
+                                    <constraint firstAttribute="trailing" secondItem="1BT-y6-oBJ" secondAttribute="trailing" constant="20" type="default" id="Hue-cX-eWg"/>
+                                    <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="leading" secondItem="eIF-PO-ceo" secondAttribute="trailing" constant="8" type="user" id="N3D-xO-PEb"/>
+                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="2Qz-Qk-Ivo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PF3-Bi-QaQ"/>
+                                    <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="bottom" secondItem="jUi-bt-Nv5" secondAttribute="bottom" type="user" id="QD2-Ym-9ul"/>
+                                    <constraint firstAttribute="bottom" secondItem="1BT-y6-oBJ" secondAttribute="bottom" constant="21" id="SpS-h2-As7"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1BT-y6-oBJ" secondAttribute="bottom" constant="21" type="user" id="Y2f-8t-Q9S"/>
+                                    <constraint firstItem="4vV-lK-OYB" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="top" type="user" id="eE5-Qz-DPn"/>
+                                    <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="eIF-PO-ceo" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="evW-1z-erY"/>
+                                    <constraint firstItem="eIF-PO-ceo" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="13" id="giJ-5e-Kwe"/>
+                                    <constraint firstItem="jUi-bt-Nv5" firstAttribute="leading" secondItem="2Qz-Qk-Ivo" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="jm1-IC-UrD"/>
+                                    <constraint firstItem="4vV-lK-OYB" firstAttribute="trailing" secondItem="HKZ-Gn-0BW" secondAttribute="trailing" type="user" id="krv-eb-dtn"/>
+                                    <constraint firstItem="eIF-PO-ceo" firstAttribute="leading" secondItem="HKZ-Gn-0BW" secondAttribute="leading" type="user" id="mTL-3p-5Tn"/>
+                                    <constraint firstItem="88F-Cq-LRr" firstAttribute="top" secondItem="eIF-PO-ceo" secondAttribute="top" type="default" id="uh3-hU-rmm"/>
+                                    <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="leading" secondItem="eIF-PO-ceo" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="viA-s5-nrc"/>
+                                    <constraint firstItem="jUi-bt-Nv5" firstAttribute="top" secondItem="2Qz-Qk-Ivo" secondAttribute="top" type="default" id="wJF-LP-NoW"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dateAndGradeLabel" destination="jUi-bt-Nv5" id="5ER-eU-9Mq"/>
                                     <outlet property="iconImage" destination="eIF-PO-ceo" id="I8s-Uy-C51"/>
-                                    <outlet property="messageArea" destination="shd-p4-epT" id="iy0-PE-2Wo"/>
+                                    <outlet property="messageArea" destination="1BT-y6-oBJ" id="Gan-KY-etf"/>
                                     <outlet property="postImage" destination="HKZ-Gn-0BW" id="DLn-g6-DYw"/>
                                     <outlet property="userNameLabel" destination="88F-Cq-LRr" id="4gY-Bg-JSc"/>
                                     <segue destination="21" kind="push" identifier="showDetail" id="jZb-fq-zAk"/>
@@ -431,6 +433,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="login:"/>
+                <relationship kind="action" name="skip:"/>
                 <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="pinNumber" candidateClass="UITextField"/>
             </relationships>
@@ -443,7 +446,7 @@
             <relationships>
                 <relationship kind="outlet" name="dateAndGradeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="iconImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="messageArea" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
