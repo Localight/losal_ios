@@ -454,7 +454,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="login:"/>
-                <relationship kind="action" name="skip:"/>
                 <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="pinNumber" candidateClass="UITextField"/>
             </relationships>
