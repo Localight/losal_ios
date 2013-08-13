@@ -14,6 +14,8 @@
 		43591F2F17BA9D99005775D1 /* LASocialAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43591F2E17BA9D99005775D1 /* LASocialAccessViewController.m */; };
 		4378F31F17B2D28D00DEBE6A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4378F31E17B2D28D00DEBE6A /* ImageIO.framework */; };
 		4378F37817B2DF1F00DEBE6A /* LAImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */; };
+		438C51FA17BABE7C00DB1054 /* IGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 438C51F417BABE7C00DB1054 /* IGRequest.m */; };
+		438C51FB17BABE7C00DB1054 /* Instagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 438C51F617BABE7C00DB1054 /* Instagram.m */; };
 		4397674017B06AE90040C947 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4397673F17B06AE80040C947 /* libz.dylib */; };
 		4397674617B1A89F0040C947 /* Instagram1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4397674517B1A89F0040C947 /* Instagram1.png */; };
 		4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4397674917B1BCD80040C947 /* LAPostItem.m */; };
@@ -92,6 +94,11 @@
 		4378F31E17B2D28D00DEBE6A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4378F37617B2DF1F00DEBE6A /* LAImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAImageLoader.h; sourceTree = "<group>"; };
 		4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAImageLoader.m; sourceTree = "<group>"; };
+		438C51F217BABE7C00DB1054 /* IGConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGConnect.h; sourceTree = "<group>"; };
+		438C51F317BABE7C00DB1054 /* IGRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGRequest.h; sourceTree = "<group>"; };
+		438C51F417BABE7C00DB1054 /* IGRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGRequest.m; sourceTree = "<group>"; };
+		438C51F517BABE7C00DB1054 /* Instagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instagram.h; sourceTree = "<group>"; };
+		438C51F617BABE7C00DB1054 /* Instagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instagram.m; sourceTree = "<group>"; };
 		4397673F17B06AE80040C947 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4397674517B1A89F0040C947 /* Instagram1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instagram1.png; sourceTree = "<group>"; };
 		4397674817B1BCD80040C947 /* LAPostItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostItem.h; sourceTree = "<group>"; };
@@ -207,6 +214,19 @@
 				43397B4217B93582003F4977 /* LAImage+Color.m */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		438C51F117BABE7C00DB1054 /* instagram-ios-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				438C51F217BABE7C00DB1054 /* IGConnect.h */,
+				438C51F317BABE7C00DB1054 /* IGRequest.h */,
+				438C51F417BABE7C00DB1054 /* IGRequest.m */,
+				438C51F517BABE7C00DB1054 /* Instagram.h */,
+				438C51F617BABE7C00DB1054 /* Instagram.m */,
+			);
+			name = "instagram-ios-sdk";
+			path = "instagram-ios-sdk/instagram-ios-sdk";
 			sourceTree = "<group>";
 		};
 		4397674717B1BCB50040C947 /* Model */ = {
@@ -367,6 +387,7 @@
 		6588D06717A4BF2300B6C498 /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				438C51F117BABE7C00DB1054 /* instagram-ios-sdk */,
 				6549236317B9591A003F39E3 /* NSDate-Extensions-master */,
 				6588D0A517A4C02D00B6C498 /* ECSlidingViewController */,
 			);
@@ -548,6 +569,8 @@
 				43397B4B17B96833003F4977 /* LAUser.m in Sources */,
 				651F0C1017B9FBC20018794A /* LAPostCell.m in Sources */,
 				43591F2F17BA9D99005775D1 /* LASocialAccessViewController.m in Sources */,
+				438C51FA17BABE7C00DB1054 /* IGRequest.m in Sources */,
+				438C51FB17BABE7C00DB1054 /* Instagram.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

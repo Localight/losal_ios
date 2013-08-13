@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YMN-k4-Y3m">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <development version="4600" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
@@ -95,7 +97,7 @@
         <!--Feed View Controller - Feed-->
         <scene sceneID="18">
             <objects>
-                <tableViewController storyboardIdentifier="" title="Feed" id="12" customClass="LAFeedViewController" sceneMemberID="viewController">
+                <tableViewController title="Feed" id="12" customClass="LAFeedViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" alpha="0.40000000000000002" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="288" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,14 +170,11 @@
                                     <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="eIF-PO-ceo" secondAttribute="trailing" constant="8" type="user" id="5tN-3L-Kgk"/>
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="centerX" secondItem="lJ0-d7-vTF" secondAttribute="centerX" type="default" id="A5K-6f-DR0"/>
                                     <constraint firstItem="4vV-lK-OYB" firstAttribute="leading" secondItem="88F-Cq-LRr" secondAttribute="trailing" constant="120" type="user" id="EbT-2c-6Ee"/>
-                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="eIF-PO-ceo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GTt-Mf-XMI"/>
                                     <constraint firstItem="4vV-lK-OYB" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="top" type="user" id="HW1-Sy-bWm"/>
                                     <constraint firstAttribute="trailing" secondItem="1BT-y6-oBJ" secondAttribute="trailing" constant="20" type="default" id="Hue-cX-eWg"/>
                                     <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="leading" secondItem="eIF-PO-ceo" secondAttribute="trailing" constant="8" type="user" id="N3D-xO-PEb"/>
-                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="2Qz-Qk-Ivo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PF3-Bi-QaQ"/>
                                     <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="bottom" secondItem="jUi-bt-Nv5" secondAttribute="bottom" type="user" id="QD2-Ym-9ul"/>
-                                    <constraint firstAttribute="bottom" secondItem="1BT-y6-oBJ" secondAttribute="bottom" constant="21" id="SpS-h2-As7"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1BT-y6-oBJ" secondAttribute="bottom" constant="21" type="user" id="Y2f-8t-Q9S"/>
+                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="55" id="T3P-Fx-5aF"/>
                                     <constraint firstItem="4vV-lK-OYB" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="top" type="user" id="eE5-Qz-DPn"/>
                                     <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="eIF-PO-ceo" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="evW-1z-erY"/>
                                     <constraint firstItem="eIF-PO-ceo" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="13" id="giJ-5e-Kwe"/>
@@ -185,6 +184,8 @@
                                     <constraint firstItem="88F-Cq-LRr" firstAttribute="top" secondItem="eIF-PO-ceo" secondAttribute="top" type="default" id="uh3-hU-rmm"/>
                                     <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="leading" secondItem="eIF-PO-ceo" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="viA-s5-nrc"/>
                                     <constraint firstItem="jUi-bt-Nv5" firstAttribute="top" secondItem="2Qz-Qk-Ivo" secondAttribute="top" type="default" id="wJF-LP-NoW"/>
+                                    <constraint firstItem="eIF-PO-ceo" firstAttribute="bottom" secondItem="2Qz-Qk-Ivo" secondAttribute="bottom" type="default" id="x6V-s5-Gcv"/>
+                                    <constraint firstAttribute="bottom" secondItem="1BT-y6-oBJ" secondAttribute="bottom" constant="21" id="xGy-cb-6e3"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dateAndGradeLabel" destination="jUi-bt-Nv5" id="5ER-eU-9Mq"/>
@@ -211,7 +212,7 @@
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
             <objects>
-                <viewController storyboardIdentifier="" title="Detail" id="21" customClass="LADetailViewController" sceneMemberID="viewController">
+                <viewController title="Detail" id="21" customClass="LADetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -261,7 +262,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mA-8U-IOf">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Log in">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -277,7 +278,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Skip">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -317,7 +318,26 @@
                     <view key="view" contentMode="scaleToFill" id="aJi-L2-ZAd">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTd-Zy-t7k">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Instagram">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="igLogin:" destination="DDz-kL-Nei" eventType="touchUpInside" id="AOJ-AZ-ZO4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fTd-Zy-t7k" firstAttribute="top" secondItem="aJi-L2-ZAd" secondAttribute="top" constant="160" id="KWS-g1-K8f"/>
+                            <constraint firstItem="fTd-Zy-t7k" firstAttribute="centerX" secondItem="aJi-L2-ZAd" secondAttribute="centerX" type="default" id="hr4-Uq-0Pv"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IAV-An-Tum" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -327,7 +347,7 @@
         <!--Alert View Controller - AlertFeed-->
         <scene sceneID="BkQ-7f-0Tx">
             <objects>
-                <tableViewController storyboardIdentifier="" title="AlertFeed" id="Lra-wS-cTB" customClass="LAAlertViewController" sceneMemberID="viewController">
+                <tableViewController title="AlertFeed" id="Lra-wS-cTB" customClass="LAAlertViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="106" sectionHeaderHeight="22" sectionFooterHeight="22" id="z1H-W4-byv">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -391,7 +411,7 @@
         <!--Detail View Controller - Detail-->
         <scene sceneID="iO2-3r-YvX">
             <objects>
-                <viewController storyboardIdentifier="" title="Detail" id="tn1-ib-iOM" customClass="LADetailViewController" sceneMemberID="viewController">
+                <viewController title="Detail" id="tn1-ib-iOM" customClass="LADetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dMF-3w-k2Q">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -447,6 +467,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="login:"/>
+                <relationship kind="action" name="skip:"/>
                 <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="pinNumber" candidateClass="UITextField"/>
             </relationships>
@@ -467,6 +488,9 @@
         </class>
         <class className="LASocialAccessViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LASocialAccessViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="igLogin:"/>
+            </relationships>
         </class>
         <class className="LASplashViewController" superclassName="ECSlidingViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>

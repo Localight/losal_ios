@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Instagram.h"
 
 @interface LAAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) Instagram *instagram;
 
 @end

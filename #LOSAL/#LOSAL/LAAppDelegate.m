@@ -9,15 +9,30 @@
 #import "LAAppDelegate.h"
 #import "LAStoreManager.h"
 
+#define INSTAGRAM_ID @"64392b8719fb49f59f71213ed640fb68"
+
 @implementation LAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    LAStoreManager *parseManager = [LAStoreManager sharedManager];
-    [parseManager trackOpen:launchOptions];
+    LAStoreManager *storeManager = [LAStoreManager sharedManager];
+    [storeManager trackOpen:launchOptions];
+    
+    self.instagram = [[Instagram alloc] initWithClientId:INSTAGRAM_ID
+                                                delegate:nil];
     
     return YES;
 }
+
+// YOU NEED TO CAPTURE igAPPID:// schema
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [self.instagram handleOpenURL:url];
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [self.instagram handleOpenURL:url];
+}
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
