@@ -33,7 +33,9 @@
     return self;
 }
 
-- (void)processImageDataWithURLString:(NSString *)urlString forId:(NSString *)imageId andBlock:(void (^)(UIImage *image))processImage
+- (void)processImageDataWithURLString:(NSString *)urlString
+                                forId:(NSString *)imageId
+                             andBlock:(void (^)(UIImage *image))processImage
 {
     if (urlString == nil || [urlString length] == 0) {
         processImage(nil);

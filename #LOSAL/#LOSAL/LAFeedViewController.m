@@ -22,6 +22,8 @@
 
 #import "LAImage+Color.h"
 
+#import "NSDate-Utilities.h"
+
 @interface LAFeedViewController ()
 {
     NSMutableArray *_objects;
@@ -125,6 +127,7 @@
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -162,34 +165,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //this is were you populate reload the data
-    //TODO: enter in the postitem to pull data from
-    
-//    LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCellIdentifier"];
-//    if(cell == nil)
-//    {
-//        cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"postCellIdentifier"];
-//              
-//    }
-//    
-//    [[cell userNameLabel] setText:@"James Hall"];
-//    
-//    [[cell gradeLabel] setText:@"Senior"];
-//    
-//    [[cell socialLabel] setText:@"Facebook here"];
-//    
-//    [[cell dateLabel] setText:@"today"];
-//    UIImage *i = [UIImage imageNamed:@"photo1.jpg"];
-//    
-//    [[cell imageView] setImage:i];
-    
-    //NSDate *date = [[NSDate alloc] init];
-    
-    // NSDate *object = _objects[indexPath.row];
-    //cell.textLabel.text = [object description];
-    //[[self tableView] reloadData];
-    
     NSString *cellIdentifier = @"postCell";
+    
     
     LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
@@ -199,30 +176,39 @@
     }
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
-    
-    [cell.userNameLabel setText:postItem.text];
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
-    [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Light" size: 15]];
-    [[cell dateLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
-    [[cell gradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
+    [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
+    [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     
-    [cell.postImage setImage:nil];
-    [self.imageLoader processImageDataWithURLString:postItem.imageURLString forId:postItem.postID andBlock:^(UIImage *image) {
-        if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
+    NSDate *timePosted = [postItem postTime];
+    NSLog(@"%@", timePosted);
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
+    
+    //TODO: add in ENum for grade level
+    if ([[postItem imageURLString] length] == 0)
+    {
+        [[cell messageArea]setText:[postItem text]];
+        [[cell postImage]setImage:nil];
+        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | grade here", [self fuzzyTime:[df stringFromDate:timePosted]]]];
+        [[cell socialLabel]setText:@"facebook"];
+        [cell setBackgroundColor:[UIColor blackColor]];
+    }else{
+        
+        [cell.postImage setImage:nil];
+        [self.imageLoader processImageDataWithURLString:postItem.imageURLString
+                                                  forId:postItem.postID
+                                               andBlock:^(UIImage *image) {
             [cell.postImage setImage:image];
-            NSLog(@"%@ was viewable", indexPath);
-        } else {
-            NSLog(@"%@ was NOT viewable", indexPath);
-        }
-    }];
-
+        }];
+        [[cell messageArea] setText:[postItem text]];
+        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@|", [self fuzzyTime:[df stringFromDate:timePosted]]]];
+        [[cell socialLabel]setText:@"facebook"];
+    }
     //UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:MyURL]]];
     //cell.postImage = postItem.postImage;
     //[cell.imageView setImageWithURL:[NSURL URLWithString:postItem.imageURLString] placeholderImage:[UIImage imageNamed:@"placeholder"] options:indexPath.row == 0 ? SDWebImageRefreshCached : 0];
-    [[cell userNameLabel]setText:postItem.text];
-    [[cell dateLabel]setText:@"today"];
-    [[cell socialLabel]setText:@"facebook"];
-    
     UIImage *coloredImage = [[UIImage imageNamed:@"Mustache"] imageWithOverlayColor:[UIColor redColor]];
     
     [cell.iconImage setImage:coloredImage];
@@ -230,10 +216,51 @@
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Resize to fit in 320 width
     UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:320];
     return image.size.height;
+}
+//still working on
+-(NSString *)fuzzyTime:(NSString *)datetime;
+{
+    NSString *formatted;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    [formatter setTimeZone:gmt];
+    NSDate *date = [formatter dateFromString:datetime];
+    NSDate *today = [NSDate date];
+    NSInteger minutes = [today minutesAfterDate:date];
+    NSInteger hours = [today hoursAfterDate:date];
+    NSInteger days = [today daysAfterDate:date];
+    NSString *period;
+    if(days >= 365){
+        float years = round(days / 365) / 2.0f;
+        period = (years > 1) ? @"years" : @"year";
+        formatted = [NSString stringWithFormat:@"about %f %@ ago", years, period];
+    } else if(days < 365 && days >= 30) {
+        float months = round(days / 30) / 2.0f;
+        period = (months > 1) ? @"months" : @"month";
+        formatted = [NSString stringWithFormat:@"about %f %@ ago", months, period];
+    } else if(days < 30 && days >= 2) {
+        period = @"days";
+        formatted = [NSString stringWithFormat:@"about %i %@ ago", days, period];
+    } else if(days == 1){
+        period = @"day";
+        formatted = [NSString stringWithFormat:@"about %i %@ ago", days, period];
+    } else if(days < 1 && minutes > 60) {
+        period = (hours > 1) ? @"hours" : @"hour";
+        formatted = [NSString stringWithFormat:@"about %i %@ ago", hours, period];
+    } else {
+        period = (minutes < 60 && minutes > 1) ? @"minutes" : @"minute";
+        formatted = [NSString stringWithFormat:@"about %i %@ ago", minutes, period];
+        if(minutes < 1){
+            formatted = @"a moment ago";
+        }
+    }
+    return formatted;
 }
 
 -(UIImage*)imageWithImage:(UIImage*)sourceImage

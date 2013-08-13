@@ -15,7 +15,6 @@
 		4378F31F17B2D28D00DEBE6A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4378F31E17B2D28D00DEBE6A /* ImageIO.framework */; };
 		4378F37817B2DF1F00DEBE6A /* LAImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */; };
 		4397674017B06AE90040C947 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4397673F17B06AE80040C947 /* libz.dylib */; };
-		4397674417B16E470040C947 /* LAPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4397674217B16E350040C947 /* LAPostCell.m */; };
 		4397674617B1A89F0040C947 /* Instagram1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4397674517B1A89F0040C947 /* Instagram1.png */; };
 		4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4397674917B1BCD80040C947 /* LAPostItem.m */; };
 		4397674C17B2A75C0040C947 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4397674B17B2A75C0040C947 /* placeholder.png */; };
@@ -27,6 +26,7 @@
 		43DC44C217A7A159005729D8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C117A7A159005729D8 /* Security.framework */; };
 		43DC44C417A7A186005729D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C317A7A186005729D8 /* SystemConfiguration.framework */; };
 		43DC44C617A7A1BE005729D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */; };
+		651F0C1017B9FBC20018794A /* LAPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F0C0F17B9FBC20018794A /* LAPostCell.m */; };
 		6523AE2B17B31DBD00AFD830 /* LAAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6523AE2A17B31DBD00AFD830 /* LAAlertViewController.m */; };
 		6523AE3A17B42A1E00AFD830 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE2E17B42A1E00AFD830 /* Roboto-Black.ttf */; };
 		6523AE3B17B42A1E00AFD830 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE2F17B42A1E00AFD830 /* Roboto-BlackItalic.ttf */; };
@@ -40,6 +40,9 @@
 		6523AE4317B42A1E00AFD830 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3717B42A1E00AFD830 /* Roboto-Regular.ttf */; };
 		6523AE4417B42A1E00AFD830 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */; };
 		6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */; };
+		6549236817B9591A003F39E3 /* do-git in Resources */ = {isa = PBXBuildFile; fileRef = 6549236417B9591A003F39E3 /* do-git */; };
+		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
+		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
 		6588D02717A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
 		6588D02917A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
 		6588D02B17A4BCC500B6C498 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */; };
@@ -90,8 +93,6 @@
 		4378F37617B2DF1F00DEBE6A /* LAImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAImageLoader.h; sourceTree = "<group>"; };
 		4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAImageLoader.m; sourceTree = "<group>"; };
 		4397673F17B06AE80040C947 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		4397674117B16E350040C947 /* LAPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostCell.h; sourceTree = "<group>"; };
-		4397674217B16E350040C947 /* LAPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostCell.m; sourceTree = "<group>"; };
 		4397674517B1A89F0040C947 /* Instagram1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instagram1.png; sourceTree = "<group>"; };
 		4397674817B1BCD80040C947 /* LAPostItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostItem.h; sourceTree = "<group>"; };
 		4397674917B1BCD80040C947 /* LAPostItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostItem.m; sourceTree = "<group>"; };
@@ -105,6 +106,8 @@
 		43DC44C117A7A159005729D8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		43DC44C317A7A186005729D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		651F0C0E17B9FBC20018794A /* LAPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostCell.h; sourceTree = "<group>"; };
+		651F0C0F17B9FBC20018794A /* LAPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostCell.m; sourceTree = "<group>"; };
 		6523AE2917B31DBD00AFD830 /* LAAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAAlertViewController.h; sourceTree = "<group>"; };
 		6523AE2A17B31DBD00AFD830 /* LAAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAAlertViewController.m; sourceTree = "<group>"; };
 		6523AE2E17B42A1E00AFD830 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
@@ -119,6 +122,10 @@
 		6523AE3717B42A1E00AFD830 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		6549236417B9591A003F39E3 /* do-git */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.csh; path = "do-git"; sourceTree = "<group>"; };
+		6549236517B9591A003F39E3 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
+		6549236617B9591A003F39E3 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
+		6549236717B9591A003F39E3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		6588D02317A4BCC500B6C498 /* #LOSAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#LOSAL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6588D02617A4BCC500B6C498 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6588D02817A4BCC500B6C498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -206,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				43397B4917B96833003F4977 /* LAUser.h */,
+				651F0C0E17B9FBC20018794A /* LAPostCell.h */,
+				651F0C0F17B9FBC20018794A /* LAPostCell.m */,
 				43397B4A17B96833003F4977 /* LAUser.m */,
 				4397674817B1BCD80040C947 /* LAPostItem.h */,
 				4397674917B1BCD80040C947 /* LAPostItem.m */,
@@ -239,6 +248,17 @@
 				6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		6549236317B9591A003F39E3 /* NSDate-Extensions-master */ = {
+			isa = PBXGroup;
+			children = (
+				6549236417B9591A003F39E3 /* do-git */,
+				6549236517B9591A003F39E3 /* NSDate-Utilities.h */,
+				6549236617B9591A003F39E3 /* NSDate-Utilities.m */,
+				6549236717B9591A003F39E3 /* README.md */,
+			);
+			path = "NSDate-Extensions-master";
 			sourceTree = "<group>";
 		};
 		6588D01A17A4BCC500B6C498 = {
@@ -347,6 +367,7 @@
 		6588D06717A4BF2300B6C498 /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				6549236317B9591A003F39E3 /* NSDate-Extensions-master */,
 				6588D0A517A4C02D00B6C498 /* ECSlidingViewController */,
 			);
 			name = "External Libraries";
@@ -372,8 +393,6 @@
 				6523AE2A17B31DBD00AFD830 /* LAAlertViewController.m */,
 				65FA587217A9CCF2006598B1 /* LAPostManager.h */,
 				65FA587317A9CCF2006598B1 /* LAPostManager.m */,
-				4397674117B16E350040C947 /* LAPostCell.h */,
-				4397674217B16E350040C947 /* LAPostCell.m */,
 				65FA586F17A9CB70006598B1 /* LAPostItem2.h */,
 				65FA587017A9CB70006598B1 /* LAPostItem2.m */,
 			);
@@ -473,6 +492,8 @@
 				6523AE4417B42A1E00AFD830 /* Roboto-Thin.ttf in Resources */,
 				6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */,
 				43397B4517B93716003F4977 /* Mustache.png in Resources */,
+				6549236817B9591A003F39E3 /* do-git in Resources */,
+				6549236A17B9591A003F39E3 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,11 +539,11 @@
 				43DC44B717A79638005729D8 /* LAStoreManager.m in Sources */,
 				65FA587117A9CB70006598B1 /* LAPostItem2.m in Sources */,
 				65FA587417A9CCF2006598B1 /* LAPostManager.m in Sources */,
-				4397674417B16E470040C947 /* LAPostCell.m in Sources */,
 				4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */,
 				4378F37817B2DF1F00DEBE6A /* LAImageLoader.m in Sources */,
 				6523AE2B17B31DBD00AFD830 /* LAAlertViewController.m in Sources */,
 				43397B4317B93582003F4977 /* LAImage+Color.m in Sources */,
+				6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */,
 				43397B4817B95FBC003F4977 /* LALoginViewController.m in Sources */,
 				43397B4B17B96833003F4977 /* LAUser.m in Sources */,
 				43591F2F17BA9D99005775D1 /* LASocialAccessViewController.m in Sources */,

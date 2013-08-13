@@ -17,4 +17,8 @@
 @property (nonatomic, strong) NSString *imageURLString;
 @property (nonatomic, strong) NSString *text;
 
+
+-(BOOL)CheckForImage;
+// Write method that takes in bool, and resizes square
+
 @end
