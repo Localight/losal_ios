@@ -11,6 +11,7 @@
 		43397B4517B93716003F4977 /* Mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = 43397B4417B93716003F4977 /* Mustache.png */; };
 		43397B4817B95FBC003F4977 /* LALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4717B95FBB003F4977 /* LALoginViewController.m */; };
 		43397B4B17B96833003F4977 /* LAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4A17B96833003F4977 /* LAUser.m */; };
+		4358C00217BAF67700525BB8 /* LASocialNetworksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4358C00117BAF67700525BB8 /* LASocialNetworksView.m */; };
 		43591F2F17BA9D99005775D1 /* LASocialAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43591F2E17BA9D99005775D1 /* LASocialAccessViewController.m */; };
 		4378F31F17B2D28D00DEBE6A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4378F31E17B2D28D00DEBE6A /* ImageIO.framework */; };
 		4378F37817B2DF1F00DEBE6A /* LAImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */; };
@@ -89,6 +90,8 @@
 		43397B4717B95FBB003F4977 /* LALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LALoginViewController.m; sourceTree = "<group>"; };
 		43397B4917B96833003F4977 /* LAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAUser.h; sourceTree = "<group>"; };
 		43397B4A17B96833003F4977 /* LAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAUser.m; sourceTree = "<group>"; };
+		4358C00017BAF67700525BB8 /* LASocialNetworksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LASocialNetworksView.h; sourceTree = "<group>"; };
+		4358C00117BAF67700525BB8 /* LASocialNetworksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LASocialNetworksView.m; sourceTree = "<group>"; };
 		43591F2D17BA9D99005775D1 /* LASocialAccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LASocialAccessViewController.h; sourceTree = "<group>"; };
 		43591F2E17BA9D99005775D1 /* LASocialAccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LASocialAccessViewController.m; sourceTree = "<group>"; };
 		4378F31E17B2D28D00DEBE6A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -335,6 +338,8 @@
 				43397B4717B95FBB003F4977 /* LALoginViewController.m */,
 				43591F2D17BA9D99005775D1 /* LASocialAccessViewController.h */,
 				43591F2E17BA9D99005775D1 /* LASocialAccessViewController.m */,
+				4358C00017BAF67700525BB8 /* LASocialNetworksView.h */,
+				4358C00117BAF67700525BB8 /* LASocialNetworksView.m */,
 				65FA586E17A9880A006598B1 /* MainFeed */,
 				6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */,
 				6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */,
@@ -569,6 +574,7 @@
 				43591F2F17BA9D99005775D1 /* LASocialAccessViewController.m in Sources */,
 				438C51FA17BABE7C00DB1054 /* IGRequest.m in Sources */,
 				438C51FB17BABE7C00DB1054 /* Instagram.m in Sources */,
+				4358C00217BAF67700525BB8 /* LASocialNetworksView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

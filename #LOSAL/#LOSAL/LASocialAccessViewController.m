@@ -7,6 +7,7 @@
 //
 
 #import "LASocialAccessViewController.h"
+#import "LASocialNetworksView.h"
 #import "LAAppDelegate.h"
 
 @interface LASocialAccessViewController ()
@@ -45,8 +46,11 @@
 }
 
 -(IBAction)igLogin:(id)sender {
-    self.appDelegate = (LAAppDelegate*)[UIApplication sharedApplication].delegate;
-    [self.appDelegate.instagram authorize:[NSArray arrayWithObjects:@"likes", nil]];
+    LASocialNetworksView *alert = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 20, self.view.bounds.size.width - 40, self.view.bounds.size.height - 40)];
+    [self.view addSubview:alert];
+    [alert show];
+    //self.appDelegate = (LAAppDelegate*)[UIApplication sharedApplication].delegate;
+    //[self.appDelegate.instagram authorize:[NSArray arrayWithObjects:@"likes", nil]];
 }
 
 #pragma - IGSessionDelegate
