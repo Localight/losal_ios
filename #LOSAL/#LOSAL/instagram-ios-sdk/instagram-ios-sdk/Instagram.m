@@ -25,8 +25,7 @@ static void *finishedContext            = @"finishedContext";
 -(void)authorizeWithSafari;
 
 @end
-
-
+ 
 @implementation Instagram
 
 @synthesize accessToken = _accessToken;

@@ -49,7 +49,7 @@
     if (image != nil) {
         processImage(image);
     } else {
-        dispatch_queue_t callerQueue = dispatch_get_current_queue();
+        dispatch_queue_t callerQueue = dispatch_get_main_queue();
         dispatch_queue_t asyncQueue = dispatch_queue_create("com.myapp.asyncqueue", NULL);
         dispatch_async(asyncQueue, ^{
             NSError *error;

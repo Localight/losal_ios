@@ -8,10 +8,19 @@
 
 #import "LASocialNetworksView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LASocialManager.h"
+@interface LASocialNetworksView () 
 
-CGPoint lastTouchLocation;
-CGRect originalFrame;
-BOOL isShown;
+@property (nonatomic, strong) LASocialManager *socialManager;
+@property (nonatomic, strong) UIButton *twitterButton;
+@property (nonatomic, strong) UIButton *facebookButton;
+@property (nonatomic, strong) UIButton *instagramButton;
+
+- (void)twitter;
+- (void)facebook;
+- (void)instagram;
+
+@end
 
 @implementation LASocialNetworksView
 
@@ -19,15 +28,18 @@ BOOL isShown;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        originalFrame = frame;
-        
         self.alpha = 0;
         self.backgroundColor = [UIColor blackColor];
         
-        self.layer.cornerRadius = 5;
+        self.layer.cornerRadius = 10;
         self.layer.masksToBounds = YES;
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(30, 20, frame.size.width, 20)];
+        // Get social manager
+        self.socialManager = [LASocialManager sharedManager];
+        self.socialManager.delegate = self;
+        
+        // Title Label
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, frame.size.width-40, 20)];
         label.text = @"Activate your social networks";
         [label setBackgroundColor:[UIColor clearColor]];
         label.textAlignment = NSTextAlignmentCenter;
@@ -35,28 +47,81 @@ BOOL isShown;
         [label setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
         [self addSubview:label];
         
+        // Blue line 1
+        UIView *blueLine1 = [[UIView alloc] initWithFrame:CGRectMake(40, 40, frame.size.width-80, 1)];
+        [blueLine1 setBackgroundColor:[UIColor blueColor]];
+        [self addSubview:blueLine1];
+        
+        // Twitter
+        self.twitterButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.twitterButton.frame = CGRectMake(frame.size.width/2, 50, frame.size.width/2 - 20, 40);
+        [self.twitterButton setTitle:@"Twitter" forState:UIControlStateNormal];
+        [self.twitterButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        [self setButton:self.twitterButton active:[self.socialManager twitterSessionIsValid]];
+        [self.twitterButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
+        [self.twitterButton addTarget:self action:@selector(twitter) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:self.twitterButton];
+        
+        // Facebook
+        self.facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.facebookButton.frame = CGRectMake(frame.size.width/2, 110, frame.size.width/2 - 20, 40);
+        [self.facebookButton setTitle:@"Facebook" forState:UIControlStateNormal];
+        [self.facebookButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        [self setButton:self.facebookButton active:[self.socialManager facebookSessionsIsValid]];
+        [self.facebookButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
+        [self.facebookButton addTarget:self action:@selector(facebook) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:self.facebookButton];
+        
+        // Instagramr
+        self.instagramButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.instagramButton.frame = CGRectMake(frame.size.width/2, 170, frame.size.width/2 - 20, 40);
+        [self.instagramButton setTitle:@"Instagram" forState:UIControlStateNormal];
+        [self.instagramButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+        [self setButton:self.instagramButton active:[self.socialManager instagramSessionIsValid]];
+        [self.instagramButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
+        [self.instagramButton addTarget:self action:@selector(instagram) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:self.instagramButton];
+        
+        // Blue line 2
+        UIView *blueLine2 = [[UIView alloc] initWithFrame:CGRectMake(40, 230, frame.size.width-80, 1)];
+        [blueLine2 setBackgroundColor:[UIColor blueColor]];
+        [self addSubview:blueLine2];
+        
+        // Privacy note
+        UITextView *privacyView = [[UITextView alloc] initWithFrame:CGRectMake(30, 240, frame.size.width-60, 60)];
+        [privacyView setText:@"The #LOSAL APP uses Localism! to protect your privacy and unite our community. Your private information is not shared."];
+        [privacyView setBackgroundColor:[UIColor clearColor]];
+        [privacyView setTextAlignment:NSTextAlignmentCenter];
+        [privacyView setTextColor:[UIColor grayColor]];
+        [privacyView setFont:[UIFont fontWithName:@"Roboto-Light" size:10]];
+        [privacyView setEditable:NO];
+        [self addSubview:privacyView];
+        
+        // Close button
         UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        closeButton.frame = CGRectMake(10, frame.size.height - 45, frame.size.width - 20, 35);
+        closeButton.frame = CGRectMake(10, 310, frame.size.width - 20, 35);
         [closeButton setTitle:@"Close" forState:UIControlStateNormal];
         [closeButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
         [closeButton addTarget:self action:@selector(hide) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:closeButton];
+        
     }
     return self;
 }
 
-#pragma mark Custom alert methods
-
+#pragma UI Methods
 - (void)show
 {
     NSLog(@"show");
-    isShown = YES;
     self.transform = CGAffineTransformMakeScale(0.1, 0.1);
     self.alpha = 0;
-
-    [UIView animateWithDuration:.2 animations:^{
+    
+    [self.socialManager twitterLogin];
+    [self.socialManager facebookLogin];
+    
+    [UIView animateWithDuration:.3 animations:^{
         self.transform = CGAffineTransformMakeScale(1.1, 1.1);
-        self.alpha = .85;
+        self.alpha = .9;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:.1 animations:^{
             self.transform = CGAffineTransformMakeScale(1.0, 1.0);
@@ -68,52 +133,100 @@ BOOL isShown;
 - (void)hide
 {
     NSLog(@"hide");
-    isShown = NO;
     
-    [UIView animateWithDuration:.2 animations:^{
+    [UIView animateWithDuration:.4 animations:^{
         self.transform = CGAffineTransformMakeScale(0.1, 0.1);
         self.alpha = 0;
     }];
 }
+- (void)setButton:(UIButton *)button active:(BOOL)active {
+    dispatch_queue_t callerQueue = dispatch_get_main_queue();
+    dispatch_async(callerQueue, ^{
+        if (active) {
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+        } else {
+            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        }
+    });
+}
 
-- (void)toggle
-{
-    if (isShown) {
-        [self hide];
+- (void)displayAlertMessage:(NSString *)alertMessage {
+    dispatch_queue_t callerQueue = dispatch_get_main_queue();
+    dispatch_async(callerQueue, ^{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!"
+                                                     message:alertMessage
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [alertView show];
+    });
+}
+
+#pragma TWITTER
+- (void)twitter {
+    if ([self.socialManager twitterSessionIsValid]) {
+        [self.socialManager twitterLogout];
     } else {
-        [self show];
+        [self.socialManager twitterLogin];
     }
 }
 
-#pragma mark Touch methods
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [touches anyObject];
-    lastTouchLocation = [touch locationInView:self];
+#pragma TWITTER Delegates
+- (void)twitterDidLogin {
+    [self setButton:self.twitterButton active:YES];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = [touches anyObject];
-    CGPoint newTouchLocation = [touch locationInView:self];
-    CGRect currentFrame = self.frame;
-    
-    CGFloat deltaX = lastTouchLocation.x - newTouchLocation.x;
-    CGFloat deltaY = lastTouchLocation.y - newTouchLocation.y;
-    
-    self.frame = CGRectMake(currentFrame.origin.x - deltaX, currentFrame.origin.y - deltaY, currentFrame.size.width, currentFrame.size.height);
-    lastTouchLocation = [touch locationInView:self];
+- (void)twitterDidLogout {
+    [self setButton:self.twitterButton active:NO];
+}
+- (void)twitterDidReceiveAnError {
+    [self displayAlertMessage:@"Please go to settings and create a twitter account."];
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
+#pragma FACEBOOK
+- (void)facebook {
+    if ([self.socialManager facebookSessionsIsValid]) {
+        [self.socialManager facebookLogout];
+    } else {
+        [self.socialManager facebookLogin];
+    }
 }
 
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    
+#pragma FACEBOOK Delegates
+- (void)facebookDidLogin {
+    [self setButton:self.facebookButton active:YES];
+}
+
+- (void)facebookDidLogout {
+    [self setButton:self.facebookButton active:NO];
+}
+- (void)facebookDidReceiveAnError {
+    [self displayAlertMessage:@"Please go to settings and create a facebook account."];
+}
+
+
+#pragma INSTAGRAM
+- (void)instagram {
+    if ([self.socialManager instagramSessionIsValid]) {
+        [self.socialManager instagramLogout];
+    } else {
+        [self.socialManager instagramLogin];
+    }
+}
+#pragma INSTAGRAM Delegates
+- (void)instagramDidLogin {
+    [self setButton:self.instagramButton active:YES];
+}
+- (void)instagramDidLogout {
+    [self setButton:self.instagramButton active:NO];
+}
+- (void)instagramDidLoad:(id)result {
+    NSLog(@"Received restul %@", result);
+}
+- (void)instagramDidReceiveAnError {
+    [self displayAlertMessage:@"Something went wrong. Press OK and retry to try again."];
 }
 
 @end

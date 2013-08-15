@@ -12,7 +12,9 @@
 		43397B4817B95FBC003F4977 /* LALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4717B95FBB003F4977 /* LALoginViewController.m */; };
 		43397B4B17B96833003F4977 /* LAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4A17B96833003F4977 /* LAUser.m */; };
 		4358C00217BAF67700525BB8 /* LASocialNetworksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4358C00117BAF67700525BB8 /* LASocialNetworksView.m */; };
-		43591F2F17BA9D99005775D1 /* LASocialAccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43591F2E17BA9D99005775D1 /* LASocialAccessViewController.m */; };
+		4358C00A17BBFB9000525BB8 /* LASocialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4358C00917BBFB9000525BB8 /* LASocialManager.m */; };
+		4358C00C17BC216400525BB8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4358C00B17BC216400525BB8 /* Social.framework */; };
+		4358C00E17BC255600525BB8 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4358C00D17BC255600525BB8 /* Accounts.framework */; };
 		4378F31F17B2D28D00DEBE6A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4378F31E17B2D28D00DEBE6A /* ImageIO.framework */; };
 		4378F37817B2DF1F00DEBE6A /* LAImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */; };
 		438C51FA17BABE7C00DB1054 /* IGRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 438C51F417BABE7C00DB1054 /* IGRequest.m */; };
@@ -92,8 +94,10 @@
 		43397B4A17B96833003F4977 /* LAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAUser.m; sourceTree = "<group>"; };
 		4358C00017BAF67700525BB8 /* LASocialNetworksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LASocialNetworksView.h; sourceTree = "<group>"; };
 		4358C00117BAF67700525BB8 /* LASocialNetworksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LASocialNetworksView.m; sourceTree = "<group>"; };
-		43591F2D17BA9D99005775D1 /* LASocialAccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LASocialAccessViewController.h; sourceTree = "<group>"; };
-		43591F2E17BA9D99005775D1 /* LASocialAccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LASocialAccessViewController.m; sourceTree = "<group>"; };
+		4358C00817BBFB9000525BB8 /* LASocialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LASocialManager.h; sourceTree = "<group>"; };
+		4358C00917BBFB9000525BB8 /* LASocialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LASocialManager.m; sourceTree = "<group>"; };
+		4358C00B17BC216400525BB8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		4358C00D17BC255600525BB8 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		4378F31E17B2D28D00DEBE6A /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4378F37617B2DF1F00DEBE6A /* LAImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAImageLoader.h; sourceTree = "<group>"; };
 		4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAImageLoader.m; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4358C00E17BC255600525BB8 /* Accounts.framework in Frameworks */,
+				4358C00C17BC216400525BB8 /* Social.framework in Frameworks */,
 				4378F31F17B2D28D00DEBE6A /* ImageIO.framework in Frameworks */,
 				4397674017B06AE90040C947 /* libz.dylib in Frameworks */,
 				43DC44C617A7A1BE005729D8 /* MobileCoreServices.framework in Frameworks */,
@@ -207,6 +213,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4358C00317BBF9E200525BB8 /* Social Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				4358C00817BBFB9000525BB8 /* LASocialManager.h */,
+				4358C00917BBFB9000525BB8 /* LASocialManager.m */,
+			);
+			name = "Social Libraries";
+			sourceTree = "<group>";
+		};
+		4358C00417BBFA2A00525BB8 /* Interface Builder */ = {
+			isa = PBXGroup;
+			children = (
+				6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */,
+			);
+			name = "Interface Builder";
+			sourceTree = "<group>";
+		};
+		4358C00517BBFA3E00525BB8 /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				6588D06417A4BEBF00B6C498 /* LASplashViewController.h */,
+				6588D06517A4BEBF00B6C498 /* LASplashViewController.m */,
+				43397B4617B95FBB003F4977 /* LALoginViewController.h */,
+				43397B4717B95FBB003F4977 /* LALoginViewController.m */,
+				6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */,
+				6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */,
+			);
+			name = Init;
+			sourceTree = "<group>";
+		};
+		4358C00617BBFA6000525BB8 /* Main Feed */ = {
+			isa = PBXGroup;
+			children = (
+				6588D04117A4BCC500B6C498 /* LAFeedViewController.h */,
+				6588D04217A4BCC500B6C498 /* LAFeedViewController.m */,
+				651F0C0E17B9FBC20018794A /* LAPostCell.h */,
+				651F0C0F17B9FBC20018794A /* LAPostCell.m */,
+				6588D04417A4BCC500B6C498 /* LADetailViewController.h */,
+				6588D04517A4BCC500B6C498 /* LADetailViewController.m */,
+				4358C00017BAF67700525BB8 /* LASocialNetworksView.h */,
+				4358C00117BAF67700525BB8 /* LASocialNetworksView.m */,
+			);
+			name = "Main Feed";
+			sourceTree = "<group>";
+		};
+		4358C00717BBFA9200525BB8 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				6523AE2917B31DBD00AFD830 /* LAAlertViewController.h */,
+				6523AE2A17B31DBD00AFD830 /* LAAlertViewController.m */,
+			);
+			name = Alerts;
+			sourceTree = "<group>";
+		};
 		4378F37517B2DF0E00DEBE6A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,11 +295,11 @@
 			isa = PBXGroup;
 			children = (
 				43397B4917B96833003F4977 /* LAUser.h */,
-				651F0C0E17B9FBC20018794A /* LAPostCell.h */,
-				651F0C0F17B9FBC20018794A /* LAPostCell.m */,
 				43397B4A17B96833003F4977 /* LAUser.m */,
 				4397674817B1BCD80040C947 /* LAPostItem.h */,
 				4397674917B1BCD80040C947 /* LAPostItem.m */,
+				65FA586F17A9CB70006598B1 /* LAPostItem2.h */,
+				65FA587017A9CB70006598B1 /* LAPostItem2.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -305,6 +365,8 @@
 		6588D02517A4BCC500B6C498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4358C00D17BC255600525BB8 /* Accounts.framework */,
+				4358C00B17BC216400525BB8 /* Social.framework */,
 				4378F31E17B2D28D00DEBE6A /* ImageIO.framework */,
 				4397673F17B06AE80040C947 /* libz.dylib */,
 				43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */,
@@ -325,26 +387,14 @@
 		6588D02C17A4BCC500B6C498 /* #LOSAL */ = {
 			isa = PBXGroup;
 			children = (
-				4378F37517B2DF0E00DEBE6A /* Utilities */,
-				6588D06717A4BF2300B6C498 /* External Libraries */,
-				43DC44BA17A796DC005729D8 /* Store */,
-				4397674717B1BCB50040C947 /* Model */,
 				6588D03517A4BCC500B6C498 /* LAAppDelegate.h */,
 				6588D03617A4BCC500B6C498 /* LAAppDelegate.m */,
-				6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */,
-				6588D06417A4BEBF00B6C498 /* LASplashViewController.h */,
-				6588D06517A4BEBF00B6C498 /* LASplashViewController.m */,
-				43397B4617B95FBB003F4977 /* LALoginViewController.h */,
-				43397B4717B95FBB003F4977 /* LALoginViewController.m */,
-				43591F2D17BA9D99005775D1 /* LASocialAccessViewController.h */,
-				43591F2E17BA9D99005775D1 /* LASocialAccessViewController.m */,
-				4358C00017BAF67700525BB8 /* LASocialNetworksView.h */,
-				4358C00117BAF67700525BB8 /* LASocialNetworksView.m */,
-				65FA586E17A9880A006598B1 /* MainFeed */,
-				6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */,
-				6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */,
-				6588D04417A4BCC500B6C498 /* LADetailViewController.h */,
-				6588D04517A4BCC500B6C498 /* LADetailViewController.m */,
+				6588D06717A4BF2300B6C498 /* External Libraries */,
+				4378F37517B2DF0E00DEBE6A /* Utilities */,
+				4358C00317BBF9E200525BB8 /* Social Libraries */,
+				43DC44BA17A796DC005729D8 /* Store */,
+				4397674717B1BCB50040C947 /* Model */,
+				65FA586E17A9880A006598B1 /* Views */,
 				6588D02D17A4BCC500B6C498 /* Supporting Files */,
 			);
 			path = "#LOSAL";
@@ -410,17 +460,15 @@
 			path = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
-		65FA586E17A9880A006598B1 /* MainFeed */ = {
+		65FA586E17A9880A006598B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6588D04117A4BCC500B6C498 /* LAFeedViewController.h */,
-				6588D04217A4BCC500B6C498 /* LAFeedViewController.m */,
-				6523AE2917B31DBD00AFD830 /* LAAlertViewController.h */,
-				6523AE2A17B31DBD00AFD830 /* LAAlertViewController.m */,
-				65FA586F17A9CB70006598B1 /* LAPostItem2.h */,
-				65FA587017A9CB70006598B1 /* LAPostItem2.m */,
+				4358C00417BBFA2A00525BB8 /* Interface Builder */,
+				4358C00517BBFA3E00525BB8 /* Init */,
+				4358C00617BBFA6000525BB8 /* Main Feed */,
+				4358C00717BBFA9200525BB8 /* Alerts */,
 			);
-			name = MainFeed;
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -571,10 +619,10 @@
 				43397B4817B95FBC003F4977 /* LALoginViewController.m in Sources */,
 				43397B4B17B96833003F4977 /* LAUser.m in Sources */,
 				651F0C1017B9FBC20018794A /* LAPostCell.m in Sources */,
-				43591F2F17BA9D99005775D1 /* LASocialAccessViewController.m in Sources */,
 				438C51FA17BABE7C00DB1054 /* IGRequest.m in Sources */,
 				438C51FB17BABE7C00DB1054 /* Instagram.m in Sources */,
 				4358C00217BAF67700525BB8 /* LASocialNetworksView.m in Sources */,
+				4358C00A17BBFB9000525BB8 /* LASocialManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

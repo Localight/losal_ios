@@ -10,8 +10,6 @@
 
 @interface LASocialNetworksView : UIView
 
-- (id)initWithStartPoint:(CGPoint)startPoint Frame:(CGRect)frame;
-
 - (void)show;
 - (void)hide;
 

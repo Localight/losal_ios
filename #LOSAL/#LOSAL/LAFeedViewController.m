@@ -24,6 +24,8 @@
 
 #import "NSDate-Utilities.h"
 
+#import "LASocialNetworksView.h"
+
 @interface LAFeedViewController ()
 {
     NSMutableArray *_objects;
@@ -31,6 +33,9 @@
 
 @property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
+
+- (IBAction)likeButtonTapped:(id)sender;
+
 @end
 
 @implementation LAFeedViewController
@@ -325,6 +330,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     }
 }
 
+
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -340,6 +346,18 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     return YES;
 }
 */
+
+- (IBAction)likeButtonTapped:(id)sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    if (indexPath != nil)
+    {
+        LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 64, self.view.bounds.size.width - 40, 350)];
+        [self.navigationController.view addSubview:socialView];
+        [socialView show];
+    }
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
