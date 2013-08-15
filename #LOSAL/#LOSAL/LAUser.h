@@ -20,4 +20,7 @@
 @property (nonatomic, strong) NSDate   *birthday;
 @property (nonatomic, strong) NSString *studentID;
 
+@property (nonatomic, strong) NSString *twitterID;
+@property (nonatomic, strong) NSString *facebookID;
+@property (nonatomic, strong) NSString *instagramID;
 @end

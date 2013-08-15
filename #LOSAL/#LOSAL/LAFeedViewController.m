@@ -13,6 +13,7 @@
 #import "LADetailViewController.h"
 
 #import "LAStoreManager.h"
+#import "LASocialManager.h"
 
 #import "LAImageLoader.h"
 
@@ -26,12 +27,15 @@
 
 #import "LASocialNetworksView.h"
 
+
+
 @interface LAFeedViewController ()
 {
     NSMutableArray *_objects;
 }
 
 @property (strong, nonatomic) LAStoreManager *storeManager;
+@property (strong, nonatomic) LASocialManager *socialManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
 
 - (IBAction)likeButtonTapped:(id)sender;
@@ -100,7 +104,7 @@
     
     // This is where you populate the table with data
     self.storeManager = [LAStoreManager sharedManager];
-    
+    self.socialManager = [LASocialManager sharedManager];
     self.imageLoader = [LAImageLoader sharedManager];
     
     [[self navigationItem] setTitleView:currentTitleView];
@@ -353,9 +357,16 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     if (indexPath != nil)
     {
-        LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 64, self.view.bounds.size.width - 40, 350)];
-        [self.navigationController.view addSubview:socialView];
-        [socialView show];
+        // Get postitem and pass it to the like method in the social managher
+        LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
+        
+        if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO) {
+            LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 64, self.view.bounds.size.width - 40, 350)];
+            [self.navigationController.view addSubview:socialView];
+            [socialView show];
+        } else {
+            [self.socialManager likePostItem:postItem];
+        }
     }
 }
 

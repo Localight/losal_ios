@@ -20,6 +20,8 @@
 
 - (LAUser *)getUser;
 
+- (void)saveUsersSocialIDs;
+
 - (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber pinNumber:(NSString *)pinNumber;
 
 - (void)logout;
