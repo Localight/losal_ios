@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSString *socialNetworkPostID;
 @property (nonatomic, strong) NSString *imageURLString;
 @property (nonatomic, strong) NSString *text;
+@property (assign) BOOL isLikedByThisUser;
 
 
 @end

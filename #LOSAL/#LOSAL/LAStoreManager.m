@@ -12,6 +12,7 @@
 @interface LAStoreManager ()
 
 @property (nonatomic, strong) LAUser *thisUser;
+@property (nonatomic, strong) NSMutableArray *likes;
 
 @end
 
@@ -41,6 +42,8 @@
         // Enable public read access by default, with any newly created PFObjects belonging to the current user
         [defaultACL setPublicReadAccess:YES];
         [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+        
+        self.likes = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -52,35 +55,45 @@
 
 - (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-    query.limit = 50;
-    [query orderByDescending:@"postTime"];
-    [query whereKey:@"status" equalTo:@"1"];
-    //[query includeKey:@"postID"];
-    //[query includeKey:@"personID"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
-    {
-        NSMutableArray *messages = nil;
-         if (!error) {
-             messages = [[NSMutableArray alloc] init];
-             for (PFObject *post in posts) {
-                 // This does not require a network access.
-                 NSLog(@"post looks like %@", post);
-                 LAPostItem *postItem = [[LAPostItem alloc] init];
-                 postItem.postID = [post objectId];
-                 postItem.postTime = [post objectForKey:@"postTime"];
-                 postItem.socialNetwork = [post objectForKey:@"socialNetworkName"];
-                 postItem.socialNetworkPostID = [post objectForKey:@"socialNetworkPostID"];
-                 postItem.text = [post objectForKey:@"text"];
-                 postItem.imageURLString = [post objectForKey:@"url"];
-                 [messages addObject:postItem];
-             }
-         } else {
-             // Log details of the failure
-             NSLog(@"Error: %@ %@", error, [error userInfo]);
-         }
-        completionBlock(messages, error);
-     }];
+    [self getUserLikesWithCompletion:^(NSError *error) {
+        if (error) {
+            completionBlock(nil, error);
+        } else {
+            PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+            query.limit = 50;
+            [query orderByDescending:@"postTime"];
+            [query whereKey:@"status" equalTo:@"1"];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
+             {
+                 NSMutableArray *messages = nil;
+                 if (!error) {
+                     messages = [[NSMutableArray alloc] init];
+                     for (PFObject *post in posts) {
+                         // This does not require a network access.
+                         NSLog(@"post looks like %@", post);
+                         LAPostItem *postItem = [[LAPostItem alloc] init];
+                         postItem.postID = [post objectId];
+                         postItem.postTime = [post objectForKey:@"postTime"];
+                         postItem.socialNetwork = [post objectForKey:@"socialNetworkName"];
+                         postItem.socialNetworkPostID = [post objectForKey:@"socialNetworkPostID"];
+                         postItem.text = [post objectForKey:@"text"];
+                         postItem.imageURLString = [post objectForKey:@"url"];
+                         postItem.isLikedByThisUser = [self doesThisUserLike:post.objectId];
+                         [messages addObject:postItem];
+                     }
+                 } else {
+                     // Log details of the failure
+                     NSLog(@"Error: %@ %@", error, [error userInfo]);
+                 }
+                 completionBlock(messages, error);
+             }];
+        }
+    }];
+}
+
+- (BOOL)doesThisUserLike:(NSString *)postID {
+    BOOL doesUserLikePost = [self.likes containsObject:postID];
+    return doesUserLikePost;
 }
 
 - (LAUser *)getUser {
@@ -101,12 +114,26 @@
                      }
                  }
              }];
-
         }
     }
     return self.thisUser;
 }
 
+- (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock {
+    // Now get all likes for user
+    PFQuery *likesQuery = [PFQuery queryWithClassName:@"Likes"];
+    [likesQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
+    [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error) {
+        if (!error) {
+            for (PFObject *like in likes) {
+                PFObject *post = [like objectForKey:@"postID"];
+                [self.likes addObject:post.objectId];
+            }
+            completionBlock(error);
+        }
+    }];
+     
+}
 - (void)saveUsersSocialIDs {
     
     if (self.thisUser.twitterID != nil) {
