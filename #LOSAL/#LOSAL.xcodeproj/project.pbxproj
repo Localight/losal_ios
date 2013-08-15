@@ -46,6 +46,12 @@
 		6523AE4317B42A1E00AFD830 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3717B42A1E00AFD830 /* Roboto-Regular.ttf */; };
 		6523AE4417B42A1E00AFD830 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */; };
 		6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */; };
+		6530907017BD87C400ADA359 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906A17BD87C400ADA359 /* facebook.png */; };
+		6530907117BD87C400ADA359 /* instagramlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906B17BD87C400ADA359 /* instagramlike.png */; };
+		6530907217BD87C400ADA359 /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906C17BD87C400ADA359 /* instagram.png */; };
+		6530907317BD87C400ADA359 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906D17BD87C400ADA359 /* twitter.png */; };
+		6530907417BD87C400ADA359 /* twitterlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906E17BD87C400ADA359 /* twitterlike.png */; };
+		6530907517BD87C400ADA359 /* facebooklike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906F17BD87C400ADA359 /* facebooklike.png */; };
 		6549236817B9591A003F39E3 /* do-git in Resources */ = {isa = PBXBuildFile; fileRef = 6549236417B9591A003F39E3 /* do-git */; };
 		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
 		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
@@ -137,6 +143,12 @@
 		6523AE3717B42A1E00AFD830 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		6530906A17BD87C400ADA359 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		6530906B17BD87C400ADA359 /* instagramlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagramlike.png; sourceTree = "<group>"; };
+		6530906C17BD87C400ADA359 /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
+		6530906D17BD87C400ADA359 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		6530906E17BD87C400ADA359 /* twitterlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterlike.png; sourceTree = "<group>"; };
+		6530906F17BD87C400ADA359 /* facebooklike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebooklike.png; sourceTree = "<group>"; };
 		6549236417B9591A003F39E3 /* do-git */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.csh; path = "do-git"; sourceTree = "<group>"; };
 		6549236517B9591A003F39E3 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
 		6549236617B9591A003F39E3 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
@@ -403,6 +415,12 @@
 		6588D02D17A4BCC500B6C498 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6530906A17BD87C400ADA359 /* facebook.png */,
+				6530906B17BD87C400ADA359 /* instagramlike.png */,
+				6530906C17BD87C400ADA359 /* instagram.png */,
+				6530906D17BD87C400ADA359 /* twitter.png */,
+				6530906E17BD87C400ADA359 /* twitterlike.png */,
+				6530906F17BD87C400ADA359 /* facebooklike.png */,
 				651F0C1317BAC1F00018794A /* photo2.jpg */,
 				43397B4417B93716003F4977 /* Mustache.png */,
 				6523AE2D17B4261000AFD830 /* Fonts */,
@@ -567,6 +585,12 @@
 				6549236817B9591A003F39E3 /* do-git in Resources */,
 				6549236A17B9591A003F39E3 /* README.md in Resources */,
 				651F0C1417BAC1F00018794A /* photo2.jpg in Resources */,
+				6530907017BD87C400ADA359 /* facebook.png in Resources */,
+				6530907117BD87C400ADA359 /* instagramlike.png in Resources */,
+				6530907217BD87C400ADA359 /* instagram.png in Resources */,
+				6530907317BD87C400ADA359 /* twitter.png in Resources */,
+				6530907417BD87C400ADA359 /* twitterlike.png in Resources */,
+				6530907517BD87C400ADA359 /* facebooklike.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
