@@ -202,36 +202,46 @@
     NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
     //TODO: add in ENum for grade level
+    [[cell messageArea] setText:[postItem text]];
+    UIImage *coloredImage = [[UIImage imageNamed:@"Mustache"] imageWithOverlayColor:[UIColor redColor]];
+    [cell.iconImage setImage:coloredImage];
+    UIImage *ago = [[UIImage imageNamed:@"clock"]imageWithOverlayColor:[UIColor whiteColor]];
+    [[cell timeImage] setImage:ago];
+    [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | grade here", [self fuzzyTime:[df stringFromDate:timePosted]]]];
     
-    if ([[postItem imageURLString] length] == 0)
+
+    if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
     {
-        [[cell messageArea]setText:[postItem text]];
-        [[cell postImage]setImage:nil];
-        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | grade here", [self fuzzyTime:[df stringFromDate:timePosted]]]];
-        [[cell socialLabel]setText:@"facebook"];
-    
-        
-       // [cell setBackgroundColor:[UIColor blackColor]];
-       
-    }else{
+        UIImage *facebookIcon = [[UIImage imageNamed:@"facebook"]imageWithOverlayColor:[UIColor whiteColor]];
+        [[cell socialMediaImage]setImage:facebookIcon];
+        UIImage *thumbsup = [[UIImage imageNamed:@"facebooklike"]imageWithOverlayColor:[UIColor grayColor]];
+        [[cell likeImage]setImage:thumbsup];
+    } else if([[postItem socialNetwork] isEqualToString:@"Instagram"]){
+        UIImage *instagramIcon = [[UIImage imageNamed:@"instagram"]imageWithOverlayColor:[UIColor whiteColor]];
+        [[cell socialMediaImage]setImage:instagramIcon];
+        UIImage *heart = [[UIImage imageNamed:@"instagramlike"]imageWithOverlayColor:[UIColor grayColor]];
+        [[cell likeImage]setImage:heart];
+    } else {
+        UIImage *twitterIcon = [[UIImage imageNamed:@"twitter"]imageWithOverlayColor:[UIColor whiteColor]];
+        [[cell socialMediaImage]setImage:twitterIcon];
+        UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor grayColor]];
+        [[cell likeImage]setImage:star];
+    }
+    if (![[postItem imageURLString] length] == 0)
+    {
         // Set image to nil, in case the cell was reused.
         [cell.postImage setImage:nil];
         [self.imageLoader processImageDataWithURLString:postItem.imageURLString
                                                   forId:postItem.postID
-                                               andBlock:^(UIImage *image) {
-            // Do not repaint image if it is not visible
-            if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
+                                               andBlock:^(UIImage *image)
+        {
+            if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+            {
                 [cell.postImage setImage:image];
-            }
-        }];
-        [[cell messageArea] setText:[postItem text]];
-        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@| grade here", [self fuzzyTime:[df stringFromDate:timePosted]]]];
-        [[cell socialLabel]setText:@"facebook"];
+            }}];
+    } else {
+        [[cell postImage]setImage:nil]; 
     }
-    UIImage *coloredImage = [[UIImage imageNamed:@"Mustache"] imageWithOverlayColor:[UIColor redColor]];
-    
-    [cell.iconImage setImage:coloredImage];
-    
     return cell;
 }
 
@@ -245,7 +255,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
     if ([postItem imageURLString] == 0) {
         size = 150;
     } else {
-        UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:320];
+        UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:370];
         
         size = image.size.height;
     }

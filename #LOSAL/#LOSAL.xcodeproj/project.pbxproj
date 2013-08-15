@@ -52,6 +52,7 @@
 		6530907317BD87C400ADA359 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906D17BD87C400ADA359 /* twitter.png */; };
 		6530907417BD87C400ADA359 /* twitterlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906E17BD87C400ADA359 /* twitterlike.png */; };
 		6530907517BD87C400ADA359 /* facebooklike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906F17BD87C400ADA359 /* facebooklike.png */; };
+		6530907917BD956E00ADA359 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530907817BD956E00ADA359 /* clock.png */; };
 		6549236817B9591A003F39E3 /* do-git in Resources */ = {isa = PBXBuildFile; fileRef = 6549236417B9591A003F39E3 /* do-git */; };
 		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
 		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
@@ -77,7 +78,6 @@
 		6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0A917A4C02D00B6C498 /* UIImage+ImageWithUIView.m */; };
 		6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */; };
 		6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D0B117A4C9CE00B6C498 /* menuBtn.png */; };
-		65FA587117A9CB70006598B1 /* LAPostItem2.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FA587017A9CB70006598B1 /* LAPostItem2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +149,7 @@
 		6530906D17BD87C400ADA359 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		6530906E17BD87C400ADA359 /* twitterlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterlike.png; sourceTree = "<group>"; };
 		6530906F17BD87C400ADA359 /* facebooklike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebooklike.png; sourceTree = "<group>"; };
+		6530907817BD956E00ADA359 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		6549236417B9591A003F39E3 /* do-git */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.csh; path = "do-git"; sourceTree = "<group>"; };
 		6549236517B9591A003F39E3 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
 		6549236617B9591A003F39E3 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
@@ -186,8 +187,6 @@
 		6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAMenuViewController.h; sourceTree = "<group>"; };
 		6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAMenuViewController.m; sourceTree = "<group>"; };
 		6588D0B117A4C9CE00B6C498 /* menuBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtn.png; sourceTree = "<group>"; };
-		65FA586F17A9CB70006598B1 /* LAPostItem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostItem2.h; sourceTree = "<group>"; };
-		65FA587017A9CB70006598B1 /* LAPostItem2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostItem2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,8 +309,6 @@
 				43397B4A17B96833003F4977 /* LAUser.m */,
 				4397674817B1BCD80040C947 /* LAPostItem.h */,
 				4397674917B1BCD80040C947 /* LAPostItem.m */,
-				65FA586F17A9CB70006598B1 /* LAPostItem2.h */,
-				65FA587017A9CB70006598B1 /* LAPostItem2.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -342,6 +339,30 @@
 				6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		6530907617BD8C7D00ADA359 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				6530907817BD956E00ADA359 /* clock.png */,
+				6588D0B117A4C9CE00B6C498 /* menuBtn.png */,
+				4397674B17B2A75C0040C947 /* placeholder.png */,
+				6530907717BD8CA500ADA359 /* SocialMediaIcons */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		6530907717BD8CA500ADA359 /* SocialMediaIcons */ = {
+			isa = PBXGroup;
+			children = (
+				6530906F17BD87C400ADA359 /* facebooklike.png */,
+				6530906E17BD87C400ADA359 /* twitterlike.png */,
+				6530906A17BD87C400ADA359 /* facebook.png */,
+				6530906B17BD87C400ADA359 /* instagramlike.png */,
+				6530906C17BD87C400ADA359 /* instagram.png */,
+				6530906D17BD87C400ADA359 /* twitter.png */,
+			);
+			name = SocialMediaIcons;
 			sourceTree = "<group>";
 		};
 		6549236317B9591A003F39E3 /* NSDate-Extensions-master */ = {
@@ -415,18 +436,11 @@
 		6588D02D17A4BCC500B6C498 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6530906A17BD87C400ADA359 /* facebook.png */,
-				6530906B17BD87C400ADA359 /* instagramlike.png */,
-				6530906C17BD87C400ADA359 /* instagram.png */,
-				6530906D17BD87C400ADA359 /* twitter.png */,
-				6530906E17BD87C400ADA359 /* twitterlike.png */,
-				6530906F17BD87C400ADA359 /* facebooklike.png */,
+				6530907617BD8C7D00ADA359 /* Icons */,
 				651F0C1317BAC1F00018794A /* photo2.jpg */,
 				43397B4417B93716003F4977 /* Mustache.png */,
 				6523AE2D17B4261000AFD830 /* Fonts */,
 				4397674517B1A89F0040C947 /* Instagram1.png */,
-				4397674B17B2A75C0040C947 /* placeholder.png */,
-				6588D0B117A4C9CE00B6C498 /* menuBtn.png */,
 				6588D02E17A4BCC500B6C498 /* #LOSAL-Info.plist */,
 				6588D02F17A4BCC500B6C498 /* InfoPlist.strings */,
 				6588D03217A4BCC500B6C498 /* main.m */,
@@ -591,6 +605,7 @@
 				6530907317BD87C400ADA359 /* twitter.png in Resources */,
 				6530907417BD87C400ADA359 /* twitterlike.png in Resources */,
 				6530907517BD87C400ADA359 /* facebooklike.png in Resources */,
+				6530907917BD956E00ADA359 /* clock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,7 +649,6 @@
 				6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */,
 				6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */,
 				43DC44B717A79638005729D8 /* LAStoreManager.m in Sources */,
-				65FA587117A9CB70006598B1 /* LAPostItem2.m in Sources */,
 				4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */,
 				4378F37817B2DF1F00DEBE6A /* LAImageLoader.m in Sources */,
 				6523AE2B17B31DBD00AFD830 /* LAAlertViewController.m in Sources */,
