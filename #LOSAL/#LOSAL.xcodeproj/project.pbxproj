@@ -23,6 +23,7 @@
 		4397674617B1A89F0040C947 /* Instagram1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4397674517B1A89F0040C947 /* Instagram1.png */; };
 		4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4397674917B1BCD80040C947 /* LAPostItem.m */; };
 		4397674C17B2A75C0040C947 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4397674B17B2A75C0040C947 /* placeholder.png */; };
+		43BAA1F417BD870100EFFE83 /* LASocialManager in Resources */ = {isa = PBXBuildFile; fileRef = 43BAA1F317BD870100EFFE83 /* LASocialManager */; };
 		43DC44B717A79638005729D8 /* LAStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43DC44B617A79638005729D8 /* LAStoreManager.m */; };
 		43DC44B917A7966E005729D8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44B817A7966E005729D8 /* Parse.framework */; };
 		43DC44BC17A7A0EF005729D8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44BB17A7A0EF005729D8 /* AudioToolbox.framework */; };
@@ -111,6 +112,7 @@
 		4397674817B1BCD80040C947 /* LAPostItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostItem.h; sourceTree = "<group>"; };
 		4397674917B1BCD80040C947 /* LAPostItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostItem.m; sourceTree = "<group>"; };
 		4397674B17B2A75C0040C947 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		43BAA1F317BD870100EFFE83 /* LASocialManager */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LASocialManager; sourceTree = "<group>"; };
 		43DC44B517A79638005729D8 /* LAStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAStoreManager.h; sourceTree = "<group>"; };
 		43DC44B617A79638005729D8 /* LAStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAStoreManager.m; sourceTree = "<group>"; };
 		43DC44B817A7966E005729D8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			children = (
 				4358C00817BBFB9000525BB8 /* LASocialManager.h */,
 				4358C00917BBFB9000525BB8 /* LASocialManager.m */,
+				43BAA1F317BD870100EFFE83 /* LASocialManager */,
 			);
 			name = "Social Libraries";
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				6549236817B9591A003F39E3 /* do-git in Resources */,
 				6549236A17B9591A003F39E3 /* README.md in Resources */,
 				651F0C1417BAC1F00018794A /* photo2.jpg in Resources */,
+				43BAA1F417BD870100EFFE83 /* LASocialManager in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LASocialManager.h"
 
-@interface LASocialNetworksView : UIView
+@interface LASocialNetworksView : UIView <LASocialManagerDelegate>
 
 - (void)show;
 - (void)hide;

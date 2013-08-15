@@ -8,7 +8,7 @@
 
 #import "LASocialNetworksView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "LASocialManager.h"
+
 @interface LASocialNetworksView () 
 
 @property (nonatomic, strong) LASocialManager *socialManager;
@@ -67,7 +67,7 @@
         self.facebookButton.frame = CGRectMake(frame.size.width/2, 110, frame.size.width/2 - 20, 40);
         [self.facebookButton setTitle:@"Facebook" forState:UIControlStateNormal];
         [self.facebookButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-        [self setButton:self.facebookButton active:[self.socialManager facebookSessionsIsValid]];
+        [self setButton:self.facebookButton active:[self.socialManager facebookSessionIsValid]];
         [self.facebookButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
         [self.facebookButton addTarget:self action:@selector(facebook) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.facebookButton];
@@ -181,13 +181,13 @@
 - (void)twitterDidLogout {
     [self setButton:self.twitterButton active:NO];
 }
-- (void)twitterDidReceiveAnError {
-    [self displayAlertMessage:@"Please go to settings and create a twitter account."];
+- (void)twitterDidReceiveAnError:(NSString *)errorMessage {
+    [self displayAlertMessage:errorMessage];
 }
 
 #pragma FACEBOOK
 - (void)facebook {
-    if ([self.socialManager facebookSessionsIsValid]) {
+    if ([self.socialManager facebookSessionIsValid]) {
         [self.socialManager facebookLogout];
     } else {
         [self.socialManager facebookLogin];

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #include "Instagram.h"
+#include "LAPostItem.h"
 
 @protocol LASocialManagerDelegate;
 
@@ -17,12 +18,15 @@
 
 + (id)sharedManager;
 
+- (BOOL)isSessionValidForNetwork:(NSString *)socialNetwork;
+- (void)likePostItem:(LAPostItem *)postItem;
+
 - (BOOL)twitterSessionIsValid;
 - (void)twitterLogin;
 - (void)twitterLogout;
 - (void)twitterFavoriteTweet:(NSString *)tweetID;
 
-- (BOOL)facebookSessionsIsValid;
+- (BOOL)facebookSessionIsValid;
 - (void)facebookLogin;
 - (void)facebookLogout;
 - (void)facebookLikePost:(NSString *)postID;
@@ -38,7 +42,7 @@
 
 - (void)twitterDidLogin;
 - (void)twitterDidLogout;
-- (void)twitterDidReceiveAnError;
+- (void)twitterDidReceiveAnError:(NSString *)errorMessage;
 
 - (void)facebookDidLogin;
 - (void)facebookDidLogout;

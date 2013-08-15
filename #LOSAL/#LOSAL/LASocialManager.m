@@ -9,11 +9,13 @@
 #import "LASocialManager.h"
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
+#import "LAStoreManager.h"
 
 @interface LASocialManager ()
 
 #define INSTAGRAM_ID @"64392b8719fb49f59f71213ed640fb68"
 
+@property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) Instagram *instagram;
 @property (nonatomic, strong) ACAccount *twitterAccount;
 @property (nonatomic, strong) ACAccount *facebookAccount;
@@ -38,13 +40,40 @@
                                                     delegate:nil];
         self.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
         self.instagram.sessionDelegate = self;
+        
+        self.storeManager = [LAStoreManager sharedManager];
     }
     return self;
 }
 
+#pragma - GENERAL
+- (BOOL)isSessionValidForNetwork:(NSString *)socialNetwork {
+    if ([socialNetwork isEqualToString:@"Twitter"]) {
+        return [self twitterSessionIsValid];
+    } else if ([socialNetwork isEqualToString:@"Facebook"]) {
+        return [self facebookSessionIsValid];
+    } else if ([socialNetwork isEqualToString:@"Instagram"]) {
+        return [self instagramSessionIsValid];
+    }
+}
+
+- (void)likePostItem:(LAPostItem *)postItem {
+    if ([postItem.socialNetwork isEqualToString:@"Twitter"]) {
+        [self twitterFavoriteTweet:postItem.socialNetworkPostID];
+    } else if ([postItem.socialNetwork isEqualToString:@"Facebook"]) {
+        [self facebookLikePost:postItem.socialNetworkPostID];
+    } else if ([postItem.socialNetwork isEqualToString:@"Instagram"]) {
+        [self instagramLikePost:postItem.socialNetworkPostID];
+    }
+}
+
 #pragma - TWITTER
 - (BOOL)twitterSessionIsValid {
-    return(self.twitterAccount != nil);
+    if ([self.storeManager getUser].twitterID != nil) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (void)twitterLogin {
@@ -64,10 +93,12 @@
                  NSArray *twitterAccounts =
                  [accountStore accountsWithAccountType:twitterAccountType];
                  self.twitterAccount = [twitterAccounts objectAtIndex:0];
+                 [self.storeManager getUser].twitterID = self.twitterAccount.username;
+                 [self.storeManager saveUsersSocialIDs];
                  [self.delegate twitterDidLogin];
              } else {
                  NSLog(@"%@", [error localizedDescription]);
-                 [self.delegate twitterDidReceiveAnError];
+                 [self.delegate twitterDidReceiveAnError:@"Please make sure you have configured your twitter account in Settings."];
              }
          }];
     }
@@ -79,54 +110,83 @@
 }
 
 - (void) twitterFavoriteTweet:(NSString *)tweetID {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        //  Step 1:  Obtain access to the user's Twitter accounts
+        ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+        ACAccountType *twitterAccountType = [accountStore
+                                             accountTypeWithAccountTypeIdentifier:
+                                             ACAccountTypeIdentifierTwitter];
+        
+        [accountStore requestAccessToAccountsWithType:twitterAccountType
+                                              options:NULL
+                                           completion:^(BOOL granted, NSError *error)
+         {
+             if (granted) {
+                 //  Step 2:  Create a request
+                 NSArray *twitterAccounts =
+                 [accountStore accountsWithAccountType:twitterAccountType];
+                 self.twitterAccount = [twitterAccounts objectAtIndex:0];
+                 NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
+                               @"/1.1/favorites/create.json"];
+                 NSDictionary *params = @{@"id" : tweetID};
+                 SLRequest *request =
+                 [SLRequest requestForServiceType:SLServiceTypeTwitter
+                                    requestMethod:SLRequestMethodPOST
+                                              URL:url
+                                       parameters:params];
+                 
+                 //  Attach an account to the request
+                 [request setAccount:self.twitterAccount];
+                 
+                 //  Step 3:  Execute the request
+                 [request performRequestWithHandler:^(NSData *responseData,
+                                                      NSHTTPURLResponse *urlResponse,
+                                                      NSError *error) {
+                     if (responseData) {
+                         NSError *jsonError;
+                         NSDictionary *timelineData =
+                         [NSJSONSerialization
+                          JSONObjectWithData:responseData
+                          options:NSJSONReadingAllowFragments error:&jsonError];
+                         
+                         if (urlResponse.statusCode >= 200 && urlResponse.statusCode < 300) {
+                             
+                             
+                             if (timelineData) {
+                                 NSLog(@"Timeline Response: %@\n", timelineData);
+                             }
+                             else {
+                                 // Our JSON deserialization went awry
+                                 NSLog(@"JSON Error: %@", [jsonError localizedDescription]);
+                             }
+                         }
+                         else {
+                             // The server did not respond successfully... were we rate-limited?
+                             NSLog(@"The response status code is %d and response is %@", urlResponse.statusCode, timelineData);
+                             [self.delegate twitterDidReceiveAnError:@"There was an error favoriting this tweet."];
+                         }
+                     }
+                 }];
+             } else {
+                 NSLog(@"%@", [error localizedDescription]);
+                 [self.delegate twitterDidReceiveAnError:@"There was an error accessing your twitter account."];
+             }
+         }];
+    }
     //  Step 0: Check that the user has local Twitter accounts
     if (self.twitterSessionIsValid) {
-        NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
-                      @"/1.1/favorites/create.json"];
-        NSDictionary *params = @{@"id" : tweetID};
-        SLRequest *request =
-        [SLRequest requestForServiceType:SLServiceTypeTwitter
-                           requestMethod:SLRequestMethodPOST
-                                     URL:url
-                              parameters:params];
         
-        //  Attach an account to the request
-        [request setAccount:self.twitterAccount];
-        
-        //  Step 3:  Execute the request
-        [request performRequestWithHandler:^(NSData *responseData,
-                                             NSHTTPURLResponse *urlResponse,
-                                             NSError *error) {
-            if (responseData) {
-                if (urlResponse.statusCode >= 200 && urlResponse.statusCode < 300) {
-                    NSError *jsonError;
-                    NSDictionary *timelineData =
-                    [NSJSONSerialization
-                     JSONObjectWithData:responseData
-                     options:NSJSONReadingAllowFragments error:&jsonError];
-                    
-                    if (timelineData) {
-                        NSLog(@"Timeline Response: %@\n", timelineData);
-                    }
-                    else {
-                        // Our JSON deserialization went awry
-                        NSLog(@"JSON Error: %@", [jsonError localizedDescription]);
-                    }
-                }
-                else {
-                    // The server did not respond successfully... were we rate-limited?
-                    NSLog(@"The response status code is %d", urlResponse.statusCode);
-                    [self.delegate twitterDidReceiveAnError];
-                }
-            }
-        }];
         
     }
 }
 
 #pragma - FACEBOOK
-- (BOOL)facebookSessionsIsValid {
-    return(self.twitterAccount != nil);
+- (BOOL)facebookSessionIsValid {
+    if (self.facebookAccount != nil) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (void)facebookLogin {
@@ -138,7 +198,7 @@
         // Specify App ID and permissions
         NSDictionary *options = @{
                                   ACFacebookAppIdKey: @"149510731911579",
-                                  ACFacebookPermissionsKey: @[@"email"],
+                                  ACFacebookPermissionsKey: @[@"publish_stream"],
                                   ACFacebookAudienceKey: ACFacebookAudienceEveryone
                                   };
 
@@ -151,6 +211,7 @@
                  NSArray *facebookAccounts =
                  [accountStore accountsWithAccountType:facebookAccountType];
                  self.facebookAccount = [facebookAccounts objectAtIndex:0];
+                 NSLog(@"facebook account is %@", self.facebookAccount);
                  [self.delegate facebookDidLogin];
              } else {
                  NSLog(@"%@", [error localizedDescription]);
@@ -167,23 +228,15 @@
 
 - (void) facebookLikePost:(NSString *)postID {
     //  Step 0: Check that the user has local Twitter accounts
-    if (self.facebookSessionsIsValid) {
+    if (self.facebookSessionIsValid) {
         NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
                       @"/1.1/favorites/create.json"];
         NSDictionary *params = @{@"id" : postID};
         
-        NSDictionary *options = @{
-                                  ACFacebookAppIdKey: @"552649564758410",
-                                  ACFacebookPermissionsKey: @[@"publish_stream"],
-                                  ACFacebookAudienceKey: ACFacebookAudienceFriends
-                                  };
-
-        
-        SLRequest *request =
-        [SLRequest requestForServiceType:SLServiceTypeFacebook
-                           requestMethod:SLRequestMethodPOST
-                                     URL:url
-                              parameters:params];
+        SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeFacebook
+                                                requestMethod:SLRequestMethodPOST
+                                                          URL:url
+                                                   parameters:params];
         
         //  Attach an account to the request
         [request setAccount:self.facebookAccount];
@@ -211,7 +264,7 @@
                 else {
                     // The server did not respond successfully... were we rate-limited?
                     NSLog(@"The response status code is %d", urlResponse.statusCode);
-                    [self.delegate twitterDidReceiveAnError];
+                    [self.delegate facebookDidReceiveAnError];
                 }
             }
         }];
@@ -228,6 +281,12 @@
     return [self.instagram isSessionValid];
 }
 
+-(void)instagramLikePost:(NSString *)postID {
+    NSString *methodName = [NSString stringWithFormat:@"/media/%@/likes", postID];
+    NSMutableDictionary *emptyParams = [[NSMutableDictionary alloc] init];
+    [self.instagram requestWithMethodName:methodName params:emptyParams httpMethod:@"POST" delegate:self];
+}
+
 - (void)instagramLogin {
     [self.instagram authorize:[NSArray arrayWithObjects:@"likes", nil]];
 }
@@ -242,10 +301,6 @@
     // here i can store accessToken
     [[NSUserDefaults standardUserDefaults] setObject:self.instagram.accessToken forKey:@"accessToken"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
-    
-    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"users/self", @"method", nil];
-    [self.instagram requestWithParams:params delegate:self];
-    
     [self.delegate instagramDidLogin];
     
 }

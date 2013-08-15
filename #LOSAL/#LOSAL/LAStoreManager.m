@@ -9,6 +9,12 @@
 #import "LAStoreManager.h"
 #import <Parse/Parse.h>
 
+@interface LAStoreManager ()
+
+@property (nonatomic, strong) LAUser *thisUser;
+
+@end
+
 @implementation LAStoreManager
 
 #pragma mark Singleton Methods
@@ -78,13 +84,42 @@
 }
 
 - (LAUser *)getUser {
-    LAUser *user;
-    if ([PFUser currentUser]) {
-        user = [[LAUser alloc] init];
-        user.firstName = [[PFUser currentUser] objectForKey:@"firstName"];
-        NSLog(@"user is %@", [PFUser currentUser]);
+    if (self.thisUser == nil) {
+        if ([PFUser currentUser]) {
+            self.thisUser = [[LAUser alloc] init];
+            PFQuery *query = [PFUser query];
+            [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error)
+             {
+                 NSMutableArray *messages = nil;
+                 if (!error) {
+                     messages = [[NSMutableArray alloc] init];
+                     for (PFObject *user in users) {
+                         self.thisUser.twitterID = [user objectForKey:@"twitterID"];
+                         self.thisUser.facebookID = [user objectForKey:@"facebookID"];
+                         self.thisUser.instagramID = [user objectForKey:@"instagramID"];
+                     }
+                 }
+             }];
+
+        }
     }
-    return user;
+    return self.thisUser;
+}
+
+- (void)saveUsersSocialIDs {
+    
+    if (self.thisUser.twitterID != nil) {
+        [[PFUser currentUser] setObject:self.thisUser.twitterID forKey:@"twitterID"];
+    }
+    if (self.thisUser.facebookID != nil) {
+        [[PFUser currentUser] setObject:self.thisUser.facebookID forKey:@"facebookID"];
+    }
+    if (self.thisUser.instagramID != nil) {
+        [[PFUser currentUser] setObject:self.thisUser.instagramID forKey:@"instagramID"];
+    }
+    
+    [[PFUser currentUser]saveEventually];
 }
 
 - (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber pinNumber:(NSString *)pinNumber {
