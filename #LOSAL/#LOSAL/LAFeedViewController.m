@@ -54,6 +54,7 @@
     // This is where you populate the table with data
     self.storeManager = [LAStoreManager sharedManager];
     self.socialManager = [LASocialManager sharedManager];
+    self.socialManager.delegate = self;
     self.imageLoader = [LAImageLoader sharedManager];
     
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
@@ -383,6 +384,18 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             [self.storeManager saveUsersLike:postItem.postObject];
         }
     }
+}
+
+- (void)twitterDidReceiveAnError:(NSString *)errorMessage {
+    dispatch_queue_t callerQueue = dispatch_get_main_queue();
+    dispatch_async(callerQueue, ^{
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                     message:errorMessage
+                                                    delegate:nil
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil];
+        [av show];
+    });
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

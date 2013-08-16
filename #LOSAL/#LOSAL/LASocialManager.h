@@ -14,7 +14,7 @@
 
 @interface LASocialManager : NSObject <IGSessionDelegate, IGRequestDelegate>
 
-@property (nonatomic, weak) id<LASocialManagerDelegate>delegate;
+@property (nonatomic, strong) id<LASocialManagerDelegate>delegate;
 
 + (id)sharedManager;
 
@@ -25,6 +25,7 @@
 - (void)twitterLogin;
 - (void)twitterLogout;
 - (void)twitterFavoriteTweet:(NSString *)tweetID;
+- (void)twitterUnFavoriteTweet:(NSString *)tweetID;
 
 - (BOOL)facebookSessionIsValid;
 - (void)facebookLogin;
@@ -35,7 +36,7 @@
 - (BOOL)instagramSessionIsValid;
 - (void)instagramLogin;
 - (void)instagramLogout;
-
+- (void)instagramUnLikePost:(NSString *)postID;
 @end
 
 @protocol LASocialManagerDelegate <NSObject>

@@ -53,6 +53,12 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 }
 
+#pragma mark Settings
+- (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock {
+    PFQuery *query = [PFQuery queryWithClassName:@"AppSettings"];
+    
+}
+
 #pragma mark Posts
 - (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
@@ -117,6 +123,23 @@
     
 }
 
+- (void)deleteUsersLike:(PFObject *)postObject {
+    
+    PFObject *like = [PFObject objectWithClassName:@"Likes"];
+    [like setObject:[PFUser currentUser] forKey:@"userID"];
+    [like setObject:postObject forKey:@"postID"];
+    
+    // photos are public, but may only be modified by the user who uploaded them
+    PFACL *likeACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [likeACL setPublicReadAccess:YES];
+    like.ACL = likeACL;
+    
+    [like saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            NSLog(@"Error saving users like error is %@", error);
+        }
+    }];
+}
 - (void)saveUsersLike:(PFObject *)postObject {
     
     PFObject *like = [PFObject objectWithClassName:@"Likes"];

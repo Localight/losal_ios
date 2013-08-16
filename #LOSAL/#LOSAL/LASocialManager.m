@@ -110,6 +110,13 @@
 }
 
 - (void) twitterFavoriteTweet:(NSString *)tweetID {
+    [self twitterSetFavoriteTo:YES forTweet:tweetID];
+}
+- (void) twitterUnFavoriteTweet:(NSString *)tweetID {
+    [self twitterSetFavoriteTo:NO forTweet:tweetID];
+}
+
+- (void) twitterSetFavoriteTo:(BOOL)isFavorite forTweet:(NSString *)tweetID {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         //  Step 1:  Obtain access to the user's Twitter accounts
         ACAccountStore *accountStore = [[ACAccountStore alloc] init];
@@ -126,8 +133,13 @@
                  NSArray *twitterAccounts =
                  [accountStore accountsWithAccountType:twitterAccountType];
                  self.twitterAccount = [twitterAccounts objectAtIndex:0];
-                 NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
-                               @"/1.1/favorites/create.json"];
+                 NSString *methodURL;
+                 if (isFavorite) {
+                     methodURL = @"https://api.twitter.com/1.1/favorites/create.json";
+                 } else {
+                     methodURL = @"https://api.twitter.com/1.1/favorites/destroy.json";
+                 }
+                 NSURL *url = [NSURL URLWithString:methodURL];
                  NSDictionary *params = @{@"id" : tweetID};
                  SLRequest *request =
                  [SLRequest requestForServiceType:SLServiceTypeTwitter
@@ -164,13 +176,15 @@
                          else {
                              // The server did not respond successfully... were we rate-limited?
                              NSLog(@"The response status code is %d and response is %@", urlResponse.statusCode, timelineData);
-                             [self.delegate twitterDidReceiveAnError:@"There was an error favoriting this tweet."];
+                             if (self.delegate != nil) {
+                                 [self.delegate twitterDidReceiveAnError:@"There was an error favoriting this tweet."];
+                             }
                          }
                      }
                  }];
              } else {
                  NSLog(@"%@", [error localizedDescription]);
-                 [self.delegate twitterDidReceiveAnError:@"There was an error accessing your twitter account."];
+                 [self.delegate twitterDidReceiveAnError:@"Please go to settings and set up Twitter and allow #LOSAL to use your account."];
              }
          }];
     }
@@ -283,8 +297,23 @@
 }
 
 -(void)instagramLikePost:(NSString *)postID {
+    [self instagramSetLikeTo:YES forPost:postID];
+}
+
+-(void)instagramUnLikePost:(NSString *)postID {
+    [self instagramSetLikeTo:NO forPost:postID];
+}
+
+-(void)instagramSetLikeTo:(BOOL)isLIked forPost:(NSString *)postID {
+    
     NSString *methodName = [NSString stringWithFormat:@"/media/%@/likes", postID];
     NSMutableDictionary *emptyParams = [[NSMutableDictionary alloc] init];
+    NSString *method;
+    if (isLIked) {
+        method = @"POST";
+    } else {
+        method = @"DEL";
+    }
     [self.instagram requestWithMethodName:methodName params:emptyParams httpMethod:@"POST" delegate:self];
 }
 
