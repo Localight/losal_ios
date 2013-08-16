@@ -32,7 +32,8 @@
 
 - (id)init
 {
-    if (self = [super init]) {
+    if (self = [super init])
+    {
         // Parse initialization
         [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg" clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
         

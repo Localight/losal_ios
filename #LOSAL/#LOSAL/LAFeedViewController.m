@@ -65,9 +65,12 @@
 
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
     // You just need to set the opacity, radius, and color.
-    self.view.layer.shadowOpacity = 0.75f;
-    self.view.layer.shadowRadius = 10.0f;
-    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    [[[self view]layer]setShadowOpacity:0.75f];
+    [[[self view]layer]setShadowRadius:0.75f];
+    [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
+//    self.view.layer.shadowOpacity = 0.75f;
+//    self.view.layer.shadowRadius = 10.0f;
+//    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
@@ -388,8 +391,25 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (IBAction)likeButtonTapped:(id)sender
 {
+    // by default the isLikedByThisUser should be set to NO;
+    // on click it should change the flag and color of the like buttons.
+    
+    // what does this do? -James
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
+    
+    if (![postItem isLikedByThisUser])
+    {
+        [postItem setIsLikedByThisUser:YES];
+        
+    }else{
+        [postItem setIsLikedByThisUser:NO];
+        
+    }
+
     if (indexPath != nil)
     {
         // Get postitem and pass it to the like method in the social managher
@@ -404,6 +424,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             [self.storeManager saveUsersLike:postItem.postObject];
         }
     }
+    [[self tableView]reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
