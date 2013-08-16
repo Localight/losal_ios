@@ -399,17 +399,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    
-    LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
-    
-    if (![postItem isLikedByThisUser])
-    {
-        [postItem setIsLikedByThisUser:YES];
-        
-    }else{
-        [postItem setIsLikedByThisUser:NO];
-        
-    }
 
     if (indexPath != nil)
     {
@@ -421,13 +410,27 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             [self.navigationController.view addSubview:socialView];
             [socialView show];
         } else {
-            [self.socialManager likePostItem:postItem];
-            [self.storeManager saveUsersLike:postItem.postObject];
+            LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
+            
+            if (![postItem isLikedByThisUser])
+            {
+                [postItem setIsLikedByThisUser:YES];
+                [self.socialManager likePostItem:postItem];
+                [self.storeManager saveUsersLike:postItem.postObject];
+                
+            }else{
+                [postItem setIsLikedByThisUser:NO];
+                [self.socialManager unLikePostItem:postItem];
+                [self.storeManager deleteUsersLike:postItem.postObject];
+                
+            }
+
         }
     }
     [[self tableView]reloadData];
 }
 
+#pragma mark - Social Manager Delegates
 - (void)twitterDidReceiveAnError:(NSString *)errorMessage {
     dispatch_queue_t callerQueue = dispatch_get_main_queue();
     dispatch_async(callerQueue, ^{
@@ -438,6 +441,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                            otherButtonTitles:nil];
         [av show];
     });
+}
+
+- (void)instagramDidReceiveAnError {
+    NSLog(@"Instagram Error");
+}
+- (void)instagramDidLoad:(id)result {
+    NSLog(@"Received restul %@", result);
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

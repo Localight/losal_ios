@@ -20,6 +20,7 @@
 
 - (BOOL)isSessionValidForNetwork:(NSString *)socialNetwork;
 - (void)likePostItem:(LAPostItem *)postItem;
+- (void)unLikePostItem:(LAPostItem *)postItem;
 
 - (BOOL)twitterSessionIsValid;
 - (void)twitterLogin;

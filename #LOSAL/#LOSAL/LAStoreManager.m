@@ -43,8 +43,6 @@
         // Enable public read access by default, with any newly created PFObjects belonging to the current user
         [defaultACL setPublicReadAccess:YES];
         [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
-        
-        self.likes = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -107,6 +105,7 @@
 
 - (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock {
 
+    self.likes = [[NSMutableArray alloc] init];
     // Now get all likes for user if user is already set
     if ([PFUser currentUser]) {
         PFQuery *likesQuery = [PFQuery queryWithClassName:@"Likes"];
@@ -126,21 +125,17 @@
 
 - (void)deleteUsersLike:(PFObject *)postObject {
     
-    PFObject *like = [PFObject objectWithClassName:@"Likes"];
-    [like setObject:[PFUser currentUser] forKey:@"userID"];
-    [like setObject:postObject forKey:@"postID"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Likes"];
+    [query whereKey:@"userID" equalTo:[PFUser currentUser]];
+    [query whereKey:@"postID" equalTo:postObject];
     
-    // photos are public, but may only be modified by the user who uploaded them
-    PFACL *likeACL = [PFACL ACLWithUser:[PFUser currentUser]];
-    [likeACL setPublicReadAccess:YES];
-    like.ACL = likeACL;
-    
-    [like saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (error) {
-            NSLog(@"Error saving users like error is %@", error);
+    [query findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error) {
+        for (PFObject *like in likes) {
+            [like deleteEventually];
         }
     }];
 }
+
 - (void)saveUsersLike:(PFObject *)postObject {
     
     PFObject *like = [PFObject objectWithClassName:@"Likes"];
