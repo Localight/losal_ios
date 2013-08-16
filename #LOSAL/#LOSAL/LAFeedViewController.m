@@ -66,9 +66,12 @@
 
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
     // You just need to set the opacity, radius, and color.
-    self.view.layer.shadowOpacity = 0.75f;
-    self.view.layer.shadowRadius = 10.0f;
-    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    [[[self view]layer]setShadowOpacity:0.75f];
+    [[[self view]layer]setShadowRadius:0.75f];
+    [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
+//    self.view.layer.shadowOpacity = 0.75f;
+//    self.view.layer.shadowRadius = 10.0f;
+//    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
@@ -214,25 +217,46 @@
     [[cell timeImage] setImage:ago];
     [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | grade here", [self fuzzyTime:[df stringFromDate:timePosted]]]];
     
+    if ([postItem isLikedByThisUser]) {
+        if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
+        {
+            UIImage *facebookIcon = [[UIImage imageNamed:@"facebook"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell socialMediaImage]setImage:facebookIcon];
+            UIImage *thumbsup = [[UIImage imageNamed:@"facebooklike"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell likeImage]setImage:thumbsup];
+        } else if([[postItem socialNetwork] isEqualToString:@"Instagram"]){
+            UIImage *instagramIcon = [[UIImage imageNamed:@"instagram"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell socialMediaImage]setImage:instagramIcon];
+            UIImage *heart = [[UIImage imageNamed:@"instagramlike"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell likeImage]setImage:heart];
+        } else {
+            UIImage *twitterIcon = [[UIImage imageNamed:@"twitter"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell socialMediaImage]setImage:twitterIcon];
+            UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell likeImage]setImage:star];
+        }
+    }else{
+        if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
+        {
+            UIImage *facebookIcon = [[UIImage imageNamed:@"facebook"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell socialMediaImage]setImage:facebookIcon];
+            UIImage *thumbsup = [[UIImage imageNamed:@"facebooklike"]imageWithOverlayColor:[UIColor grayColor]];
+            [[cell likeImage]setImage:thumbsup];
+        } else if([[postItem socialNetwork] isEqualToString:@"Instagram"]){
+            UIImage *instagramIcon = [[UIImage imageNamed:@"instagram"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell socialMediaImage]setImage:instagramIcon];
+            UIImage *heart = [[UIImage imageNamed:@"instagramlike"]imageWithOverlayColor:[UIColor grayColor]];
+            [[cell likeImage]setImage:heart];
+        } else {
+            UIImage *twitterIcon = [[UIImage imageNamed:@"twitter"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell socialMediaImage]setImage:twitterIcon];
+            UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor grayColor]];
+            [[cell likeImage]setImage:star];
+        }
 
-    if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
-    {
-        UIImage *facebookIcon = [[UIImage imageNamed:@"facebook"]imageWithOverlayColor:[UIColor whiteColor]];
-        [[cell socialMediaImage]setImage:facebookIcon];
-        UIImage *thumbsup = [[UIImage imageNamed:@"facebooklike"]imageWithOverlayColor:[UIColor grayColor]];
-        [[cell likeImage]setImage:thumbsup];
-    } else if([[postItem socialNetwork] isEqualToString:@"Instagram"]){
-        UIImage *instagramIcon = [[UIImage imageNamed:@"instagram"]imageWithOverlayColor:[UIColor whiteColor]];
-        [[cell socialMediaImage]setImage:instagramIcon];
-        UIImage *heart = [[UIImage imageNamed:@"instagramlike"]imageWithOverlayColor:[UIColor grayColor]];
-        [[cell likeImage]setImage:heart];
-    } else {
-        UIImage *twitterIcon = [[UIImage imageNamed:@"twitter"]imageWithOverlayColor:[UIColor whiteColor]];
-        [[cell socialMediaImage]setImage:twitterIcon];
-        UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor grayColor]];
-        [[cell likeImage]setImage:star];
     }
-    if (![[postItem imageURLString] length] == 0)
+
+        if (![[postItem imageURLString] length] == 0)
     {
         // Set image to nil, in case the cell was reused.
         [cell.postImage setImage:nil];
@@ -368,8 +392,25 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (IBAction)likeButtonTapped:(id)sender
 {
+    // by default the isLikedByThisUser should be set to NO;
+    // on click it should change the flag and color of the like buttons.
+    
+    // what does this do? -James
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
+    
+    if (![postItem isLikedByThisUser])
+    {
+        [postItem setIsLikedByThisUser:YES];
+        
+    }else{
+        [postItem setIsLikedByThisUser:NO];
+        
+    }
+
     if (indexPath != nil)
     {
         // Get postitem and pass it to the like method in the social managher
@@ -384,6 +425,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             [self.storeManager saveUsersLike:postItem.postObject];
         }
     }
+    [[self tableView]reloadData];
 }
 
 - (void)twitterDidReceiveAnError:(NSString *)errorMessage {

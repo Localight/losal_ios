@@ -28,10 +28,24 @@
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+     //self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
+                                                                   style:UIBarButtonItemStyleBordered
+                                                                  target:self
+                                                                  action:@selector(revealMenu:)];
+    [[self navigationItem]setLeftBarButtonItem:menuButton];
+    [[[self view]layer]setShadowOpacity:0.75f];
+    [[[self view]layer]setShadowRadius:0.75f];
+    [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
+    
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
+        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+
+
 }
 
 - (void)didReceiveMemoryWarning

@@ -39,7 +39,7 @@
     [self.slidingViewController setAnchorRightRevealAmount:280.0f];
     [[self slidingViewController] setAnchorRightRevealAmount:280.f];
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
-    [[self view] setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
+    [[self view] setBackgroundColor:[UIColor whiteColor]];
     
     self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", @"Logout", nil];
     
