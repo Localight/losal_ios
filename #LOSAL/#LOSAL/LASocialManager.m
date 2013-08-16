@@ -154,6 +154,7 @@
                              
                              if (timelineData) {
                                  NSLog(@"Timeline Response: %@\n", timelineData);
+
                              }
                              else {
                                  // Our JSON deserialization went awry

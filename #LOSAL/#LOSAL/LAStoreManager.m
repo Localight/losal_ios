@@ -53,6 +53,7 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 }
 
+#pragma mark Posts
 - (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
     [self getUserLikesWithCompletion:^(NSError *error) {
@@ -72,7 +73,7 @@
                          // This does not require a network access.
                          NSLog(@"post looks like %@", post);
                          LAPostItem *postItem = [[LAPostItem alloc] init];
-                         postItem.postID = [post objectId];
+                         postItem.postObject = post;
                          postItem.postTime = [post objectForKey:@"postTime"];
                          postItem.socialNetwork = [post objectForKey:@"socialNetworkName"];
                          postItem.socialNetworkPostID = [post objectForKey:@"socialNetworkPostID"];
@@ -91,11 +92,50 @@
     }];
 }
 
+#pragma mark Likes
 - (BOOL)doesThisUserLike:(NSString *)postID {
     BOOL doesUserLikePost = [self.likes containsObject:postID];
     return doesUserLikePost;
 }
 
+- (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock {
+
+    // Now get all likes for user if user is already set
+    if ([PFUser currentUser]) {
+        PFQuery *likesQuery = [PFQuery queryWithClassName:@"Likes"];
+        [likesQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
+        [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error) {
+            if (!error) {
+                for (PFObject *like in likes) {
+                    PFObject *post = [like objectForKey:@"postID"];
+                    [self.likes addObject:post.objectId];
+                }
+                completionBlock(error);
+            }
+        }];
+    }
+    
+}
+
+- (void)saveUsersLike:(PFObject *)postObject {
+    
+    PFObject *like = [PFObject objectWithClassName:@"Likes"];
+    [like setObject:[PFUser currentUser] forKey:@"userID"];
+    [like setObject:postObject forKey:@"postID"];
+    
+    // photos are public, but may only be modified by the user who uploaded them
+    PFACL *likeACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [likeACL setPublicReadAccess:YES];
+    like.ACL = likeACL;
+    
+    [like saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (error) {
+            NSLog(@"Error saving users like error is %@", error);
+        }
+    }];
+}
+
+#pragma mark User
 - (LAUser *)getUser {
     if (self.thisUser == nil) {
         if ([PFUser currentUser]) {
@@ -119,21 +159,6 @@
     return self.thisUser;
 }
 
-- (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock {
-    // Now get all likes for user
-    PFQuery *likesQuery = [PFQuery queryWithClassName:@"Likes"];
-    [likesQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
-    [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error) {
-        if (!error) {
-            for (PFObject *like in likes) {
-                PFObject *post = [like objectForKey:@"postID"];
-                [self.likes addObject:post.objectId];
-            }
-            completionBlock(error);
-        }
-    }];
-     
-}
 - (void)saveUsersSocialIDs {
     
     if (self.thisUser.twitterID != nil) {
@@ -163,5 +188,6 @@
 
 - (void)logout {
     [PFUser logOut];
+    self.thisUser = nil;
 }
 @end

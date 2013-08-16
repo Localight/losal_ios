@@ -29,10 +29,14 @@
 
 // YOU NEED TO CAPTURE igAPPID:// schema
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    NSLog(@"url from handel is %@", url);
     return [self.socialManager instagramhandleOpenURL:url];
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    
+    NSLog(@"url from open is %@", url);
     return [self.socialManager instagramhandleOpenURL:url];
 }
 

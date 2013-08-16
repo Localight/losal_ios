@@ -22,6 +22,8 @@
 
 - (void)saveUsersSocialIDs;
 
+- (void)saveUsersLike:(PFObject *)postObject;
+
 - (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber pinNumber:(NSString *)pinNumber;
 
 - (void)logout;

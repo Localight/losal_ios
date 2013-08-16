@@ -8,6 +8,7 @@
 
 #import "LASocialNetworksView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LASocialManager.h"
 
 @interface LASocialNetworksView () 
 
