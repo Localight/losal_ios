@@ -113,7 +113,7 @@ static void *finishedContext            = @"finishedContext";
 }
 
 - (NSString *)getOwnBaseUrl {
-    return [NSString stringWithFormat:@"ig%@://authorize", self.clientId];
+    return [NSString stringWithFormat:@"losal%@://authorize", self.clientId];
 }
 
 /**

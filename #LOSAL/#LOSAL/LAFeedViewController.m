@@ -51,6 +51,11 @@
 {
     [super viewDidLoad];
     
+    // This is where you populate the table with data
+    self.storeManager = [LAStoreManager sharedManager];
+    self.socialManager = [LASocialManager sharedManager];
+    self.imageLoader = [LAImageLoader sharedManager];
+    
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:self
@@ -71,8 +76,6 @@
     // This was messing up the scrolling in the UI table view so need to figure out a way to add this back - Joaquin
     //[self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
-    [self fetchEntries];
-    
     if ([self.storeManager getUser] == nil) {
         UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
         
@@ -84,6 +87,7 @@
                              //[self addFriends];
                          }];
     }
+    
     // Set an image as the background of a UITableView called 'tableView'
     // we will have to connect this to the imageloader at some point.
     // works for testing the theory though. 
@@ -92,6 +96,11 @@
     [[self tableView]setBackgroundView:backgroundImage];
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self fetchEntries];
+}
 -(void)fetchEntries
 {
     UIView *currentTitleView = [[self navigationItem] titleView];
@@ -101,11 +110,6 @@
     [[self navigationItem] setTitleView:aiView];
     
     [aiView startAnimating];
-    
-    // This is where you populate the table with data
-    self.storeManager = [LAStoreManager sharedManager];
-    self.socialManager = [LASocialManager sharedManager];
-    self.imageLoader = [LAImageLoader sharedManager];
     
     [[self navigationItem] setTitleView:currentTitleView];
     
@@ -232,7 +236,7 @@
         // Set image to nil, in case the cell was reused.
         [cell.postImage setImage:nil];
         [self.imageLoader processImageDataWithURLString:postItem.imageURLString
-                                                  forId:postItem.postID
+                                                  forId:postItem.postObject.objectId
                                                andBlock:^(UIImage *image)
         {
             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
@@ -376,6 +380,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             [socialView show];
         } else {
             [self.socialManager likePostItem:postItem];
+            [self.storeManager saveUsersLike:postItem.postObject];
         }
     }
 }

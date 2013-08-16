@@ -27,7 +27,15 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>ig64392b8719fb49f59f71213ed640fb68</string>
+				<string>losal64392b8719fb49f59f71213ed640fb68</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>co.localism.losal</string>
 			</array>
 		</dict>
 	</array>
