@@ -66,6 +66,15 @@
         [self instagramLikePost:postItem.socialNetworkPostID];
     }
 }
+- (void)unLikePostItem:(LAPostItem *)postItem {
+    if ([postItem.socialNetwork isEqualToString:@"Twitter"]) {
+        [self twitterUnFavoriteTweet:postItem.socialNetworkPostID];
+    } else if ([postItem.socialNetwork isEqualToString:@"Facebook"]) {
+        [self facebookLikePost:postItem.socialNetworkPostID];
+    } else if ([postItem.socialNetwork isEqualToString:@"Instagram"]) {
+        [self instagramUnLikePost:postItem.socialNetworkPostID];
+    }
+}
 
 #pragma - TWITTER
 - (BOOL)twitterSessionIsValid {
