@@ -48,33 +48,33 @@
         [self addSubview:label];
         
         // Blue line 1
-        UIView *blueLine1 = [[UIView alloc] initWithFrame:CGRectMake(40, 40, frame.size.width-80, 1)];
+        UIView *blueLine1 = [[UIView alloc] initWithFrame:CGRectMake(40, 40, 240, 1)];
         [blueLine1 setBackgroundColor:[UIColor blueColor]];
         [self addSubview:blueLine1];
         
-        // Twitter
-        self.twitterButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.twitterButton.frame = CGRectMake(frame.size.width/2, 50, frame.size.width/2 - 20, 40);
-        [self.twitterButton setTitle:@"Twitter" forState:UIControlStateNormal];
-        [self.twitterButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-        [self setButton:self.twitterButton active:[self.socialManager twitterSessionIsValid]];
-        [self.twitterButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
-        [self.twitterButton addTarget:self action:@selector(twitter) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.twitterButton];
-        
-        // Facebook
-        self.facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.facebookButton.frame = CGRectMake(frame.size.width/2, 110, frame.size.width/2 - 20, 40);
-        [self.facebookButton setTitle:@"Facebook" forState:UIControlStateNormal];
-        [self.facebookButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-        [self setButton:self.facebookButton active:[self.socialManager facebookSessionIsValid]];
-        [self.facebookButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
-        [self.facebookButton addTarget:self action:@selector(facebook) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.facebookButton];
+//        // Twitter
+//        self.twitterButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        self.twitterButton.frame = CGRectMake(frame.size.width/2, 50, frame.size.width/2 - 20, 40);
+//        [self.twitterButton setTitle:@"Twitter" forState:UIControlStateNormal];
+//        [self.twitterButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+//        [self setButton:self.twitterButton active:[self.socialManager twitterSessionIsValid]];
+//        [self.twitterButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
+//        [self.twitterButton addTarget:self action:@selector(twitter) forControlEvents:UIControlEventTouchUpInside];
+//        [self addSubview:self.twitterButton];
+//        
+//        // Facebook
+//        self.facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        self.facebookButton.frame = CGRectMake(frame.size.width/2, 110, frame.size.width/2 - 20, 40);
+//        [self.facebookButton setTitle:@"Facebook" forState:UIControlStateNormal];
+//        [self.facebookButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+//        [self setButton:self.facebookButton active:[self.socialManager facebookSessionIsValid]];
+//        [self.facebookButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
+//        [self.facebookButton addTarget:self action:@selector(facebook) forControlEvents:UIControlEventTouchUpInside];
+//        [self addSubview:self.facebookButton];
         
         // Instagramr
         self.instagramButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.instagramButton.frame = CGRectMake(frame.size.width/2, 170, frame.size.width/2 - 20, 40);
+        self.instagramButton.frame = CGRectMake(frame.size.width/2, 50, frame.size.width/2 - 20, 40);
         [self.instagramButton setTitle:@"Instagram" forState:UIControlStateNormal];
         [self.instagramButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
         [self setButton:self.instagramButton active:[self.socialManager instagramSessionIsValid]];
@@ -83,12 +83,12 @@
         [self addSubview:self.instagramButton];
         
         // Blue line 2
-        UIView *blueLine2 = [[UIView alloc] initWithFrame:CGRectMake(40, 230, frame.size.width-80, 1)];
+        UIView *blueLine2 = [[UIView alloc] initWithFrame:CGRectMake(40, 110, frame.size.width-80, 1)];
         [blueLine2 setBackgroundColor:[UIColor blueColor]];
         [self addSubview:blueLine2];
         
         // Privacy note
-        UITextView *privacyView = [[UITextView alloc] initWithFrame:CGRectMake(30, 240, frame.size.width-60, 60)];
+        UITextView *privacyView = [[UITextView alloc] initWithFrame:CGRectMake(30, 120, frame.size.width-60, 60)];
         [privacyView setText:@"The #LOSAL APP uses Localism! to protect your privacy and unite our community. Your private information is not shared."];
         [privacyView setBackgroundColor:[UIColor clearColor]];
         [privacyView setTextAlignment:NSTextAlignmentCenter];
@@ -99,7 +99,7 @@
         
         // Close button
         UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        closeButton.frame = CGRectMake(10, 310, frame.size.width - 20, 35);
+        closeButton.frame = CGRectMake(10, 190, frame.size.width - 20, 35);
         [closeButton setTitle:@"Close" forState:UIControlStateNormal];
         [closeButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
         [closeButton addTarget:self action:@selector(hide) forControlEvents:UIControlEventTouchUpInside];

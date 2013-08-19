@@ -20,10 +20,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [application setStatusBarHidden:YES];
+    
     self.storeManager = [LAStoreManager sharedManager];
     [self.storeManager trackOpen:launchOptions];
+    [self.storeManager getSettingsWithCompletion:^(NSError *error) {
+        NSLog(@"Settings complete");
+    }];
     
     self.socialManager = [LASocialManager sharedManager];
+    
     return YES;
 }
 

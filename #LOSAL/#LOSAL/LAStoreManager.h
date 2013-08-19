@@ -7,14 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LASettings.h"
 #import "LAPostItem.h"
 #import "LAUser.h"
 
 @interface LAStoreManager : NSObject
 
+@property (nonatomic, strong) LASettings *settings;
+
 + (id)sharedManager;
 
 - (void)trackOpen:(NSDictionary *)launchOptions;
+
+- (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock;
 
 - (void)getFeedWithCompletion:(void (^)(NSArray *posts, NSError *error))completionBlock;
 
