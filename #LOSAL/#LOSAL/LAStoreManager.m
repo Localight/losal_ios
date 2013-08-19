@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) LAUser *thisUser;
 @property (nonatomic, strong) NSMutableArray *likes;
-
 @end
 
 @implementation LAStoreManager
@@ -55,7 +54,24 @@
 #pragma mark Settings
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock {
     PFQuery *query = [PFQuery queryWithClassName:@"AppSettings"];
-    
+    [query whereKey:@"school" equalTo:@"Losal"];
+    NSError *error;
+    NSArray *array = [query findObjects:&error];
+    {
+        if (!error) {
+            PFObject *appSettings = [array lastObject];
+            self.settings = [[LASettings alloc] init];
+            self.settings.queryIntervalDays = [[appSettings objectForKey:@"queryIntervalDays"] intValue];
+            self.settings.schoolName = [appSettings objectForKey:@"school"];
+            PFFile *backgroundFile = [appSettings objectForKey:@"backgroundImage"];
+            NSData *data = [backgroundFile getData:&error];
+            if (error) {
+                NSLog(@"Could not download background image");
+            } else {
+                self.settings.backgroundImage = [UIImage imageWithData:data];
+            }
+        }
+    }
 }
 
 #pragma mark Posts

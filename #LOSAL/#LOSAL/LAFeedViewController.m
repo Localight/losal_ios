@@ -95,8 +95,9 @@
     // Set an image as the background of a UITableView called 'tableView'
     // we will have to connect this to the imageloader at some point.
     // works for testing the theory though. 
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo2.jpg"]];
-    [backgroundImage setAlpha:.50f];
+    //UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo2.jpg"]];
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:self.storeManager.settings.backgroundImage];
+    //[backgroundImage setAlpha:.50f];
     [[self tableView]setBackgroundView:backgroundImage];
 }
 

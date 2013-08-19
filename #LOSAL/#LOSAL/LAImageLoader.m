@@ -56,7 +56,7 @@
             NSData *imageData = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:&error];
             
             UIImage *image = nil;
-            if (error) {
+            if (error || [self isImageValid:imageData] == NO) {
                 NSLog(@"Could not download photo for id %@ url %@", imageId, url);
             } else {
                 image = [UIImage imageWithData:imageData];
@@ -71,6 +71,16 @@
             });
         });
     }
+}
+
+// This method works well for jpegs, might need to modify for pngs
+- (BOOL)isImageValid:(NSData *)imageData {
+    if ([imageData length] < 4) return NO;
+    const unsigned char * bytes = (const unsigned char *)[imageData bytes];
+    if (bytes[0] != 0xFF || bytes[1] != 0xD8) return NO;
+    if (bytes[[imageData length] - 2] != 0xFF ||
+        bytes[[imageData length] - 1] != 0xD9) return NO;
+    return YES;
 }
 
 @end
