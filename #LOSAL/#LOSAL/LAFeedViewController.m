@@ -222,13 +222,19 @@
     [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
-    //TODO: add in ENum for grade level
     [[cell messageArea] setText:[postItem text]];
     UIImage *coloredImage = [[UIImage imageNamed:@"Mustache"] imageWithOverlayColor:[UIColor redColor]];
     [cell.iconImage setImage:coloredImage];
     UIImage *ago = [[UIImage imageNamed:@"clock"]imageWithOverlayColor:[UIColor whiteColor]];
     [[cell timeImage] setImage:ago];
-    [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | grade here", [self fuzzyTime:[df stringFromDate:timePosted]]]];
+    NSString *grade = @""; // set to blank in case there is no grade from post Item
+    NSString *name = @""; // set to blank in case there is no name from post Item
+    if (postItem.postUser != nil) {
+        grade = postItem.postUser.grade;
+        name = postItem.postUser.firstName;
+    }
+    [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], grade]];
+    [[cell userNameLabel] setText:name];
     
     if ([postItem isLikedByThisUser]) {
         if ([[postItem socialNetwork] isEqualToString:@"Facebook"])

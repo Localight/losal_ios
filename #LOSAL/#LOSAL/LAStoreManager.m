@@ -85,6 +85,7 @@
             query.limit = 50;
             [query orderByDescending:@"postTime"];
             [query whereKey:@"status" equalTo:@"1"];
+            [query includeKey:@"user"];
             [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
              {
                  NSMutableArray *messages = nil;
@@ -101,6 +102,15 @@
                          postItem.text = [post objectForKey:@"text"];
                          postItem.imageURLString = [post objectForKey:@"url"];
                          postItem.isLikedByThisUser = [self doesThisUserLike:post.objectId];
+                         
+                         PFObject *user = [post objectForKey:@"user"];
+                         if (user != nil) {
+                             NSLog(@"user is %@", user);
+                             postItem.postUser = [[LAUser alloc] init];
+                             postItem.postUser.grade = [user objectForKey:@"year"];
+                             postItem.postUser.firstName = [user objectForKey:@"firstName"];
+                             postItem.postUser.lastName = [user objectForKey:@"lastName"];
+                         }
                          [messages addObject:postItem];
                      }
                  } else {

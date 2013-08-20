@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "LAUser.h"
 
 @interface LAPostItem : NSObject
 
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) NSString *socialNetworkPostID;
 @property (nonatomic, strong) NSString *imageURLString;
 @property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) LAUser   *postUser;
 @property (assign) BOOL isLikedByThisUser;
 
 
