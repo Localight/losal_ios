@@ -91,14 +91,26 @@
                              //[self addFriends];
                          }];
     }
-    
-    // Set an image as the background of a UITableView called 'tableView'
-    // we will have to connect this to the imageloader at some point.
-    // works for testing the theory though. 
-    //UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo2.jpg"]];
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:self.storeManager.settings.backgroundImage];
-    //[backgroundImage setAlpha:.50f];
+
+    // Set up splash to dimmed background animation
+    NSString *imageLight;
+    NSString *imageDark;
+    if (self.view.frame.size.height > 480) {
+        imageLight = @"griffin-dance-bg-1";
+        imageDark = @"dark-griffin-dance-bg-1";
+    } else {
+        imageLight = @"griffin-dance-bg-2";
+        imageDark = @"dark-griffin-dance-bg-2";
+    }
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageLight]];
     [[self tableView]setBackgroundView:backgroundImage];
+    [UIView animateWithDuration:1.0f animations:^{
+        [[self tableView] setBackgroundColor:[UIColor blackColor]];
+        [backgroundImage setAlpha:0.3f];
+    } completion:^(BOOL finished) {
+        [backgroundImage setImage:[UIImage imageNamed:imageDark]];
+        [backgroundImage setAlpha:1.0f];
+    }];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
