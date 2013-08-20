@@ -12,12 +12,8 @@
 @interface LASocialNetworksView () 
 
 @property (nonatomic, strong) LASocialManager *socialManager;
-@property (nonatomic, strong) UIButton *twitterButton;
-@property (nonatomic, strong) UIButton *facebookButton;
 @property (nonatomic, strong) UIButton *instagramButton;
 
-- (void)twitter;
-- (void)facebook;
 - (void)instagram;
 
 @end
@@ -48,33 +44,13 @@
         [self addSubview:label];
         
         // Blue line 1
-        UIView *blueLine1 = [[UIView alloc] initWithFrame:CGRectMake(40, 40, 240, 1)];
+        UIView *blueLine1 = [[UIView alloc] initWithFrame:CGRectMake(40, 40, frame.size.width-80, 1)];
         [blueLine1 setBackgroundColor:[UIColor blueColor]];
         [self addSubview:blueLine1];
         
-//        // Twitter
-//        self.twitterButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        self.twitterButton.frame = CGRectMake(frame.size.width/2, 50, frame.size.width/2 - 20, 40);
-//        [self.twitterButton setTitle:@"Twitter" forState:UIControlStateNormal];
-//        [self.twitterButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-//        [self setButton:self.twitterButton active:[self.socialManager twitterSessionIsValid]];
-//        [self.twitterButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
-//        [self.twitterButton addTarget:self action:@selector(twitter) forControlEvents:UIControlEventTouchUpInside];
-//        [self addSubview:self.twitterButton];
-//        
-//        // Facebook
-//        self.facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        self.facebookButton.frame = CGRectMake(frame.size.width/2, 110, frame.size.width/2 - 20, 40);
-//        [self.facebookButton setTitle:@"Facebook" forState:UIControlStateNormal];
-//        [self.facebookButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-//        [self setButton:self.facebookButton active:[self.socialManager facebookSessionIsValid]];
-//        [self.facebookButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
-//        [self.facebookButton addTarget:self action:@selector(facebook) forControlEvents:UIControlEventTouchUpInside];
-//        [self addSubview:self.facebookButton];
-        
-        // Instagramr
+        // Instagram
         self.instagramButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.instagramButton.frame = CGRectMake(frame.size.width/2, 50, frame.size.width/2 - 20, 40);
+        self.instagramButton.frame = CGRectMake(frame.size.width/2, 55, frame.size.width/2 - 20, 40);
         [self.instagramButton setTitle:@"Instagram" forState:UIControlStateNormal];
         [self.instagramButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
         [self setButton:self.instagramButton active:[self.socialManager instagramSessionIsValid]];
@@ -115,9 +91,6 @@
     NSLog(@"show");
     self.transform = CGAffineTransformMakeScale(0.1, 0.1);
     self.alpha = 0;
-    
-    [self.socialManager twitterLogin];
-    [self.socialManager facebookLogin];
     
     [UIView animateWithDuration:.3 animations:^{
         self.transform = CGAffineTransformMakeScale(1.1, 1.1);
@@ -163,49 +136,6 @@
         [alertView show];
     });
 }
-
-#pragma TWITTER
-- (void)twitter {
-    if ([self.socialManager twitterSessionIsValid]) {
-        [self.socialManager twitterLogout];
-    } else {
-        [self.socialManager twitterLogin];
-    }
-}
-
-#pragma TWITTER Delegates
-- (void)twitterDidLogin {
-    [self setButton:self.twitterButton active:YES];
-}
-
-- (void)twitterDidLogout {
-    [self setButton:self.twitterButton active:NO];
-}
-- (void)twitterDidReceiveAnError:(NSString *)errorMessage {
-    [self displayAlertMessage:errorMessage];
-}
-
-#pragma FACEBOOK
-- (void)facebook {
-    if ([self.socialManager facebookSessionIsValid]) {
-        [self.socialManager facebookLogout];
-    } else {
-        [self.socialManager facebookLogin];
-    }
-}
-
-#pragma FACEBOOK Delegates
-- (void)facebookDidLogin {
-    [self setButton:self.facebookButton active:YES];
-}
-
-- (void)facebookDidLogout {
-    [self setButton:self.facebookButton active:NO];
-}
-- (void)facebookDidReceiveAnError {
-    [self displayAlertMessage:@"Please go to settings and create a facebook account."];
-}
-
 
 #pragma INSTAGRAM
 - (void)instagram {

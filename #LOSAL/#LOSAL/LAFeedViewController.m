@@ -407,7 +407,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
         
         if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO) {
-            LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 64, self.view.bounds.size.width - 40, 350)];
+            LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 64, self.view.bounds.size.width - 40, 230)];
             [self.navigationController.view addSubview:socialView];
             [socialView show];
         } else {
@@ -432,6 +432,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 #pragma mark - Social Manager Delegates
+
 - (void)twitterDidReceiveAnError:(NSString *)errorMessage {
     dispatch_queue_t callerQueue = dispatch_get_main_queue();
     dispatch_async(callerQueue, ^{
@@ -441,6 +442,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                                            cancelButtonTitle:@"OK"
                                            otherButtonTitles:nil];
         [av show];
+        [[self tableView] reloadData];
     });
 }
 
