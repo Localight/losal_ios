@@ -12,4 +12,5 @@
 
 @interface LAAlertViewController : UITableViewController
 
+- (IBAction)revealMenu:(id)sender;
 @end

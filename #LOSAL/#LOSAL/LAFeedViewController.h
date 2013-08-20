@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ECSlidingViewController.h"
 #import "LAMenuViewController.h"
-#import "NSDate-Utilities.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LAFeedViewController : UITableViewController
 

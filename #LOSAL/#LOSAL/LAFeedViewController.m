@@ -10,7 +10,7 @@
 
 #import "LAFeedViewController.h"
 
-#import "LADetailViewController.h"
+//#import "LADetailViewController.h"
 
 #import "LAStoreManager.h"
 #import "LASocialManager.h"
@@ -61,14 +61,14 @@
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:self
                                                                   action:@selector(revealMenu:)];
+    [[self navigationItem]setLeftBarButtonItem:menuButton];
     
-    self.navigationItem.leftBarButtonItem = menuButton;
-
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
     // You just need to set the opacity, radius, and color.
-    [[[self view]layer]setShadowOpacity:0.75f];
-    [[[self view]layer]setShadowRadius:0.75f];
-    [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [[UIColor blackColor] CGColor];
+
 //    self.view.layer.shadowOpacity = 0.75f;
 //    self.view.layer.shadowRadius = 10.0f;
 //    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -98,6 +98,7 @@
     //UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"photo2.jpg"]];
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:self.storeManager.settings.backgroundImage];
     //[backgroundImage setAlpha:.50f];
+
     [[self tableView]setBackgroundView:backgroundImage];
 }
 
@@ -450,15 +451,4 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)instagramDidLoad:(id)result {
     NSLog(@"Received restul %@", result);
 }
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"])
-    {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
-    }
-}
-
 @end

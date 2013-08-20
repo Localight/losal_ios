@@ -1,25 +1,18 @@
 //
-//  LAAlertViewController.m
+//  LAALertDetailViewViewController.m
 //  #LOSAL
 //
-//  Created by James Orion Hall on 8/7/13.
+//  Created by James Orion Hall on 8/19/13.
 //  Copyright (c) 2013 Localism. All rights reserved.
 //
 
-#import "LAAlertViewController.h"
-#import "LAMenuViewController.h"
-#import "LAStoreManager.h"
-#import "NSDate-Utilities.h"
-@interface LAAlertViewController ()
-{
-      NSMutableArray *_objects;
-}
+#import "LAALertDetailViewViewController.h"
 
-@property (strong, nonatomic) LAStoreManager *storeManager;
+@interface LAALertDetailViewViewController ()
 
 @end
 
-@implementation LAAlertViewController
+@implementation LAALertDetailViewViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,29 +28,10 @@
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
-     //self.clearsSelectionOnViewWillAppear = NO;
+    // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
-                                                                   style:UIBarButtonItemStyleBordered
-                                                                  target:self
-                                                                  action:@selector(revealMenu:)];
-    [[self navigationItem]setLeftBarButtonItem:menuButton];
-    
-    [[[self view]layer]setShadowOpacity:0.75f];
-    [[[self view]layer]setShadowRadius:0.75f];
-    [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
-    
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
-        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
-    }
-
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:self.storeManager.settings.backgroundImage];
-    //[backgroundImage setAlpha:.50f];
-    
-    [[self tableView]setBackgroundView:backgroundImage];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,30 +44,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    #warning Potentially incomplete method implementation.
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    #warning Incomplete method implementation.
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 0;
 }
-- (IBAction)revealMenu:(id)sender
-{
-    [self.slidingViewController anchorTopViewTo:ECRight];
-}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
-                                                            forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
     

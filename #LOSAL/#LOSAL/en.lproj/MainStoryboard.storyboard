@@ -17,7 +17,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zjg-Uu-UtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-998" y="80"/>
+            <point key="canvasLocation" x="-492" y="72"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="41t-83-9wZ">
@@ -27,15 +27,45 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" id="Ean-Kd-HxS">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="menuCell" id="Ean-Kd-HxS" customClass="LAMenuCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ek-GS-Sik">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="114" id="Wr5-jf-FhE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="voR-9Z-MQQ">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" type="user" id="1wJ-WX-AcK"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" type="user" id="QCC-rI-bQO"/>
+                                                <constraint firstAttribute="width" constant="30" type="user" id="jFe-BD-Zdh"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" type="user" id="o2U-mz-8cC"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="8Ek-GS-Sik" firstAttribute="top" secondItem="Ean-Kd-HxS" secondAttribute="top" constant="11" id="3RA-rL-ypx"/>
+                                    <constraint firstItem="voR-9Z-MQQ" firstAttribute="centerY" secondItem="Ean-Kd-HxS" secondAttribute="centerY" type="default" id="Bcf-dz-gWI"/>
+                                    <constraint firstItem="voR-9Z-MQQ" firstAttribute="leading" secondItem="Ean-Kd-HxS" secondAttribute="leading" constant="20" type="default" id="SWC-a5-goS"/>
+                                    <constraint firstItem="8Ek-GS-Sik" firstAttribute="leading" secondItem="voR-9Z-MQQ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="cOt-wg-Wx6"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="menuIcons" destination="voR-9Z-MQQ" id="He3-0Q-b3v"/>
+                                    <outlet property="menuLabels" destination="8Ek-GS-Sik" id="7dr-IT-xfT"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -46,36 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uS-Ih-6L7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-499" y="72"/>
-        </scene>
-        <!--Alerts View Controller-->
-        <scene sceneID="vO8-2F-kGl">
-            <objects>
-                <tableViewController storyboardIdentifier="Alerts" id="GjI-oC-0cs" customClass="LAAlertsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NwV-CF-FCM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uIB-xW-i0k">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="GjI-oC-0cs" id="XeB-oi-9mP"/>
-                            <outlet property="delegate" destination="GjI-oC-0cs" id="SbO-s2-aAt"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nw3-Gi-w0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1" y="-624"/>
+            <point key="canvasLocation" x="-1" y="-598"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="11">
@@ -99,8 +100,9 @@
             <objects>
                 <tableViewController storyboardIdentifier="" title="Feed" id="12" customClass="LAFeedViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="358" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="44"/>
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="297" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="358" id="lJ0-d7-vTF" customClass="LAPostCell">
@@ -231,42 +233,62 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="#LOSAL" id="36"/>
+                    <navigationItem key="navigationItem" title="#LOSAL" id="yVv-X2-xAz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="575" y="72"/>
         </scene>
-        <!--Detail View Controller - Detail-->
-        <scene sceneID="24">
+        <!--Schedule View Controller - Schedule-->
+        <scene sceneID="ewz-ya-q8q">
             <objects>
-                <viewController title="Detail" id="21" customClass="LADetailViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="22">
+                <viewController storyboardIdentifier="Schedule" title="Schedule" id="2Gv-Ol-obo" customClass="LAScheduleViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="f56-g5-WKi">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="3km-OK-EuP"/>
-                            <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WHk-TU-VeN"/>
-                            <constraint firstItem="27" firstAttribute="centerY" secondItem="22" secondAttribute="centerY" type="default" id="y3b-RM-eCU"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Detail" id="26"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="27" id="28"/>
+                        <outlet property="scheduleView" destination="f56-g5-WKi" id="Rb1-nx-33o"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ME-4m-HYO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="72"/>
+            <point key="canvasLocation" x="575" y="742"/>
+        </scene>
+        <!--Events View Controller - Events-->
+        <scene sceneID="KTu-yk-ZSh">
+            <objects>
+                <viewController storyboardIdentifier="Events" title="Events" id="igA-UK-wt5" customClass="LAEventsViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="U8p-uu-alB">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
+                    <connections>
+                        <outlet property="eventsView" destination="U8p-uu-alB" id="km7-Tr-jGM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I5m-HY-nij" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="-1291"/>
+        </scene>
+        <!--Grade View Controller - Grades-->
+        <scene sceneID="HIB-XA-x6b">
+            <objects>
+                <viewController storyboardIdentifier="Grades" title="Grades" id="gdJ-wi-APb" customClass="LAGradeViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="T48-MI-qa5">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
+                    <connections>
+                        <outlet property="gradeView" destination="T48-MI-qa5" id="e60-ne-ro5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v0D-aL-RoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="-636"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="RvX-dt-MB2">
@@ -337,20 +359,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lT1-g1-62t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="589" y="822"/>
+            <point key="canvasLocation" x="-513" y="-608"/>
+        </scene>
+        <!--Socrative View Controller - Socrative-->
+        <scene sceneID="oDu-T1-J3v">
+            <objects>
+                <viewController storyboardIdentifier="Socrative" title="Socrative" id="eI5-ta-LL4" customClass="LASocrativeViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="95J-be-sFh">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
+                    <connections>
+                        <outlet property="socrativeView" destination="95J-be-sFh" id="3zW-j8-qLA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tj-DE-TJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="1430"/>
         </scene>
         <!--Alert View Controller - AlertFeed-->
         <scene sceneID="BkQ-7f-0Tx">
             <objects>
-                <tableViewController title="AlertFeed" id="Lra-wS-cTB" customClass="LAAlertViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Alerts" title="AlertFeed" id="Lra-wS-cTB" customClass="LAAlertViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="106" sectionHeaderHeight="22" sectionFooterHeight="22" id="z1H-W4-byv">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="blackTranslucent" id="U4r-hn-wes">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="#LOSAL Alerts" id="gnm-fd-TNY">
+                                    <barButtonItem key="backBarButtonItem" title="Menu" id="PXa-zQ-8YY"/>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="297" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="106" id="npm-Jx-TC1" customClass="LAPostCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="106"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="106"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
@@ -394,14 +442,30 @@
                             <outlet property="delegate" destination="Lra-wS-cTB" id="C1F-Ya-R4y"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="#LOSAL" id="0Ll-wa-K4M"/>
                     <connections>
                         <segue destination="tn1-ib-iOM" kind="push" id="fjI-2w-RT5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5td-li-nfy" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-533" y="834"/>
+            <point key="canvasLocation" x="595" y="2808"/>
+        </scene>
+        <!--Edmodo View Controller - Edmodo-->
+        <scene sceneID="I49-rU-O1k">
+            <objects>
+                <viewController storyboardIdentifier="Edmodo" title="Edmodo" id="aXl-b3-OrI" customClass="LAEdmodoViewController" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="BZ5-0d-MJm">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </webView>
+                    <connections>
+                        <outlet property="edmodoView" destination="BZ5-0d-MJm" id="CJi-FW-PSX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LvP-Ma-De9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="585" y="2106"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="iO2-3r-YvX">
@@ -432,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DG7-0T-EQg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="43" y="828"/>
+            <point key="canvasLocation" x="1140" y="2808"/>
         </scene>
     </scenes>
     <resources>
@@ -445,11 +509,20 @@
         </class>
         <class className="LAAlertViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAlertViewController.h"/>
-        </class>
-        <class className="LADetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="action" name="revealMenu:"/>
+            </relationships>
+        </class>
+        <class className="LAEdmodoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAEdmodoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="edmodoView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LAEventsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAEventsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="eventsView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="LAFeedViewController" superclassName="UITableViewController">
@@ -459,16 +532,28 @@
                 <relationship kind="action" name="revealMenu:"/>
             </relationships>
         </class>
+        <class className="LAGradeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAGradeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gradeView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
         <class className="LALoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="login:"/>
-                <relationship kind="action" name="skip:"/>
                 <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="pinNumber" candidateClass="UITextField"/>
             </relationships>
         </class>
-        <class className="LAMenuViewController" superclassName="UIViewController">
+        <class className="LAMenuCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="menuIcons" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="menuLabels" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAMenuViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
         </class>
         <class className="LAPostCell" superclassName="UITableViewCell">
@@ -483,6 +568,18 @@
                 <relationship kind="outlet" name="socialMediaImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="timeImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAScheduleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAScheduleViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scheduleView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LASocrativeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASocrativeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="socrativeView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="LASplashViewController" superclassName="ECSlidingViewController">

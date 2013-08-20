@@ -57,6 +57,14 @@
 		6530907417BD87C400ADA359 /* twitterlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906E17BD87C400ADA359 /* twitterlike.png */; };
 		6530907517BD87C400ADA359 /* facebooklike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906F17BD87C400ADA359 /* facebooklike.png */; };
 		6530907917BD956E00ADA359 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530907817BD956E00ADA359 /* clock.png */; };
+		653D448C17C2D72E00444E51 /* LAMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D448B17C2D72E00444E51 /* LAMenuCell.m */; };
+		653D448F17C2DCB700444E51 /* LAALertDetailViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D448E17C2DCB700444E51 /* LAALertDetailViewViewController.m */; };
+		653D449217C3DE9400444E51 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653D449017C3DE4100444E51 /* QuartzCore.framework */; };
+		653D449517C406C300444E51 /* LAGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D449417C406C300444E51 /* LAGradeViewController.m */; };
+		653D449A17C4088000444E51 /* LAScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D449917C4088000444E51 /* LAScheduleViewController.m */; };
+		653D449D17C409F200444E51 /* LAEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D449C17C409F200444E51 /* LAEventsViewController.m */; };
+		653D44A117C40ADE00444E51 /* LAEdmodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D44A017C40ADE00444E51 /* LAEdmodoViewController.m */; };
+		653D44A517C40BAE00444E51 /* LASocrativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 653D44A417C40BAE00444E51 /* LASocrativeViewController.m */; };
 		6549236817B9591A003F39E3 /* do-git in Resources */ = {isa = PBXBuildFile; fileRef = 6549236417B9591A003F39E3 /* do-git */; };
 		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
 		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
@@ -70,7 +78,6 @@
 		6588D03D17A4BCC500B6C498 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D03C17A4BCC500B6C498 /* Default-568h@2x.png */; };
 		6588D04017A4BCC500B6C498 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */; };
 		6588D04317A4BCC500B6C498 /* LAFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D04217A4BCC500B6C498 /* LAFeedViewController.m */; };
-		6588D04617A4BCC500B6C498 /* LADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D04517A4BCC500B6C498 /* LADetailViewController.m */; };
 		6588D04E17A4BCC500B6C498 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D04D17A4BCC500B6C498 /* SenTestingKit.framework */; };
 		6588D04F17A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
 		6588D05017A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
@@ -158,6 +165,21 @@
 		6530906E17BD87C400ADA359 /* twitterlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterlike.png; sourceTree = "<group>"; };
 		6530906F17BD87C400ADA359 /* facebooklike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebooklike.png; sourceTree = "<group>"; };
 		6530907817BD956E00ADA359 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		653D448A17C2D72E00444E51 /* LAMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAMenuCell.h; sourceTree = "<group>"; };
+		653D448B17C2D72E00444E51 /* LAMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAMenuCell.m; sourceTree = "<group>"; };
+		653D448D17C2DCB700444E51 /* LAALertDetailViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAALertDetailViewViewController.h; sourceTree = "<group>"; };
+		653D448E17C2DCB700444E51 /* LAALertDetailViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAALertDetailViewViewController.m; sourceTree = "<group>"; };
+		653D449017C3DE4100444E51 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		653D449317C406C300444E51 /* LAGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAGradeViewController.h; sourceTree = "<group>"; };
+		653D449417C406C300444E51 /* LAGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAGradeViewController.m; sourceTree = "<group>"; };
+		653D449817C4088000444E51 /* LAScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAScheduleViewController.h; sourceTree = "<group>"; };
+		653D449917C4088000444E51 /* LAScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAScheduleViewController.m; sourceTree = "<group>"; };
+		653D449B17C409F200444E51 /* LAEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAEventsViewController.h; sourceTree = "<group>"; };
+		653D449C17C409F200444E51 /* LAEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAEventsViewController.m; sourceTree = "<group>"; };
+		653D449F17C40ADE00444E51 /* LAEdmodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAEdmodoViewController.h; sourceTree = "<group>"; };
+		653D44A017C40ADE00444E51 /* LAEdmodoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAEdmodoViewController.m; sourceTree = "<group>"; };
+		653D44A317C40BAE00444E51 /* LASocrativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LASocrativeViewController.h; sourceTree = "<group>"; };
+		653D44A417C40BAE00444E51 /* LASocrativeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LASocrativeViewController.m; sourceTree = "<group>"; };
 		6549236417B9591A003F39E3 /* do-git */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.csh; path = "do-git"; sourceTree = "<group>"; };
 		6549236517B9591A003F39E3 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
 		6549236617B9591A003F39E3 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
@@ -177,8 +199,6 @@
 		6588D03F17A4BCC500B6C498 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6588D04117A4BCC500B6C498 /* LAFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAFeedViewController.h; sourceTree = "<group>"; };
 		6588D04217A4BCC500B6C498 /* LAFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAFeedViewController.m; sourceTree = "<group>"; };
-		6588D04417A4BCC500B6C498 /* LADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LADetailViewController.h; sourceTree = "<group>"; };
-		6588D04517A4BCC500B6C498 /* LADetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LADetailViewController.m; sourceTree = "<group>"; };
 		6588D04C17A4BCC500B6C498 /* #LOSALTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "#LOSALTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6588D04D17A4BCC500B6C498 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6588D05517A4BCC500B6C498 /* #LOSALTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "#LOSALTests-Info.plist"; sourceTree = "<group>"; };
@@ -201,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				653D449217C3DE9400444E51 /* QuartzCore.framework in Frameworks */,
 				4358C00E17BC255600525BB8 /* Accounts.framework in Frameworks */,
 				4358C00C17BC216400525BB8 /* Social.framework in Frameworks */,
 				4378F31F17B2D28D00DEBE6A /* ImageIO.framework in Frameworks */,
@@ -257,6 +278,8 @@
 				43397B4717B95FBB003F4977 /* LALoginViewController.m */,
 				6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */,
 				6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */,
+				653D448A17C2D72E00444E51 /* LAMenuCell.h */,
+				653D448B17C2D72E00444E51 /* LAMenuCell.m */,
 			);
 			name = Init;
 			sourceTree = "<group>";
@@ -268,8 +291,6 @@
 				6588D04217A4BCC500B6C498 /* LAFeedViewController.m */,
 				651F0C0E17B9FBC20018794A /* LAPostCell.h */,
 				651F0C0F17B9FBC20018794A /* LAPostCell.m */,
-				6588D04417A4BCC500B6C498 /* LADetailViewController.h */,
-				6588D04517A4BCC500B6C498 /* LADetailViewController.m */,
 				4358C00017BAF67700525BB8 /* LASocialNetworksView.h */,
 				4358C00117BAF67700525BB8 /* LASocialNetworksView.m */,
 			);
@@ -281,6 +302,8 @@
 			children = (
 				6523AE2917B31DBD00AFD830 /* LAAlertViewController.h */,
 				6523AE2A17B31DBD00AFD830 /* LAAlertViewController.m */,
+				653D448D17C2DCB700444E51 /* LAALertDetailViewViewController.h */,
+				653D448E17C2DCB700444E51 /* LAALertDetailViewViewController.m */,
 			);
 			name = Alerts;
 			sourceTree = "<group>";
@@ -374,6 +397,51 @@
 			name = SocialMediaIcons;
 			sourceTree = "<group>";
 		};
+		653D449617C406CE00444E51 /* Grades */ = {
+			isa = PBXGroup;
+			children = (
+				653D449317C406C300444E51 /* LAGradeViewController.h */,
+				653D449417C406C300444E51 /* LAGradeViewController.m */,
+			);
+			name = Grades;
+			sourceTree = "<group>";
+		};
+		653D449717C4085000444E51 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				653D449817C4088000444E51 /* LAScheduleViewController.h */,
+				653D449917C4088000444E51 /* LAScheduleViewController.m */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
+		653D449E17C409F500444E51 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				653D449B17C409F200444E51 /* LAEventsViewController.h */,
+				653D449C17C409F200444E51 /* LAEventsViewController.m */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		653D44A217C40AE100444E51 /* Edmodo */ = {
+			isa = PBXGroup;
+			children = (
+				653D449F17C40ADE00444E51 /* LAEdmodoViewController.h */,
+				653D44A017C40ADE00444E51 /* LAEdmodoViewController.m */,
+			);
+			name = Edmodo;
+			sourceTree = "<group>";
+		};
+		653D44A617C40BB100444E51 /* Socrative */ = {
+			isa = PBXGroup;
+			children = (
+				653D44A317C40BAE00444E51 /* LASocrativeViewController.h */,
+				653D44A417C40BAE00444E51 /* LASocrativeViewController.m */,
+			);
+			name = Socrative;
+			sourceTree = "<group>";
+		};
 		6549236317B9591A003F39E3 /* NSDate-Extensions-master */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +477,7 @@
 		6588D02517A4BCC500B6C498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				653D449017C3DE4100444E51 /* QuartzCore.framework */,
 				4358C00D17BC255600525BB8 /* Accounts.framework */,
 				4358C00B17BC216400525BB8 /* Social.framework */,
 				4378F31E17B2D28D00DEBE6A /* ImageIO.framework */,
@@ -506,7 +575,12 @@
 		65FA586E17A9880A006598B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				653D44A617C40BB100444E51 /* Socrative */,
+				653D44A217C40AE100444E51 /* Edmodo */,
 				4358C00417BBFA2A00525BB8 /* Interface Builder */,
+				653D449617C406CE00444E51 /* Grades */,
+				653D449717C4085000444E51 /* Schedule */,
+				653D449E17C409F500444E51 /* Events */,
 				4358C00517BBFA3E00525BB8 /* Init */,
 				4358C00617BBFA6000525BB8 /* Main Feed */,
 				4358C00717BBFA9200525BB8 /* Alerts */,
@@ -656,7 +730,6 @@
 				6588D03317A4BCC500B6C498 /* main.m in Sources */,
 				6588D03717A4BCC500B6C498 /* LAAppDelegate.m in Sources */,
 				6588D04317A4BCC500B6C498 /* LAFeedViewController.m in Sources */,
-				6588D04617A4BCC500B6C498 /* LADetailViewController.m in Sources */,
 				6588D06617A4BEBF00B6C498 /* LASplashViewController.m in Sources */,
 				6588D0AA17A4C02D00B6C498 /* ECSlidingViewController.m in Sources */,
 				6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */,
@@ -675,6 +748,13 @@
 				4358C00217BAF67700525BB8 /* LASocialNetworksView.m in Sources */,
 				4358C00A17BBFB9000525BB8 /* LASocialManager.m in Sources */,
 				436507F517C291DA0088D62F /* LASettings.m in Sources */,
+				653D448C17C2D72E00444E51 /* LAMenuCell.m in Sources */,
+				653D448F17C2DCB700444E51 /* LAALertDetailViewViewController.m in Sources */,
+				653D449517C406C300444E51 /* LAGradeViewController.m in Sources */,
+				653D449A17C4088000444E51 /* LAScheduleViewController.m in Sources */,
+				653D449D17C409F200444E51 /* LAEventsViewController.m in Sources */,
+				653D44A117C40ADE00444E51 /* LAEdmodoViewController.m in Sources */,
+				653D44A517C40BAE00444E51 /* LASocrativeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

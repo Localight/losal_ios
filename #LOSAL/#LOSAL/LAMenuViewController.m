@@ -8,7 +8,8 @@
 
 #import "LAMenuViewController.h"
 #import "LAStoreManager.h"
-
+#import "LAMenuCell.h"
+#import "LAImage+Color.h"
 @interface LAMenuViewController ()
 
 @property (nonatomic, strong) NSArray *menuItems;
@@ -35,15 +36,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    [self.slidingViewController setAnchorRightRevealAmount:280.0f];
-    [[self slidingViewController] setAnchorRightRevealAmount:280.f];
+    [[self slidingViewController] setAnchorRightRevealAmount:150.f];
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
-    [[self view] setBackgroundColor:[UIColor whiteColor]];
+    //[[self view] setBackgroundColor:[UIColor whiteColor]];
     
-    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", @"Logout", nil];
+    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts",@"Events",@"Grades",@"Schedule",@"Socrative",@"Edmodo", @"Logout", nil];
     
     self.storeManager = [LAStoreManager sharedManager];
+//    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:self.storeManager.settings.backgroundImage];
+    //[backgroundImage setAlpha:.50f];
+    [[self tableView]setBackgroundColor:[UIColor darkGrayColor]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -55,30 +57,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = [[self menuItems] objectAtIndex:[indexPath row]];
+    NSString *cellIdentifier = @"menuCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    LAMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell = [[LAMenuCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:cellIdentifier];
     }
+    [[cell menuLabels]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
     
-    cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
+    UIImage *coloredImage = [[UIImage imageNamed:@"Mustache"] imageWithOverlayColor:[UIColor redColor]];
+    [[cell menuIcons]setImage:coloredImage];
+    [[cell menuLabels]setText:[self.menuItems objectAtIndex:[indexPath row]]];
     
     return cell;
-   }
--(void)openView:(NSString *)uid{
-    
-    NSString *identifier = uid;
-    
-    UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-    
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-        CGRect frame = self.slidingViewController.topViewController.view.frame;
-        self.slidingViewController.topViewController = newTopViewController;
-        self.slidingViewController.topViewController.view.frame = frame;
-        [self.slidingViewController resetTopView];
-    }];
-    
 }
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,7 +81,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         [self.storeManager logout];
         identifier = [NSString stringWithFormat:@"Feed"];
     } else {
-        identifier = [NSString stringWithFormat:@"%@", [self.menuItems objectAtIndex:indexPath.row]];
+        identifier = [NSString stringWithFormat:@"%@", [[self menuItems] objectAtIndex:[indexPath row]]];
     }
     
     UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
