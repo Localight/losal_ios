@@ -41,7 +41,7 @@
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
     [[self view] setBackgroundColor:[UIColor whiteColor]];
     
-    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", @"WebView", @"Logout", nil];
+    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", @"Schedule",@"Socrative",@"Edmodo",@"Events",@"Grades" @"Logout", nil];
     
     self.storeManager = [LAStoreManager sharedManager];
 }
