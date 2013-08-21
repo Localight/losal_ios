@@ -34,10 +34,10 @@
     NSMutableArray *_objects;
 }
 
-@property (strong, nonatomic) LAStoreManager *storeManager;
-@property (strong, nonatomic) LASocialManager *socialManager;
-@property (strong, nonatomic) LAImageLoader *imageLoader;
-
+//@property (strong, nonatomic) LAStoreManager *storeManager;
+//@property (strong, nonatomic) LASocialManager *socialManager;
+//@property (strong, nonatomic) LAImageLoader *imageLoader;
+//
 - (IBAction)likeButtonTapped:(id)sender;
 
 @end
@@ -52,11 +52,10 @@
     [super viewDidLoad];
     
     // This is where you populate the table with data
-    self.storeManager = [LAStoreManager sharedManager];
-    self.socialManager = [LASocialManager sharedManager];
-    self.socialManager.delegate = self;
-    self.imageLoader = [LAImageLoader sharedManager];
-    
+//    self.storeManager = [LAStoreManager sharedManager];
+//    self.socialManager = [LASocialManager sharedManager];
+    [[LASocialManager sharedManager]setDelegate:self];
+   
     UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
                                                                    style:UIBarButtonItemStyleBordered
                                                                   target:self
@@ -76,7 +75,8 @@
     // This was messing up the scrolling in the UI table view so need to figure out a way to add this back - Joaquin
     //[self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
-    if ([self.storeManager getUser] == nil) {
+    if ([[LAStoreManager sharedManager]getUser]==nil)
+    {
         UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
         
         UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
@@ -126,7 +126,7 @@
     
     [[self navigationItem] setTitleView:currentTitleView];
     
-    [self.storeManager getFeedWithCompletion:^(NSArray *posts, NSError *error)
+    [[LAStoreManager sharedManager]getFeedWithCompletion:^(NSArray *posts, NSError *error)
     {
         NSLog(@"Completion block called!");
         if (!error)
@@ -273,9 +273,7 @@
     {
         // Set image to nil, in case the cell was reused.
         [cell.postImage setImage:nil];
-        [self.imageLoader processImageDataWithURLString:postItem.imageURLString
-                                                  forId:postItem.postObject.objectId
-                                               andBlock:^(UIImage *image)
+        [[LAImageLoader sharedManager]processImageDataWithURLString:postItem.imageURLString forId:postItem.postObject.objectId andBlock:^(UIImage *image)
         {
             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
             {
@@ -418,7 +416,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         // Get postitem and pass it to the like method in the social managher
         LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
         
-        if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO) {
+        if ([[LASocialManager sharedManager]isSessionValidForNetwork:[postItem socialNetwork] == NO){
+             self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO) {
             LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 64, self.view.bounds.size.width - 40, 230)];
             [self.navigationController.view addSubview:socialView];
             [socialView show];
