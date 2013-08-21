@@ -48,6 +48,45 @@
             </objects>
             <point key="canvasLocation" x="-499" y="72"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="KOq-2C-hgH">
+            <objects>
+                <viewController storyboardIdentifier="WebView" id="cem-1l-OZS" customClass="LAWebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hSG-Jd-8Sp">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orF-9u-GtW">
+                                <items>
+                                    <navigationItem title="Title" id="dsT-xG-dmP">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="FXw-gR-xhd">
+                                            <connections>
+                                                <action selector="back:" destination="cem-1l-OZS" id="p7g-4b-B5y"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3m-jG-Qrx">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="N3m-jG-Qrx" firstAttribute="leading" secondItem="hSG-Jd-8Sp" secondAttribute="leading" type="default" id="5uF-rd-iQw"/>
+                            <constraint firstItem="N3m-jG-Qrx" firstAttribute="trailing" secondItem="hSG-Jd-8Sp" secondAttribute="trailing" type="default" id="Tkf-4T-N1I"/>
+                            <constraint firstItem="N3m-jG-Qrx" firstAttribute="bottom" secondItem="hSG-Jd-8Sp" secondAttribute="bottom" type="default" id="W0u-GG-Gq6"/>
+                            <constraint firstItem="orF-9u-GtW" firstAttribute="top" secondItem="hSG-Jd-8Sp" secondAttribute="top" type="default" id="Znw-Sn-owd"/>
+                            <constraint firstItem="orF-9u-GtW" firstAttribute="trailing" secondItem="hSG-Jd-8Sp" secondAttribute="trailing" type="default" id="g21-sq-SZA"/>
+                            <constraint firstItem="orF-9u-GtW" firstAttribute="leading" secondItem="hSG-Jd-8Sp" secondAttribute="leading" type="default" id="uMz-b6-YLp"/>
+                            <constraint firstItem="N3m-jG-Qrx" firstAttribute="top" secondItem="orF-9u-GtW" secondAttribute="bottom" type="default" id="yvH-NH-E68"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QLT-o4-wnS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62" y="-626"/>
+        </scene>
         <!--Alerts View Controller-->
         <scene sceneID="vO8-2F-kGl">
             <objects>
@@ -75,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nw3-Gi-w0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="-624"/>
+            <point key="canvasLocation" x="472" y="-618"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="11">
@@ -439,6 +478,65 @@
         <image name="Default.png" width="640" height="960"/>
         <image name="placeholder.png" width="450" height="450"/>
     </resources>
+    <classes>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="LAAlertViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAlertViewController.h"/>
+        </class>
+        <class className="LADetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAFeedViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAFeedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="likeButtonTapped:"/>
+                <relationship kind="action" name="revealMenu:"/>
+            </relationships>
+        </class>
+        <class className="LALoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="action" name="skip:"/>
+                <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pinNumber" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="LAMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
+        </class>
+        <class className="LAPostCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPostCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateAndGradeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iconImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="likeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="socialMediaImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LASplashViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>
+        </class>
+        <class className="LAWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

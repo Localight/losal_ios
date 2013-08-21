@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43249B8F17C522D00063197B /* LAWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43249B8E17C522D00063197B /* LAWebViewController.m */; };
 		43397B4317B93582003F4977 /* LAImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4217B93582003F4977 /* LAImage+Color.m */; };
 		43397B4517B93716003F4977 /* Mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = 43397B4417B93716003F4977 /* Mustache.png */; };
 		43397B4817B95FBC003F4977 /* LALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4717B95FBB003F4977 /* LALoginViewController.m */; };
@@ -96,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43249B8D17C522D00063197B /* LAWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAWebViewController.h; sourceTree = "<group>"; };
+		43249B8E17C522D00063197B /* LAWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAWebViewController.m; sourceTree = "<group>"; };
 		43397B4117B93582003F4977 /* LAImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LAImage+Color.h"; sourceTree = "<group>"; };
 		43397B4217B93582003F4977 /* LAImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LAImage+Color.m"; sourceTree = "<group>"; };
 		43397B4417B93716003F4977 /* Mustache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mustache.png; sourceTree = "<group>"; };
@@ -520,6 +523,8 @@
 		65FA586E17A9880A006598B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				43249B8D17C522D00063197B /* LAWebViewController.h */,
+				43249B8E17C522D00063197B /* LAWebViewController.m */,
 				4358C00417BBFA2A00525BB8 /* Interface Builder */,
 				4358C00517BBFA3E00525BB8 /* Init */,
 				4358C00617BBFA6000525BB8 /* Main Feed */,
@@ -691,6 +696,7 @@
 				4358C00217BAF67700525BB8 /* LASocialNetworksView.m in Sources */,
 				4358C00A17BBFB9000525BB8 /* LASocialManager.m in Sources */,
 				436507F517C291DA0088D62F /* LASettings.m in Sources */,
+				43249B8F17C522D00063197B /* LAWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,8 +801,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "5AF020DB-2CE8-4948-BC5B-13B55874FCF9";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5AF020DB-2CE8-4948-BC5B-13B55874FCF9";
+				PROVISIONING_PROFILE = "2A9F764E-3DD8-45CF-8E58-A558751F467C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2A9F764E-3DD8-45CF-8E58-A558751F467C";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
