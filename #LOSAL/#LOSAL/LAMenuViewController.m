@@ -8,11 +8,13 @@
 
 #import "LAMenuViewController.h"
 #import "LAStoreManager.h"
+#import "ECSlidingViewController.h"
 
 @interface LAMenuViewController ()
 
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) LAStoreManager *storeManager;
+//@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @end
 
 @implementation LAMenuViewController
@@ -36,18 +38,16 @@
 {
     [super viewDidLoad];
 	
-    [self.slidingViewController setAnchorRightRevealAmount:280.0f];
-    [[self slidingViewController] setAnchorRightRevealAmount:280.f];
+    [[self slidingViewController] setAnchorRightRevealAmount:180.f];
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
     [[self view] setBackgroundColor:[UIColor whiteColor]];
     
     self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", @"Logout", nil];
     
-    self.storeManager = [LAStoreManager sharedManager];
+    //self.storeManager = [LAStoreManager sharedManager];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)sectionIndex
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
     return [[self menuItems]count];
 }
@@ -58,11 +58,14 @@
     NSString *cellIdentifier = [[self menuItems] objectAtIndex:[indexPath row]];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
+    [[cell textLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:20]];
+    [[cell textLabel]setBackgroundColor:[UIColor whiteColor]];
     
-    cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
     
     return cell;
    }
@@ -85,8 +88,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifier;
     // If this is the logout cell, then logout and redisplay Feed view
-    if ([[self.menuItems objectAtIndex:indexPath.row] isEqualToString:@"Logout"]) {
-        [self.storeManager logout];
+    if ([[self.menuItems objectAtIndex:indexPath.row] isEqualToString:@"Logout"])
+    {
+        [[LAStoreManager sharedManager]logout];
         identifier = [NSString stringWithFormat:@"Feed"];
     } else {
         identifier = [NSString stringWithFormat:@"%@", [self.menuItems objectAtIndex:indexPath.row]];

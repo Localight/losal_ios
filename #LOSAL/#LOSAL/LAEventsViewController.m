@@ -1,20 +1,19 @@
 //
-//  LAWebViewController.m
+//  LAEventsViewController.m
 //  #LOSAL
 //
-//  Created by Joaquin Brown on 8/21/13.
+//  Created by James Orion Hall on 8/20/13.
 //  Copyright (c) 2013 Localism. All rights reserved.
 //
 
-#import "LAWebViewController.h"
+#import "LAEventsViewController.h"
 #import "ECSlidingViewController.h"
 #import "LAMenuViewController.h"
-
-@interface LAWebViewController ()
+@interface LAEventsViewController ()
 
 @end
 
-@implementation LAWebViewController
+@implementation LAEventsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,19 +23,21 @@
     }
     return self;
 }
+- (IBAction)back:(id)sender {
+    [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+	[[self eventsView]setDelegate:self];
+    NSURL *url = [NSURL URLWithString:@"http://losal.tandemcal.com"];
+    NSURLRequest *requestURL = [NSURLRequest requestWithURL:url];
+    [[self eventsView]loadRequest:requestURL];
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
-    
-}
-
-- (IBAction)back:(id)sender {
-    [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
 - (void)didReceiveMemoryWarning
