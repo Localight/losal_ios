@@ -8,14 +8,15 @@
 
 #import "LALoginViewController.h"
 #import "LAStoreManager.h"
+#import "LAAppDelegate.h"
 
 @interface LALoginViewController ()
 
 @property (strong, nonatomic) LAStoreManager *storeManager;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
-@property (weak, nonatomic) IBOutlet UITextField *pinNumber;
-- (IBAction)login:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (strong, nonatomic) LAAppDelegate *appDelegate;
 @end
 
 @implementation LALoginViewController
@@ -34,22 +35,50 @@
 	
     self.storeManager = [LAStoreManager sharedManager];
     
+    self.appDelegate = (LAAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.appDelegate.loginViewController = self;
 }
 
 - (IBAction)skip:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismiss];
 }
-- (IBAction)login:(id)sender {
+
+- (IBAction)send:(id)sender {
+
+    [self.storeManager verifyPhoneNumberIsValid:self.phoneNumber.text withCompletion:^(bool isValid) {
+        if (isValid) {
+            self.sendButton.hidden = YES;
+            self.phoneNumber.hidden = YES;
+            
+            self.backButton.hidden = NO;
+            
+            [self.storeManager sendRegistrationRequestForPhoneNumber:self.phoneNumber.text];
+        }
+    }];
+}
+
+- (IBAction)back:(id)sender {
     
-    if ([self.storeManager loginWithPhoneNumber:self.phoneNumber.text pinNumber:self.pinNumber.text]) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    self.sendButton.hidden = NO;
+    self.phoneNumber.hidden = NO;
+    
+    self.backButton.hidden = YES;
+}
+
+- (void)loginWithPin:(NSString *)pin {
+    if ([self.storeManager loginWithPhoneNumber:self.phoneNumber.text pinNumber:pin]) {
+        [self dismiss];
     }
+}
+
+- (void)dismiss {
+    self.appDelegate.loginViewController = nil;
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

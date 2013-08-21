@@ -556,18 +556,14 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ApE-Hg-cA4">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="163" id="znq-4p-nna"/>
+                                    <constraint firstAttribute="width" constant="163" id="gDV-f9-Zjs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pin Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fGi-4I-84q">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mA-8U-IOf">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Log in">
+                                <state key="normal" title="Send">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -575,12 +571,28 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="login:" destination="qcp-pC-bYb" eventType="touchUpInside" id="Ts1-gu-lhf"/>
+                                    <action selector="send:" destination="qcp-pC-bYb" eventType="touchUpInside" id="xqZ-x6-zJb"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzW-ty-4vY">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="gBp-Um-FZz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="qcp-pC-bYb" eventType="touchUpInside" id="epi-xD-VBH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92j-Kc-p0i">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="pVz-2J-Zwb"/>
+                                    <constraint firstAttribute="width" constant="73" id="DaF-uE-cv4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Skip">
@@ -591,26 +603,27 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="login:" destination="qcp-pC-bYb" eventType="touchUpInside" id="50i-dK-288"/>
+                                    <action selector="skip:" destination="qcp-pC-bYb" eventType="touchUpInside" id="wkK-wU-4GQ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pzW-ty-4vY" firstAttribute="trailing" secondItem="5mA-8U-IOf" secondAttribute="trailing" type="default" id="2AQ-tQ-jiS"/>
+                            <constraint firstItem="pzW-ty-4vY" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="178" id="4Vb-EU-s4N"/>
+                            <constraint firstItem="ApE-Hg-cA4" firstAttribute="trailing" secondItem="92j-Kc-p0i" secondAttribute="trailing" type="default" id="6Vh-Xu-JNn"/>
                             <constraint firstItem="92j-Kc-p0i" firstAttribute="baseline" secondItem="5mA-8U-IOf" secondAttribute="baseline" type="default" id="BqT-Ir-xuk"/>
-                            <constraint firstItem="92j-Kc-p0i" firstAttribute="top" secondItem="fGi-4I-84q" secondAttribute="bottom" constant="28" type="user" id="DHI-1L-jk4"/>
-                            <constraint firstItem="5mA-8U-IOf" firstAttribute="leading" secondItem="92j-Kc-p0i" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="HNo-qK-mDB"/>
-                            <constraint firstItem="fGi-4I-84q" firstAttribute="leading" secondItem="ApE-Hg-cA4" secondAttribute="leading" type="default" id="XAF-Va-JW4"/>
-                            <constraint firstItem="ApE-Hg-cA4" firstAttribute="centerX" secondItem="ReM-FO-bdQ" secondAttribute="centerX" type="default" id="XLF-Vp-fi6"/>
-                            <constraint firstItem="fGi-4I-84q" firstAttribute="trailing" secondItem="ApE-Hg-cA4" secondAttribute="trailing" type="default" id="XUL-yo-nLH"/>
+                            <constraint firstItem="ApE-Hg-cA4" firstAttribute="centerX" secondItem="ReM-FO-bdQ" secondAttribute="centerX" type="default" id="USe-Oh-jun"/>
+                            <constraint firstItem="5mA-8U-IOf" firstAttribute="leading" secondItem="ApE-Hg-cA4" secondAttribute="leading" type="default" id="UiX-mJ-rhn"/>
                             <constraint firstItem="ApE-Hg-cA4" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="62" id="d6y-jQ-JKK"/>
-                            <constraint firstItem="92j-Kc-p0i" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="85" id="jJJ-Sd-PQP"/>
-                            <constraint firstItem="fGi-4I-84q" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="123" id="mCD-sJ-d3S"/>
+                            <constraint firstItem="pzW-ty-4vY" firstAttribute="baseline" secondItem="5mA-8U-IOf" secondAttribute="baseline" type="default" id="jo2-pr-W9J"/>
+                            <constraint firstItem="pzW-ty-4vY" firstAttribute="leading" secondItem="5mA-8U-IOf" secondAttribute="leading" type="default" id="zhd-Ks-rdH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="pzW-ty-4vY" id="3dc-PM-bEl"/>
                         <outlet property="phoneNumber" destination="ApE-Hg-cA4" id="3Hf-bE-hbV"/>
-                        <outlet property="pinNumber" destination="fGi-4I-84q" id="hmH-Af-n2t"/>
+                        <outlet property="sendButton" destination="5mA-8U-IOf" id="qp5-oh-M0Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lT1-g1-62t" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -33,6 +33,8 @@
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
     
+    NSLog(@"url is %@", [self.url absoluteString]);
+    
 }
 
 - (IBAction)back:(id)sender {

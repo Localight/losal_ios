@@ -10,4 +10,5 @@
 
 @interface LAWebViewController : UIViewController
 
+@property (nonatomic, strong) NSURL *url;
 @end

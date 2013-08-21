@@ -30,6 +30,8 @@
 - (void)saveUsersLike:(PFObject *)postObject;
 - (void)deleteUsersLike:(PFObject *)postObject;
 
+- (void)sendRegistrationRequestForPhoneNumber:(NSString *)phoneNumber;
+- (void)verifyPhoneNumberIsValid:(NSString *)phoneNumber withCompletion:(void(^)(bool isValid))completionBlock;
 - (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber pinNumber:(NSString *)pinNumber;
 
 - (void)logout;
