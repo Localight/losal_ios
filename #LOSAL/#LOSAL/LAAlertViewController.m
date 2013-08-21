@@ -10,7 +10,11 @@
 
 #import "NSDate-Utilities.h"
 
+#import "LAStoreManager.h"
 @interface LAAlertViewController ()
+{
+    NSMutableArray *_objects;
+}
 
 @end
 
@@ -58,10 +62,9 @@
     [aiView startAnimating];
     
     [[self navigationItem] setTitleView:currentTitleView];
-    
-    [self.storeManager getFeedWithCompletion:^(NSArray *posts, NSError *error)
-     {
-         NSLog(@"Completion block called!");
+    [[LAStoreManager sharedManager]getFeedWithCompletion:^(NSArray *posts, NSError *error)
+    {
+        NSLog(@"Completion block called!");
          if (!error)
          {
              _objects = [NSMutableArray arrayWithArray:posts];
