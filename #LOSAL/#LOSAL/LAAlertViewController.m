@@ -89,7 +89,6 @@
          }
      }];
 }
-
 - (IBAction)revealMenu:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
