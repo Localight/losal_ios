@@ -9,6 +9,7 @@
 #import "LAMenuViewController.h"
 #import "LAStoreManager.h"
 #import "ECSlidingViewController.h"
+#import "LAWebViewController.h"
 
 @interface LAMenuViewController ()
 
@@ -45,7 +46,7 @@
     [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
 
-    _menuItems = @[@"Feed", @"Alerts", @"Schedule",@"Socrative",@"Edmodo",@"Events",@"Grades",@"Logout"];
+    _menuItems = @[@"Feed", @"Alerts", @"WebView", @"Schedule",@"Socrative",@"Edmodo",@"Events",@"Grades",@"Logout"];
     
     //self.storeManager = [LAStoreManager sharedManager];
 }
@@ -100,6 +101,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     }
     
     UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+    
+    if ([identifier isEqualToString:@"WebView"]) {
+        LAWebViewController *webView = (LAWebViewController *)newTopViewController;
+        webView.url = [NSURL URLWithString:@"http://losal.tandemcal.com"];
+    }
     
     [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
         CGRect frame = self.slidingViewController.topViewController.view.frame;
