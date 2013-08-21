@@ -23,16 +23,16 @@
         <scene sceneID="41t-83-9wZ">
             <objects>
                 <viewController storyboardIdentifier="Menu" id="5GZ-xr-NU4" customClass="LAMenuViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="F1D-DP-Fjb">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="F1D-DP-Fjb">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="Title" selectionStyle="blue" indentationWidth="10" id="Ean-Kd-HxS">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="MENU" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ih-8p-d0L">
@@ -49,15 +49,15 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="7Ih-8p-d0L" firstAttribute="top" secondItem="Ean-Kd-HxS" secondAttribute="top" constant="11" id="Tcv-3y-GC9"/>
                                     <constraint firstItem="7Ih-8p-d0L" firstAttribute="leading" secondItem="Ean-Kd-HxS" secondAttribute="leading" constant="20" type="default" id="cpq-kh-Chs"/>
+                                    <constraint firstItem="7Ih-8p-d0L" firstAttribute="top" secondItem="Ean-Kd-HxS" secondAttribute="top" constant="14" id="yOY-EH-7Dv"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Feed" id="pEq-GW-5WG">
-                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="Feed" text="FEED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6K-o3-USx">
@@ -83,16 +83,16 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="h6K-o3-USx" firstAttribute="leading" secondItem="ZjT-vJ-FXt" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="BX7-CO-QWu"/>
+                                    <constraint firstItem="h6K-o3-USx" firstAttribute="top" secondItem="pEq-GW-5WG" secondAttribute="top" constant="14" id="BdQ-bh-CYe"/>
                                     <constraint firstItem="ZjT-vJ-FXt" firstAttribute="leading" secondItem="pEq-GW-5WG" secondAttribute="leading" constant="20" type="default" id="Zv2-pi-toa"/>
                                     <constraint firstItem="ZjT-vJ-FXt" firstAttribute="centerY" secondItem="pEq-GW-5WG" secondAttribute="centerY" type="default" id="b0V-cn-fKF"/>
-                                    <constraint firstItem="h6K-o3-USx" firstAttribute="top" secondItem="pEq-GW-5WG" secondAttribute="top" constant="11" id="qs5-OT-k8F"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Alerts" id="OfN-wa-iTe">
-                                <rect key="frame" x="0.0" y="110" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="122" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ALERTS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51I-hS-lkq">
@@ -118,16 +118,16 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="51I-hS-lkq" firstAttribute="leading" secondItem="YOT-AF-WJT" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="6xx-aB-J3d"/>
-                                    <constraint firstItem="51I-hS-lkq" firstAttribute="top" secondItem="OfN-wa-iTe" secondAttribute="top" constant="11" id="LPN-TF-Fve"/>
+                                    <constraint firstItem="51I-hS-lkq" firstAttribute="top" secondItem="OfN-wa-iTe" secondAttribute="top" constant="14" id="KhM-SW-pQu"/>
                                     <constraint firstItem="YOT-AF-WJT" firstAttribute="leading" secondItem="OfN-wa-iTe" secondAttribute="leading" constant="20" type="default" id="TWB-Q3-HAh"/>
                                     <constraint firstItem="YOT-AF-WJT" firstAttribute="centerY" secondItem="OfN-wa-iTe" secondAttribute="centerY" type="default" id="bqa-CW-jOQ"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Schedule" id="3aM-NI-0Gi">
-                                <rect key="frame" x="0.0" y="154" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="172" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="Schedule" text="SCHEDULE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ayS-b7-Wuv">
@@ -155,14 +155,14 @@
                                     <constraint firstItem="MTE-tu-mgk" firstAttribute="leading" secondItem="3aM-NI-0Gi" secondAttribute="leading" constant="20" type="default" id="RAb-gs-7jk"/>
                                     <constraint firstItem="ayS-b7-Wuv" firstAttribute="leading" secondItem="MTE-tu-mgk" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="e7F-I4-rgZ"/>
                                     <constraint firstItem="MTE-tu-mgk" firstAttribute="centerY" secondItem="3aM-NI-0Gi" secondAttribute="centerY" type="default" id="lb7-zl-7vY"/>
-                                    <constraint firstItem="ayS-b7-Wuv" firstAttribute="top" secondItem="3aM-NI-0Gi" secondAttribute="top" constant="11" id="qr2-yT-bDi"/>
+                                    <constraint firstItem="ayS-b7-Wuv" firstAttribute="top" secondItem="3aM-NI-0Gi" secondAttribute="top" constant="14" id="rol-Rn-ZCS"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Socrative" id="HAD-9H-I12">
-                                <rect key="frame" x="0.0" y="198" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="222" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SOCRATIVE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-gh-05P">
@@ -188,16 +188,16 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="b2g-gh-05P" firstAttribute="leading" secondItem="OIt-iC-f1V" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="3An-Rz-Edc"/>
+                                    <constraint firstItem="b2g-gh-05P" firstAttribute="top" secondItem="HAD-9H-I12" secondAttribute="top" constant="14" id="9n6-Jc-GjX"/>
                                     <constraint firstItem="OIt-iC-f1V" firstAttribute="leading" secondItem="HAD-9H-I12" secondAttribute="leading" constant="20" type="default" id="Q4z-ig-TP0"/>
                                     <constraint firstItem="OIt-iC-f1V" firstAttribute="centerY" secondItem="HAD-9H-I12" secondAttribute="centerY" type="default" id="QwQ-kW-ZDO"/>
-                                    <constraint firstItem="b2g-gh-05P" firstAttribute="top" secondItem="HAD-9H-I12" secondAttribute="top" constant="11" id="gV3-zg-JiK"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Edmodo" id="umy-Jj-lN8">
-                                <rect key="frame" x="0.0" y="242" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="272" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="EDMODO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mT-sg-SZC">
@@ -222,17 +222,17 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="2mT-sg-SZC" firstAttribute="top" secondItem="umy-Jj-lN8" secondAttribute="top" constant="11" id="4fS-ad-g7w"/>
                                     <constraint firstItem="fV6-VR-xks" firstAttribute="centerY" secondItem="umy-Jj-lN8" secondAttribute="centerY" type="default" id="M7F-yT-AhA"/>
                                     <constraint firstItem="2mT-sg-SZC" firstAttribute="leading" secondItem="fV6-VR-xks" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Sqm-Eb-ZLL"/>
                                     <constraint firstItem="fV6-VR-xks" firstAttribute="leading" secondItem="umy-Jj-lN8" secondAttribute="leading" constant="20" type="default" id="nPn-Nq-cxe"/>
+                                    <constraint firstItem="2mT-sg-SZC" firstAttribute="top" secondItem="umy-Jj-lN8" secondAttribute="top" constant="14" id="yAt-VH-WdE"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Events" id="H85-S7-Sc6">
-                                <rect key="frame" x="0.0" y="286" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="322" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="EVENTS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go0-30-eob">
@@ -258,16 +258,16 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Go0-30-eob" firstAttribute="leading" secondItem="wkt-ca-838" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="VjF-Xj-8KC"/>
+                                    <constraint firstItem="Go0-30-eob" firstAttribute="top" secondItem="H85-S7-Sc6" secondAttribute="top" constant="14" id="XhI-x6-oOb"/>
                                     <constraint firstItem="wkt-ca-838" firstAttribute="leading" secondItem="H85-S7-Sc6" secondAttribute="leading" constant="20" type="default" id="YB0-qx-gyb"/>
-                                    <constraint firstItem="Go0-30-eob" firstAttribute="top" secondItem="H85-S7-Sc6" secondAttribute="top" constant="11" id="mqN-Zq-0g8"/>
                                     <constraint firstItem="wkt-ca-838" firstAttribute="centerY" secondItem="H85-S7-Sc6" secondAttribute="centerY" type="default" id="t9p-HZ-VlY"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Grades" id="KCC-5r-oxe">
-                                <rect key="frame" x="0.0" y="330" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="372" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="GRADES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7S-Uk-G4S">
@@ -292,17 +292,17 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="k7S-Uk-G4S" firstAttribute="top" secondItem="KCC-5r-oxe" secondAttribute="top" constant="11" id="19b-cn-mKT"/>
                                     <constraint firstItem="2G0-H0-8ci" firstAttribute="leading" secondItem="KCC-5r-oxe" secondAttribute="leading" constant="20" type="default" id="BfF-uY-kds"/>
                                     <constraint firstItem="2G0-H0-8ci" firstAttribute="centerY" secondItem="KCC-5r-oxe" secondAttribute="centerY" type="default" id="DFC-oD-cQT"/>
                                     <constraint firstItem="k7S-Uk-G4S" firstAttribute="leading" secondItem="2G0-H0-8ci" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Xme-bT-KvO"/>
+                                    <constraint firstItem="k7S-Uk-G4S" firstAttribute="top" secondItem="KCC-5r-oxe" secondAttribute="top" constant="14" id="nhL-1Y-LZ8"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Logout" id="hEu-gW-PSy">
-                                <rect key="frame" x="0.0" y="374" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="422" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LOGOUT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkm-Hb-TIW">
@@ -327,7 +327,7 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="fkm-Hb-TIW" firstAttribute="top" secondItem="hEu-gW-PSy" secondAttribute="top" constant="11" id="BLS-dt-mr5"/>
+                                    <constraint firstItem="fkm-Hb-TIW" firstAttribute="top" secondItem="hEu-gW-PSy" secondAttribute="top" constant="14" id="Akn-Cr-pMr"/>
                                     <constraint firstItem="fkm-Hb-TIW" firstAttribute="leading" secondItem="Ket-RC-mil" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="R45-d0-smT"/>
                                     <constraint firstItem="Ket-RC-mil" firstAttribute="centerY" secondItem="hEu-gW-PSy" secondAttribute="centerY" type="default" id="kck-as-yx5"/>
                                     <constraint firstItem="Ket-RC-mil" firstAttribute="leading" secondItem="hEu-gW-PSy" secondAttribute="leading" constant="20" type="default" id="ym3-tD-uxe"/>
@@ -931,6 +931,99 @@
         <image name="lightning.png" width="200" height="191"/>
         <image name="placeholder.png" width="450" height="450"/>
     </resources>
+    <classes>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="LAAlertViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAlertViewController.h"/>
+        </class>
+        <class className="LADetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAEdmodoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAEdmodoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="edmodoView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LAEventsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAEventsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="eventsView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LAFeedViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAFeedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="likeButtonTapped:"/>
+                <relationship kind="action" name="revealMenu:"/>
+            </relationships>
+        </class>
+        <class className="LAGradeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAGradeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="gradeView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LALoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="action" name="skip:"/>
+                <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pinNumber" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="LAMenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
+        </class>
+        <class className="LAPostCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPostCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateAndGradeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="iconImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="likeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="socialMediaImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAScheduleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAScheduleViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="scheduleView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LASocrativeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASocrativeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="socrativeView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LASplashViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>
+        </class>
+        <class className="LAWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
