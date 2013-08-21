@@ -114,7 +114,7 @@
     
     [self fetchEntries];
 }
--(void)fetchEntries
+- (void)fetchEntries
 {
     UIView *currentTitleView = [[self navigationItem] titleView];
     
@@ -152,8 +152,6 @@
             NSLog(@"results are %@", posts);
         }
     }];
-
-    
 }
 - (IBAction)revealMenu:(id)sender
 {
