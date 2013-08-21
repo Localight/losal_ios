@@ -38,12 +38,11 @@
 {
     [super viewDidLoad];
 	
-    [[self slidingViewController] setAnchorRightRevealAmount:170.f];
+    [[self slidingViewController] setAnchorRightRevealAmount:180.f];
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
     //[[self view] setBackgroundColor:[UIColor whiteColor]];
     [[self view]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
-    
     [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
 
     _menuItems = @[@"Feed", @"Alerts", @"Schedule",@"Socrative",@"Edmodo",@"Events",@"Grades",@"Logout"];
