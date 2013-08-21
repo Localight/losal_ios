@@ -47,6 +47,15 @@
 
 #pragma mark - UIViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -87,9 +96,8 @@
         
         [self presentViewController:loginController animated:YES
                          completion:^{
-                             NSLog(@"showing add friends");
-                             //[self addFriends];
-                         }];
+            NSLog(@"showing login view");
+        }];
     }
 
     // Set up splash to dimmed background animation
@@ -136,8 +144,15 @@
         if (!error)
         {
             _objects = [NSMutableArray arrayWithArray:posts];
-            //[[self tableView] reloadData];
-            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+            
+            static BOOL firstTime = YES;
+            if (firstTime) {
+                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+                firstTime = NO;
+            } else {
+                [[self tableView] reloadData];   
+            }
+            
             NSLog(@"error is %@", error);
             
         } else {

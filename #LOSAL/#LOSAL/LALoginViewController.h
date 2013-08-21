@@ -10,4 +10,6 @@
 
 @interface LALoginViewController : UIViewController
 
+- (void)loginWithPin:(NSString *)pin;
+
 @end

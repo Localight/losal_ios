@@ -55,11 +55,9 @@
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock {
     PFQuery *query = [PFQuery queryWithClassName:@"AppSettings"];
     [query whereKey:@"school" equalTo:@"Losal"];
-    NSError *error;
-    NSArray *array = [query findObjects:&error];
-    {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            PFObject *appSettings = [array lastObject];
+            PFObject *appSettings = [objects lastObject];
             self.settings = [[LASettings alloc] init];
             self.settings.queryIntervalDays = [[appSettings objectForKey:@"queryIntervalDays"] intValue];
             self.settings.schoolName = [appSettings objectForKey:@"school"];
@@ -71,7 +69,7 @@
                 self.settings.backgroundImage = [UIImage imageWithData:data];
             }
         }
-    }
+    }];
 }
 
 #pragma mark Posts
@@ -199,6 +197,8 @@
                      }
                  }
              }];
+        } else {
+            [PFUser enableAutomaticUser];
         }
     }
     return self.thisUser;
@@ -217,6 +217,41 @@
     }
     
     [[PFUser currentUser]saveEventually];
+}
+
+- (void)verifyPhoneNumberIsValid:(NSString *)phoneNumber withCompletion:(void(^)(bool isValid))completionBlock {
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:phoneNumber];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *user, NSError *error) {
+        BOOL isValid = NO;
+        if (!error) {
+            if ([user count] > 0) {
+                isValid = YES;
+            }
+        }
+        completionBlock(isValid);   
+    }];
+}
+
+- (void)sendRegistrationRequestForPhoneNumber:(NSString *)phoneNumber {
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+
+    NSString *urlString = @"https://api.parse.com/1/functions/register";
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:urlString]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg" forHTTPHeaderField:@"X-Parse-Application-Id"];
+    [request setValue:@"gyMlPJBhaRG0SV083c3n7ApzsjLnvvbLvXKW0jJm" forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSString *requestString = [NSString stringWithFormat:@"phone=%@", phoneNumber];
+    NSData *requestData = [ NSData dataWithBytes: [ requestString UTF8String ] length: [ requestString length ] ];
+    [request setHTTPBody:requestData];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *reply, NSError *error) {
+        NSString *replyString = [[NSString alloc] initWithBytes:[reply bytes] length:[reply length] encoding: NSASCIIStringEncoding];
+        NSLog(@"Reply: %@", replyString);
+    }];
 }
 
 - (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber pinNumber:(NSString *)pinNumber {

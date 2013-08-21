@@ -24,9 +24,11 @@
     
     self.storeManager = [LAStoreManager sharedManager];
     [self.storeManager trackOpen:launchOptions];
-    [self.storeManager getSettingsWithCompletion:^(NSError *error) {
-        NSLog(@"Settings complete");
-    }];
+    
+    // Will have to do this when we get the background image from the server
+    //[self.storeManager getSettingsWithCompletion:^(NSError *error) {
+    //    NSLog(@"Settings complete");
+    //}];
     
     self.socialManager = [LASocialManager sharedManager];
     
@@ -42,10 +44,21 @@
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
-    NSLog(@"url from open is %@", url);
+    if (self.loginViewController) {
+        [self.loginViewController loginWithPin:[self getPinFromUrl:url]];
+    }
+    
     return [self.socialManager instagramhandleOpenURL:url];
 }
 
+-(NSString *)getPinFromUrl:(NSURL *)url {
+    NSString *urlString = [url absoluteString];
+    NSRange pinRange = [urlString rangeOfString:@"//"];
+    NSInteger start = pinRange.location + pinRange.length;
+    NSInteger length = [urlString length] - start;
+    NSString *pinString = [urlString substringWithRange:NSMakeRange(start, length)];
+    return pinString;
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
