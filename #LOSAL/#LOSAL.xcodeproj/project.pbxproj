@@ -71,9 +71,9 @@
 		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
 		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
 		6576740717C55ACD00EC2881 /* lightning.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740617C55ACD00EC2881 /* lightning.png */; };
-		6576740917C55CB400EC2881 /* griffin-mascot.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740817C55CB400EC2881 /* griffin-mascot.png */; };
 		6576740B17C55D2800EC2881 /* edmodo-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740A17C55D2800EC2881 /* edmodo-logo.png */; };
 		6576740D17C5615400EC2881 /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740C17C5615400EC2881 /* news.png */; };
+		6576740F17C5776E00EC2881 /* griffin-mascot.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740E17C5776E00EC2881 /* griffin-mascot.png */; };
 		6588D02717A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
 		6588D02917A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
 		6588D02B17A4BCC500B6C498 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */; };
@@ -191,9 +191,9 @@
 		6549236617B9591A003F39E3 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
 		6549236717B9591A003F39E3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		6576740617C55ACD00EC2881 /* lightning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightning.png; sourceTree = "<group>"; };
-		6576740817C55CB400EC2881 /* griffin-mascot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot.png"; sourceTree = "<group>"; };
 		6576740A17C55D2800EC2881 /* edmodo-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edmodo-logo.png"; sourceTree = "<group>"; };
 		6576740C17C5615400EC2881 /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
+		6576740E17C5776E00EC2881 /* griffin-mascot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot.png"; sourceTree = "<group>"; };
 		6588D02317A4BCC500B6C498 /* #LOSAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#LOSAL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6588D02617A4BCC500B6C498 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6588D02817A4BCC500B6C498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -363,7 +363,6 @@
 				43BE533017C2EE15008BE0E7 /* dark-griffin-dance-bg-1.png */,
 				43BE533A17C3BCB5008BE0E7 /* dark-griffin-dance-bg-2.png */,
 				43BE533B17C3BCB5008BE0E7 /* griffin-dance-bg-2.png */,
-				6576740817C55CB400EC2881 /* griffin-mascot.png */,
 			);
 			name = "Background Images";
 			sourceTree = "<group>";
@@ -444,6 +443,7 @@
 		6530907617BD8C7D00ADA359 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				6576740E17C5776E00EC2881 /* griffin-mascot.png */,
 				6576740C17C5615400EC2881 /* news.png */,
 				6576740A17C55D2800EC2881 /* edmodo-logo.png */,
 				6576740617C55ACD00EC2881 /* lightning.png */,
@@ -718,9 +718,9 @@
 				43BE533C17C3BCB5008BE0E7 /* dark-griffin-dance-bg-2.png in Resources */,
 				43BE533D17C3BCB5008BE0E7 /* griffin-dance-bg-2.png in Resources */,
 				6576740717C55ACD00EC2881 /* lightning.png in Resources */,
-				6576740917C55CB400EC2881 /* griffin-mascot.png in Resources */,
 				6576740B17C55D2800EC2881 /* edmodo-logo.png in Resources */,
 				6576740D17C5615400EC2881 /* news.png in Resources */,
+				6576740F17C5776E00EC2881 /* griffin-mascot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
