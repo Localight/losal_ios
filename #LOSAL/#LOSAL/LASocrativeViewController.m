@@ -31,6 +31,7 @@
 {
     [super viewDidLoad];
     [[self socrativeView]setDelegate:self];
+    
     NSURL *url = [NSURL URLWithString:@"http://m.socrative.com/"];
     NSURLRequest *requestURL = [NSURLRequest requestWithURL:url];
     [[self socrativeView]loadRequest:requestURL];

@@ -69,10 +69,6 @@
     [[[self view]layer]setShadowOpacity:0.75f];
     [[[self view]layer]setShadowRadius:0.75f];
     [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
-//    self.view.layer.shadowOpacity = 0.75f;
-//    self.view.layer.shadowRadius = 10.0f;
-//    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
