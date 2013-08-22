@@ -46,7 +46,9 @@
     [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
 
-    _menuItems = @[@"Feed", @"Alerts", @"WebView", @"Schedule",@"Socrative",@"Edmodo",@"Events",@"Grades",@"Logout"];
+    //TODO figure out what website they use to check schedule.
+    //TODO: add in schedule.
+    _menuItems = @[@"Feed", @"Alerts", @"Socrative", @"Edmodo", @"Events", @"Aeries Portal", @"Logout"];
     
     //self.storeManager = [LAStoreManager sharedManager];
 }
@@ -98,11 +100,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         identifier = [NSString stringWithFormat:@"Feed"];
     } else {
         identifier = [NSString stringWithFormat:@"%@", [self.menuItems objectAtIndex:indexPath.row]];
+        
     }
+    
+    
     
     UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
     
-    if ([identifier isEqualToString:@"WebView"]) {
+    // use identifier to load the url's
+    if ([identifier isEqualToString:@"WebView"])
+    {
         LAWebViewController *webView = (LAWebViewController *)newTopViewController;
         webView.url = [NSURL URLWithString:@"http://losal.tandemcal.com"];
     }

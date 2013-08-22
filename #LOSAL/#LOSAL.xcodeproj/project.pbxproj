@@ -479,6 +479,15 @@
 			path = "NSDate-Extensions-master";
 			sourceTree = "<group>";
 		};
+		6576741017C57C0B00EC2881 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				43249B8D17C522D00063197B /* LAWebViewController.h */,
+				43249B8E17C522D00063197B /* LAWebViewController.m */,
+			);
+			name = WebView;
+			sourceTree = "<group>";
+		};
 		6588D01A17A4BCC500B6C498 = {
 			isa = PBXGroup;
 			children = (
@@ -600,8 +609,7 @@
 				6519545717C533C50033AD4F /* Socrative */,
 				6519545817C533CC0033AD4F /* Grades */,
 				6519545917C533D40033AD4F /* Schedule */,
-				43249B8D17C522D00063197B /* LAWebViewController.h */,
-				43249B8E17C522D00063197B /* LAWebViewController.m */,
+				6576741017C57C0B00EC2881 /* WebView */,
 				4358C00417BBFA2A00525BB8 /* Interface Builder */,
 				4358C00517BBFA3E00525BB8 /* Init */,
 				4358C00617BBFA6000525BB8 /* Main Feed */,
