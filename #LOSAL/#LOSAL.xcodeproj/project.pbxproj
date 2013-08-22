@@ -42,6 +42,7 @@
 		43DC44C217A7A159005729D8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C117A7A159005729D8 /* Security.framework */; };
 		43DC44C417A7A186005729D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C317A7A186005729D8 /* SystemConfiguration.framework */; };
 		43DC44C617A7A1BE005729D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */; };
+		43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9621217C6B444006F9AF4 /* LADataLoader.m */; };
 		6519544D17C533870033AD4F /* LASocrativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519544C17C533870033AD4F /* LASocrativeViewController.m */; };
 		6519545017C533990033AD4F /* LAEdmodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519544F17C533990033AD4F /* LAEdmodoViewController.m */; };
 		6519545317C533A30033AD4F /* LAGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519545217C533A30033AD4F /* LAGradeViewController.m */; };
@@ -157,6 +158,8 @@
 		43DC44C117A7A159005729D8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		43DC44C317A7A186005729D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		43F9621117C6B444006F9AF4 /* LADataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LADataLoader.h; sourceTree = "<group>"; };
+		43F9621217C6B444006F9AF4 /* LADataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LADataLoader.m; sourceTree = "<group>"; };
 		6519544B17C533870033AD4F /* LASocrativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LASocrativeViewController.h; sourceTree = "<group>"; };
 		6519544C17C533870033AD4F /* LASocrativeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LASocrativeViewController.m; sourceTree = "<group>"; };
 		6519544E17C533990033AD4F /* LAEdmodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAEdmodoViewController.h; sourceTree = "<group>"; };
@@ -329,6 +332,8 @@
 				43397B4217B93582003F4977 /* LAImage+Color.m */,
 				43249B9617C689AE0063197B /* LAColor+Hex.h */,
 				43249B9717C689AF0063197B /* LAColor+Hex.m */,
+				43F9621117C6B444006F9AF4 /* LADataLoader.h */,
+				43F9621217C6B444006F9AF4 /* LADataLoader.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -793,6 +798,7 @@
 				6519545617C533AB0033AD4F /* LAScheduleViewController.m in Sources */,
 				6519545D17C53B200033AD4F /* LAEventsViewController.m in Sources */,
 				43249B9817C689AF0063197B /* LAColor+Hex.m in Sources */,
+				43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

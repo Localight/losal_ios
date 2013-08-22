@@ -75,7 +75,7 @@
 }
 
 #pragma mark Posts
-- (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
+- (void)getFeedFromDate:(NSDate *)date WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
     [self getUserLikesWithCompletion:^(NSError *error) {
         if (error) {
@@ -85,9 +85,13 @@
             [query orderByDescending:@"postTime"];
             
             NSTimeInterval interval = self.settings.queryIntervalDays * -1 * 24 * 60 * 60;
-            NSDate *startDate = [[NSDate date] dateByAddingTimeInterval:interval];
-
-            [query whereKey:@"postTime" greaterThan:startDate];
+            
+            NSDate *startDate = date;
+            
+            NSDate *endDate = [startDate dateByAddingTimeInterval:interval];
+            
+            [query whereKey:@"postTime" lessThan:startDate];
+            [query whereKey:@"postTime" greaterThan:endDate];
             [query whereKey:@"status" equalTo:@"1"];
             [query includeKey:@"user"];
             [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
@@ -129,6 +133,13 @@
                  completionBlock(messages, error);
              }];
         }
+    }];
+}
+
+- (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
+{
+    [self getFeedFromDate:[NSDate date] WithCompletion:^(NSArray *posts, NSError *error) {
+        completionBlock(posts, error);
     }];
 }
 

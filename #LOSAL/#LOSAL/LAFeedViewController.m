@@ -27,10 +27,9 @@
 
 #import "LASocialNetworksView.h"
 
+#import "LADataLoader.h"
+
 @interface LAFeedViewController ()
-{
-    NSMutableArray *_objects;
-}
 
 #define  DEFAULT_ICON "\uE00C"
 
@@ -39,6 +38,9 @@
 @property (strong, nonatomic) LAImageLoader *imageLoader;
 
 - (IBAction)likeButtonTapped:(id)sender;
+- (IBAction)revealMenu:(id)sender;
+- (void)fetchEntries;
+- (NSString *)fuzzyTime:(NSString *)datetime;
 
 @end
 
@@ -124,6 +126,9 @@
 }
 - (void)fetchEntries
 {
+    
+    self.moreResultsAvail = YES;
+    
     UIView *currentTitleView = [[self navigationItem] titleView];
     
     UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
@@ -139,7 +144,7 @@
         NSLog(@"Completion block called!");
         if (!error)
         {
-            _objects = [NSMutableArray arrayWithArray:posts];
+            self.objects = [NSMutableArray arrayWithArray:posts];
             
             static BOOL firstTime = YES;
             if (firstTime) {
@@ -173,6 +178,13 @@
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
+- (void)loadRequest
+{
+    LADataLoader *loader = [[LADataLoader alloc] init];
+    loader.delegate = self;
+    LAPostItem *postItem = [self.objects lastObject];
+    [loader loadDataFromDate:postItem.postTime];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -205,19 +217,18 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return [_objects count];
+    return [self.objects count] + 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)configureCell:(NSIndexPath *)indexPath {
+    
     NSString *cellIdentifier = @"postCell";
     
-    LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    LAPostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
     {
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                     reuseIdentifier:cellIdentifier];
+                                 reuseIdentifier:cellIdentifier];
     }
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
@@ -230,7 +241,7 @@
     NSLog(@"%@", timePosted);
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
+    //NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
     [[cell messageArea] setText:[postItem text]];
     
@@ -242,7 +253,7 @@
         [scanner scanHexInt:&code];
         cell.icon.text  = [NSString stringWithFormat:@"%C", (unsigned short)code];
         [cell.icon setTextColor:[self colorFromHexString:postItem.postUser.iconColor]];
-    } else {    
+    } else {
         cell.icon.text = [NSString stringWithUTF8String:DEFAULT_ICON];
         [cell.icon setTextColor:[UIColor whiteColor]];
     }
@@ -294,24 +305,70 @@
             UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor grayColor]];
             [[cell likeImage]setImage:star];
         }
-
+        
     }
-
-        if (![[postItem imageURLString] length] == 0)
+    
+    if (![[postItem imageURLString] length] == 0)
     {
         // Set image to nil, in case the cell was reused.
         [cell.postImage setImage:nil];
         [self.imageLoader processImageDataWithURLString:postItem.imageURLString
                                                   forId:postItem.postObject.objectId
                                                andBlock:^(UIImage *image)
-        {
-            if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
-            {
-                [cell.postImage setImage:image];
-            }}];
+         {
+             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+             {
+                 [cell.postImage setImage:image];
+             }}];
     } else {
-        [[cell postImage]setImage:nil]; 
+        [[cell postImage]setImage:nil];
     }
+    return cell;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // If scrolled beyond two thirds of the table, load next batch of data.
+    if (indexPath.row >= (self.objects.count/5 *4)) {
+        if (!self.loading && self.moreResultsAvail) {
+            self.loading = YES;
+            // loadRequest is the method that loads the next batch of data.
+            [self loadRequest];
+        }
+    }
+    
+    UITableViewCell *cell;
+    
+    if (indexPath.row < [self.objects count]) {
+        cell = [self configureCell:indexPath];
+    } else {
+        NSString *cellIdentifier = @"moreCell";
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:cellIdentifier];
+        // The currently requested cell is the last cell.
+        if (self.moreResultsAvail) {
+            // If there are results available, display @"Loading More..." in the last cell
+            
+            cell.textLabel.text = @"Loading More...";
+            cell.textLabel.font = [UIFont systemFontOfSize:18];
+            cell.textLabel.textColor = [UIColor colorWithRed:0.65f
+                                                       green:0.65f
+                                                        blue:0.65f
+                                                       alpha:1.00f];
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        } else {
+            // If there are no results available, display @"No More Results Available" in the last cell
+            cell.textLabel.font = [UIFont systemFontOfSize:16];
+            cell.textLabel.text = @"No More Results Available";
+            cell.textLabel.textColor = [UIColor colorWithRed:0.65f
+                                                       green:0.65f
+                                                        blue:0.65f
+                                                       alpha:1.00f];
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        }
+    }
+
     return cell;
 }
 
@@ -324,19 +381,23 @@
     
     return (color);
 }
--(CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // using postItem because cell hasn't been made yet.
     CGFloat size;
-    LAPostItem *postItem = [_objects objectAtIndex:[indexPath row]];
-    
-    if ([postItem imageURLString] == 0) {
-        size = 150;
-    } else {
-        UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:370];
+    if (indexPath.row < [self.objects count]) {
+        // using postItem because cell hasn't been made yet.
+        LAPostItem *postItem = [_objects objectAtIndex:[indexPath row]];
         
-        size = image.size.height;
+        if ([postItem imageURLString] == 0) {
+            size = 150;
+        } else {
+            UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:370];
+            
+            size = image.size.height;
+        }
+    } else {
+        size = 50; // For the Loading more... row
     }
     return size;
 }
@@ -405,7 +466,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
 canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView

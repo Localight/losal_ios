@@ -21,6 +21,7 @@
 
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock;
 
+- (void)getFeedFromDate:(NSDate *)date WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock;
 - (void)getFeedWithCompletion:(void (^)(NSArray *posts, NSError *error))completionBlock;
 
 - (LAUser *)getUser;
