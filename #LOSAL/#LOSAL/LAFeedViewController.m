@@ -350,7 +350,7 @@
         if (self.moreResultsAvail) {
             // If there are results available, display @"Loading More..." in the last cell
             
-            cell.textLabel.text = @"Loading More...";
+            cell.textLabel.text = @"Loading More Posts...";
             cell.textLabel.font = [UIFont systemFontOfSize:18];
             cell.textLabel.textColor = [UIColor colorWithRed:0.65f
                                                        green:0.65f
@@ -360,7 +360,7 @@
         } else {
             // If there are no results available, display @"No More Results Available" in the last cell
             cell.textLabel.font = [UIFont systemFontOfSize:16];
-            cell.textLabel.text = @"No More Results Available";
+            cell.textLabel.text = @"No More Posts Available";
             cell.textLabel.textColor = [UIColor colorWithRed:0.65f
                                                        green:0.65f
                                                         blue:0.65f
