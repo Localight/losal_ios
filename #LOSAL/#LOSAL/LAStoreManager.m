@@ -101,13 +101,18 @@
                          postItem.imageURLString = [post objectForKey:@"url"];
                          postItem.isLikedByThisUser = [self doesThisUserLike:post.objectId];
                          
-                         PFObject *user = [post objectForKey:@"user"];
-                         if (user != nil) {
-                             NSLog(@"user is %@", user);
-                             postItem.postUser = [[LAUser alloc] init];
-                             postItem.postUser.grade = [user objectForKey:@"year"];
-                             postItem.postUser.firstName = [user objectForKey:@"firstName"];
-                             postItem.postUser.lastName = [user objectForKey:@"lastName"];
+                         // Only copy user information if this is a verified user
+                         if (self.thisUser != nil) {
+                             PFObject *user = [post objectForKey:@"user"];
+                             if (user != nil) {
+                                 NSLog(@"user is %@", user);
+                                 postItem.postUser = [[LAUser alloc] init];
+                                 postItem.postUser.grade = [user objectForKey:@"year"];
+                                 postItem.postUser.firstName = [user objectForKey:@"firstName"];
+                                 postItem.postUser.lastName = [user objectForKey:@"lastName"];
+                                 postItem.postUser.icon = [user objectForKey:@"icon"];
+                                 postItem.postUser.iconColor = [user objectForKey:@"faveColor"];
+                             }
                          }
                          [messages addObject:postItem];
                      }
@@ -262,6 +267,7 @@
     if(error) {
         return NO;
     } else {
+        [self getUser]; // will store user data in self.thisUser
         return YES;
     }
 }

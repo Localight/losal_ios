@@ -27,12 +27,12 @@
 
 #import "LASocialNetworksView.h"
 
-
-
 @interface LAFeedViewController ()
 {
     NSMutableArray *_objects;
 }
+
+#define  DEFAULT_ICON "\uE00C"
 
 @property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) LASocialManager *socialManager;
@@ -173,6 +173,7 @@
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -232,8 +233,20 @@
     NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
     [[cell messageArea] setText:[postItem text]];
-    UIImage *coloredImage = [[UIImage imageNamed:@"Mustache"] imageWithOverlayColor:[UIColor redColor]];
-    [cell.iconImage setImage:coloredImage];
+    
+    // Set up users icon
+    [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+    if ([postItem.postUser.icon length] > 0) {
+        NSScanner *scanner = [NSScanner scannerWithString:postItem.postUser.icon];
+        unsigned int code;
+        [scanner scanHexInt:&code];
+        cell.icon.text  = [NSString stringWithFormat:@"%C", (unsigned short)code];
+        [cell.icon setTextColor:[self colorFromHexString:postItem.postUser.iconColor]];
+    } else {    
+        cell.icon.text = [NSString stringWithUTF8String:DEFAULT_ICON];
+        [cell.icon setTextColor:[UIColor whiteColor]];
+    }
+    
     UIImage *ago = [[UIImage imageNamed:@"clock"]imageWithOverlayColor:[UIColor whiteColor]];
     [[cell timeImage] setImage:ago];
     NSString *grade = @""; // set to blank in case there is no grade from post Item
@@ -302,6 +315,15 @@
     return cell;
 }
 
+-(UIColor *)colorFromHexString:(NSString *)hexString {
+    
+    NSUInteger red, green, blue;
+    sscanf([hexString UTF8String], "#%02X%02X%02X", &red, &green, &blue);
+    
+    UIColor *color = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
+    
+    return (color);
+}
 -(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

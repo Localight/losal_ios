@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		43249B8F17C522D00063197B /* LAWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43249B8E17C522D00063197B /* LAWebViewController.m */; };
+		43249B9317C584270063197B /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43249B9117C584100063197B /* icomoon.ttf */; };
+		43249B9817C689AF0063197B /* LAColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 43249B9717C689AF0063197B /* LAColor+Hex.m */; };
 		43397B4317B93582003F4977 /* LAImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4217B93582003F4977 /* LAImage+Color.m */; };
 		43397B4517B93716003F4977 /* Mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = 43397B4417B93716003F4977 /* Mustache.png */; };
 		43397B4817B95FBC003F4977 /* LALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4717B95FBB003F4977 /* LALoginViewController.m */; };
@@ -108,6 +110,9 @@
 /* Begin PBXFileReference section */
 		43249B8D17C522D00063197B /* LAWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAWebViewController.h; sourceTree = "<group>"; };
 		43249B8E17C522D00063197B /* LAWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAWebViewController.m; sourceTree = "<group>"; };
+		43249B9117C584100063197B /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
+		43249B9617C689AE0063197B /* LAColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LAColor+Hex.h"; sourceTree = "<group>"; };
+		43249B9717C689AF0063197B /* LAColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LAColor+Hex.m"; sourceTree = "<group>"; };
 		43397B4117B93582003F4977 /* LAImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LAImage+Color.h"; sourceTree = "<group>"; };
 		43397B4217B93582003F4977 /* LAImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LAImage+Color.m"; sourceTree = "<group>"; };
 		43397B4417B93716003F4977 /* Mustache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mustache.png; sourceTree = "<group>"; };
@@ -322,6 +327,8 @@
 				4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */,
 				43397B4117B93582003F4977 /* LAImage+Color.h */,
 				43397B4217B93582003F4977 /* LAImage+Color.m */,
+				43249B9617C689AE0063197B /* LAColor+Hex.h */,
+				43249B9717C689AF0063197B /* LAColor+Hex.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -436,6 +443,7 @@
 				6523AE3717B42A1E00AFD830 /* Roboto-Regular.ttf */,
 				6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */,
 				6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */,
+				43249B9117C584100063197B /* icomoon.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -721,6 +729,7 @@
 				6576740B17C55D2800EC2881 /* edmodo-logo.png in Resources */,
 				6576740D17C5615400EC2881 /* news.png in Resources */,
 				6576740F17C5776E00EC2881 /* griffin-mascot.png in Resources */,
+				43249B9317C584270063197B /* icomoon.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +792,7 @@
 				6519545317C533A30033AD4F /* LAGradeViewController.m in Sources */,
 				6519545617C533AB0033AD4F /* LAScheduleViewController.m in Sources */,
 				6519545D17C53B200033AD4F /* LAEventsViewController.m in Sources */,
+				43249B9817C689AF0063197B /* LAColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
