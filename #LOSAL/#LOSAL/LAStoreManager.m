@@ -55,21 +55,23 @@
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock {
     PFQuery *query = [PFQuery queryWithClassName:@"AppSettings"];
     [query whereKey:@"school" equalTo:@"Losal"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            PFObject *appSettings = [objects lastObject];
-            self.settings = [[LASettings alloc] init];
-            self.settings.queryIntervalDays = [[appSettings objectForKey:@"queryIntervalDays"] intValue];
-            self.settings.schoolName = [appSettings objectForKey:@"school"];
-            PFFile *backgroundFile = [appSettings objectForKey:@"backgroundImage"];
-            NSData *data = [backgroundFile getData:&error];
-            if (error) {
-                NSLog(@"Could not download background image");
-            } else {
-                self.settings.backgroundImage = [UIImage imageWithData:data];
-            }
+    
+    NSError *error;
+    NSArray *objects = [query findObjects:&error];
+    if (!error && [objects count] > 0) {
+        PFObject *appSettings = [objects lastObject];
+        self.settings = [[LASettings alloc] init];
+        self.settings.queryIntervalDays = [[appSettings objectForKey:@"queryIntervalDays"] intValue];
+        self.settings.schoolName = [appSettings objectForKey:@"school"];
+        PFFile *backgroundFile = [appSettings objectForKey:@"backgroundImage"];
+        NSData *data = [backgroundFile getData:&error];
+        if (error) {
+            NSLog(@"Could not download background image");
+        } else {
+            self.settings.backgroundImage = [UIImage imageWithData:data];
         }
-    }];
+    }
+    completionBlock(error);
 }
 
 #pragma mark Posts
@@ -80,8 +82,12 @@
             completionBlock(nil, error);
         } else {
             PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-            query.limit = 50;
             [query orderByDescending:@"postTime"];
+            
+            NSTimeInterval interval = self.settings.queryIntervalDays * -1 * 24 * 60 * 60;
+            NSDate *startDate = [[NSDate date] dateByAddingTimeInterval:interval];
+
+            [query whereKey:@"postTime" greaterThan:startDate];
             [query whereKey:@"status" equalTo:@"1"];
             [query includeKey:@"user"];
             [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
