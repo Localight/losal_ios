@@ -20,8 +20,8 @@ typedef enum {
 
 @interface LAMenuViewController : UITableViewController
 {
-    WebViewControllerType type;
+    
 }
-@property (nonatomic, strong) LAWebViewController *webViewController;
+
 
 @end
