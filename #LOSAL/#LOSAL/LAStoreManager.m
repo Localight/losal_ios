@@ -203,7 +203,7 @@
 #pragma mark User
 - (LAUser *)getUser {
     if (self.thisUser == nil) {
-        if ([PFUser currentUser]) {
+        if ([PFUser currentUser].objectId != nil) {
             self.thisUser = [[LAUser alloc] init];
             PFQuery *query = [PFUser query];
             [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
