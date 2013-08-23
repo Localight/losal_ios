@@ -16,14 +16,6 @@
 
 @implementation LAWebViewController
 
-- (id)init{
-    self = [super init];
-    if (self) {
-        UINavigationItem *n = [self navigationItem];
-        [n setTitle:_name];
-    }
-    return self;
-}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,7 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     
+    UINavigationItem *n = [self navigationItem];
+    
+    [n setTitle:_titleName];
+    
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }

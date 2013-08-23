@@ -16,7 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navy;
 
-@property (weak, nonatomic)NSString *name;
+@property (weak, nonatomic)NSString *titleName;
 
 
 @end

@@ -26,18 +26,7 @@
 //    
 //    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", nil];
 //}
-- (id)init{
-    self = [super init];
-    if (self) {
-     _sitesList = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   [NSURL URLWithString:@"https://mykids.ggusd.us/m/parents#/"],@"Socrative",
-                                   [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
-                                   [NSURL URLWithString:@"http://losal.tandemcal.com"], @"Events",
-                                   [NSURL URLWithString:@"https://mykids.ggusd.us/m/parents#/"], @"Aeries Portal",nil];
-        
-    }
-    return self;
-}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -57,7 +46,12 @@
     [[self view]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
-
+    _sitesList = [NSDictionary dictionaryWithObjectsAndKeys:
+                  [NSURL URLWithString:@"http://m.socrative.com/student/#joinRoom"],@"Socrative",
+                  [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
+                  [NSURL URLWithString:@"http://losal.tandemcal.com"], @"Events",
+                  [NSURL URLWithString:@"https://mykids.ggusd.us/m/parents#/"], @"Aeries Portal",nil];
+    
     _menuItems = @[@"Feed",@"Alerts",@"Socrative",@"Edmodo",@"Events",@"Aeries Portal",@"Logout"];
     
     //self.storeManager = [LAStoreManager sharedManager];
@@ -111,12 +105,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         NSString *identifier = @"WebView";
         UIViewController *anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
         LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
+        [webView setTitleName:cellName];
         for (cellName in _sitesList)
         {
             [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
         }
-        
-        [webView setName:identifier];
         [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
             CGRect frame = self.slidingViewController.topViewController.view.frame;
             self.slidingViewController.topViewController = anotherTopViewController;
