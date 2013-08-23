@@ -248,7 +248,6 @@
     [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     
     NSDate *timePosted = [postItem postTime];
-    NSLog(@"%@", timePosted);
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     //NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);

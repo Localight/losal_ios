@@ -96,9 +96,8 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // this method was intended to change from view to view.
-    NSLog(@"%@", [self.menuItems objectAtIndex:indexPath.row]);
     NSString *cellName = [[self menuItems] objectAtIndex:[indexPath row]];
-    NSLog(@"%@",cellName);
+   
 
     if (!([cellName isEqualToString:@"Feed"]||[cellName isEqualToString:@"Logout"]))
     {
