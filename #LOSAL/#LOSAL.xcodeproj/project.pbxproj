@@ -43,6 +43,7 @@
 		43DC44C417A7A186005729D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C317A7A186005729D8 /* SystemConfiguration.framework */; };
 		43DC44C617A7A1BE005729D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */; };
 		43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9621217C6B444006F9AF4 /* LADataLoader.m */; };
+		43F9621517C6D7C7006F9AF4 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43F9621417C6D7C7006F9AF4 /* menu-icon.png */; };
 		6519544D17C533870033AD4F /* LASocrativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519544C17C533870033AD4F /* LASocrativeViewController.m */; };
 		6519545017C533990033AD4F /* LAEdmodoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519544F17C533990033AD4F /* LAEdmodoViewController.m */; };
 		6519545317C533A30033AD4F /* LAGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6519545217C533A30033AD4F /* LAGradeViewController.m */; };
@@ -160,6 +161,7 @@
 		43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		43F9621117C6B444006F9AF4 /* LADataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LADataLoader.h; sourceTree = "<group>"; };
 		43F9621217C6B444006F9AF4 /* LADataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LADataLoader.m; sourceTree = "<group>"; };
+		43F9621417C6D7C7006F9AF4 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
 		6519544B17C533870033AD4F /* LASocrativeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LASocrativeViewController.h; sourceTree = "<group>"; };
 		6519544C17C533870033AD4F /* LASocrativeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LASocrativeViewController.m; sourceTree = "<group>"; };
 		6519544E17C533990033AD4F /* LAEdmodoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAEdmodoViewController.h; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 		6530907617BD8C7D00ADA359 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				43F9621417C6D7C7006F9AF4 /* menu-icon.png */,
 				6576740E17C5776E00EC2881 /* griffin-mascot.png */,
 				6576740C17C5615400EC2881 /* news.png */,
 				6576740A17C55D2800EC2881 /* edmodo-logo.png */,
@@ -735,6 +738,7 @@
 				6576740D17C5615400EC2881 /* news.png in Resources */,
 				6576740F17C5776E00EC2881 /* griffin-mascot.png in Resources */,
 				43249B9317C584270063197B /* icomoon.ttf in Resources */,
+				43F9621517C6D7C7006F9AF4 /* menu-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
