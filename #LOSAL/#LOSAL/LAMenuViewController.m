@@ -9,23 +9,35 @@
 #import "LAMenuViewController.h"
 #import "LAStoreManager.h"
 #import "ECSlidingViewController.h"
+
 #import "LAWebViewController.h"
 
 @interface LAMenuViewController ()
 
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) LAStoreManager *storeManager;
+@property (nonatomic, strong) NSDictionary *sitesList;
 //@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @end
 
 @implementation LAMenuViewController
-
 //- (void)awakeFromNib
 //{
 //    
 //    self.menuItems = [NSArray arrayWithObjects:@"Feed", @"Alerts", nil];
 //}
-
+- (id)init{
+    self = [super init];
+    if (self) {
+     _sitesList = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [NSURL URLWithString:@"https://mykids.ggusd.us/m/parents#/"],@"Socrative",
+                                   [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
+                                   [NSURL URLWithString:@"http://losal.tandemcal.com"], @"Events",
+                                   [NSURL URLWithString:@"https://mykids.ggusd.us/m/parents#/"], @"Aeries Portal",nil];
+        
+    }
+    return self;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -46,7 +58,7 @@
     [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
 
-    _menuItems = @[@"Feed",@"Alerts",@"Socrative",@"Edmodo",@"Events",@"Aeries portal",@"Logout"];
+    _menuItems = @[@"Feed",@"Alerts",@"Socrative",@"Edmodo",@"Events",@"Aeries Portal",@"Logout"];
     
     //self.storeManager = [LAStoreManager sharedManager];
 }
@@ -90,66 +102,31 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // this method was intended to change from view to view.
-    NSString *identifier = [NSString stringWithFormat:@"%@", [self.menuItems objectAtIndex:indexPath.row]];
-    
-    if ([identifier isEqualToString:@"Edmodo"]||[identifier isEqualToString:@"Socrative"]|| [identifier isEqualToString:@"Events"]||[identifier isEqualToString:@"Aeries portal"])
+    NSLog(@"%@", [self.menuItems objectAtIndex:indexPath.row]);
+    NSString *cellName = [[self menuItems] objectAtIndex:[indexPath row]];
+    NSLog(@"%@",cellName);
+
+    if (!([cellName isEqualToString:@"Feed"]||[cellName isEqualToString:@"Logout"]))
     {
-        NSString *otherWebView = @"WebView";
-        UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:otherWebView];
-        
-        if ([identifier isEqualToString:@"Socrative"])
+        NSString *identifier = @"WebView";
+        UIViewController *anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
+        for (cellName in _sitesList)
         {
-            LAWebViewController *webView = (LAWebViewController *)newTopViewController;
-            [webView setUrl:[NSURL URLWithString:@"https://mykids.ggusd.us/m/parents#/"]];
-            [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-                CGRect frame = self.slidingViewController.topViewController.view.frame;
-                self.slidingViewController.topViewController = newTopViewController;
-                self.slidingViewController.topViewController.view.frame = frame;
-                [self.slidingViewController resetTopView];
-            }];
-            
-        } else if ([identifier isEqualToString:@"Edmodo"]) {
-            LAWebViewController *webView = (LAWebViewController *)newTopViewController;
-            [webView setUrl:[NSURL URLWithString:@"https://www.edmodo.com/m/"]];
-            [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-                CGRect frame = self.slidingViewController.topViewController.view.frame;
-                self.slidingViewController.topViewController = newTopViewController;
-                self.slidingViewController.topViewController.view.frame = frame;
-                [self.slidingViewController resetTopView];
-            }];
-
-        } else if ([identifier isEqualToString:@"Events"]) {
-            LAWebViewController *webView = (LAWebViewController *)newTopViewController;
-            webView.url = [NSURL URLWithString:@"http://losal.tandemcal.com"];
-            [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-                CGRect frame = self.slidingViewController.topViewController.view.frame;
-                self.slidingViewController.topViewController = newTopViewController;
-                self.slidingViewController.topViewController.view.frame = frame;
-                [self.slidingViewController resetTopView];
-            }];
-
-        }else{
-            LAWebViewController *webView = (LAWebViewController *)newTopViewController;
-            webView.url = [NSURL URLWithString:@"https://mykids.ggusd.us/m/parents#/"];
-            [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-                CGRect frame = self.slidingViewController.topViewController.view.frame;
-                self.slidingViewController.topViewController = newTopViewController;
-                self.slidingViewController.topViewController.view.frame = frame;
-                [self.slidingViewController resetTopView];
-            }];
+            [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
         }
-    } else {
-         identifier = [NSString stringWithFormat:@"%@", [self.menuItems objectAtIndex:indexPath.row]];
-        [[LAStoreManager sharedManager]logout];
-        identifier = [NSString stringWithFormat:@"Feed"];
-        UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        
+        [webView setName:identifier];
         [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
             CGRect frame = self.slidingViewController.topViewController.view.frame;
-            self.slidingViewController.topViewController = newTopViewController;
+            self.slidingViewController.topViewController = anotherTopViewController;
             self.slidingViewController.topViewController.view.frame = frame;
             [self.slidingViewController resetTopView];
         }];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }else{
+        [[LAStoreManager sharedManager]logout];
+        cellName = [NSString stringWithFormat:@"Feed"];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

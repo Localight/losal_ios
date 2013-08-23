@@ -8,16 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class LAWebViewController;
-
-typedef enum {
-    WebViewControllerTypeAriesPortal,
-    WebViewControllerTypeEvents,
-   WebViewControllerTypeEdmodo,
-   WebViewControllerTypeSocrative
-} WebViewControllerType;
-
-
 @interface LAMenuViewController : UITableViewController
 {
     

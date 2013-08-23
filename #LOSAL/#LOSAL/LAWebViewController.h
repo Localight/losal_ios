@@ -13,6 +13,9 @@
 @property (nonatomic, strong) NSURL *url;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webview;
+
+@property (weak, nonatomic) IBOutlet UINavigationBar *navy;
+
 @property (weak, nonatomic)NSString *name;
 
 
