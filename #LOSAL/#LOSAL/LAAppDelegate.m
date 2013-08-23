@@ -26,9 +26,9 @@
     [self.storeManager trackOpen:launchOptions];
     
     // Will have to do this when we get the background image from the server
-    //[self.storeManager getSettingsWithCompletion:^(NSError *error) {
-    //    NSLog(@"Settings complete");
-    //}];
+    [self.storeManager getSettingsWithCompletion:^(NSError *error) {
+        NSLog(@"Settings complete");
+    }];
     
     self.socialManager = [LASocialManager sharedManager];
     

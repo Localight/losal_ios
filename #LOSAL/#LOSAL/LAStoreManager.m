@@ -55,33 +55,43 @@
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock {
     PFQuery *query = [PFQuery queryWithClassName:@"AppSettings"];
     [query whereKey:@"school" equalTo:@"Losal"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            PFObject *appSettings = [objects lastObject];
-            self.settings = [[LASettings alloc] init];
-            self.settings.queryIntervalDays = [[appSettings objectForKey:@"queryIntervalDays"] intValue];
-            self.settings.schoolName = [appSettings objectForKey:@"school"];
-            PFFile *backgroundFile = [appSettings objectForKey:@"backgroundImage"];
-            NSData *data = [backgroundFile getData:&error];
-            if (error) {
-                NSLog(@"Could not download background image");
-            } else {
-                self.settings.backgroundImage = [UIImage imageWithData:data];
-            }
+    
+    NSError *error;
+    NSArray *objects = [query findObjects:&error];
+    if (!error && [objects count] > 0) {
+        PFObject *appSettings = [objects lastObject];
+        self.settings = [[LASettings alloc] init];
+        self.settings.queryIntervalDays = [[appSettings objectForKey:@"queryIntervalDays"] intValue];
+        self.settings.schoolName = [appSettings objectForKey:@"school"];
+        PFFile *backgroundFile = [appSettings objectForKey:@"backgroundImage"];
+        NSData *data = [backgroundFile getData:&error];
+        if (error) {
+            NSLog(@"Could not download background image");
+        } else {
+            self.settings.backgroundImage = [UIImage imageWithData:data];
         }
-    }];
+    }
+    completionBlock(error);
 }
 
 #pragma mark Posts
-- (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
+- (void)getFeedFromDate:(NSDate *)date WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
     [self getUserLikesWithCompletion:^(NSError *error) {
         if (error) {
             completionBlock(nil, error);
         } else {
             PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-            query.limit = 50;
             [query orderByDescending:@"postTime"];
+            
+            NSTimeInterval interval = self.settings.queryIntervalDays * -1 * 24 * 60 * 60;
+            
+            NSDate *startDate = date;
+            
+            NSDate *endDate = [startDate dateByAddingTimeInterval:interval];
+            
+            [query whereKey:@"postTime" lessThan:startDate];
+            [query whereKey:@"postTime" greaterThan:endDate];
             [query whereKey:@"status" equalTo:@"1"];
             [query includeKey:@"user"];
             [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
@@ -101,13 +111,18 @@
                          postItem.imageURLString = [post objectForKey:@"url"];
                          postItem.isLikedByThisUser = [self doesThisUserLike:post.objectId];
                          
-                         PFObject *user = [post objectForKey:@"user"];
-                         if (user != nil) {
-                             NSLog(@"user is %@", user);
-                             postItem.postUser = [[LAUser alloc] init];
-                             postItem.postUser.grade = [user objectForKey:@"year"];
-                             postItem.postUser.firstName = [user objectForKey:@"firstName"];
-                             postItem.postUser.lastName = [user objectForKey:@"lastName"];
+                         // Only copy user information if this is a verified user
+                         if (self.thisUser != nil) {
+                             PFObject *user = [post objectForKey:@"user"];
+                             if (user != nil) {
+                                 NSLog(@"user is %@", user);
+                                 postItem.postUser = [[LAUser alloc] init];
+                                 postItem.postUser.grade = [user objectForKey:@"year"];
+                                 postItem.postUser.firstName = [user objectForKey:@"firstName"];
+                                 postItem.postUser.lastName = [user objectForKey:@"lastName"];
+                                 postItem.postUser.icon = [user objectForKey:@"icon"];
+                                 postItem.postUser.iconColor = [user objectForKey:@"faveColor"];
+                             }
                          }
                          [messages addObject:postItem];
                      }
@@ -118,6 +133,13 @@
                  completionBlock(messages, error);
              }];
         }
+    }];
+}
+
+- (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
+{
+    [self getFeedFromDate:[NSDate date] WithCompletion:^(NSArray *posts, NSError *error) {
+        completionBlock(posts, error);
     }];
 }
 
@@ -262,6 +284,7 @@
     if(error) {
         return NO;
     } else {
+        [self getUser]; // will store user data in self.thisUser
         return YES;
     }
 }

@@ -27,18 +27,20 @@
 
 #import "LASocialNetworksView.h"
 
-
+#import "LADataLoader.h"
 
 @interface LAFeedViewController ()
-{
-    NSMutableArray *_objects;
-}
+
+#define  DEFAULT_ICON "\uE00C"
 
 @property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) LASocialManager *socialManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
 
 - (IBAction)likeButtonTapped:(id)sender;
+- (IBAction)revealMenu:(id)sender;
+- (void)fetchEntries;
+- (NSString *)fuzzyTime:(NSString *)datetime;
 
 @end
 
@@ -66,13 +68,23 @@
     self.socialManager.delegate = self;
     self.imageLoader = [LAImageLoader sharedManager];
     
-    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu"
-                                                                   style:UIBarButtonItemStyleBordered
-                                                                  target:self
-                                                                  action:@selector(revealMenu:)];
+    UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuBtn.frame = CGRectMake(0, 0, 30, 30);
+    [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
+    [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.navigationItem.leftBarButtonItem = menuButton;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithCustomView:menuBtn];
 
+    UIButton *alertsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    alertsBtn.frame = CGRectMake(0, 0, 27, 27);
+    [alertsBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
+    //[alertsBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithCustomView:alertsBtn];
+
+    
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
     // You just need to set the opacity, radius, and color.
     [[[self view]layer]setShadowOpacity:0.75f];
@@ -124,6 +136,9 @@
 }
 - (void)fetchEntries
 {
+    
+    self.moreResultsAvail = YES;
+    
     UIView *currentTitleView = [[self navigationItem] titleView];
     
     UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
@@ -139,7 +154,7 @@
         NSLog(@"Completion block called!");
         if (!error)
         {
-            _objects = [NSMutableArray arrayWithArray:posts];
+            self.objects = [NSMutableArray arrayWithArray:posts];
             
             static BOOL firstTime = YES;
             if (firstTime) {
@@ -173,6 +188,14 @@
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
+- (void)loadRequest
+{
+    LADataLoader *loader = [[LADataLoader alloc] init];
+    loader.delegate = self;
+    LAPostItem *postItem = [self.objects lastObject];
+    [loader loadDataFromDate:postItem.postTime];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -204,19 +227,18 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return [_objects count];
+    return [self.objects count] + 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)configureCell:(NSIndexPath *)indexPath {
+    
     NSString *cellIdentifier = @"postCell";
     
-    LAPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    LAPostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
     {
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                     reuseIdentifier:cellIdentifier];
+                                 reuseIdentifier:cellIdentifier];
     }
     
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
@@ -229,11 +251,23 @@
     NSLog(@"%@", timePosted);
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
-    NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
+    //NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
     [[cell messageArea] setText:[postItem text]];
-    UIImage *coloredImage = [[UIImage imageNamed:@"Mustache"] imageWithOverlayColor:[UIColor redColor]];
-    [cell.iconImage setImage:coloredImage];
+    
+    // Set up users icon
+    [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+    if ([postItem.postUser.icon length] > 0) {
+        NSScanner *scanner = [NSScanner scannerWithString:postItem.postUser.icon];
+        unsigned int code;
+        [scanner scanHexInt:&code];
+        cell.icon.text  = [NSString stringWithFormat:@"%C", (unsigned short)code];
+        [cell.icon setTextColor:[self colorFromHexString:postItem.postUser.iconColor]];
+    } else {
+        cell.icon.text = [NSString stringWithUTF8String:DEFAULT_ICON];
+        [cell.icon setTextColor:[UIColor whiteColor]];
+    }
+    
     UIImage *ago = [[UIImage imageNamed:@"clock"]imageWithOverlayColor:[UIColor whiteColor]];
     [[cell timeImage] setImage:ago];
     NSString *grade = @""; // set to blank in case there is no grade from post Item
@@ -281,40 +315,99 @@
             UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor grayColor]];
             [[cell likeImage]setImage:star];
         }
-
+        
     }
-
-        if (![[postItem imageURLString] length] == 0)
+    
+    if (![[postItem imageURLString] length] == 0)
     {
         // Set image to nil, in case the cell was reused.
         [cell.postImage setImage:nil];
         [self.imageLoader processImageDataWithURLString:postItem.imageURLString
                                                   forId:postItem.postObject.objectId
                                                andBlock:^(UIImage *image)
-        {
-            if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
-            {
-                [cell.postImage setImage:image];
-            }}];
+         {
+             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+             {
+                 [cell.postImage setImage:image];
+             }}];
     } else {
-        [[cell postImage]setImage:nil]; 
+        [[cell postImage]setImage:nil];
     }
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // using postItem because cell hasn't been made yet.
-    CGFloat size;
-    LAPostItem *postItem = [_objects objectAtIndex:[indexPath row]];
+    // If scrolled beyond two thirds of the table, load next batch of data.
+    if (indexPath.row >= (self.objects.count/5 *4)) {
+        if (!self.loading && self.moreResultsAvail) {
+            self.loading = YES;
+            // loadRequest is the method that loads the next batch of data.
+            [self loadRequest];
+        }
+    }
     
-    if ([postItem imageURLString] == 0) {
-        size = 150;
+    UITableViewCell *cell;
+    
+    if (indexPath.row < [self.objects count]) {
+        cell = [self configureCell:indexPath];
     } else {
-        UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:370];
+        NSString *cellIdentifier = @"moreCell";
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:cellIdentifier];
+        // The currently requested cell is the last cell.
+        if (self.moreResultsAvail) {
+            // If there are results available, display @"Loading More..." in the last cell
+            
+            cell.textLabel.text = @"Loading More Posts...";
+            cell.textLabel.font = [UIFont systemFontOfSize:18];
+            cell.textLabel.textColor = [UIColor colorWithRed:0.65f
+                                                       green:0.65f
+                                                        blue:0.65f
+                                                       alpha:1.00f];
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        } else {
+            // If there are no results available, display @"No More Results Available" in the last cell
+            cell.textLabel.font = [UIFont systemFontOfSize:16];
+            cell.textLabel.text = @"No More Posts Available";
+            cell.textLabel.textColor = [UIColor colorWithRed:0.65f
+                                                       green:0.65f
+                                                        blue:0.65f
+                                                       alpha:1.00f];
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        }
+    }
+
+    return cell;
+}
+
+-(UIColor *)colorFromHexString:(NSString *)hexString {
+    
+    NSUInteger red, green, blue;
+    sscanf([hexString UTF8String], "#%02X%02X%02X", &red, &green, &blue);
+    
+    UIColor *color = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
+    
+    return (color);
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat size;
+    if (indexPath.row < [self.objects count]) {
+        // using postItem because cell hasn't been made yet.
+        LAPostItem *postItem = [_objects objectAtIndex:[indexPath row]];
         
-        size = image.size.height;
+        if ([postItem imageURLString] == 0) {
+            size = 150;
+        } else {
+            UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:370];
+            
+            size = image.size.height;
+        }
+    } else {
+        size = 50; // For the Loading more... row
     }
     return size;
 }
@@ -383,7 +476,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
 canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView

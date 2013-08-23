@@ -363,15 +363,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="HKZ-Gn-0BW">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="300" id="5y7-gn-eF5"/>
-                                                <constraint firstAttribute="width" constant="300" id="qqD-0n-Bcu"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="eIF-PO-ceo">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" type="user" id="7sy-Jj-epD"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" type="user" id="Ow5-aq-MdL"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" type="user" id="XSH-WE-qB7"/>
-                                                <constraint firstAttribute="width" constant="30" type="user" id="YF8-oD-yXZ"/>
+                                                <constraint firstAttribute="width" constant="300" id="aNL-G6-EQ7"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Qz-Qk-Ivo">
@@ -437,14 +429,22 @@
                                                 <constraint firstAttribute="height" constant="30" type="user" id="wcl-Cj-p5X"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="L" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pah-gq-M15">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="38" id="maA-1H-evc"/>
+                                                <constraint firstAttribute="width" constant="34" id="xwk-Hh-1po"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="2Qz-Qk-Ivo" secondAttribute="leading" type="default" id="0yY-iW-DnS"/>
                                     <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="bottom" constant="4" type="user" id="104-Vl-gdr"/>
-                                    <constraint firstItem="1BT-y6-oBJ" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="17" id="5aA-bm-g6U"/>
-                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="leading" secondItem="eIF-PO-ceo" secondAttribute="leading" type="default" id="71M-qn-Ni0"/>
+                                    <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="43" id="5ep-ut-TOW"/>
+                                    <constraint firstItem="1BT-y6-oBJ" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="17" id="5qm-eP-Q0N"/>
                                     <constraint firstItem="vaa-pB-dw4" firstAttribute="top" secondItem="t4j-KR-diI" secondAttribute="top" type="default" id="DzQ-E4-8Wz"/>
                                     <constraint firstAttribute="bottom" secondItem="1BT-y6-oBJ" secondAttribute="bottom" constant="21" id="G4E-hs-Xwk"/>
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="HkS-1o-KRv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="IN1-E5-86i"/>
@@ -452,20 +452,21 @@
                                     <constraint firstItem="HkS-1o-KRv" firstAttribute="leading" secondItem="t4j-KR-diI" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="SMI-Su-vcg"/>
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="2Qz-Qk-Ivo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="T7l-H5-ZyY"/>
                                     <constraint firstItem="jUi-bt-Nv5" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="56" id="U4U-My-zTQ"/>
-                                    <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="43" id="UUo-N8-hDk"/>
+                                    <constraint firstItem="pah-gq-M15" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="8" id="Y7Y-ZC-mNE"/>
                                     <constraint firstItem="HkS-1o-KRv" firstAttribute="leading" secondItem="vaa-pB-dw4" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="YYG-vo-f8g"/>
-                                    <constraint firstItem="vaa-pB-dw4" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="10" id="c5L-Qo-iS2"/>
+                                    <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="44" id="bQH-OL-MlU"/>
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="centerX" secondItem="lJ0-d7-vTF" secondAttribute="centerX" type="default" id="cmb-jg-UJ8"/>
-                                    <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="eIF-PO-ceo" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="fTn-Le-AaO"/>
                                     <constraint firstItem="jUi-bt-Nv5" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="bottom" constant="1" type="user" id="hO3-pm-gTd"/>
                                     <constraint firstItem="HkS-1o-KRv" firstAttribute="trailing" secondItem="HKZ-Gn-0BW" secondAttribute="trailing" type="default" id="i3l-CI-u2H"/>
                                     <constraint firstItem="vaa-pB-dw4" firstAttribute="leading" secondItem="t4j-KR-diI" secondAttribute="leading" type="default" id="p5W-F0-Cqz"/>
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="t4j-KR-diI" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rFR-80-3gI"/>
+                                    <constraint firstItem="pah-gq-M15" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="9" id="tan-uB-3mO"/>
+                                    <constraint firstItem="88F-Cq-LRr" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="10" id="vXu-nN-PRf"/>
                                     <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="vaa-pB-dw4" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="wx2-We-xz9"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dateAndGradeLabel" destination="jUi-bt-Nv5" id="5ER-eU-9Mq"/>
-                                    <outlet property="iconImage" destination="eIF-PO-ceo" id="I8s-Uy-C51"/>
+                                    <outlet property="icon" destination="pah-gq-M15" id="OXt-lT-2cn"/>
                                     <outlet property="likeImage" destination="t4j-KR-diI" id="6dK-jv-Ch9"/>
                                     <outlet property="messageArea" destination="1BT-y6-oBJ" id="Gan-KY-etf"/>
                                     <outlet property="postImage" destination="HKZ-Gn-0BW" id="DLn-g6-DYw"/>
@@ -759,6 +760,105 @@
         <image name="lightning.png" width="200" height="191"/>
         <image name="placeholder.png" width="450" height="450"/>
     </resources>
+    <classes>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="LAAlertViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAlertViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealMenu:"/>
+            </relationships>
+        </class>
+        <class className="LADetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAEdmodoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAEdmodoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="edmodoView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LAEventsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAEventsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="eventsView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LAFeedViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAFeedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="likeButtonTapped:"/>
+                <relationship kind="action" name="revealMenu:"/>
+            </relationships>
+        </class>
+        <class className="LAGradeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAGradeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="gradeView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LALoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="send:"/>
+                <relationship kind="action" name="skip:"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="sendButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="LAMenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
+        </class>
+        <class className="LAPostCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPostCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateAndGradeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="icon" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="likeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="socialMediaImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAScheduleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAScheduleViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="scheduleView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LASocrativeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASocrativeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="socrativeView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="LASplashViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>
+        </class>
+        <class className="LAWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

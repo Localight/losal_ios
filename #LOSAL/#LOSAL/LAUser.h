@@ -15,8 +15,8 @@
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *grade;
-@property (nonatomic, strong) NSNumber *iconID;
-@property (nonatomic, strong) NSNumber *iconColor;
+@property (nonatomic, strong) NSString *icon;
+@property (nonatomic, strong) NSString *iconColor;
 @property (nonatomic, strong) NSDate   *birthday;
 @property (nonatomic, strong) NSString *studentID;
 

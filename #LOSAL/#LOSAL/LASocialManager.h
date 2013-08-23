@@ -42,6 +42,7 @@
 
 @protocol LASocialManagerDelegate <NSObject>
 
+@optional
 - (void)twitterDidLogin;
 - (void)twitterDidLogout;
 - (void)twitterDidReceiveAnError:(NSString *)errorMessage;
