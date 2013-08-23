@@ -320,7 +320,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="navy" destination="orF-9u-GtW" id="MWu-NS-WiB"/>
+                        <outlet property="navyItem" destination="dsT-xG-dmP" id="l9W-bL-JTl"/>
                         <outlet property="webview" destination="N3m-jG-Qrx" id="mJz-M3-Upx"/>
                     </connections>
                 </viewController>

@@ -28,10 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UINavigationItem *n = [self navigationItem];
     
-    [n setTitle:_titleName];
-    
+    [[self navyItem]setTitle:_titleName];
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
