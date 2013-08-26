@@ -49,14 +49,13 @@
     _sitesList = [NSDictionary dictionaryWithObjectsAndKeys:
                   [NSURL URLWithString:@"http://m.socrative.com/student/#joinRoom"],@"Socrative",
                   [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
-                  [NSURL URLWithString:@"http://losal.tandemcal.com"], @"Events",
-                  [NSURL URLWithString:@"https://mykids.ggusd.us/m/parents#/"], @"Aeries Portal",nil];
+                  [NSURL URLWithString:@"http://losal.tandemcal.com"], @"Calendar",
+                  [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Aeries Portal",nil];
     
-    _menuItems = @[@"Feed",@"Socrative",@"Edmodo",@"Events",@"Aeries Portal",@"Logout"];
+    _menuItems = @[@"Feed",@"Socrative",@"Edmodo",@"Calendar",@"Aeries Portal",@"Logout"];
     
     //self.storeManager = [LAStoreManager sharedManager];
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
     return [[self menuItems]count];
@@ -111,10 +110,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
-    }else{
+    }else if([cellName isEqualToString:@"Feed"]){
         
+        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
+        
+    } else {
         [[LAStoreManager sharedManager]logout];
-        cellName = [NSString stringWithFormat:@"Feed"];
     }
     
     [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{

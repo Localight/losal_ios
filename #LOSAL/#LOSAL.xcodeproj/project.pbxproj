@@ -92,6 +92,7 @@
 		6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0A917A4C02D00B6C498 /* UIImage+ImageWithUIView.m */; };
 		6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */; };
 		6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D0B117A4C9CE00B6C498 /* menuBtn.png */; };
+		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,6 +220,7 @@
 		6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAMenuViewController.h; sourceTree = "<group>"; };
 		6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAMenuViewController.m; sourceTree = "<group>"; };
 		6588D0B117A4C9CE00B6C498 /* menuBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtn.png; sourceTree = "<group>"; };
+		65EBCDF817CC07B1009138E8 /* socrative-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "socrative-logo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +400,7 @@
 		6530907617BD8C7D00ADA359 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				65EBCDF817CC07B1009138E8 /* socrative-logo.png */,
 				43F9621417C6D7C7006F9AF4 /* menu-icon.png */,
 				6576740E17C5776E00EC2881 /* griffin-mascot.png */,
 				6576740C17C5615400EC2881 /* news.png */,
@@ -682,6 +685,7 @@
 				6576740F17C5776E00EC2881 /* griffin-mascot.png in Resources */,
 				43249B9317C584270063197B /* icomoon.ttf in Resources */,
 				43F9621517C6D7C7006F9AF4 /* menu-icon.png in Resources */,
+				65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

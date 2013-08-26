@@ -78,7 +78,7 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="MTE-tu-mgk">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="socrative-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="MTE-tu-mgk">
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" type="user" id="D9F-GX-2yU"/>
                                                 <constraint firstAttribute="height" constant="38" id="JU9-1S-Egd"/>
@@ -132,16 +132,15 @@
                                     <constraint firstItem="2mT-sg-SZC" firstAttribute="top" secondItem="umy-Jj-lN8" secondAttribute="top" constant="14" id="yAt-VH-WdE"/>
                                 </constraints>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Events" id="H85-S7-Sc6">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Calendar" id="H85-S7-Sc6">
                                 <rect key="frame" x="0.0" y="172" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="Events" text="EVENTS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go0-30-eob">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="Calendar" text="CALANDAR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go0-30-eob">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="XNR-u3-0TV"/>
                                                 <constraint firstAttribute="width" constant="142" id="eJd-bA-NXl"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
@@ -162,9 +161,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Go0-30-eob" firstAttribute="leading" secondItem="wkt-ca-838" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="VjF-Xj-8KC"/>
-                                    <constraint firstItem="Go0-30-eob" firstAttribute="top" secondItem="H85-S7-Sc6" secondAttribute="top" constant="14" id="XhI-x6-oOb"/>
                                     <constraint firstItem="wkt-ca-838" firstAttribute="leading" secondItem="H85-S7-Sc6" secondAttribute="leading" constant="20" type="default" id="YB0-qx-gyb"/>
                                     <constraint firstItem="wkt-ca-838" firstAttribute="centerY" secondItem="H85-S7-Sc6" secondAttribute="centerY" type="default" id="t9p-HZ-VlY"/>
+                                    <constraint firstItem="Go0-30-eob" firstAttribute="centerY" secondItem="wkt-ca-838" secondAttribute="centerY" type="default" id="uKu-XP-vbh"/>
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Aeries Portal" id="KCC-5r-oxe">
@@ -542,7 +541,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lT1-g1-62t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-422" y="-650"/>
+            <point key="canvasLocation" x="-416" y="-628"/>
         </scene>
         <!--Alert View Controller - AlertFeed-->
         <scene sceneID="BkQ-7f-0Tx">
@@ -684,73 +683,12 @@
     </scenes>
     <resources>
         <image name="Default.png" width="640" height="960"/>
-        <image name="clock.png" width="128" height="128"/>
         <image name="edmodo-logo.png" width="294" height="314"/>
         <image name="griffin-mascot.png" width="581" height="374"/>
         <image name="lightning.png" width="200" height="191"/>
         <image name="placeholder.png" width="450" height="450"/>
+        <image name="socrative-logo.png" width="294" height="314"/>
     </resources>
-    <classes>
-        <class className="ECSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
-        </class>
-        <class className="LAAlertViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAlertViewController.h"/>
-        </class>
-        <class className="LADetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LAFeedViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAFeedViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="likeButtonTapped:"/>
-                <relationship kind="action" name="revealMenu:"/>
-            </relationships>
-        </class>
-        <class className="LALoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sendButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="LAMenuViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
-        </class>
-        <class className="LAPostCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPostCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dateAndGradeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="icon" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="likeImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="socialMediaImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="timeImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LASplashViewController" superclassName="ECSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>
-        </class>
-        <class className="LAWebViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="back:"/>
-                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

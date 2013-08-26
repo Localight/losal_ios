@@ -51,6 +51,15 @@
     
     [[self webview]loadRequest:requestURL];
 
+
+    UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuBtn.frame = CGRectMake(0, 0, 30, 30);
+    [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
+    [menuBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [[self navyItem]setLeftBarButtonItem:[[UIBarButtonItem alloc]
+                                          initWithCustomView:menuBtn]];
+    
     UIButton *alertsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     alertsBtn.frame = CGRectMake(0, 0, 27, 27);
     [alertsBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
@@ -58,9 +67,7 @@
     
     [[self navyItem]setRightBarButtonItem:[[UIBarButtonItem alloc]
                                           initWithCustomView:alertsBtn]];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                              initWithCustomView:alertsBtn];
-
+    
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
