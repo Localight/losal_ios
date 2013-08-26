@@ -44,6 +44,7 @@
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     
+    NSLog(@"url from open is %@", url);
     if (self.loginViewController) {
         [self.loginViewController loginWithPin:[self getPinFromUrl:url]];
     }
