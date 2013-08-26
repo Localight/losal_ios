@@ -19,7 +19,7 @@
 @implementation LANoticeViewController
 
 - (void)viewDidLoad
-{
+{ 
     [super viewDidLoad];
 
     self.peekLeftAmount = 80.0f;
