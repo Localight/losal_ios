@@ -18,4 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navyItem;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 @end

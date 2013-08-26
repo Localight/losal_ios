@@ -24,27 +24,47 @@
     }
     return self;
 }
+- (BOOL)webView:(UIWebView *)wv shouldStartLoadWithRequest:(NSURLRequest *)rq
+{
+    [_spinner startAnimating];
+    return YES;
+}
 
+- (void)webViewDidFinishLoading:(UIWebView *)wv
+{
+    [_spinner stopAnimating];
+}
+
+- (void)webView:(UIWebView *)wv didFailLoadWithError:(NSError *)error
+{
+    [_spinner stopAnimating];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     [[self navyItem]setTitle:_titleName];
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
-        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
-    }
+    
     [[self webview]setDelegate:self];
+    
     NSURLRequest *requestURL = [NSURLRequest requestWithURL:_url];
+    
     [[self webview]loadRequest:requestURL];
+
+    UIButton *alertsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    alertsBtn.frame = CGRectMake(0, 0, 27, 27);
+    [alertsBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
+    //[alertsBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
     
-    
+    [[self navyItem]setRightBarButtonItem:[[UIBarButtonItem alloc]
+                                          initWithCustomView:alertsBtn]];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithCustomView:alertsBtn];
+
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
-    
-    NSLog(@"url is %@", [self.url absoluteString]);
 }
-
 - (IBAction)back:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }

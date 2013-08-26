@@ -75,6 +75,7 @@
 }
 
 #pragma mark Posts
+
 - (void)getFeedFromDate:(NSDate *)date WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
     [self getUserLikesWithCompletion:^(NSError *error) {

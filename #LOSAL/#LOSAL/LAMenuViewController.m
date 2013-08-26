@@ -52,7 +52,7 @@
                   [NSURL URLWithString:@"http://losal.tandemcal.com"], @"Events",
                   [NSURL URLWithString:@"https://mykids.ggusd.us/m/parents#/"], @"Aeries Portal",nil];
     
-    _menuItems = @[@"Feed",@"Alerts",@"Socrative",@"Edmodo",@"Events",@"Aeries Portal",@"Logout"];
+    _menuItems = @[@"Feed",@"Socrative",@"Edmodo",@"Events",@"Aeries Portal",@"Logout"];
     
     //self.storeManager = [LAStoreManager sharedManager];
 }

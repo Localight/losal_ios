@@ -75,14 +75,14 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithCustomView:menuBtn];
-
+    
     UIButton *alertsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     alertsBtn.frame = CGRectMake(0, 0, 27, 27);
     [alertsBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
     //[alertsBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithCustomView:alertsBtn];
+                                              initWithCustomView:alertsBtn];
 
     
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
@@ -542,9 +542,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                 [postItem setIsLikedByThisUser:NO];
                 [self.socialManager unLikePostItem:postItem];
                 [self.storeManager deleteUsersLike:postItem.postObject];
-                
             }
-
         }
     }
     [[self tableView]reloadData];
