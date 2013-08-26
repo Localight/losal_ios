@@ -258,7 +258,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="orF-9u-GtW">
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="orF-9u-GtW">
                                 <items>
                                     <navigationItem title="Title" id="dsT-xG-dmP">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="FXw-gR-xhd">
@@ -279,12 +279,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="N3m-jG-Qrx" firstAttribute="leading" secondItem="hSG-Jd-8Sp" secondAttribute="leading" type="default" id="5uF-rd-iQw"/>
+                            <constraint firstItem="orF-9u-GtW" firstAttribute="leading" secondItem="hSG-Jd-8Sp" secondAttribute="leading" type="default" id="Juu-Uq-jaT"/>
+                            <constraint firstItem="orF-9u-GtW" firstAttribute="trailing" secondItem="hSG-Jd-8Sp" secondAttribute="trailing" type="default" id="SRU-7i-rkf"/>
                             <constraint firstItem="N3m-jG-Qrx" firstAttribute="trailing" secondItem="hSG-Jd-8Sp" secondAttribute="trailing" type="default" id="Tkf-4T-N1I"/>
                             <constraint firstItem="N3m-jG-Qrx" firstAttribute="bottom" secondItem="hSG-Jd-8Sp" secondAttribute="bottom" type="default" id="W0u-GG-Gq6"/>
                             <constraint firstItem="orF-9u-GtW" firstAttribute="top" secondItem="hSG-Jd-8Sp" secondAttribute="top" type="default" id="Znw-Sn-owd"/>
-                            <constraint firstItem="orF-9u-GtW" firstAttribute="trailing" secondItem="hSG-Jd-8Sp" secondAttribute="trailing" type="default" id="g21-sq-SZA"/>
-                            <constraint firstItem="JNO-j0-WQd" firstAttribute="centerX" secondItem="orF-9u-GtW" secondAttribute="centerX" type="default" id="khn-nV-geV"/>
-                            <constraint firstItem="orF-9u-GtW" firstAttribute="leading" secondItem="hSG-Jd-8Sp" secondAttribute="leading" type="default" id="uMz-b6-YLp"/>
+                            <constraint firstItem="orF-9u-GtW" firstAttribute="centerX" secondItem="JNO-j0-WQd" secondAttribute="centerX" type="default" id="l26-as-ipY"/>
                             <constraint firstItem="N3m-jG-Qrx" firstAttribute="top" secondItem="orF-9u-GtW" secondAttribute="bottom" type="default" id="yvH-NH-E68"/>
                             <constraint firstItem="JNO-j0-WQd" firstAttribute="centerY" secondItem="hSG-Jd-8Sp" secondAttribute="centerY" type="default" id="zvw-MF-um9"/>
                         </constraints>
@@ -297,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QLT-o4-wnS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575" y="-620"/>
+            <point key="canvasLocation" x="565" y="-672"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="11">
@@ -741,6 +741,7 @@
         <class className="LAWebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
             <relationships>
+                <relationship kind="action" name="back:"/>
                 <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>

@@ -78,7 +78,8 @@
     //cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
     
     return cell;
-   }
+}
+
 -(void)openView:(NSString *)uid{
     
     NSString *identifier = uid;
@@ -97,28 +98,30 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // this method was intended to change from view to view.
     NSString *cellName = [[self menuItems] objectAtIndex:[indexPath row]];
-   
-
+    UIViewController *anotherTopViewController;
+    
     if (!([cellName isEqualToString:@"Feed"]||[cellName isEqualToString:@"Logout"]))
     {
         NSString *identifier = @"WebView";
-        UIViewController *anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        
         LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
+        
         [webView setTitleName:cellName];
-        for (cellName in _sitesList)
-        {
-            [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
-        }
-        [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-            CGRect frame = self.slidingViewController.topViewController.view.frame;
-            self.slidingViewController.topViewController = anotherTopViewController;
-            self.slidingViewController.topViewController.view.frame = frame;
-            [self.slidingViewController resetTopView];
-        }];
+        [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
     }else{
+        
         [[LAStoreManager sharedManager]logout];
         cellName = [NSString stringWithFormat:@"Feed"];
     }
+    
+    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+        CGRect frame = self.slidingViewController.topViewController.view.frame;
+        self.slidingViewController.topViewController = anotherTopViewController;
+        self.slidingViewController.topViewController.view.frame = frame;
+        [self.slidingViewController resetTopView];
+    }];
 }
 @end
