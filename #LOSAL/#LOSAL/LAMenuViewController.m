@@ -40,7 +40,7 @@
 {
     [super viewDidLoad];
 	
-    [[self slidingViewController] setAnchorRightRevealAmount:200.f];
+    [[self slidingViewController] setAnchorRightRevealAmount:240.f];
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
     //[[self view] setBackgroundColor:[UIColor whiteColor]];
     [[self view]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];

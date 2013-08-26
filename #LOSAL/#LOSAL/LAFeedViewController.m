@@ -79,14 +79,14 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithCustomView:menuBtn];
-    
-    UIButton *alertsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    alertsBtn.frame = CGRectMake(0, 0, 27, 27);
-    [alertsBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
-    //[alertsBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    noticeBtn.frame = CGRectMake(0, 0, 27, 27);
+    [noticeBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
+    [noticeBtn addTarget:self action:@selector(revealNotices:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                              initWithCustomView:alertsBtn];
+                                             initWithCustomView:noticeBtn];
 
     
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
