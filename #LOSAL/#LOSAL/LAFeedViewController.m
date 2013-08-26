@@ -75,14 +75,14 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithCustomView:menuBtn];
-
+    
     UIButton *alertsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     alertsBtn.frame = CGRectMake(0, 0, 27, 27);
     [alertsBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
     //[alertsBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithCustomView:alertsBtn];
+                                              initWithCustomView:alertsBtn];
 
     
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
@@ -248,7 +248,6 @@
     [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     
     NSDate *timePosted = [postItem postTime];
-    NSLog(@"%@", timePosted);
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     //NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
@@ -543,9 +542,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
                 [postItem setIsLikedByThisUser:NO];
                 [self.socialManager unLikePostItem:postItem];
                 [self.storeManager deleteUsersLike:postItem.postObject];
-                
             }
-
         }
     }
     [[self tableView]reloadData];

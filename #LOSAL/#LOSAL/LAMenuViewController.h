@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-
-
 @interface LAMenuViewController : UITableViewController
+{
+    
+}
+
 
 @end

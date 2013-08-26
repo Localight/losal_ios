@@ -9,17 +9,18 @@
 #import "LAMenuViewController.h"
 #import "LAStoreManager.h"
 #import "ECSlidingViewController.h"
+
 #import "LAWebViewController.h"
 
 @interface LAMenuViewController ()
 
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) LAStoreManager *storeManager;
+@property (nonatomic, strong) NSDictionary *sitesList;
 //@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @end
 
 @implementation LAMenuViewController
-
 //- (void)awakeFromNib
 //{
 //    
@@ -39,14 +40,19 @@
 {
     [super viewDidLoad];
 	
-    [[self slidingViewController] setAnchorRightRevealAmount:180.f];
+    [[self slidingViewController] setAnchorRightRevealAmount:200.f];
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
     //[[self view] setBackgroundColor:[UIColor whiteColor]];
     [[self view]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
-
-    _menuItems = @[@"Feed", @"Alerts", @"WebView", @"Schedule",@"Socrative",@"Edmodo",@"Events",@"Grades",@"Logout"];
+    _sitesList = [NSDictionary dictionaryWithObjectsAndKeys:
+                  [NSURL URLWithString:@"http://m.socrative.com/student/#joinRoom"],@"Socrative",
+                  [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
+                  [NSURL URLWithString:@"http://losal.tandemcal.com"], @"Events",
+                  [NSURL URLWithString:@"https://mykids.ggusd.us/m/parents#/"], @"Aeries Portal",nil];
+    
+    _menuItems = @[@"Feed",@"Socrative",@"Edmodo",@"Events",@"Aeries Portal",@"Logout"];
     
     //self.storeManager = [LAStoreManager sharedManager];
 }
@@ -72,7 +78,8 @@
     //cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
     
     return cell;
-   }
+}
+
 -(void)openView:(NSString *)uid{
     
     NSString *identifier = uid;
@@ -85,36 +92,36 @@
         self.slidingViewController.topViewController.view.frame = frame;
         [self.slidingViewController resetTopView];
     }];
-    
 }
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier;
-    // If this is the logout cell, then logout and redisplay Feed view
-    if ([[self.menuItems objectAtIndex:indexPath.row] isEqualToString:@"Logout"])
+    // this method was intended to change from view to view.
+    NSString *cellName = [[self menuItems] objectAtIndex:[indexPath row]];
+    UIViewController *anotherTopViewController;
+    
+    if (!([cellName isEqualToString:@"Feed"]||[cellName isEqualToString:@"Logout"]))
     {
+        NSString *identifier = @"WebView";
+        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        
+        LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
+        
+        [webView setTitleName:cellName];
+        [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+    }else{
+        
         [[LAStoreManager sharedManager]logout];
-        identifier = [NSString stringWithFormat:@"Feed"];
-    } else {
-        identifier = [NSString stringWithFormat:@"%@", [self.menuItems objectAtIndex:indexPath.row]];
-    }
-    
-    UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-    
-    if ([identifier isEqualToString:@"WebView"]) {
-        LAWebViewController *webView = (LAWebViewController *)newTopViewController;
-        webView.url = [NSURL URLWithString:@"http://losal.tandemcal.com"];
+        cellName = [NSString stringWithFormat:@"Feed"];
     }
     
     [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
         CGRect frame = self.slidingViewController.topViewController.view.frame;
-        self.slidingViewController.topViewController = newTopViewController;
+        self.slidingViewController.topViewController = anotherTopViewController;
         self.slidingViewController.topViewController.view.frame = frame;
         [self.slidingViewController resetTopView];
     }];
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 @end
