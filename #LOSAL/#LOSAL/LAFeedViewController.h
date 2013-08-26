@@ -7,9 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ECSlidingViewController.h"
-#import "LAMenuViewController.h"
-
 
 @interface LAFeedViewController : UITableViewController
 

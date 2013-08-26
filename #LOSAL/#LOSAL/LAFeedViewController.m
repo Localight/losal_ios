@@ -9,6 +9,9 @@
 // all data is pulled from the store class.
 
 #import "LAFeedViewController.h"
+#import "ECSlidingViewController.h"
+#import "LAMenuViewController.h"
+#import "LANoticeViewController.h"
 
 #import "LADetailViewController.h"
 
@@ -39,6 +42,7 @@
 
 - (IBAction)likeButtonTapped:(id)sender;
 - (IBAction)revealMenu:(id)sender;
+- (IBAction)revealNotices:(id)sender;
 - (void)fetchEntries;
 - (NSString *)fuzzyTime:(NSString *)datetime;
 
@@ -76,13 +80,13 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithCustomView:menuBtn];
 
-    UIButton *alertsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    alertsBtn.frame = CGRectMake(0, 0, 27, 27);
-    [alertsBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
-    //[alertsBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    noticeBtn.frame = CGRectMake(0, 0, 27, 27);
+    [noticeBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
+    [noticeBtn addTarget:self action:@selector(revealNotices:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithCustomView:alertsBtn];
+                                             initWithCustomView:noticeBtn];
 
     
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
@@ -91,7 +95,11 @@
     [[[self view]layer]setShadowRadius:0.75f];
     [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
-        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+        self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    }
+    
+    if (![self.slidingViewController.underRightViewController isKindOfClass:[LANoticeViewController class]]) {
+        self.slidingViewController.underRightViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Notices"];
     }
     
     // This was messing up the scrolling in the UI table view so need to figure out a way to add this back - Joaquin
@@ -186,6 +194,11 @@
 - (IBAction)revealMenu:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
+- (IBAction)revealNotices:(id)sender
+{
+    [self.slidingViewController anchorTopViewTo:ECLeft];
 }
 
 - (void)loadRequest
