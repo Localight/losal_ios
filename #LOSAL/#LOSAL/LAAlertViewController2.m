@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Localism. All rights reserved.
 //
 
-#import "LAAlertViewController.h"
+#import "LAAlertViewController2.h"
 
 #import "NSDate-Utilities.h"
 
