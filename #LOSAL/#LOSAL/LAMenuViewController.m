@@ -52,7 +52,7 @@
                   [NSURL URLWithString:@"http://losal.tandemcal.com"], @"Calendar",
                   [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Aeries Portal",nil];
     
-    _menuItems = @[@"Feed",@"Socrative",@"Edmodo",@"Calendar",@"Aeries Portal"];
+    _menuItems = @[@"nothing",@"Feed",@"Calendar",@"Aeries Portal",@"Socrative",@"Edmodo",@"About",@"Help",@"Suggestions"];
     
     //self.storeManager = [LAStoreManager sharedManager];
 }

@@ -9,7 +9,7 @@
 #import "LAWebViewController.h"
 #import "ECSlidingViewController.h"
 #import "LAMenuViewController.h"
-
+#import "LANoticeViewController.h"
 @interface LAWebViewController ()
 
 @end
@@ -28,6 +28,10 @@
 {
     [_spinner startAnimating];
     return YES;
+}
+- (IBAction)revealNotices:(id)sender
+{
+    [self.slidingViewController anchorTopViewTo:ECLeft];
 }
 
 - (void)webViewDidFinishLoading:(UIWebView *)wv
@@ -58,20 +62,23 @@
     [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
     [menuBtn addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
     
-    [[self navyItem]setLeftBarButtonItem:[[UIBarButtonItem alloc]
-                                          initWithCustomView:menuBtn]];
+    [_navyItem setLeftBarButtonItem:[[UIBarButtonItem alloc]initWithCustomView:menuBtn]];
+       
+    UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    noticeBtn.frame = CGRectMake(0, 0, 27, 27);
+    [noticeBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
+    [noticeBtn addTarget:self action:@selector(revealNotices:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *alertsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    alertsBtn.frame = CGRectMake(0, 0, 27, 27);
-    [alertsBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
-    //[alertsBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [[self navyItem]setRightBarButtonItem:[[UIBarButtonItem alloc]
-                                          initWithCustomView:alertsBtn]];
+    [_navyItem setRightBarButtonItem:[[UIBarButtonItem alloc]initWithCustomView:noticeBtn]];
     
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
+    
+    if (![self.slidingViewController.underRightViewController isKindOfClass:[LANoticeViewController class]]) {
+        self.slidingViewController.underRightViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Notices"];
+    }
+
 }
 - (IBAction)back:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
