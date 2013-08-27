@@ -49,10 +49,10 @@
     _sitesList = [NSDictionary dictionaryWithObjectsAndKeys:
                   [NSURL URLWithString:@"http://m.socrative.com/student/#joinRoom"],@"Socrative",
                   [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
-                  [NSURL URLWithString:@"http://losal.tandemcal.com"], @"Calendar",
+                  [NSURL URLWithString:@"http://losal.tandemcal.com/index.php?type=export&action=ical&export_type=now_to_infinity&limit=none&date_start=2013-08-26"], @"Calendar",
                   [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Aeries Portal",nil];
     
-    _menuItems = @[@"nothing",@"Feed",@"Calendar",@"Aeries Portal",@"Socrative",@"Edmodo",@"About",@"Help",@"Suggestions"];
+    _menuItems = @[@"nothing",@"Feed",@"Calendar",@"Aeries Portal",@"Socrative",@"Edmodo"];
     
     //self.storeManager = [LAStoreManager sharedManager];
 }
