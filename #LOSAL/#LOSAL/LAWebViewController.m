@@ -48,10 +48,11 @@
     [[self webview]setDelegate:self];
     
     NSURLRequest *requestURL = [NSURLRequest requestWithURL:_url];
+    [_webview loadRequest:requestURL];
+    [_webview addSubview:_spinner];
     
-    [[self webview]loadRequest:requestURL];
-
-
+    [_spinner stopAnimating];
+    
     UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     menuBtn.frame = CGRectMake(0, 0, 30, 30);
     [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];

@@ -43,16 +43,16 @@
     [[self slidingViewController] setAnchorRightRevealAmount:240.f];
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
     //[[self view] setBackgroundColor:[UIColor whiteColor]];
-    [[self view]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
+    //[[self view]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
-    [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
+    //[[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
     _sitesList = [NSDictionary dictionaryWithObjectsAndKeys:
                   [NSURL URLWithString:@"http://m.socrative.com/student/#joinRoom"],@"Socrative",
                   [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
                   [NSURL URLWithString:@"http://losal.tandemcal.com"], @"Calendar",
                   [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Aeries Portal",nil];
     
-    _menuItems = @[@"Feed",@"Socrative",@"Edmodo",@"Calendar",@"Aeries Portal",@"Logout"];
+    _menuItems = @[@"Feed",@"Socrative",@"Edmodo",@"Calendar",@"Aeries Portal"];
     
     //self.storeManager = [LAStoreManager sharedManager];
 }
@@ -99,7 +99,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     NSString *cellName = [[self menuItems] objectAtIndex:[indexPath row]];
     UIViewController *anotherTopViewController;
     
-    if (!([cellName isEqualToString:@"Feed"]||[cellName isEqualToString:@"Logout"]))
+    if (!([cellName isEqualToString:@"Feed"]))//||[cellName isEqualToString:@"Logout"]
     {
         NSString *identifier = @"WebView";
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
@@ -115,7 +115,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
         
     } else {
-        [[LAStoreManager sharedManager]logout];
+        //[[LAStoreManager sharedManager]logout];
     }
     
     [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
