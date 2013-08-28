@@ -45,6 +45,7 @@
 		43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9621217C6B444006F9AF4 /* LADataLoader.m */; };
 		43F9621517C6D7C7006F9AF4 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43F9621417C6D7C7006F9AF4 /* menu-icon.png */; };
 		43F9621F17CBD003006F9AF4 /* LANoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */; };
+		650B6B2F17CE740300F93BBD /* LAAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650B6B2E17CE740300F93BBD /* LAAboutViewController.m */; };
 		651F0C1017B9FBC20018794A /* LAPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F0C0F17B9FBC20018794A /* LAPostCell.m */; };
 		651F0C1417BAC1F00018794A /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 651F0C1317BAC1F00018794A /* photo2.jpg */; };
 		6523AE3A17B42A1E00AFD830 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE2E17B42A1E00AFD830 /* Roboto-Black.ttf */; };
@@ -69,6 +70,7 @@
 		6549236817B9591A003F39E3 /* do-git in Resources */ = {isa = PBXBuildFile; fileRef = 6549236417B9591A003F39E3 /* do-git */; };
 		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
 		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
+		654A737A17CD4F24009A28B3 /* LADetailNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654A737917CD4F24009A28B3 /* LADetailNoticeViewController.m */; };
 		6576740717C55ACD00EC2881 /* lightning.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740617C55ACD00EC2881 /* lightning.png */; };
 		6576740B17C55D2800EC2881 /* edmodo-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740A17C55D2800EC2881 /* edmodo-logo.png */; };
 		6576740D17C5615400EC2881 /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740C17C5615400EC2881 /* news.png */; };
@@ -162,6 +164,8 @@
 		43F9621417C6D7C7006F9AF4 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
 		43F9621C17CBCFF2006F9AF4 /* LANoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeViewController.h; sourceTree = "<group>"; };
 		43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeViewController.m; sourceTree = "<group>"; };
+		650B6B2D17CE740300F93BBD /* LAAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAAboutViewController.h; sourceTree = "<group>"; };
+		650B6B2E17CE740300F93BBD /* LAAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAAboutViewController.m; sourceTree = "<group>"; };
 		651F0C0E17B9FBC20018794A /* LAPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostCell.h; sourceTree = "<group>"; };
 		651F0C0F17B9FBC20018794A /* LAPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAPostCell.m; sourceTree = "<group>"; };
 		651F0C1317BAC1F00018794A /* photo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo2.jpg; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 		6549236517B9591A003F39E3 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
 		6549236617B9591A003F39E3 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
 		6549236717B9591A003F39E3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		654A737817CD4F24009A28B3 /* LADetailNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LADetailNoticeViewController.h; sourceTree = "<group>"; };
+		654A737917CD4F24009A28B3 /* LADetailNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LADetailNoticeViewController.m; sourceTree = "<group>"; };
 		6576740617C55ACD00EC2881 /* lightning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightning.png; sourceTree = "<group>"; };
 		6576740A17C55D2800EC2881 /* edmodo-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edmodo-logo.png"; sourceTree = "<group>"; };
 		6576740C17C5615400EC2881 /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
@@ -312,6 +318,8 @@
 			children = (
 				43F9621C17CBCFF2006F9AF4 /* LANoticeViewController.h */,
 				43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */,
+				654A737817CD4F24009A28B3 /* LADetailNoticeViewController.h */,
+				654A737917CD4F24009A28B3 /* LADetailNoticeViewController.m */,
 			);
 			name = Alerts;
 			sourceTree = "<group>";
@@ -379,6 +387,15 @@
 				43DC44B617A79638005729D8 /* LAStoreManager.m */,
 			);
 			name = Store;
+			sourceTree = "<group>";
+		};
+		650B6B3217CE741C00F93BBD /* About */ = {
+			isa = PBXGroup;
+			children = (
+				650B6B2D17CE740300F93BBD /* LAAboutViewController.h */,
+				650B6B2E17CE740300F93BBD /* LAAboutViewController.m */,
+			);
+			name = About;
 			sourceTree = "<group>";
 		};
 		6523AE2D17B4261000AFD830 /* Fonts */ = {
@@ -569,6 +586,7 @@
 		65FA586E17A9880A006598B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				650B6B3217CE741C00F93BBD /* About */,
 				6576741017C57C0B00EC2881 /* WebView */,
 				4358C00417BBFA2A00525BB8 /* Interface Builder */,
 				4358C00517BBFA3E00525BB8 /* Init */,
@@ -753,6 +771,8 @@
 				43249B9817C689AF0063197B /* LAColor+Hex.m in Sources */,
 				43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */,
 				43F9621F17CBD003006F9AF4 /* LANoticeViewController.m in Sources */,
+				654A737A17CD4F24009A28B3 /* LADetailNoticeViewController.m in Sources */,
+				650B6B2F17CE740300F93BBD /* LAAboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

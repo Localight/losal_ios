@@ -12,6 +12,7 @@
 @interface LADataLoader : UIColor
 
 @property (strong, nonatomic) LAFeedViewController *delegate;
+
 - (void)loadDataFromDate:(NSDate *)date;
 
 @end

@@ -50,9 +50,9 @@
                   [NSURL URLWithString:@"http://m.socrative.com/student/#joinRoom"],@"Socrative",
                   [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
                   [NSURL URLWithString:@"http://losal.tandemcal.com/index.php?type=export&action=ical&export_type=now_to_infinity&limit=none&date_start=2013-08-26"], @"Calendar",
-                  [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Aeries Portal",nil];
+                  [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Aeries Portal", [NSURL URLWithString:@"http://www.losal.org/lahs"], @"LosAl", nil];
     
-    _menuItems = @[@"nothing",@"Feed",@"Calendar",@"Aeries Portal",@"Socrative",@"Edmodo"];
+    _menuItems = @[@"nothing",@"Feed",@"Calendar",@"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
     
     //self.storeManager = [LAStoreManager sharedManager];
 }
@@ -60,7 +60,6 @@
 {
     return [[self menuItems]count];
 }
-
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -73,9 +72,7 @@
     }
     [[cell textLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:20]];
     [[cell textLabel]setBackgroundColor:[UIColor whiteColor]];
-    
     //cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
-    
     return cell;
 }
 
@@ -92,6 +89,11 @@
         [self.slidingViewController resetTopView];
     }];
 }
+
+- (IBAction)toSite:(id)sender {
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"http://www.losal.org/lahs"]];
+}
+
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
