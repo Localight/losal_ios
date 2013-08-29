@@ -684,11 +684,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="81" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SaM-HQ-QHa">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="noticeCell" id="Bed-g8-RFE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="noticeCell" id="Bed-g8-RFE">
                                         <rect key="frame" x="0.0" y="22" width="320" height="81"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="griffin-dance-bg-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cp6-ps-Uzm">
@@ -723,16 +723,19 @@
                                         <constraints>
                                             <constraint firstItem="Q7F-oN-Kq7" firstAttribute="top" secondItem="Bed-g8-RFE" secondAttribute="top" constant="37" id="244-P9-kBw"/>
                                             <constraint firstItem="K51-1O-ElN" firstAttribute="leading" secondItem="Cp6-ps-Uzm" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="AXb-s1-ITq"/>
-                                            <constraint firstItem="K51-1O-ElN" firstAttribute="top" secondItem="Bed-g8-RFE" secondAttribute="top" type="default" id="NlL-jf-jaG"/>
+                                            <constraint firstItem="K51-1O-ElN" firstAttribute="trailing" secondItem="xw0-HD-119" secondAttribute="trailing" type="default" id="Cue-1m-9Yx"/>
                                             <constraint firstItem="Q7F-oN-Kq7" firstAttribute="leading" secondItem="Cp6-ps-Uzm" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="WSK-Nf-Nln"/>
                                             <constraint firstItem="xw0-HD-119" firstAttribute="leading" secondItem="Cp6-ps-Uzm" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="WU2-Jw-0Ay"/>
                                             <constraint firstItem="xw0-HD-119" firstAttribute="bottom" secondItem="Bed-g8-RFE" secondAttribute="bottom" type="default" id="Z2e-bW-1WK"/>
                                             <constraint firstItem="Cp6-ps-Uzm" firstAttribute="top" secondItem="Bed-g8-RFE" secondAttribute="top" type="default" id="geh-60-YeA"/>
-                                            <constraint firstItem="xw0-HD-119" firstAttribute="trailing" secondItem="Q7F-oN-Kq7" secondAttribute="trailing" type="default" id="jkU-1t-5Gi"/>
                                             <constraint firstItem="K51-1O-ElN" firstAttribute="trailing" secondItem="Q7F-oN-Kq7" secondAttribute="trailing" type="default" id="oFf-qe-hpZ"/>
                                             <constraint firstItem="Cp6-ps-Uzm" firstAttribute="leading" secondItem="Bed-g8-RFE" secondAttribute="leading" type="default" id="pkt-Kg-cHa"/>
+                                            <constraint firstItem="K51-1O-ElN" firstAttribute="top" secondItem="Bed-g8-RFE" secondAttribute="top" constant="39" id="r20-RY-fT4"/>
                                             <constraint firstItem="Cp6-ps-Uzm" firstAttribute="bottom" secondItem="Bed-g8-RFE" secondAttribute="bottom" type="default" id="yMJ-lU-67X"/>
                                         </constraints>
+                                        <connections>
+                                            <segue destination="UaJ-BV-dCn" kind="push" trigger="accessoryAction" id="jsX-5x-XSZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -775,6 +778,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uHx-38-LQc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzc-i6-d02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -810,9 +814,6 @@
         <class className="LALoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
             <relationships>
-                <relationship kind="action" name="back:"/>
-                <relationship kind="action" name="send:"/>
-                <relationship kind="action" name="skip:"/>
                 <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="sendButton" candidateClass="UIButton"/>

@@ -32,7 +32,6 @@
     });
     return sharedMyManager;
 }
-
 - (id)init
 {
     if (self = [super init]) {
@@ -47,22 +46,34 @@
 }
 
 #pragma - GENERAL
-- (BOOL)isSessionValidForNetwork:(NSString *)socialNetwork {
-    if ([socialNetwork isEqualToString:@"Twitter"]) {
+- (BOOL)isSessionValidForNetwork:(NSString *)socialNetwork
+{
+   
+    if ([socialNetwork isEqualToString:@"Twitter"])
+    {
         return [self twitterSessionIsValid];
-    } else if ([socialNetwork isEqualToString:@"Facebook"]) {
+        
+    } else if ([socialNetwork isEqualToString:@"Facebook"])
+    {
         return [self facebookSessionIsValid];
-    } else if ([socialNetwork isEqualToString:@"Instagram"]) {
+        
+    } else if ([socialNetwork isEqualToString:@"Instagram"])
+    {
         return [self instagramSessionIsValid];
     }
 }
 
-- (void)likePostItem:(LAPostItem *)postItem {
-    if ([postItem.socialNetwork isEqualToString:@"Twitter"]) {
+- (void)likePostItem:(LAPostItem *)postItem
+{
+    if ([postItem.socialNetwork isEqualToString:@"Twitter"])
+    {
         [self twitterFavoriteTweet:postItem.socialNetworkPostID];
-    } else if ([postItem.socialNetwork isEqualToString:@"Facebook"]) {
+        
+    } else if ([postItem.socialNetwork isEqualToString:@"Facebook"])
+    {
         [self facebookLikePost:postItem.socialNetworkPostID];
-    } else if ([postItem.socialNetwork isEqualToString:@"Instagram"]) {
+    } else if ([postItem.socialNetwork isEqualToString:@"Instagram"])
+    {
         [self instagramLikePost:postItem.socialNetworkPostID];
     }
 }

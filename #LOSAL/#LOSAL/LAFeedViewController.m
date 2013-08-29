@@ -533,9 +533,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         // Get postitem and pass it to the like method in the social managher
         LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
         
-        if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO) {
+        if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO)
+        {
             LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 64, self.view.bounds.size.width - 40, 230)];
+           
             [self.navigationController.view addSubview:socialView];
+            
             [socialView show];
         } else {
             LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
