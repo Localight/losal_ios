@@ -14,7 +14,8 @@
 - (void)loadDataFromDate:(NSDate *)date
 {
     self.delegate.fetchBatch ++;
-    [[LAStoreManager sharedManager] getFeedFromDate:date WithCompletion:^(NSArray *array, NSError *error)
+    [[LAStoreManager sharedManager] getFeedFromDate:date
+                                     WithCompletion:^(NSArray *array, NSError *error)
     {
         NSLog(@"Loaded more data");
         if (!error)

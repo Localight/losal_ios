@@ -30,6 +30,7 @@
 - (void)saveUsersSocialIDs;
 
 - (void)saveUsersLike:(PFObject *)postObject;
+
 - (void)deleteUsersLike:(PFObject *)postObject;
 
 - (void)sendRegistrationRequestForPhoneNumber:(NSString *)phoneNumber;

@@ -142,6 +142,7 @@
     
     [self fetchEntries];
 }
+
 - (void)fetchEntries
 {
     
@@ -244,6 +245,8 @@
 }
 
 - (UITableViewCell *)configureCell:(NSIndexPath *)indexPath {
+    // This method might need to be wittled down, I think some of this stuff doesn't belong here.
+    // mostly the color changing of the like posts
     
     NSString *cellIdentifier = @"postCell";
     
@@ -558,7 +561,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     }
     [[self tableView]reloadData];
 }
-
+// Mental note, in theory we could set up the tablecell to have defaults where we don't handle the color change if a post is liked.
 #pragma mark - Social Manager Delegates
 
 - (void)twitterDidReceiveAnError:(NSString *)errorMessage {

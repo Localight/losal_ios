@@ -5,7 +5,7 @@
 //  Created by Joaquin Brown on 7/29/13.
 //  Copyright (c) 2013 Localism. All rights reserved.
 //
-
+// Where are the posts being stored? -James
 #import "LAStoreManager.h"
 #import <Parse/Parse.h>
 
@@ -76,7 +76,8 @@
 
 #pragma mark Posts
 
-- (void)getFeedFromDate:(NSDate *)date WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
+- (void)getFeedFromDate:(NSDate *)date
+         WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
     [self getUserLikesWithCompletion:^(NSError *error) {
         if (error) {
@@ -242,7 +243,8 @@
     [[PFUser currentUser]saveEventually];
 }
 
-- (void)verifyPhoneNumberIsValid:(NSString *)phoneNumber withCompletion:(void(^)(bool isValid))completionBlock {
+- (void)verifyPhoneNumberIsValid:(NSString *)phoneNumber
+                  withCompletion:(void(^)(bool isValid))completionBlock {
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:phoneNumber];
     [query findObjectsInBackgroundWithBlock:^(NSArray *user, NSError *error) {

@@ -12,6 +12,8 @@
 
 + (id)sharedManager;
 
-- (void)processImageDataWithURLString:(NSString *)urlString forId:(NSString *)imageId andBlock:(void (^)(UIImage *image))processImage;
+- (void)processImageDataWithURLString:(NSString *)urlString
+                                forId:(NSString *)imageId
+                             andBlock:(void (^)(UIImage *image))processImage;
 
 @end
