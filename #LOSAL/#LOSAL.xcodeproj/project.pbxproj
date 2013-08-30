@@ -62,6 +62,7 @@
 		6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */; };
 		652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 652F518C17D00DCA004DD0DA /* LANoticesStore.m */; };
 		652F519017D015B6004DD0DA /* LAImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 652F518F17D015B6004DD0DA /* LAImageStore.m */; };
+		652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 652F519217D02124004DD0DA /* LANoticeItemCell.m */; };
 		6530907017BD87C400ADA359 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906A17BD87C400ADA359 /* facebook.png */; };
 		6530907117BD87C400ADA359 /* instagramlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906B17BD87C400ADA359 /* instagramlike.png */; };
 		6530907217BD87C400ADA359 /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906C17BD87C400ADA359 /* instagram.png */; };
@@ -97,6 +98,9 @@
 		6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */; };
 		6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D0B117A4C9CE00B6C498 /* menuBtn.png */; };
 		65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */; };
+		65C522ED17D109F900C5622C /* school-links.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C522EC17D109F900C5622C /* school-links.png */; };
+		65C522F117D12F3000C5622C /* LANoticeCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C522F017D12F3000C5622C /* LANoticeCellView.xib */; };
+		65C522F417D13BC000C5622C /* LAParseNoticeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C522F317D13BBF00C5622C /* LAParseNoticeHandler.m */; };
 		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
 		65EBCE2F17CD3103009138E8 /* social-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2E17CD3103009138E8 /* social-icon.png */; };
@@ -188,6 +192,8 @@
 		652F518C17D00DCA004DD0DA /* LANoticesStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticesStore.m; sourceTree = "<group>"; };
 		652F518E17D015B6004DD0DA /* LAImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAImageStore.h; sourceTree = "<group>"; };
 		652F518F17D015B6004DD0DA /* LAImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAImageStore.m; sourceTree = "<group>"; };
+		652F519117D02124004DD0DA /* LANoticeItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeItemCell.h; sourceTree = "<group>"; };
+		652F519217D02124004DD0DA /* LANoticeItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeItemCell.m; sourceTree = "<group>"; };
 		6530906A17BD87C400ADA359 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		6530906B17BD87C400ADA359 /* instagramlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagramlike.png; sourceTree = "<group>"; };
 		6530906C17BD87C400ADA359 /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
@@ -237,6 +243,10 @@
 		6588D0B117A4C9CE00B6C498 /* menuBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtn.png; sourceTree = "<group>"; };
 		65ADBBED17CFFCFC0070C57C /* LANoticeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeItem.h; sourceTree = "<group>"; };
 		65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeItem.m; sourceTree = "<group>"; };
+		65C522EC17D109F900C5622C /* school-links.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "school-links.png"; sourceTree = "<group>"; };
+		65C522F017D12F3000C5622C /* LANoticeCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LANoticeCellView.xib; path = ../LANoticeCellView.xib; sourceTree = "<group>"; };
+		65C522F217D13BBF00C5622C /* LAParseNoticeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAParseNoticeHandler.h; sourceTree = "<group>"; };
+		65C522F317D13BBF00C5622C /* LAParseNoticeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAParseNoticeHandler.m; sourceTree = "<group>"; };
 		65EBCDF817CC07B1009138E8 /* socrative-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "socrative-logo.png"; sourceTree = "<group>"; };
 		65EBCE2C17CC357C009138E8 /* A-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-plus.png"; sourceTree = "<group>"; };
 		65EBCE2E17CD3103009138E8 /* social-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-icon.png"; sourceTree = "<group>"; };
@@ -322,9 +332,10 @@
 			name = "Main Feed";
 			sourceTree = "<group>";
 		};
-		4358C00717BBFA9200525BB8 /* Alerts */ = {
+		4358C00717BBFA9200525BB8 /* Notices */ = {
 			isa = PBXGroup;
 			children = (
+				65C522F017D12F3000C5622C /* LANoticeCellView.xib */,
 				43F9621C17CBCFF2006F9AF4 /* LANoticeViewController.h */,
 				43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */,
 				654A737817CD4F24009A28B3 /* LADetailNoticeViewController.h */,
@@ -335,8 +346,12 @@
 				652F518C17D00DCA004DD0DA /* LANoticesStore.m */,
 				652F518E17D015B6004DD0DA /* LAImageStore.h */,
 				652F518F17D015B6004DD0DA /* LAImageStore.m */,
+				652F519117D02124004DD0DA /* LANoticeItemCell.h */,
+				652F519217D02124004DD0DA /* LANoticeItemCell.m */,
+				65C522F217D13BBF00C5622C /* LAParseNoticeHandler.h */,
+				65C522F317D13BBF00C5622C /* LAParseNoticeHandler.m */,
 			);
-			name = Alerts;
+			name = Notices;
 			sourceTree = "<group>";
 		};
 		4378F37517B2DF0E00DEBE6A /* Utilities */ = {
@@ -436,6 +451,7 @@
 		6530907617BD8C7D00ADA359 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				65C522EC17D109F900C5622C /* school-links.png */,
 				65EBCE2E17CD3103009138E8 /* social-icon.png */,
 				65EBCE2C17CC357C009138E8 /* A-plus.png */,
 				65EBCDF817CC07B1009138E8 /* socrative-logo.png */,
@@ -606,7 +622,7 @@
 				4358C00417BBFA2A00525BB8 /* Interface Builder */,
 				4358C00517BBFA3E00525BB8 /* Init */,
 				4358C00617BBFA6000525BB8 /* Main Feed */,
-				4358C00717BBFA9200525BB8 /* Alerts */,
+				4358C00717BBFA9200525BB8 /* Notices */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -727,6 +743,8 @@
 				65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */,
 				65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */,
 				65EBCE2F17CD3103009138E8 /* social-icon.png in Resources */,
+				65C522ED17D109F900C5622C /* school-links.png in Resources */,
+				65C522F117D12F3000C5622C /* LANoticeCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +809,8 @@
 				65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */,
 				652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */,
 				652F519017D015B6004DD0DA /* LAImageStore.m in Sources */,
+				652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */,
+				65C522F417D13BC000C5622C /* LAParseNoticeHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

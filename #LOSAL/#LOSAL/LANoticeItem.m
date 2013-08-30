@@ -29,12 +29,15 @@
 }
 - (UIImage *)thumbnail
 {
-    if(!_thumbnailData)
+    // If there is no thumbnailData, then I have no thumbnail to return
+    if (!_thumbnailData) {
         return nil;
-    
-    if(!_thumbnail)
+    }
+    // If i have not yet created my thumbnail image from my data, do so now.
+    if (!_thumbnail) {
+        // create the image from the data
         _thumbnail = [UIImage imageWithData:_thumbnailData];
-    
+    }
     return _thumbnail;
 }
 - (void)encodeWithCoder:(NSCoder *)aCoder
@@ -64,7 +67,7 @@
     CGSize origImageSize = [image size];
     
     // The rectangle of the thumbnail
-    CGRect newRect = CGRectMake(0, 0, 40, 40);
+    CGRect newRect = CGRectMake(0, 0, 70, 70);
     
     // Figure out a scaling ratio to make sure we maintain the same aspect ratio
     float ratio = MAX(newRect.size.width / origImageSize.width,

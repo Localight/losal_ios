@@ -8,20 +8,36 @@
 
 #import "LANoticeViewController.h"
 #import "ECSlidingViewController.h"
+#import "LANoticeItemCell.h"
+#import "LANoticeItem.h"
+#import "LANoticesStore.h"
+#import "LANoticeItemCell.h"
+#import "LAImageStore.h"
 
-@interface LANoticeViewController ()
-
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, assign) CGFloat peekLeftAmount;
-
-@end
 
 @implementation LANoticeViewController
+
+- (id)init
+{
+    self = [super initWithStyle:UITableViewStyleGrouped];
+    if (self) {
+        UINavigationItem *n = [self navigationItem];
+        
+        [n setTitle:@"Notices"];
+        }
+    return self;
+}
 
 - (void)viewDidLoad
 { 
     [super viewDidLoad];
+    
+    // Load the NIB files
+    UINib *nib = [UINib nibWithNibName:@"LANoticeItemCell" bundle:nil];
+    //Register this NIB which contains the cell
+    [[self tableView]registerNib:nib forCellReuseIdentifier:@"LANoticeItemCell"];
 
+    
     self.peekLeftAmount = 80.0f;
     [self.slidingViewController setAnchorLeftPeekAmount:self.peekLeftAmount];
     self.slidingViewController.underRightWidthLayout = ECVariableRevealWidth;
@@ -31,7 +47,10 @@
     [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
 
 }
-
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    return [self init];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -46,20 +65,37 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return [[[LANoticesStore defaultStore]allItems]count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"noticeCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    LANoticeItem *p = [[[LANoticesStore defaultStore]allItems]objectAtIndex:[indexPath row]];
     
-    // Configure the cell...
+    // Get the new or recycled Cell
+    LANoticeItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LANoticeItemCell"];
+    
+    [cell setController:self];
+    [cell setTableView:tableView];
+    
+    // Configure the cell..
+    [[cell titleLabel]setText:[p noticeTitle]];
+    [[cell briefDescriptionLabel]setText:[p noticeContent]];
+    //[[cell dateLabel]setText:[p dateRecieved]];
+    
+    [[cell thumbnailImage]setImage:[p thumbnail]];
     
     return cell;
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self tableView] reloadData];
 }
 
 /*
@@ -103,15 +139,20 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)aTableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    LADetailNoticeViewController *detailViewController = [[LADetailNoticeViewController alloc]init];
+    NSArray *items = [[LANoticesStore defaultStore]allItems];
+    
+    LANoticeItem *selectedItem = [items objectAtIndex:[indexPath row]];
+    
+    // Give detail view controller a pointer to the item object in row
+    [detailViewController setItem:selectedItem];
+    
+    // Push it onto the top of the navigation controller's stack
+    [[self navigationController]pushViewController:detailViewController
+                                          animated:YES];
 }
 
 @end

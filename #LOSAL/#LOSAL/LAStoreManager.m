@@ -34,12 +34,14 @@
     if (self = [super init])
     {
         // Parse initialization
-        [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg" clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
+        [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg"
+                      clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
         
         //[PFUser enableAutomaticUser];
-        
         PFACL *defaultACL = [PFACL ACL];
+        
         // Enable public read access by default, with any newly created PFObjects belonging to the current user
+        
         [defaultACL setPublicReadAccess:YES];
         [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     }

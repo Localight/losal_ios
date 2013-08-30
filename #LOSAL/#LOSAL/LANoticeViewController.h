@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Localism. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
- 
-@interface LANoticeViewController : UIViewController <UITabBarControllerDelegate, UITableViewDataSource>
-
+#import <Foundation/Foundation.h>
+#import "LADetailNoticeViewController.h"
+@interface LANoticeViewController :UITableViewController
+{
+    
+}
+@property (nonatomic, assign) CGFloat peekLeftAmount;
 @end

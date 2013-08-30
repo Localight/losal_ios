@@ -14,6 +14,7 @@
     NSMutableArray *allItems;
 
 }
+
 + (LANoticesStore *)defaultStore;
 
 - (void)removeItem:(LANoticeItem *)p;
