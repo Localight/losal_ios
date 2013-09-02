@@ -260,7 +260,6 @@
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                  reuseIdentifier:cellIdentifier];
     }
-    
     LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
     
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
@@ -276,6 +275,7 @@
     
     // Set up users icon
     [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+    
     if ([postItem.postUser.icon length] > 0) {
         NSScanner *scanner = [NSScanner scannerWithString:postItem.postUser.icon];
         unsigned int code;

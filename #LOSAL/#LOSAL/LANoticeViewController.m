@@ -12,7 +12,7 @@
 #import "LANoticeItem.h"
 #import "LANoticesStore.h"
 #import "LANoticeItemCell.h"
-#import "LAImageStore.h"
+//#import "LAImageStore.h"
 #import "LAImageLoader.h"
 
 @implementation LANoticeViewController
@@ -115,22 +115,18 @@
         // Set image to nil, in case the cell was reused.
         [cell setThumbnailImage:nil];
         [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
-                                                             forId:p.postObject.objectId
-                                                          andBlock:^(UIImage *image)
+                                                              forId:[[p postObject]objectId]
+                                                           andBlock:^(UIImage *image)
         {
-        if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
-        {
-            [cell.thumbnailImage setImage:image];
-        }}];
+             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+             {
+                 [[cell thumbnailImage]setImage:image];
+                 
+             }}];
     } else {
-        [cell setThumbnailImage:nil];
+        [[cell thumbnailImage]setImage:nil];
     }
-
-    //[[cell dateLabel]setText:[p dateRecieved]];
-    
-    //[[cell thumbnailImage]setImage:[p thumbnail]];
-    
-    return cell;
+return cell;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -183,6 +179,7 @@
 - (void)tableView:(UITableView *)aTableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+ 
     LADetailNoticeViewController *detailViewController = [[LADetailNoticeViewController alloc]init];
     
     NSArray *items = [[LANoticesStore defaultStore]allItems];
@@ -195,6 +192,34 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     // Push it onto the top of the navigation controller's stack
     [[self navigationController]pushViewController:detailViewController
                                           animated:YES];
+    //[[self storyboard]instantiateViewControllerWithIdentifier:@"detailNotices"];
+    
+//    if (!([cellName isEqualToString:@"Feed"]))//||[cellName isEqualToString:@"Logout"]
+//    {
+//        NSString *identifier = @"WebView";
+//        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+//        
+//        LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
+//        
+//        [webView setTitleName:cellName];
+//        [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
+//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//        
+//    }else if([cellName isEqualToString:@"Feed"]){
+//        
+//        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
+//        
+//    } else {
+//        //[[LAStoreManager sharedManager]logout];
+//    }
+//    
+//    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+//        CGRect frame = self.slidingViewController.topViewController.view.frame;
+//        self.slidingViewController.topViewController = anotherTopViewController;
+//        self.slidingViewController.topViewController.view.frame = frame;
+//        [self.slidingViewController resetTopView];
+//    }];
+//
 }
 
 @end

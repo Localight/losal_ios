@@ -8,7 +8,7 @@
 
 #import "LANoticesStore.h"
 #import "LANoticeItem.h"
-#import "LAImageStore.h"
+//#import "LAImageStore.h"
 #import <Parse/Parse.h>
 @implementation LANoticesStore
 
@@ -54,9 +54,11 @@
 {
     // we will change this method to update, with in it, we will make sure to check the dates of the posts
     PFQuery *query = [PFQuery queryWithClassName:@"Notifications"];
-    [query orderByDescending:@"createAt"];
+    //[query orderByDescending:@"createAt"];
+    [query whereKey:@"startDate" lessThan:[NSDate date]];
+    [query whereKey:@"endDate" greaterThan:[NSDate date]];
     
-   // PFObject *myNotices = [[PFObject alloc]init];
+    // PFObject *myNotices = [[PFObject alloc]init];
     [query findObjectsInBackgroundWithBlock:^(NSArray *parseNoticeArray, NSError *error)
      {
          if (!error)
@@ -67,9 +69,7 @@
                                                                   NoticeTitle:[parseNoticeObject objectForKey:@"title"]
                                                                 noticeContent:[parseNoticeObject objectForKey:@"description"]];
                  
-                 // not sure what having a parse object is going to do.
-                // [p setPostObject:parseNoticeObject];
-                 [p setStartDate:[parseNoticeObject objectForKey:@"startDate"]];
+                [p setStartDate:[parseNoticeObject objectForKey:@"startDate"]];
                  [p setEndDate:[parseNoticeObject objectForKey:@"endDate"]];
                  // This does not require a network access.
                  NSLog(@"notices looks like %@", parseNoticeObject);
@@ -84,52 +84,6 @@
              }
          }];
 }
-//    self.moreResultsAvail = YES;
-//    
-//    UIView *currentTitleView = [[self navigationItem] titleView];
-//    
-//    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
-//                                       initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-//    [[self navigationItem] setTitleView:aiView];
-//    
-//    [aiView startAnimating];
-//    
-//    [[self navigationItem] setTitleView:currentTitleView];
-//    
-//    [self.storeManager getFeedWithCompletion:^(NSArray *posts, NSError *error)
-//     {
-//         NSLog(@"Completion block called!");
-//         if (!error)
-//         {
-//             self.objects = [NSMutableArray arrayWithArray:posts];
-//             
-//             static BOOL firstTime = YES;
-//             if (firstTime) {
-//                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
-//                 firstTime = NO;
-//             } else {
-//                 [[self tableView] reloadData];
-//             }
-//             
-//             NSLog(@"error is %@", error);
-//             
-//         } else {
-//             // If things went bad, show an alert view
-//             NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
-//                                      [error localizedDescription]];
-//             
-//             // Create and show an alert view with this error displayed
-//             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
-//                                                          message:errorString
-//                                                         delegate:nil
-//                                                cancelButtonTitle:@"OK"
-//                                                otherButtonTitles:nil];
-//             [av show];
-//             // If you come here you got the array
-//             NSLog(@"results are %@", posts);
-//         }
-//     }];
-
 - (BOOL)saveChanges
 {
     // returns success or failure
@@ -141,11 +95,10 @@
 
 - (void)removeItem:(LANoticeItem *)p
 {
-    NSString *key = [p imageKey];
-    [[LAImageStore defaultImageStore] deleteImageForKey:key];
+    //NSString *key = [p imageKey];
+   // [[LAImageStore defaultImageStore] deleteImageForKey:key];
     [allItems removeObjectIdenticalTo:p];
 }
-
 - (NSArray *)allItems
 {
     return allItems;

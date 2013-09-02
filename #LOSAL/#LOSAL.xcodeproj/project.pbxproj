@@ -61,7 +61,6 @@
 		6523AE4417B42A1E00AFD830 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */; };
 		6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */; };
 		652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 652F518C17D00DCA004DD0DA /* LANoticesStore.m */; };
-		652F519017D015B6004DD0DA /* LAImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 652F518F17D015B6004DD0DA /* LAImageStore.m */; };
 		652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 652F519217D02124004DD0DA /* LANoticeItemCell.m */; };
 		6530907017BD87C400ADA359 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906A17BD87C400ADA359 /* facebook.png */; };
 		6530907117BD87C400ADA359 /* instagramlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906B17BD87C400ADA359 /* instagramlike.png */; };
@@ -188,8 +187,6 @@
 		6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
 		652F518B17D00DCA004DD0DA /* LANoticesStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticesStore.h; sourceTree = "<group>"; };
 		652F518C17D00DCA004DD0DA /* LANoticesStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticesStore.m; sourceTree = "<group>"; };
-		652F518E17D015B6004DD0DA /* LAImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAImageStore.h; sourceTree = "<group>"; };
-		652F518F17D015B6004DD0DA /* LAImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAImageStore.m; sourceTree = "<group>"; };
 		652F519117D02124004DD0DA /* LANoticeItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeItemCell.h; sourceTree = "<group>"; };
 		652F519217D02124004DD0DA /* LANoticeItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeItemCell.m; sourceTree = "<group>"; };
 		6530906A17BD87C400ADA359 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
@@ -338,8 +335,6 @@
 				65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */,
 				652F518B17D00DCA004DD0DA /* LANoticesStore.h */,
 				652F518C17D00DCA004DD0DA /* LANoticesStore.m */,
-				652F518E17D015B6004DD0DA /* LAImageStore.h */,
-				652F518F17D015B6004DD0DA /* LAImageStore.m */,
 				652F519117D02124004DD0DA /* LANoticeItemCell.h */,
 				652F519217D02124004DD0DA /* LANoticeItemCell.m */,
 			);
@@ -799,7 +794,6 @@
 				650B6B2F17CE740300F93BBD /* LAAboutViewController.m in Sources */,
 				65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */,
 				652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */,
-				652F519017D015B6004DD0DA /* LAImageStore.m in Sources */,
 				652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
