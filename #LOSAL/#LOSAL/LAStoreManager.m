@@ -54,7 +54,9 @@
 }
 
 #pragma mark Settings
+
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock {
+    
     PFQuery *query = [PFQuery queryWithClassName:@"AppSettings"];
     [query whereKey:@"school" equalTo:@"Losal"];
     
@@ -77,15 +79,18 @@
 }
 
 #pragma mark Posts
+// this is teh one i need to use
 
 - (void)getFeedFromDate:(NSDate *)date
          WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
-    [self getUserLikesWithCompletion:^(NSError *error) {
+    [self getUserLikesWithCompletion:^(NSError *error)
+    {
         if (error) {
             completionBlock(nil, error);
         } else {
             PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+            
             [query orderByDescending:@"postTime"];
             
             NSTimeInterval interval = self.settings.queryIntervalDays * -1 * 24 * 60 * 60;
@@ -98,16 +103,20 @@
             [query whereKey:@"postTime" greaterThan:endDate];
             [query whereKey:@"status" equalTo:@"1"];
             [query includeKey:@"user"];
+            
             [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
              {
                  NSMutableArray *messages = nil;
+                 
                  if (!error) {
                      messages = [[NSMutableArray alloc] init];
                      for (PFObject *post in posts) {
                          // This does not require a network access.
                          NSLog(@"post looks like %@", post);
                          LAPostItem *postItem = [[LAPostItem alloc] init];
-                         postItem.postObject = post;
+                         [postItem setPostObject:post];
+                         
+                         //postItem.postObject = post;// this line is weird
                          postItem.postTime = [post objectForKey:@"postTime"];
                          postItem.socialNetwork = [post objectForKey:@"socialNetworkName"];
                          postItem.socialNetworkPostID = [post objectForKey:@"socialNetworkPostID"];
@@ -142,7 +151,8 @@
 
 - (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
-    [self getFeedFromDate:[NSDate date] WithCompletion:^(NSArray *posts, NSError *error) {
+    [self getFeedFromDate:[NSDate date] WithCompletion:^(NSArray *posts, NSError *error)
+    {
         completionBlock(posts, error);
     }];
 }
@@ -153,8 +163,8 @@
     return doesUserLikePost;
 }
 
-- (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock {
-
+- (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock
+{
     self.likes = [[NSMutableArray alloc] init];
     // Now get all likes for user if user is already set
     if ([PFUser currentUser]) {
@@ -170,11 +180,10 @@
             }
         }];
     }
-    
 }
 
-- (void)deleteUsersLike:(PFObject *)postObject {
-    
+- (void)deleteUsersLike:(PFObject *)postObject
+{    
     PFQuery *query = [PFQuery queryWithClassName:@"Likes"];
     [query whereKey:@"userID" equalTo:[PFUser currentUser]];
     [query whereKey:@"postID" equalTo:postObject];
@@ -186,8 +195,8 @@
     }];
 }
 
-- (void)saveUsersLike:(PFObject *)postObject {
-    
+- (void)saveUsersLike:(PFObject *)postObject
+{    
     PFObject *like = [PFObject objectWithClassName:@"Likes"];
     [like setObject:[PFUser currentUser] forKey:@"userID"];
     [like setObject:postObject forKey:@"postID"];

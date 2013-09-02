@@ -99,8 +99,6 @@
 		6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D0B117A4C9CE00B6C498 /* menuBtn.png */; };
 		65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */; };
 		65C522ED17D109F900C5622C /* school-links.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C522EC17D109F900C5622C /* school-links.png */; };
-		65C522F117D12F3000C5622C /* LANoticeCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65C522F017D12F3000C5622C /* LANoticeCellView.xib */; };
-		65C522F417D13BC000C5622C /* LAParseNoticeHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C522F317D13BBF00C5622C /* LAParseNoticeHandler.m */; };
 		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
 		65EBCE2F17CD3103009138E8 /* social-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2E17CD3103009138E8 /* social-icon.png */; };
@@ -244,9 +242,6 @@
 		65ADBBED17CFFCFC0070C57C /* LANoticeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeItem.h; sourceTree = "<group>"; };
 		65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeItem.m; sourceTree = "<group>"; };
 		65C522EC17D109F900C5622C /* school-links.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "school-links.png"; sourceTree = "<group>"; };
-		65C522F017D12F3000C5622C /* LANoticeCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LANoticeCellView.xib; path = ../LANoticeCellView.xib; sourceTree = "<group>"; };
-		65C522F217D13BBF00C5622C /* LAParseNoticeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAParseNoticeHandler.h; sourceTree = "<group>"; };
-		65C522F317D13BBF00C5622C /* LAParseNoticeHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAParseNoticeHandler.m; sourceTree = "<group>"; };
 		65EBCDF817CC07B1009138E8 /* socrative-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "socrative-logo.png"; sourceTree = "<group>"; };
 		65EBCE2C17CC357C009138E8 /* A-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-plus.png"; sourceTree = "<group>"; };
 		65EBCE2E17CD3103009138E8 /* social-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-icon.png"; sourceTree = "<group>"; };
@@ -335,7 +330,6 @@
 		4358C00717BBFA9200525BB8 /* Notices */ = {
 			isa = PBXGroup;
 			children = (
-				65C522F017D12F3000C5622C /* LANoticeCellView.xib */,
 				43F9621C17CBCFF2006F9AF4 /* LANoticeViewController.h */,
 				43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */,
 				654A737817CD4F24009A28B3 /* LADetailNoticeViewController.h */,
@@ -348,8 +342,6 @@
 				652F518F17D015B6004DD0DA /* LAImageStore.m */,
 				652F519117D02124004DD0DA /* LANoticeItemCell.h */,
 				652F519217D02124004DD0DA /* LANoticeItemCell.m */,
-				65C522F217D13BBF00C5622C /* LAParseNoticeHandler.h */,
-				65C522F317D13BBF00C5622C /* LAParseNoticeHandler.m */,
 			);
 			name = Notices;
 			sourceTree = "<group>";
@@ -744,7 +736,6 @@
 				65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */,
 				65EBCE2F17CD3103009138E8 /* social-icon.png in Resources */,
 				65C522ED17D109F900C5622C /* school-links.png in Resources */,
-				65C522F117D12F3000C5622C /* LANoticeCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,7 +801,6 @@
 				652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */,
 				652F519017D015B6004DD0DA /* LAImageStore.m in Sources */,
 				652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */,
-				65C522F417D13BC000C5622C /* LAParseNoticeHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

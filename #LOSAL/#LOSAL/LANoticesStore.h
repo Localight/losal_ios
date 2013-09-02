@@ -12,7 +12,6 @@
 @interface LANoticesStore : NSObject
 {
     NSMutableArray *allItems;
-
 }
 
 + (LANoticesStore *)defaultStore;
@@ -21,7 +20,7 @@
 
 - (NSArray *)allItems;
 
-- (LANoticeItem *)createItem;
+//- (LANoticeItem *)createItem;
 
 - (void)moveItemAtIndex:(int)from
                 toIndex:(int)to;
@@ -30,4 +29,5 @@
 
 - (BOOL)saveChanges;
 
+- (void)fetchEntries;
 @end

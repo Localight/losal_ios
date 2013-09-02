@@ -9,16 +9,19 @@
 #import "LANoticeItem.h"
 
 @implementation LANoticeItem
-- (id)initWithNoticeTitle:(NSString *)title
-            noticeContent:(NSString *)content
+- (id)initWithnoticeObject:(PFObject *)object
+               NoticeTitle:(NSString *)title
+             noticeContent:(NSString *)content
 {
     self = [super init];
     
     // Did the superclass's designated initializer succeed?
     if(self) {
         // Give the instance variables initial values
+        [self setPostObject:object];
         [self setNoticeTitle:title];
         [self setNoticeContent:content];
+        
         
        //fill in date when you know where you are getting it from.
     }

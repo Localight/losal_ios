@@ -13,32 +13,32 @@
 #import "LANoticesStore.h"
 #import "LANoticeItemCell.h"
 #import "LAImageStore.h"
-
+#import "LAImageLoader.h"
 
 @implementation LANoticeViewController
 
-- (id)init
-{
-    self = [super initWithStyle:UITableViewStyleGrouped];
-    if (self) {
-        UINavigationItem *n = [self navigationItem];
-        
-        [n setTitle:@"Notices"];
-        }
-    return self;
-}
+//- (id)init
+//{
+//    self = [super initWithStyle:UITableViewStyleGrouped];
+//    if (self) {
+//        UINavigationItem *n = [self navigationItem];
+//        
+//        [n setTitle:@"Notices"];
+//        }
+//    return self;
+//}
 
 - (void)viewDidLoad
 { 
     [super viewDidLoad];
-    
+    [_navyItem setTitle:@"Notices"];
     // Load the NIB files
-    UINib *nib = [UINib nibWithNibName:@"LANoticeItemCell" bundle:nil];
+   // UINib *nib = [UINib nibWithNibName:@"LANoticeItemCell" bundle:nil];
     //Register this NIB which contains the cell
-    [[self tableView]registerNib:nib forCellReuseIdentifier:@"LANoticeItemCell"];
+   // [[self tableView]registerNib:nib forCellReuseIdentifier:@"LANoticeItemCell"];
 
     
-    self.peekLeftAmount = 80.0f;
+    self.peekLeftAmount = 50.0f;
     [self.slidingViewController setAnchorLeftPeekAmount:self.peekLeftAmount];
     self.slidingViewController.underRightWidthLayout = ECVariableRevealWidth;
     
@@ -61,8 +61,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    int i;
+    if ([[[LANoticesStore defaultStore]allItems]count] > 0) {
+        i = 1;
+    } else {
+        i = 0;
+    }
+    return i;
+}
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    //[[LANoticesStore defaultStore]fetchEntries];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -78,24 +88,53 @@
     LANoticeItem *p = [[[LANoticesStore defaultStore]allItems]objectAtIndex:[indexPath row]];
     
     // Get the new or recycled Cell
-    LANoticeItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LANoticeItemCell"];
+    // notes might need to alter the item to store different dates as strings
     
+
+    LANoticeItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"NoticeCell"];
+    if (cell == nil)
+    {
+        cell = [[LANoticeItemCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                 reuseIdentifier:@"NoticeCell"];
+    }
     [cell setController:self];
     [cell setTableView:tableView];
     
     // Configure the cell..
     [[cell titleLabel]setText:[p noticeTitle]];
+    [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell briefDescriptionLabel]setText:[p noticeContent]];
+    [[cell briefDescriptionLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+    [[cell dateLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+    
+    
+    if (![[p noticeImageUrl] length] == 0)
+    {
+        // Set image to nil, in case the cell was reused.
+        [cell setThumbnailImage:nil];
+        [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
+                                                             forId:p.postObject.objectId
+                                                          andBlock:^(UIImage *image)
+        {
+        if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+        {
+            [cell.thumbnailImage setImage:image];
+        }}];
+    } else {
+        [cell setThumbnailImage:nil];
+    }
+
     //[[cell dateLabel]setText:[p dateRecieved]];
     
-    [[cell thumbnailImage]setImage:[p thumbnail]];
+    //[[cell thumbnailImage]setImage:[p thumbnail]];
     
     return cell;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[self tableView] reloadData];
+    //test the placement of this a little bit
+        //[[self tableView] reloadData];
 }
 
 /*

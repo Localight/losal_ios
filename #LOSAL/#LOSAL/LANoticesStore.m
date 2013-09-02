@@ -9,7 +9,7 @@
 #import "LANoticesStore.h"
 #import "LANoticeItem.h"
 #import "LAImageStore.h"
-
+#import <Parse/Parse.h>
 @implementation LANoticesStore
 
 +(LANoticesStore *)defaultStore
@@ -50,6 +50,83 @@
     
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
 }
+- (void)fetchEntries
+{
+    // we will change this method to update, with in it, we will make sure to check the dates of the posts
+    PFQuery *query = [PFQuery queryWithClassName:@"Notifications"];
+    [query orderByDescending:@"createAt"];
+    
+   // PFObject *myNotices = [[PFObject alloc]init];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *parseNoticeArray, NSError *error)
+     {
+         if (!error)
+         {
+             for (PFObject *parseNoticeObject in parseNoticeArray)
+             {
+                 LANoticeItem *p = [[LANoticeItem alloc] initWithnoticeObject:parseNoticeObject
+                                                                  NoticeTitle:[parseNoticeObject objectForKey:@"title"]
+                                                                noticeContent:[parseNoticeObject objectForKey:@"description"]];
+                 // not sure what having a parse object is going to do.
+                // [p setPostObject:parseNoticeObject];
+                 
+                 // This does not require a network access.
+                 NSLog(@"notices looks like %@", parseNoticeObject);
+//                 [p setNoticeTitle:[parseNoticeObject objectForKey:@"title"]];
+//                 [p setNoticeContent:[parseNoticeObject objectForKey:@"description"]];
+                 [p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
+                 [allItems addObject:p];
+             }
+         }else{
+                 // Log details of the failure
+                 NSLog(@"Error: %@ %@", error, [error userInfo]);
+             }
+         }];
+}
+//    self.moreResultsAvail = YES;
+//    
+//    UIView *currentTitleView = [[self navigationItem] titleView];
+//    
+//    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
+//                                       initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+//    [[self navigationItem] setTitleView:aiView];
+//    
+//    [aiView startAnimating];
+//    
+//    [[self navigationItem] setTitleView:currentTitleView];
+//    
+//    [self.storeManager getFeedWithCompletion:^(NSArray *posts, NSError *error)
+//     {
+//         NSLog(@"Completion block called!");
+//         if (!error)
+//         {
+//             self.objects = [NSMutableArray arrayWithArray:posts];
+//             
+//             static BOOL firstTime = YES;
+//             if (firstTime) {
+//                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+//                 firstTime = NO;
+//             } else {
+//                 [[self tableView] reloadData];
+//             }
+//             
+//             NSLog(@"error is %@", error);
+//             
+//         } else {
+//             // If things went bad, show an alert view
+//             NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
+//                                      [error localizedDescription]];
+//             
+//             // Create and show an alert view with this error displayed
+//             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
+//                                                          message:errorString
+//                                                         delegate:nil
+//                                                cancelButtonTitle:@"OK"
+//                                                otherButtonTitles:nil];
+//             [av show];
+//             // If you come here you got the array
+//             NSLog(@"results are %@", posts);
+//         }
+//     }];
 
 - (BOOL)saveChanges
 {
@@ -86,14 +163,14 @@
     // Insert p in array at new location
     [allItems insertObject:p atIndex:to];
 }
-
-- (LANoticeItem *)createItem
-{
-    LANoticeItem *p = [[LANoticeItem alloc] init];
-    
-    [allItems addObject:p];
-    
-    return p;
-}
+//
+//- (LANoticeItem *)createItem
+//{
+//    LANoticeItem *p = [[LANoticeItem alloc] init];
+//    
+//    [allItems addObject:p];
+//    
+//    return p;
+//}
 
 @end

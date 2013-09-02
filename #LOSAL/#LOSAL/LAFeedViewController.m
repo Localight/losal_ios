@@ -31,7 +31,7 @@
 #import "LASocialNetworksView.h"
 
 #import "LADataLoader.h"
-
+#import "LANoticesStore.h"
 @interface LAFeedViewController ()
 
 #define  DEFAULT_ICON "\uE00C"
@@ -94,11 +94,13 @@
     [[[self view]layer]setShadowOpacity:0.75f];
     [[[self view]layer]setShadowRadius:0.75f];
     [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
+    
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
     
-    if (![self.slidingViewController.underRightViewController isKindOfClass:[LANoticeViewController class]]) {
+    if (![self.slidingViewController.underRightViewController isKindOfClass:[LANoticeViewController class]])
+    {
         self.slidingViewController.underRightViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Notices"];
     }
     
@@ -136,16 +138,13 @@
         [backgroundImage setAlpha:1.0f];
     }];
 }
-
-- (void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self fetchEntries];
 }
-
 - (void)fetchEntries
 {
-    
     self.moreResultsAvail = YES;
     
     UIView *currentTitleView = [[self navigationItem] titleView];
@@ -161,13 +160,15 @@
     [self.storeManager getFeedWithCompletion:^(NSArray *posts, NSError *error)
     {
         NSLog(@"Completion block called!");
+        
         if (!error)
         {
             self.objects = [NSMutableArray arrayWithArray:posts];
             
             static BOOL firstTime = YES;
             if (firstTime) {
-                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
+                              withRowAnimation:UITableViewRowAnimationTop];
                 firstTime = NO;
             } else {
                 [[self tableView] reloadData];   
@@ -199,6 +200,9 @@
 
 - (IBAction)revealNotices:(id)sender
 {
+    [[LANoticesStore defaultStore]fetchEntries];
+    NSLog(@"%lu", (unsigned long)[[[LANoticesStore defaultStore]allItems]count]);
+    
     [self.slidingViewController anchorTopViewTo:ECLeft];
 }
 
@@ -333,7 +337,7 @@
         // Set image to nil, in case the cell was reused.
         [cell.postImage setImage:nil];
         [self.imageLoader processImageDataWithURLString:postItem.imageURLString
-                                                  forId:postItem.postObject.objectId
+                                                  forId:postItem.postObject.objectId // why do we need to object ID?
                                                andBlock:^(UIImage *image)
          {
              if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])

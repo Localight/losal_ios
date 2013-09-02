@@ -674,45 +674,89 @@
             <point key="canvasLocation" x="3503" y="-764"/>
         </scene>
         <!--Notice View Controller - Notices-->
-        <scene sceneID="Gnc-Li-chw">
+        <scene sceneID="IsI-72-gIS">
             <objects>
-                <viewController storyboardIdentifier="Notices" id="S6B-2K-Sa9" customClass="LANoticeViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Irg-LK-wgS">
+                <tableViewController storyboardIdentifier="Notices" title="Notices" id="eGL-aH-Myv" customClass="LANoticeViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="oAp-yk-z9U">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="81" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SaM-HQ-QHa">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" barStyle="blackOpaque" id="mN3-8H-T3V">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Title" id="ki7-DF-5ir"/>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="NoticeCell" rowHeight="70" id="gU2-GG-zgj" customClass="LANoticeItemCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z03-rm-Ql6">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="2nF-AQ-Q5D"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title of Notice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysl-2W-F9I">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="first line of post" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUX-GF-XeA">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="BG4-eB-3zB"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date Received" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaW-IP-WOL">
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="HaW-IP-WOL" firstAttribute="bottom" secondItem="gU2-GG-zgj" secondAttribute="bottom" type="default" id="8jf-u4-Tt2"/>
+                                    <constraint firstAttribute="trailing" secondItem="HaW-IP-WOL" secondAttribute="trailing" constant="20" type="default" id="EE8-a4-lg9"/>
+                                    <constraint firstItem="Z03-rm-Ql6" firstAttribute="bottom" secondItem="gU2-GG-zgj" secondAttribute="bottom" type="default" id="EoH-IN-a2S"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ysl-2W-F9I" secondAttribute="trailing" constant="20" type="default" id="JBw-3J-NdP"/>
+                                    <constraint firstItem="Z03-rm-Ql6" firstAttribute="leading" secondItem="gU2-GG-zgj" secondAttribute="leading" type="default" id="L6A-ab-MC6"/>
+                                    <constraint firstItem="Ysl-2W-F9I" firstAttribute="leading" secondItem="Z03-rm-Ql6" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="PQt-pt-fgq"/>
+                                    <constraint firstItem="Z03-rm-Ql6" firstAttribute="top" secondItem="gU2-GG-zgj" secondAttribute="top" type="default" id="Thm-H4-bXQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="rUX-GF-XeA" secondAttribute="trailing" constant="20" type="default" id="ZX7-ib-qIx"/>
+                                    <constraint firstItem="HaW-IP-WOL" firstAttribute="top" secondItem="rUX-GF-XeA" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="lfI-SK-Txi"/>
+                                    <constraint firstItem="rUX-GF-XeA" firstAttribute="top" secondItem="gU2-GG-zgj" secondAttribute="top" constant="20" type="default" id="pSF-B0-xCD"/>
+                                    <constraint firstItem="Ysl-2W-F9I" firstAttribute="top" secondItem="gU2-GG-zgj" secondAttribute="top" type="default" id="qd3-Wn-Pwz"/>
+                                    <constraint firstItem="HaW-IP-WOL" firstAttribute="leading" secondItem="Z03-rm-Ql6" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="vnS-Ka-tLN"/>
+                                    <constraint firstItem="rUX-GF-XeA" firstAttribute="leading" secondItem="Z03-rm-Ql6" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="zb4-WF-14f"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="dataSource" destination="S6B-2K-Sa9" id="Jk0-lG-wxC"/>
-                                    <outlet property="delegate" destination="S6B-2K-Sa9" id="J6s-gj-7Fv"/>
+                                    <outlet property="briefDescriptionLabel" destination="rUX-GF-XeA" id="cXy-Yi-iOc"/>
+                                    <outlet property="dateLabel" destination="HaW-IP-WOL" id="l77-no-k44"/>
+                                    <outlet property="thumbnailImage" destination="Z03-rm-Ql6" id="JeR-FB-6DS"/>
+                                    <outlet property="titleLabel" destination="Ysl-2W-F9I" id="iLg-w5-rac"/>
                                 </connections>
-                            </tableView>
-                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="qhz-Ry-b5l">
-                                <items>
-                                    <navigationItem title="Notices" id="29K-Fg-qLQ"/>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qhz-Ry-b5l" firstAttribute="top" secondItem="Irg-LK-wgS" secondAttribute="top" type="default" id="5hT-DZ-538"/>
-                            <constraint firstItem="SaM-HQ-QHa" firstAttribute="leading" secondItem="Irg-LK-wgS" secondAttribute="leading" type="default" id="EV6-GY-TcQ"/>
-                            <constraint firstItem="qhz-Ry-b5l" firstAttribute="trailing" secondItem="Irg-LK-wgS" secondAttribute="trailing" type="default" id="IFr-lp-B2i"/>
-                            <constraint firstItem="qhz-Ry-b5l" firstAttribute="bottom" secondItem="SaM-HQ-QHa" secondAttribute="top" type="default" id="L5r-sc-oLF"/>
-                            <constraint firstItem="qhz-Ry-b5l" firstAttribute="leading" secondItem="Irg-LK-wgS" secondAttribute="leading" type="default" id="L72-PO-ygl"/>
-                            <constraint firstItem="SaM-HQ-QHa" firstAttribute="bottom" secondItem="Irg-LK-wgS" secondAttribute="bottom" type="default" id="fY9-Vs-etd"/>
-                            <constraint firstItem="SaM-HQ-QHa" firstAttribute="trailing" secondItem="Irg-LK-wgS" secondAttribute="trailing" type="default" id="kz9-X9-fUQ"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Notices" id="RtT-W9-z3p"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eGL-aH-Myv" id="ajn-CC-Zj4"/>
+                            <outlet property="delegate" destination="eGL-aH-Myv" id="7nU-Aw-Te8"/>
+                        </connections>
+                    </tableView>
                     <connections>
-                        <outlet property="tableView" destination="SaM-HQ-QHa" id="gBZ-5D-qOH"/>
+                        <outlet property="navyItem" destination="ki7-DF-5ir" id="75E-Z9-SJC"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dS3-WJ-XTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zEh-u4-mkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575" y="703"/>
+            <point key="canvasLocation" x="585" y="703"/>
         </scene>
         <!--Detail Notice View Controller-->
         <scene sceneID="W11-Zb-Chs">
@@ -766,7 +810,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzc-i6-d02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999" y="703"/>
+            <point key="canvasLocation" x="1019" y="703"/>
         </scene>
     </scenes>
     <resources>
@@ -779,6 +823,89 @@
         <image name="social-icon.png" width="156" height="115"/>
         <image name="socrative-logo.png" width="294" height="314"/>
     </resources>
+    <classes>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="LAAboutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAboutViewController.h"/>
+        </class>
+        <class className="LADetailNoticeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailNoticeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="content" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAFeedViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAFeedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="likeButtonTapped:"/>
+                <relationship kind="action" name="revealMenu:"/>
+                <relationship kind="action" name="revealNotices:"/>
+            </relationships>
+        </class>
+        <class className="LALoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="sendButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="LAMenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toSite:"/>
+            </relationships>
+        </class>
+        <class className="LANoticeItemCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LANoticeItemCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="briefDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thumbnailImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LANoticeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LANoticeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
+            </relationships>
+        </class>
+        <class className="LAPostCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPostCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateAndGradeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="icon" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="likeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="socialMediaImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LASplashViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>
+        </class>
+        <class className="LAWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="revealNotices:"/>
+                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
