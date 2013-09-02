@@ -18,6 +18,8 @@
              
 @property (nonatomic, strong) NSString *noticeTitle;
 @property (nonatomic, strong) NSString *noticeContent;
+@property (nonatomic, strong) NSString *startDate;
+@property (nonatomic, strong) NSString *endDate;
 @property (nonatomic, readonly, strong) NSDate *dateRecieved;//could also be dateMessageSent
 
 @property (nonatomic, strong) UIImage *thumbnail;

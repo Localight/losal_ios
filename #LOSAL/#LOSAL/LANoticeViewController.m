@@ -42,9 +42,10 @@
     [self.slidingViewController setAnchorLeftPeekAmount:self.peekLeftAmount];
     self.slidingViewController.underRightWidthLayout = ECVariableRevealWidth;
     
-    [[self view]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
     [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
-    [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
+//    [[self view]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
+//    [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
+//    [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
 
 }
 - (id)initWithStyle:(UITableViewStyle)style
@@ -105,8 +106,9 @@
     [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell briefDescriptionLabel]setText:[p noticeContent]];
     [[cell briefDescriptionLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+    [[cell dateLabel]setText:[NSString stringWithFormat:@"%@", [p startDate]]];//[NSString stringWithFormat:@"$%d", [p valueInDollars]]];
+    // need to format date
     [[cell dateLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
-    
     
     if (![[p noticeImageUrl] length] == 0)
     {
@@ -182,6 +184,7 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LADetailNoticeViewController *detailViewController = [[LADetailNoticeViewController alloc]init];
+    
     NSArray *items = [[LANoticesStore defaultStore]allItems];
     
     LANoticeItem *selectedItem = [items objectAtIndex:[indexPath row]];

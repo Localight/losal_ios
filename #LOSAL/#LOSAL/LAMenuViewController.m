@@ -9,7 +9,6 @@
 #import "LAMenuViewController.h"
 #import "LAStoreManager.h"
 #import "ECSlidingViewController.h"
-
 #import "LAWebViewController.h"
 
 @interface LAMenuViewController ()
@@ -17,6 +16,7 @@
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) LAStoreManager *storeManager;
 @property (nonatomic, strong) NSDictionary *sitesList;
+//@property (nonatomic, strong) LAUser *user;
 //@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @end
 
@@ -35,7 +35,15 @@
     }
     return self;
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+//    [super viewWillAppear:animated];
+//    PFUser *currentUser = [PFUser currentUser];
+//    
+//    [_userNameLabel setText:[NSString stringWithFormat:@"%@", [currentUser username]]];
+//    [_userNameLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:17]];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -53,7 +61,8 @@
                   [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Aeries Portal",
                   nil];
     // the calendar will ask you if you want to subscribe.
-    _menuItems = @[@"nothing",@"Feed",@"Calendar",@"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
+    _menuItems = @[@"Feed",@"Calendar",@"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
+    
     
     //self.storeManager = [LAStoreManager sharedManager];
 }

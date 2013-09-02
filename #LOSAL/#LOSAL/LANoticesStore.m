@@ -50,7 +50,7 @@
     
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
 }
-- (void)fetchEntries
+- (void)updateEntries
 {
     // we will change this method to update, with in it, we will make sure to check the dates of the posts
     PFQuery *query = [PFQuery queryWithClassName:@"Notifications"];
@@ -66,9 +66,11 @@
                  LANoticeItem *p = [[LANoticeItem alloc] initWithnoticeObject:parseNoticeObject
                                                                   NoticeTitle:[parseNoticeObject objectForKey:@"title"]
                                                                 noticeContent:[parseNoticeObject objectForKey:@"description"]];
+                 
                  // not sure what having a parse object is going to do.
                 // [p setPostObject:parseNoticeObject];
-                 
+                 [p setStartDate:[parseNoticeObject objectForKey:@"startDate"]];
+                 [p setEndDate:[parseNoticeObject objectForKey:@"endDate"]];
                  // This does not require a network access.
                  NSLog(@"notices looks like %@", parseNoticeObject);
 //                 [p setNoticeTitle:[parseNoticeObject objectForKey:@"title"]];

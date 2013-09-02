@@ -137,6 +137,7 @@
         [backgroundImage setImage:[UIImage imageNamed:imageDark]];
         [backgroundImage setAlpha:1.0f];
     }];
+    [[LANoticesStore defaultStore]updateEntries];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -197,10 +198,9 @@
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
-
 - (IBAction)revealNotices:(id)sender
 {
-    [[LANoticesStore defaultStore]fetchEntries];
+    
     NSLog(@"%lu", (unsigned long)[[[LANoticesStore defaultStore]allItems]count]);
     
     [self.slidingViewController anchorTopViewTo:ECLeft];

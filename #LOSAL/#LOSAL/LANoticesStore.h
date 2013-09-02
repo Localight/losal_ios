@@ -29,5 +29,5 @@
 
 - (BOOL)saveChanges;
 
-- (void)fetchEntries;
+- (void)updateEntries;
 @end
