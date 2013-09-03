@@ -12,7 +12,7 @@
 #import "LAWebViewController.h"
 
 @interface LAMenuViewController ()
-
+#define  DEFAULT_ICON "\uE00C"
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) LAStoreManager *storeManager;
 @property (nonatomic, strong) NSDictionary *sitesList;
@@ -64,6 +64,17 @@
     _menuItems = @[@"Feed",@"Calendar",@"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
   
     [_userIcon setFont:[UIFont fontWithName:@"iconmoon" size:30.0f]];
+    if ([[[LAStoreManager sharedManager]getUser]firstName] > 0) {
+    [_userNameLabel setText:[[[LAStoreManager sharedManager]getUser]firstName]];
+    NSScanner *scanner = [NSScanner scannerWithString:[[[LAStoreManager sharedManager]getUser]icon]];
+    unsigned int code;
+    [scanner scanHexInt:&code];
+    [_userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
+    [_userIcon setTextColor:[self colorFromHexString:[[[LAStoreManager sharedManager]getUser]iconColor]]];
+    }else{
+        [_userNameLabel setText:@"Non-Verified User"];
+        [_userIcon setText:[NSString stringWithUTF8String:DEFAULT_ICON]];
+    }
     
     // Set up users icon
 //    [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
@@ -78,14 +89,24 @@
 //        cell.icon.text = [NSString stringWithUTF8String:DEFAULT_ICON];
 //        [cell.icon setTextColor:[UIColor whiteColor]];
 //    }
-    
-
-    //self.storeManager = [LAStoreManager sharedManager];
 }
+
+     
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
     return [[self menuItems]count];
 }
+     
+-(UIColor *)colorFromHexString:(NSString *)hexString
+{
+    NSUInteger red, green, blue;
+    sscanf([hexString UTF8String], "#%02X%02X%02X", &red, &green, &blue);
+         
+    UIColor *color = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
+         
+    return (color);
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -116,7 +137,8 @@
     }];
 }
 
-- (IBAction)toSite:(id)sender {
+- (IBAction)toSite:(id)sender
+{
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"http://www.losal.org/lahs"]];
 }
 

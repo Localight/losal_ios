@@ -264,6 +264,8 @@
     
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
+    //[[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]];
+    
     [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     
     NSDate *timePosted = [postItem postTime];
@@ -342,10 +344,15 @@
          {
              if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
              {
-                 [cell.postImage setImage:image];
+                 [[cell postImage]setImage:image];
+                 
+                 [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
+                 //[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]
+                 //[cell.postImage setImage:image];
              }}];
     } else {
         [[cell postImage]setImage:nil];
+        [[cell messageArea]setBackgroundColor:nil];
     }
     return cell;
 }

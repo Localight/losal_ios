@@ -50,6 +50,7 @@
     
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
 }
+
 - (void)updateEntries
 {
     // we will change this method to update, with in it, we will make sure to check the dates of the posts
@@ -84,6 +85,7 @@
              }
          }];
 }
+
 - (BOOL)saveChanges
 {
     // returns success or failure

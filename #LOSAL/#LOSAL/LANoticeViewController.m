@@ -32,6 +32,7 @@
 { 
     [super viewDidLoad];
     [_navyItem setTitle:@"Notices"];
+    
     // Load the NIB files
    // UINib *nib = [UINib nibWithNibName:@"LANoticeItemCell" bundle:nil];
     //Register this NIB which contains the cell

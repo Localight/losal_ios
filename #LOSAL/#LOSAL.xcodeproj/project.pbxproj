@@ -97,6 +97,12 @@
 		6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */; };
 		6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D0B117A4C9CE00B6C498 /* menuBtn.png */; };
 		65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */; };
+		65B2A33E17D551CD004DA2FA /* gradient-text.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A33D17D551CD004DA2FA /* gradient-text.png */; };
+		65B2A34017D55944004DA2FA /* dark-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A33F17D55944004DA2FA /* dark-gradient.png */; };
+		65B2A34517D590E5004DA2FA /* LAOnBoardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B2A34317D590E5004DA2FA /* LAOnBoardingViewController.m */; };
+		65B2A34617D590E5004DA2FA /* LAOnBoardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A34417D590E5004DA2FA /* LAOnBoardingViewController.xib */; };
+		65B2A34A17D591BE004DA2FA /* LAOnBoardingChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B2A34817D591BE004DA2FA /* LAOnBoardingChildViewController.m */; };
+		65B2A34B17D591BE004DA2FA /* LAOnBoardingChildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A34917D591BE004DA2FA /* LAOnBoardingChildViewController.xib */; };
 		65C522ED17D109F900C5622C /* school-links.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C522EC17D109F900C5622C /* school-links.png */; };
 		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
@@ -238,6 +244,14 @@
 		6588D0B117A4C9CE00B6C498 /* menuBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtn.png; sourceTree = "<group>"; };
 		65ADBBED17CFFCFC0070C57C /* LANoticeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeItem.h; sourceTree = "<group>"; };
 		65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeItem.m; sourceTree = "<group>"; };
+		65B2A33D17D551CD004DA2FA /* gradient-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient-text.png"; sourceTree = "<group>"; };
+		65B2A33F17D55944004DA2FA /* dark-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark-gradient.png"; sourceTree = "<group>"; };
+		65B2A34217D590E5004DA2FA /* LAOnBoardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAOnBoardingViewController.h; sourceTree = "<group>"; };
+		65B2A34317D590E5004DA2FA /* LAOnBoardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAOnBoardingViewController.m; sourceTree = "<group>"; };
+		65B2A34417D590E5004DA2FA /* LAOnBoardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LAOnBoardingViewController.xib; sourceTree = "<group>"; };
+		65B2A34717D591BE004DA2FA /* LAOnBoardingChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAOnBoardingChildViewController.h; sourceTree = "<group>"; };
+		65B2A34817D591BE004DA2FA /* LAOnBoardingChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAOnBoardingChildViewController.m; sourceTree = "<group>"; };
+		65B2A34917D591BE004DA2FA /* LAOnBoardingChildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LAOnBoardingChildViewController.xib; sourceTree = "<group>"; };
 		65C522EC17D109F900C5622C /* school-links.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "school-links.png"; sourceTree = "<group>"; };
 		65EBCDF817CC07B1009138E8 /* socrative-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "socrative-logo.png"; sourceTree = "<group>"; };
 		65EBCE2C17CC357C009138E8 /* A-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-plus.png"; sourceTree = "<group>"; };
@@ -385,6 +399,8 @@
 		43BE533E17C3BD7B008BE0E7 /* Background Images */ = {
 			isa = PBXGroup;
 			children = (
+				65B2A33F17D55944004DA2FA /* dark-gradient.png */,
+				65B2A33D17D551CD004DA2FA /* gradient-text.png */,
 				651F0C1317BAC1F00018794A /* photo2.jpg */,
 				43BE533817C3BB96008BE0E7 /* Default.png */,
 				43BE533617C3BB36008BE0E7 /* Default@2x.png */,
@@ -601,9 +617,23 @@
 			path = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
+		65B2A34117D5909B004DA2FA /* On-Boarding  */ = {
+			isa = PBXGroup;
+			children = (
+				65B2A34217D590E5004DA2FA /* LAOnBoardingViewController.h */,
+				65B2A34317D590E5004DA2FA /* LAOnBoardingViewController.m */,
+				65B2A34417D590E5004DA2FA /* LAOnBoardingViewController.xib */,
+				65B2A34717D591BE004DA2FA /* LAOnBoardingChildViewController.h */,
+				65B2A34817D591BE004DA2FA /* LAOnBoardingChildViewController.m */,
+				65B2A34917D591BE004DA2FA /* LAOnBoardingChildViewController.xib */,
+			);
+			name = "On-Boarding ";
+			sourceTree = "<group>";
+		};
 		65FA586E17A9880A006598B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				65B2A34117D5909B004DA2FA /* On-Boarding  */,
 				650B6B3217CE741C00F93BBD /* About */,
 				6576741017C57C0B00EC2881 /* WebView */,
 				4358C00417BBFA2A00525BB8 /* Interface Builder */,
@@ -731,6 +761,10 @@
 				65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */,
 				65EBCE2F17CD3103009138E8 /* social-icon.png in Resources */,
 				65C522ED17D109F900C5622C /* school-links.png in Resources */,
+				65B2A33E17D551CD004DA2FA /* gradient-text.png in Resources */,
+				65B2A34017D55944004DA2FA /* dark-gradient.png in Resources */,
+				65B2A34617D590E5004DA2FA /* LAOnBoardingViewController.xib in Resources */,
+				65B2A34B17D591BE004DA2FA /* LAOnBoardingChildViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +829,8 @@
 				65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */,
 				652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */,
 				652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */,
+				65B2A34517D590E5004DA2FA /* LAOnBoardingViewController.m in Sources */,
+				65B2A34A17D591BE004DA2FA /* LAOnBoardingChildViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
