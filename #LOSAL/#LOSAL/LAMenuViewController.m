@@ -75,7 +75,6 @@
         [_userNameLabel setText:@"Non-Verified User"];
         [_userIcon setText:[NSString stringWithUTF8String:DEFAULT_ICON]];
     }
-    
     // Set up users icon
 //    [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
 //    
