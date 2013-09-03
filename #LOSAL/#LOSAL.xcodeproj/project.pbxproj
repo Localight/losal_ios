@@ -45,6 +45,12 @@
 		43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9621217C6B444006F9AF4 /* LADataLoader.m */; };
 		43F9621517C6D7C7006F9AF4 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43F9621417C6D7C7006F9AF4 /* menu-icon.png */; };
 		43F9621F17CBD003006F9AF4 /* LANoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */; };
+		44C777CD17D66EBC0062FDF4 /* LAIntroOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C777CC17D66EBB0062FDF4 /* LAIntroOverviewViewController.m */; };
+		44C777D017D671770062FDF4 /* LAIntroVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C777CF17D671770062FDF4 /* LAIntroVerifyViewController.m */; };
+		44C777D517D6739B0062FDF4 /* sign-in-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C777D117D6739B0062FDF4 /* sign-in-01.png */; };
+		44C777D617D6739B0062FDF4 /* sign-in-01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C777D217D6739B0062FDF4 /* sign-in-01@2x.png */; };
+		44C777D717D6739B0062FDF4 /* sign-in-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C777D317D6739B0062FDF4 /* sign-in-02.png */; };
+		44C777D817D6739B0062FDF4 /* sign-in-02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C777D417D6739B0062FDF4 /* sign-in-02@2x.png */; };
 		650B6B2F17CE740300F93BBD /* LAAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650B6B2E17CE740300F93BBD /* LAAboutViewController.m */; };
 		651F0C1017B9FBC20018794A /* LAPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F0C0F17B9FBC20018794A /* LAPostCell.m */; };
 		651F0C1417BAC1F00018794A /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 651F0C1317BAC1F00018794A /* photo2.jpg */; };
@@ -174,6 +180,14 @@
 		43F9621417C6D7C7006F9AF4 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
 		43F9621C17CBCFF2006F9AF4 /* LANoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeViewController.h; sourceTree = "<group>"; };
 		43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeViewController.m; sourceTree = "<group>"; };
+		44C777CB17D66EBB0062FDF4 /* LAIntroOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAIntroOverviewViewController.h; sourceTree = "<group>"; };
+		44C777CC17D66EBB0062FDF4 /* LAIntroOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAIntroOverviewViewController.m; sourceTree = "<group>"; };
+		44C777CE17D671770062FDF4 /* LAIntroVerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAIntroVerifyViewController.h; sourceTree = "<group>"; };
+		44C777CF17D671770062FDF4 /* LAIntroVerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAIntroVerifyViewController.m; sourceTree = "<group>"; };
+		44C777D117D6739B0062FDF4 /* sign-in-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-01.png"; sourceTree = "<group>"; };
+		44C777D217D6739B0062FDF4 /* sign-in-01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-01@2x.png"; sourceTree = "<group>"; };
+		44C777D317D6739B0062FDF4 /* sign-in-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-02.png"; sourceTree = "<group>"; };
+		44C777D417D6739B0062FDF4 /* sign-in-02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-02@2x.png"; sourceTree = "<group>"; };
 		650B6B2D17CE740300F93BBD /* LAAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAAboutViewController.h; sourceTree = "<group>"; };
 		650B6B2E17CE740300F93BBD /* LAAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAAboutViewController.m; sourceTree = "<group>"; };
 		651F0C0E17B9FBC20018794A /* LAPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostCell.h; sourceTree = "<group>"; };
@@ -399,6 +413,10 @@
 		43BE533E17C3BD7B008BE0E7 /* Background Images */ = {
 			isa = PBXGroup;
 			children = (
+				44C777D117D6739B0062FDF4 /* sign-in-01.png */,
+				44C777D217D6739B0062FDF4 /* sign-in-01@2x.png */,
+				44C777D317D6739B0062FDF4 /* sign-in-02.png */,
+				44C777D417D6739B0062FDF4 /* sign-in-02@2x.png */,
 				65B2A33F17D55944004DA2FA /* dark-gradient.png */,
 				65B2A33D17D551CD004DA2FA /* gradient-text.png */,
 				651F0C1317BAC1F00018794A /* photo2.jpg */,
@@ -548,15 +566,15 @@
 		6588D02C17A4BCC500B6C498 /* #LOSAL */ = {
 			isa = PBXGroup;
 			children = (
+				6588D06717A4BF2300B6C498 /* External Libraries */,
 				6588D03517A4BCC500B6C498 /* LAAppDelegate.h */,
 				6588D03617A4BCC500B6C498 /* LAAppDelegate.m */,
-				6588D06717A4BF2300B6C498 /* External Libraries */,
-				4378F37517B2DF0E00DEBE6A /* Utilities */,
+				4397674717B1BCB50040C947 /* Model */,
 				4358C00317BBF9E200525BB8 /* Social Libraries */,
 				43DC44BA17A796DC005729D8 /* Store */,
-				4397674717B1BCB50040C947 /* Model */,
-				65FA586E17A9880A006598B1 /* Views */,
 				6588D02D17A4BCC500B6C498 /* Supporting Files */,
+				4378F37517B2DF0E00DEBE6A /* Utilities */,
+				65FA586E17A9880A006598B1 /* Views */,
 			);
 			path = "#LOSAL";
 			sourceTree = "<group>";
@@ -620,12 +638,16 @@
 		65B2A34117D5909B004DA2FA /* On-Boarding  */ = {
 			isa = PBXGroup;
 			children = (
-				65B2A34217D590E5004DA2FA /* LAOnBoardingViewController.h */,
-				65B2A34317D590E5004DA2FA /* LAOnBoardingViewController.m */,
-				65B2A34417D590E5004DA2FA /* LAOnBoardingViewController.xib */,
+				44C777CB17D66EBB0062FDF4 /* LAIntroOverviewViewController.h */,
+				44C777CC17D66EBB0062FDF4 /* LAIntroOverviewViewController.m */,
+				44C777CE17D671770062FDF4 /* LAIntroVerifyViewController.h */,
+				44C777CF17D671770062FDF4 /* LAIntroVerifyViewController.m */,
 				65B2A34717D591BE004DA2FA /* LAOnBoardingChildViewController.h */,
 				65B2A34817D591BE004DA2FA /* LAOnBoardingChildViewController.m */,
 				65B2A34917D591BE004DA2FA /* LAOnBoardingChildViewController.xib */,
+				65B2A34217D590E5004DA2FA /* LAOnBoardingViewController.h */,
+				65B2A34317D590E5004DA2FA /* LAOnBoardingViewController.m */,
+				65B2A34417D590E5004DA2FA /* LAOnBoardingViewController.xib */,
 			);
 			name = "On-Boarding ";
 			sourceTree = "<group>";
@@ -765,6 +787,10 @@
 				65B2A34017D55944004DA2FA /* dark-gradient.png in Resources */,
 				65B2A34617D590E5004DA2FA /* LAOnBoardingViewController.xib in Resources */,
 				65B2A34B17D591BE004DA2FA /* LAOnBoardingChildViewController.xib in Resources */,
+				44C777D517D6739B0062FDF4 /* sign-in-01.png in Resources */,
+				44C777D617D6739B0062FDF4 /* sign-in-01@2x.png in Resources */,
+				44C777D717D6739B0062FDF4 /* sign-in-02.png in Resources */,
+				44C777D817D6739B0062FDF4 /* sign-in-02@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,6 +857,8 @@
 				652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */,
 				65B2A34517D590E5004DA2FA /* LAOnBoardingViewController.m in Sources */,
 				65B2A34A17D591BE004DA2FA /* LAOnBoardingChildViewController.m in Sources */,
+				44C777CD17D66EBC0062FDF4 /* LAIntroOverviewViewController.m in Sources */,
+				44C777D017D671770062FDF4 /* LAIntroVerifyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

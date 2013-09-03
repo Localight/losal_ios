@@ -107,7 +107,11 @@
     // This was messing up the scrolling in the UI table view so need to figure out a way to add this back - Joaquin
     //[self.view addGestureRecognizer:self.slidingViewController.panGesture];
     
-    if ([self.storeManager getUser] == nil) {
+    if ([self firstTimeLaunched])
+    {
+        [self performSegueWithIdentifier:@"kIntroductionSegue" sender:self];
+    }
+    else if ([self.storeManager getUser] == nil) {
         UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
         
         UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
@@ -603,6 +607,27 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         NSDate *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
+}
+
+
+- (BOOL)firstTimeLaunched
+{
+#warning remove this before shipping!
+    // debug
+    return YES;
+    
+    static NSString *firsTTimeLaunchedKey = @"firsTTimeLaunchedKey";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL hasLaunched = [defaults boolForKey:firsTTimeLaunchedKey];
+    
+    if (!hasLaunched)
+    {
+        [defaults setBool:YES forKey:firsTTimeLaunchedKey];
+        [defaults synchronize];
+    }
+    
+    return !hasLaunched;
 }
 
 @end
