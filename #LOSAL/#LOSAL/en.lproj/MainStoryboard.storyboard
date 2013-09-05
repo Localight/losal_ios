@@ -460,6 +460,35 @@
             </objects>
             <point key="canvasLocation" x="575" y="72"/>
         </scene>
+        <!--Hashtag View Controller-->
+        <scene sceneID="LMN-xI-aLQ">
+            <objects>
+                <tableViewController storyboardIdentifier="Hashtags" id="0ex-sf-781" customClass="LAHashtagViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="a9y-Fq-XUl">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="hashtagCell" id="ZrN-Ch-k6o">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0ex-sf-781" id="kZP-Kc-Hnf"/>
+                            <outlet property="delegate" destination="0ex-sf-781" id="Lth-fF-2se"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iN7-9a-TGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="978" y="72"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="RvX-dt-MB2">
             <objects>
@@ -768,6 +797,7 @@
                     <navigationItem key="navigationItem" title="Notices" id="RtT-W9-z3p"/>
                     <connections>
                         <outlet property="tableView" destination="SaM-HQ-QHa" id="gBZ-5D-qOH"/>
+                        <outlet property="titleItem" destination="29K-Fg-qLQ" id="5yA-L2-Nr8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dS3-WJ-XTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -784,74 +814,6 @@
         <image name="lightning.png" width="200" height="191"/>
         <image name="placeholder.png" width="450" height="450"/>
     </resources>
-    <classes>
-        <class className="ECSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
-        </class>
-        <class className="LAAlertViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAlertViewController.h"/>
-        </class>
-        <class className="LADetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LAFeedViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAFeedViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="likeButtonTapped:"/>
-                <relationship kind="action" name="revealMenu:"/>
-                <relationship kind="action" name="revealNotices:"/>
-            </relationships>
-        </class>
-        <class className="LALoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="sendButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="LAMenuViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
-        </class>
-        <class className="LANoticeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LANoticeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LAPostCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPostCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dateAndGradeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="icon" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="likeImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="socialMediaImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="timeImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LASplashViewController" superclassName="ECSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>
-        </class>
-        <class className="LAWebViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="back:"/>
-                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -1,41 +1,37 @@
 //
-//  LANoticeViewController.m
+//  LAHashtagViewController.m
 //  #LOSAL
 //
-//  Created by Joaquin Brown on 8/23/13.
+//  Created by Joaquin Brown on 8/26/13.
 //  Copyright (c) 2013 Localism. All rights reserved.
 //
 
-#import "LANoticeViewController.h"
-#import "ECSlidingViewController.h"
+#import "LAHashtagViewController.h"
+#import "LAStoreManager.h"
+#import "LAHashtagAndPost.h"
 
-@interface LANoticeViewController ()
+@interface LAHashtagViewController ()
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, assign) CGFloat peekLeftAmount;
-@property (nonatomic, weak) IBOutlet UINavigationItem *titleItem;
+@property (nonatomic, strong) LAStoreManager *storeManager;
+
 @end
 
-@implementation LANoticeViewController
+@implementation LAHashtagViewController
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
-{ 
+{
     [super viewDidLoad];
 
-    self.peekLeftAmount = 80.0f;
-    [self.slidingViewController setAnchorLeftPeekAmount:self.peekLeftAmount];
-    self.slidingViewController.underRightWidthLayout = ECVariableRevealWidth;
-    
-    [[self view]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
-    [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
-    [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
-
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 70, 44)];
-    [titleLabel setText:@"Notices"];
-    [titleLabel setTextColor:[UIColor whiteColor]];
-    [titleLabel setBackgroundColor:[UIColor clearColor]];
-    [titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:25]];
-    self.titleItem.titleView = titleLabel;
+    self.storeManager = [LAStoreManager sharedManager];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,15 +51,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return [self.storeManager.uniqueHashtags count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"noticeCell";
+    static NSString *CellIdentifier = @"hashtagCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    [cell.textLabel setText:[self.storeManager.uniqueHashtags objectAtIndex:indexPath.row]];
+    
+    [cell.textLabel setFont:[UIFont fontWithName:@"Roboto-Medium" size:17]];
     
     return cell;
 }
@@ -111,13 +109,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 @end
