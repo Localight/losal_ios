@@ -151,7 +151,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" id="KkT-1r-FX6">
-                            <rect key="frame" x="0.0" y="387" width="320" height="197"/>
+                            <rect key="frame" x="0.0" y="343" width="320" height="197"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="griffin-mascot.png" translatesAutoresizingMaskIntoConstraints="NO" id="K3v-J2-dO8">
@@ -209,33 +209,8 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="nothing" id="IO2-oo-Pny">
-                                <rect key="frame" x="0.0" y="79" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6v-x4-fxT">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="142" id="FzS-ye-ZV6"/>
-                                                <constraint firstAttribute="height" constant="22" id="Imj-Ar-z84"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="O6v-x4-fxT" firstAttribute="centerY" secondItem="IO2-oo-Pny" secondAttribute="centerY" type="default" id="UNV-tL-9tG"/>
-                                    <constraint firstItem="O6v-x4-fxT" firstAttribute="leading" secondItem="IO2-oo-Pny" secondAttribute="leading" constant="66" id="urT-kC-IIJ"/>
-                                </constraints>
-                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Feed" id="pEq-GW-5WG">
-                                <rect key="frame" x="0.0" y="123" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="79" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -270,7 +245,7 @@
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Calendar" id="H85-S7-Sc6">
-                                <rect key="frame" x="0.0" y="167" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="123" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -304,7 +279,7 @@
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Aeries Portal" id="KCC-5r-oxe">
-                                <rect key="frame" x="0.0" y="211" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="167" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -338,7 +313,7 @@
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Socrative" id="3aM-NI-0Gi">
-                                <rect key="frame" x="0.0" y="255" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="211" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -372,7 +347,7 @@
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Edmodo" id="umy-Jj-lN8">
-                                <rect key="frame" x="0.0" y="299" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="255" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -407,7 +382,7 @@
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="About" id="usm-Vc-6mR">
-                                <rect key="frame" x="0.0" y="343" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="299" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -448,19 +423,248 @@
             </objects>
             <point key="canvasLocation" x="-335" y="72"/>
         </scene>
-        <!--About View Controller-->
+        <!--About View Controller - About-->
         <scene sceneID="6kh-0M-Mt6">
             <objects>
-                <viewController storyboardIdentifier="About" id="X02-i6-goS" customClass="LAAboutViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2Hg-Hc-z42">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                <viewController storyboardIdentifier="About" autoresizesArchivedViewToFullSize="NO" title="About" id="X02-i6-goS" customClass="LAAboutViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="2Hg-Hc-z42">
+                        <rect key="frame" x="0.0" y="20" width="320" height="3122"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqF-Dz-T4N">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Suggest A Feature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRm-tY-Ybj">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="foX-Ty-HL3"/>
+                                            <constraint firstAttribute="width" constant="152" id="lWC-Dg-b75"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8O-V4-jWK">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="276" id="Nyf-Og-LiB"/>
+                                            <constraint firstAttribute="height" constant="82" id="VYE-AO-uEg"/>
+                                        </constraints>
+                                        <string key="text">We want to make the #LOSAL APP the #BestAppEver!  Have an idea?  Email us!("Email us" links to  losalappideas@localism.zendesk.com)</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVC-Ff-ZC3">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="275" id="16J-g0-VKq"/>
+                                            <constraint firstAttribute="height" constant="140" id="Ggt-S7-2xf"/>
+                                        </constraints>
+                                        <string key="text">The #LOSAL APP is managed as a service of Localism Inc. using the Localism! Community Engagement Platform (CEP).  Localism! is connecting and empowering local organizations through community-centric technology. 
+Learn more at Localism.co/schools</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Need Help?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sx5-lE-14d">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="59i-JX-qmQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmr-Xk-0X3">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="116" id="glo-93-cSs"/>
+                                            <constraint firstAttribute="width" constant="277" id="hPW-Od-PVB"/>
+                                        </constraints>
+                                        <string key="text">If you're having issues with the app or not sure how to use it, please email us and describe the issue in detail.  Note: This link will send some non-personal diagnostic info about your phone so we can troubleshoot any issues.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Safety and Security" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4X-1C-aaj">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="fEY-L2-gqe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQv-0H-Or6">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="5c1-he-UNJ"/>
+                                            <constraint firstAttribute="height" constant="1292" id="RnG-LB-20E"/>
+                                        </constraints>
+                                        <string key="text">Do you need to report an emergency?  
+Click to call 911 now.  
+
+Not an emergency? 
+If you see something, say something:
+Call 562-391-2193 to reach Los Al USD's campus safety. 
+
+#LOSAL APP security
+This app is built on Localism's CEP and has the following security features:
+Only members of the school community who have been verified have full access to app content (level 1 access).  This level of access only displays students using an obfuscated "persona" format (avatar, first name and last initial), and the posts do not link to the students' real social media profiles.  
+For posts to appear in the app, they must be:
+- Photos that are already publicly available on the internet from Twitter, Instagram or Facebook
+- Tagged with #losal
+- Submitted by verified students (in-person verification at school) 
+- From students who have successfully completed two-factor authentication for their smartphone
+
+Level 2 access is for verified parents, faculty and staff.  Verification for adults includes in-person verification, and two-factor smartphone authentication.  Adults have the ability to see all posts and the obfuscated persona of the student, but they do not have the ability to "like" or "favorite" posts. 
+
+Level 3 access is for non-verified app users. They only see a photo wall in the social feed. They do not see textual content of posts or the obfuscated persona.
+
+Privacy and server security
+Localism Inc.'s CEP is 100% FERPA-compliant meeting or exceeding applicable provisions of the Family Educational Rights and Privacy Act (FERPA), 20 U.S.C. 1232g. Privacy and security measures are in place to protect user data and data transfer. The privacy and security of student data is our first priority. Children's Online Privacy Protection Act: Our Applications and Services are directed to the general public.
+See our privacy policy for more information.
+
+Privacy policy (English)
+(links to http://localism.co/losalapp/privacy/english/ )
+
+Política de privacidad (Español)
+(Links to http://localism.co/losalapp/privacy/espanol/ )</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Frequently asked questions." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsx-Ju-WkZ">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="203" id="9gs-o1-uY3"/>
+                                            <constraint firstAttribute="height" constant="21" id="RtB-zL-pfb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-x9-Hfu">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="999" id="fJw-dV-SuQ"/>
+                                        </constraints>
+                                        <string key="text">How can I post to the app? 
+Verified students must do three things before posting to the app:  
+- Get verified at school (such as registration)
+- Confirm their phone by clicking a confirmation text message
+- Set their persona (avatar, etc.)
+- Activate at least one supported social network (only Twitter and Instagram are supported in this version, with Facebook to follow).
+
+Can parents submit posts to the app? 
+No, the social feed would probably be filled with parent posts and drown out student posts.  That said, a "parents corner" may be added to the app if there is interest.  You can vote for this feature and suggest others by emailing us! 
+(Links to losalappideas@localism.zendesk.com subject: Parents submitting to social feed)
+
+Can teachers submit posts to the app? 
+We are planning on it, and students have requested it. If you have want to voice your opinion, email us. 
+(Links to losalappideas@localism.zendesk.com Faculty submitting to social feed)
+
+Can the school see my other posts? 
+No. In fact only public posts that have been specifically tagged with #losal enter the system. The system does not index private posts.  That would be creepy!
+
+I made a post and submitted it by tagging it with #losal, but it didn't appear on the social feed. What gives?
+A variety of factors give more weight to post, and only posts that surpass a threshold are displayed in the feed. Weighting factors can include the amount of likes and relevance to selected campus keywords.  Additionally the platform ignores posts that contain common NSFS terms (Not Safe For School).  The purpose of the social feed is to connect the campus with posts from students about school life and activities.  The algorithm and automatic filtering has been tuned to yield these results. 
+
+</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                                    </textView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="dr-arnold-wht2.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Gm-SU-tGd">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="182" id="4p2-Ia-ISj"/>
+                                            <constraint firstAttribute="width" constant="132" id="USf-wq-Zoo"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Copyright 2013 Localism Inc. All rights reserved." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24O-Pv-3ji">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="9YP-BU-0hU"/>
+                                            <constraint firstAttribute="width" constant="248" id="yq8-YB-AP9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="localism-blk.png" translatesAutoresizingMaskIntoConstraints="NO" id="ReD-Pk-0wN">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="YjN-Zo-99e"/>
+                                            <constraint firstAttribute="width" constant="290" id="ZyW-1V-AXK"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GVC-Ff-ZC3" firstAttribute="top" secondItem="ReD-Pk-0wN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2BE-1h-5aq"/>
+                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="top" secondItem="3QJ-x9-Hfu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2hB-zM-QHn"/>
+                                    <constraint firstItem="sx5-lE-14d" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="348" id="5kV-Vt-ZdW"/>
+                                    <constraint firstAttribute="bottom" secondItem="24O-Pv-3ji" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="7UY-En-wZC"/>
+                                    <constraint firstItem="sx5-lE-14d" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Bro-XH-EvX"/>
+                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="DI4-V2-qXt"/>
+                                    <constraint firstItem="v8O-V4-jWK" firstAttribute="top" secondItem="GVC-Ff-ZC3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="DLr-bW-ZpV"/>
+                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="centerX" secondItem="5Gm-SU-tGd" secondAttribute="centerX" type="default" id="Drd-pH-e3O"/>
+                                    <constraint firstItem="ReD-Pk-0wN" firstAttribute="centerX" secondItem="JQv-0H-Or6" secondAttribute="centerX" type="default" id="GQV-O1-D8K"/>
+                                    <constraint firstItem="3QJ-x9-Hfu" firstAttribute="trailing" secondItem="JQv-0H-Or6" secondAttribute="trailing" type="default" id="Gtz-p1-WXC"/>
+                                    <constraint firstItem="y4X-1C-aaj" firstAttribute="top" secondItem="Hmr-Xk-0X3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="HUR-Zh-AUR"/>
+                                    <constraint firstItem="y4X-1C-aaj" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Hhh-ll-anE"/>
+                                    <constraint firstItem="JQv-0H-Or6" firstAttribute="top" secondItem="y4X-1C-aaj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="I00-Wj-Zqq"/>
+                                    <constraint firstItem="Tsx-Ju-WkZ" firstAttribute="leading" secondItem="3QJ-x9-Hfu" secondAttribute="leading" type="default" id="Lb4-r9-3b8"/>
+                                    <constraint firstAttribute="trailing" secondItem="ReD-Pk-0wN" secondAttribute="trailing" constant="18" id="LkU-Qo-L3o"/>
+                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="235" id="X71-gq-UUQ"/>
+                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="trailing" secondItem="sx5-lE-14d" secondAttribute="trailing" type="default" id="Yjg-Ps-9vM"/>
+                                    <constraint firstItem="Hmr-Xk-0X3" firstAttribute="leading" secondItem="JQv-0H-Or6" secondAttribute="leading" type="default" id="ZP9-0a-ES7"/>
+                                    <constraint firstItem="Tsx-Ju-WkZ" firstAttribute="top" secondItem="JQv-0H-Or6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aUh-Tz-rRV"/>
+                                    <constraint firstItem="GVC-Ff-ZC3" firstAttribute="leading" secondItem="v8O-V4-jWK" secondAttribute="leading" type="default" id="bzW-mt-4EA"/>
+                                    <constraint firstItem="JQv-0H-Or6" firstAttribute="leading" secondItem="Tsx-Ju-WkZ" secondAttribute="leading" type="default" id="cAJ-5k-vbF"/>
+                                    <constraint firstItem="y4X-1C-aaj" firstAttribute="trailing" secondItem="sx5-lE-14d" secondAttribute="trailing" type="default" id="dfC-UP-Q6r"/>
+                                    <constraint firstItem="ReD-Pk-0wN" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="44" id="eDJ-5T-AFR"/>
+                                    <constraint firstItem="3QJ-x9-Hfu" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="1853" id="hT5-e3-mMQ"/>
+                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="19" id="hbX-Qh-ARO"/>
+                                    <constraint firstItem="Hmr-Xk-0X3" firstAttribute="top" secondItem="sx5-lE-14d" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="iX8-z4-ueG"/>
+                                    <constraint firstItem="ReD-Pk-0wN" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="12" id="ofs-Ut-ZmQ"/>
+                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="3073" id="vyh-an-J47"/>
+                                    <constraint firstItem="GVC-Ff-ZC3" firstAttribute="leading" secondItem="ReD-Pk-0wN" secondAttribute="leading" type="default" id="zxf-9s-Mc4"/>
+                                </constraints>
+                            </scrollView>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="PC6-OW-H8N">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="323" id="l2o-O6-gg6"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="fNu-A8-73N"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PC6-OW-H8N" firstAttribute="top" secondItem="2Hg-Hc-z42" secondAttribute="top" type="default" id="7R7-UQ-FvM"/>
+                            <constraint firstItem="mqF-Dz-T4N" firstAttribute="bottom" secondItem="2Hg-Hc-z42" secondAttribute="bottom" type="default" id="IFA-B1-KSc"/>
+                            <constraint firstItem="mqF-Dz-T4N" firstAttribute="leading" secondItem="2Hg-Hc-z42" secondAttribute="leading" type="default" id="Ite-kP-e0b"/>
+                            <constraint firstItem="mqF-Dz-T4N" firstAttribute="centerX" secondItem="PC6-OW-H8N" secondAttribute="centerX" type="default" id="Yj0-UQ-827"/>
+                            <constraint firstItem="mqF-Dz-T4N" firstAttribute="top" secondItem="2Hg-Hc-z42" secondAttribute="top" type="default" id="ZM0-eH-O2m"/>
+                            <constraint firstItem="mqF-Dz-T4N" firstAttribute="trailing" secondItem="2Hg-Hc-z42" secondAttribute="trailing" type="default" id="vXk-w5-7dM"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="SafetySecurityLabel" destination="y4X-1C-aaj" id="0i2-MJ-mfW"/>
+                        <outlet property="companyBanner" destination="ReD-Pk-0wN" id="ixw-rj-df3"/>
+                        <outlet property="copywriteLabel" destination="24O-Pv-3ji" id="WD7-aN-g98"/>
+                        <outlet property="faqLabel" destination="Tsx-Ju-WkZ" id="lPI-ai-Lgt"/>
+                        <outlet property="helpLabel" destination="sx5-lE-14d" id="d5T-me-Hrw"/>
+                        <outlet property="labelSuggestFeature" destination="WRm-tY-Ybj" id="WrS-ln-jHp"/>
+                        <outlet property="navyItem" destination="fNu-A8-73N" id="QQB-cc-YHQ"/>
+                        <outlet property="paragraph1" destination="GVC-Ff-ZC3" id="Zhv-Uy-Bv6"/>
+                        <outlet property="paragraph2" destination="v8O-V4-jWK" id="yhg-Nm-wA8"/>
+                        <outlet property="paragraph3" destination="Hmr-Xk-0X3" id="hhN-y3-6Zy"/>
+                        <outlet property="paragraph4" destination="JQv-0H-Or6" id="ctO-3c-sMl"/>
+                        <outlet property="paragraph5" destination="3QJ-x9-Hfu" id="E78-nD-wHQ"/>
+                        <outlet property="prinicpalPhoto" destination="5Gm-SU-tGd" id="tv0-ki-7Ae"/>
+                        <outlet property="scroll" destination="mqF-Dz-T4N" id="vJG-cr-m3o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiF-la-jQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="-590"/>
+            <point key="canvasLocation" x="81" y="-3225"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="KOq-2C-hgH">
@@ -766,9 +970,9 @@
         <!--Notice View Controller - Notices-->
         <scene sceneID="IsI-72-gIS">
             <objects>
-                <tableViewController storyboardIdentifier="" title="Notices" id="eGL-aH-Myv" customClass="LANoticeViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Notices" title="Notices" id="eGL-aH-Myv" customClass="LANoticeViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="oAp-yk-z9U">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" id="JlE-Ka-fAZ">
@@ -846,31 +1050,12 @@
             </objects>
             <point key="canvasLocation" x="1025" y="718"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="pFX-0l-FXk">
-            <objects>
-                <navigationController storyboardIdentifier="Notices" definesPresentationContext="YES" id="KlI-pv-a8b" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aX9-h9-ly7">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="alY-oz-eT1">
-                        <rect key="frame" x="0.0" y="416" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="eGL-aH-Myv" kind="relationship" relationship="rootViewController" id="NA7-oI-dEJ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j10-g2-b7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="575" y="718"/>
-        </scene>
         <!--Detail Notice View Controller-->
         <scene sceneID="W11-Zb-Chs">
             <objects>
                 <viewController storyboardIdentifier="detailNotices" id="UaJ-BV-dCn" customClass="LADetailNoticeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zfp-A0-QVC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crz-r1-G8Q">
@@ -899,12 +1084,12 @@
                         <constraints>
                             <constraint firstItem="NGh-UH-puP" firstAttribute="leading" secondItem="Zfp-A0-QVC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Axe-IC-UvY"/>
                             <constraint firstAttribute="trailing" secondItem="rMY-cg-k0Z" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Cmw-2N-FkO"/>
-                            <constraint firstAttribute="bottom" secondItem="rMY-cg-k0Z" secondAttribute="bottom" constant="24" id="OsS-Ak-mvB"/>
                             <constraint firstAttribute="trailing" secondItem="NGh-UH-puP" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="SEj-pV-QKC"/>
+                            <constraint firstItem="NGh-UH-puP" firstAttribute="top" secondItem="Zfp-A0-QVC" secondAttribute="top" constant="208" id="fhT-4q-1zQ"/>
                             <constraint firstItem="crz-r1-G8Q" firstAttribute="trailing" secondItem="Zfp-A0-QVC" secondAttribute="trailing" type="default" id="gfI-V3-NaI"/>
+                            <constraint firstAttribute="bottom" secondItem="rMY-cg-k0Z" secondAttribute="bottom" constant="25" id="hhQ-lH-Hzc"/>
                             <constraint firstItem="crz-r1-G8Q" firstAttribute="leading" secondItem="Zfp-A0-QVC" secondAttribute="leading" type="default" id="lED-35-Miz"/>
                             <constraint firstItem="rMY-cg-k0Z" firstAttribute="leading" secondItem="Zfp-A0-QVC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="qGv-GN-Lo6"/>
-                            <constraint firstItem="NGh-UH-puP" firstAttribute="top" secondItem="crz-r1-G8Q" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="w75-6c-c7b"/>
                             <constraint firstItem="crz-r1-G8Q" firstAttribute="top" secondItem="Zfp-A0-QVC" secondAttribute="top" type="default" id="yCs-6A-X1O"/>
                         </constraints>
                     </view>
@@ -923,8 +1108,10 @@
     <resources>
         <image name="A-plus.png" width="104" height="103"/>
         <image name="Default.png" width="640" height="960"/>
+        <image name="dr-arnold-wht2.png" width="222" height="328"/>
         <image name="edmodo-logo.png" width="294" height="314"/>
         <image name="griffin-mascot.png" width="581" height="374"/>
+        <image name="localism-blk.png" width="391" height="128"/>
         <image name="placeholder.png" width="450" height="450"/>
         <image name="school-links.png" width="120" height="133"/>
         <image name="social-icon.png" width="156" height="115"/>
@@ -936,6 +1123,22 @@
         </class>
         <class className="LAAboutViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAboutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="SafetySecurityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="companyBanner" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="copywriteLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="faqLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="helpLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelSuggestFeature" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="paragraph1" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph3" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph4" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph5" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="prinicpalPhoto" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scroll" candidateClass="UIScrollView"/>
+            </relationships>
         </class>
         <class className="LADetailNoticeViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailNoticeViewController.h"/>

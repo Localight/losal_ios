@@ -27,6 +27,7 @@
     [super viewDidLoad];
     
     _contentArray = [NSMutableArray array];
+
     CGRect scrollFrame = self.view.bounds;
     
     // view 1 - intro image

@@ -105,10 +105,8 @@
 		65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */; };
 		65B2A33E17D551CD004DA2FA /* gradient-text.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A33D17D551CD004DA2FA /* gradient-text.png */; };
 		65B2A34017D55944004DA2FA /* dark-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A33F17D55944004DA2FA /* dark-gradient.png */; };
-		65B2A34517D590E5004DA2FA /* LAOnBoardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B2A34317D590E5004DA2FA /* LAOnBoardingViewController.m */; };
-		65B2A34617D590E5004DA2FA /* LAOnBoardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A34417D590E5004DA2FA /* LAOnBoardingViewController.xib */; };
-		65B2A34A17D591BE004DA2FA /* LAOnBoardingChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B2A34817D591BE004DA2FA /* LAOnBoardingChildViewController.m */; };
-		65B2A34B17D591BE004DA2FA /* LAOnBoardingChildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A34917D591BE004DA2FA /* LAOnBoardingChildViewController.xib */; };
+		65B2A35417D7D426004DA2FA /* dr-arnold-wht2.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A35317D7D426004DA2FA /* dr-arnold-wht2.png */; };
+		65B2A35617D7D42C004DA2FA /* localism-blk.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A35517D7D42C004DA2FA /* localism-blk.png */; };
 		65C522ED17D109F900C5622C /* school-links.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C522EC17D109F900C5622C /* school-links.png */; };
 		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
@@ -260,12 +258,8 @@
 		65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeItem.m; sourceTree = "<group>"; };
 		65B2A33D17D551CD004DA2FA /* gradient-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient-text.png"; sourceTree = "<group>"; };
 		65B2A33F17D55944004DA2FA /* dark-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark-gradient.png"; sourceTree = "<group>"; };
-		65B2A34217D590E5004DA2FA /* LAOnBoardingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAOnBoardingViewController.h; sourceTree = "<group>"; };
-		65B2A34317D590E5004DA2FA /* LAOnBoardingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAOnBoardingViewController.m; sourceTree = "<group>"; };
-		65B2A34417D590E5004DA2FA /* LAOnBoardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LAOnBoardingViewController.xib; sourceTree = "<group>"; };
-		65B2A34717D591BE004DA2FA /* LAOnBoardingChildViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAOnBoardingChildViewController.h; sourceTree = "<group>"; };
-		65B2A34817D591BE004DA2FA /* LAOnBoardingChildViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAOnBoardingChildViewController.m; sourceTree = "<group>"; };
-		65B2A34917D591BE004DA2FA /* LAOnBoardingChildViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LAOnBoardingChildViewController.xib; sourceTree = "<group>"; };
+		65B2A35317D7D426004DA2FA /* dr-arnold-wht2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dr-arnold-wht2.png"; sourceTree = "<group>"; };
+		65B2A35517D7D42C004DA2FA /* localism-blk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "localism-blk.png"; sourceTree = "<group>"; };
 		65C522EC17D109F900C5622C /* school-links.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "school-links.png"; sourceTree = "<group>"; };
 		65EBCDF817CC07B1009138E8 /* socrative-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "socrative-logo.png"; sourceTree = "<group>"; };
 		65EBCE2C17CC357C009138E8 /* A-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-plus.png"; sourceTree = "<group>"; };
@@ -582,6 +576,8 @@
 		6588D02D17A4BCC500B6C498 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				65B2A35517D7D42C004DA2FA /* localism-blk.png */,
+				65B2A35317D7D426004DA2FA /* dr-arnold-wht2.png */,
 				43BE533E17C3BD7B008BE0E7 /* Background Images */,
 				6530907617BD8C7D00ADA359 /* Icons */,
 				43397B4417B93716003F4977 /* Mustache.png */,
@@ -642,12 +638,6 @@
 				44C777CC17D66EBB0062FDF4 /* LAIntroOverviewViewController.m */,
 				44C777CE17D671770062FDF4 /* LAIntroVerifyViewController.h */,
 				44C777CF17D671770062FDF4 /* LAIntroVerifyViewController.m */,
-				65B2A34717D591BE004DA2FA /* LAOnBoardingChildViewController.h */,
-				65B2A34817D591BE004DA2FA /* LAOnBoardingChildViewController.m */,
-				65B2A34917D591BE004DA2FA /* LAOnBoardingChildViewController.xib */,
-				65B2A34217D590E5004DA2FA /* LAOnBoardingViewController.h */,
-				65B2A34317D590E5004DA2FA /* LAOnBoardingViewController.m */,
-				65B2A34417D590E5004DA2FA /* LAOnBoardingViewController.xib */,
 			);
 			name = "On-Boarding ";
 			sourceTree = "<group>";
@@ -785,12 +775,12 @@
 				65C522ED17D109F900C5622C /* school-links.png in Resources */,
 				65B2A33E17D551CD004DA2FA /* gradient-text.png in Resources */,
 				65B2A34017D55944004DA2FA /* dark-gradient.png in Resources */,
-				65B2A34617D590E5004DA2FA /* LAOnBoardingViewController.xib in Resources */,
-				65B2A34B17D591BE004DA2FA /* LAOnBoardingChildViewController.xib in Resources */,
 				44C777D517D6739B0062FDF4 /* sign-in-01.png in Resources */,
 				44C777D617D6739B0062FDF4 /* sign-in-01@2x.png in Resources */,
 				44C777D717D6739B0062FDF4 /* sign-in-02.png in Resources */,
 				44C777D817D6739B0062FDF4 /* sign-in-02@2x.png in Resources */,
+				65B2A35417D7D426004DA2FA /* dr-arnold-wht2.png in Resources */,
+				65B2A35617D7D42C004DA2FA /* localism-blk.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,8 +845,6 @@
 				65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */,
 				652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */,
 				652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */,
-				65B2A34517D590E5004DA2FA /* LAOnBoardingViewController.m in Sources */,
-				65B2A34A17D591BE004DA2FA /* LAOnBoardingChildViewController.m in Sources */,
 				44C777CD17D66EBC0062FDF4 /* LAIntroOverviewViewController.m in Sources */,
 				44C777D017D671770062FDF4 /* LAIntroVerifyViewController.m in Sources */,
 			);

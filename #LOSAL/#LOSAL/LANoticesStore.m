@@ -77,6 +77,7 @@
 //                 [p setNoticeTitle:[parseNoticeObject objectForKey:@"title"]];
 //                 [p setNoticeContent:[parseNoticeObject objectForKey:@"description"]];
                  [p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
+                 NSLog(@"image url %@", [parseNoticeObject objectForKey:@"image"]);
                  [allItems addObject:p];
              }
          }else{

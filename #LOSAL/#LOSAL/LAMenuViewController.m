@@ -10,7 +10,7 @@
 #import "LAStoreManager.h"
 #import "ECSlidingViewController.h"
 #import "LAWebViewController.h"
-
+#import "LAAboutViewController.h"
 @interface LAMenuViewController ()
 #define  DEFAULT_ICON "\uE00C"
 @property (nonatomic, strong) NSArray *menuItems;
@@ -148,8 +148,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     NSString *cellName = [[self menuItems] objectAtIndex:[indexPath row]];
     UIViewController *anotherTopViewController;
     
-    if (!([cellName isEqualToString:@"Feed"]))//||[cellName isEqualToString:@"Logout"]
-    {
+    if ([cellName isEqualToString:@"Feed"]) {
+        
+         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
+        
+    }else if([cellName isEqualToString:@"Aeries Portal"]){
+        NSString *identifier = @"WebView";
+        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        
+        LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
+        
+        [webView setTitleName:cellName];
+        [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    } else if([cellName isEqualToString:@"Socrative"]){
         NSString *identifier = @"WebView";
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
         
@@ -159,12 +172,29 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
-    }else if([cellName isEqualToString:@"Feed"]){
+    } else if([cellName isEqualToString:@"Edmodo"]){
+        NSString *identifier = @"WebView";
+        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        
+        LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
+        
+        [webView setTitleName:cellName];
+        [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+    }else if([cellName isEqualToString:@"About"]){
         
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
         
-    } else {
-        //[[LAStoreManager sharedManager]logout];
+    } else{
+        NSString *identifier = @"WebView";
+        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+        
+        LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
+        
+        [webView setTitleName:cellName];
+        [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
     
     [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
