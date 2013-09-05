@@ -9,14 +9,14 @@
 #import "LALoginViewController.h"
 #import "LAStoreManager.h"
 #import "LAAppDelegate.h"
-
+#import "LAIntroOverviewViewController.h"
 @interface LALoginViewController ()
 
 @property (strong, nonatomic) LAStoreManager *storeManager;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
-@property (weak, nonatomic) IBOutlet UIButton *sendButton;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (strong, nonatomic) LAAppDelegate *appDelegate;
+- (IBAction)closeButtonPressed:(id)sender;
+- (IBAction)send:(id)sender;
 @end
 
 @implementation LALoginViewController
@@ -32,38 +32,48 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+    
+    [_retryButton setHidden:YES];
+    [_paragraph3 setHidden:YES];
+    [_field1 setHidden:YES];
     self.storeManager = [LAStoreManager sharedManager];
     
     self.appDelegate = (LAAppDelegate *)[[UIApplication sharedApplication] delegate];
     self.appDelegate.loginViewController = self;
 }
 
-- (IBAction)skip:(id)sender {
-    [self dismiss];
+//- (IBAction)skip:(id)sender {
+//    [self dismiss];
+//}
+
+- (IBAction)closeButtonPressed:(id)sender
+{
+    [self.delegate wantsToCloseView];
 }
 
 - (IBAction)send:(id)sender {
 
-    [self.storeManager verifyPhoneNumberIsValid:self.phoneNumber.text withCompletion:^(bool isValid) {
+    [self.storeManager verifyPhoneNumberIsValid:[_phoneNumber text] withCompletion:^(bool isValid) {
         if (isValid) {
-            self.sendButton.hidden = YES;
+            
             self.phoneNumber.hidden = YES;
-            
-            self.backButton.hidden = NO;
-            
             [self.storeManager sendRegistrationRequestForPhoneNumber:self.phoneNumber.text];
+        }else{
+            [_validUserLabel setHidden:YES];
+            [_retryButton setHidden:NO];
+            [_verifyUserButton setHidden:YES];
+            [self.storeManager sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
         }
     }];
 }
 
-- (IBAction)back:(id)sender {
-    
-    self.sendButton.hidden = NO;
-    self.phoneNumber.hidden = NO;
-    
-    self.backButton.hidden = YES;
-}
+//- (IBAction)back:(id)sender {
+//    
+//    self.sendButton.hidden = NO;
+//    self.phoneNumber.hidden = NO;
+//    
+//    self.backButton.hidden = YES;
+//}
 
 - (void)loginWithPin:(NSString *)pin {
     if ([self.storeManager loginWithPhoneNumber:self.phoneNumber.text pinNumber:pin]) {
@@ -74,6 +84,10 @@
 - (void)dismiss {
     self.appDelegate.loginViewController = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)dealloc
+{
+    self.delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning

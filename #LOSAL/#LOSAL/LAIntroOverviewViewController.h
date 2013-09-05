@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LALoginViewController.h"
 
-#import "LAIntroVerifyViewController.h"
-
-@interface LAIntroOverviewViewController : UIViewController <UIScrollViewDelegate, LAIntroVerifyViewControllerDelegate>
+@interface LAIntroOverviewViewController : UIViewController <UIScrollViewDelegate, LALoginViewControllerDelegate>
 
 @end

@@ -8,7 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol LALoginViewControllerDelegate <NSObject>
+
+- (void)wantsToCloseView;
+
+@end
 @interface LALoginViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UILabel *validUserLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *paragraph3;
+
+@property (weak, nonatomic) IBOutlet UILabel *field1;
+
+@property (nonatomic, weak) id<LALoginViewControllerDelegate>delegate;
+@property (weak, nonatomic) IBOutlet UIButton *retryButton;
+@property (weak, nonatomic) IBOutlet UIButton *verifyUserButton;
 
 - (void)loginWithPin:(NSString *)pin;
 

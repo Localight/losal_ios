@@ -8,7 +8,7 @@
 
 #import "LAIntroOverviewViewController.h"
 
-#import "LAIntroVerifyViewController.h"
+#import "LALoginViewController.h"
 
 @interface LAIntroOverviewViewController ()
 
@@ -16,7 +16,7 @@
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 
 @property (nonatomic, strong) NSMutableArray *contentArray;
-@property (nonatomic, strong) LAIntroVerifyViewController *introVC;
+@property (nonatomic, strong) LALoginViewController *introVC;
 
 @end
 
@@ -31,7 +31,7 @@
     CGRect scrollFrame = self.view.bounds;
     
     // view 1 - intro image
-    UIImage *introImage = [UIImage imageNamed:@"sign-in-01"];
+    UIImage *introImage = [UIImage imageNamed:@"iphone-sign-in"];
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:introImage];
     imageView1.frame = scrollFrame;
     imageView1.contentMode = UIViewContentModeScaleAspectFit;
@@ -48,7 +48,7 @@
     
     UIView *v = [[UIView alloc] initWithFrame:scrollFrame];
     v.backgroundColor = [UIColor greenColor];
-    self.introVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LAIntroVerifyViewController"];
+    self.introVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
     self.introVC.delegate = self;
     [v addSubview:self.introVC.view];
     [self.pagingScrollView addSubview:v];
