@@ -31,7 +31,7 @@
     CGRect scrollFrame = self.view.bounds;
     
     // view 1 - intro image
-    UIImage *introImage = [UIImage imageNamed:@"iphone-sign-in"];
+    UIImage *introImage = [UIImage imageNamed:@"iphone-sign-in-01"];
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:introImage];
     imageView1.frame = scrollFrame;
     imageView1.contentMode = UIViewContentModeScaleAspectFit;
@@ -39,7 +39,7 @@
     scrollFrame.origin.x += imageView1.frame.size.width;
     
     // view 2 - intro image
-    introImage = [UIImage imageNamed:@"sign-in-02"];
+    introImage = [UIImage imageNamed:@"iphone-sign-in-02"];
     UIImageView *imageView2 = [[UIImageView alloc] initWithImage:introImage];
     imageView2.frame = scrollFrame;
     imageView2.contentMode = UIViewContentModeScaleAspectFit;
