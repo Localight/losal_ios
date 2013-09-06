@@ -100,12 +100,6 @@
                             <rect key="frame" x="0.0" y="343" width="320" height="197"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="griffin-mascot.png" translatesAutoresizingMaskIntoConstraints="NO" id="K3v-J2-dO8">
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="98" id="NWD-p9-i0K"/>
-                                        <constraint firstAttribute="width" constant="138" id="QeQ-1h-pTk"/>
-                                    </constraints>
-                                </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Los Alamitos High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-EM-GwR">
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="XTD-9v-RHq"/>
@@ -126,11 +120,11 @@
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yro-aE-uQb">
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="150" id="Mmo-d3-w6a"/>
-                                        <constraint firstAttribute="width" constant="244" id="WZh-Ff-dEj"/>
+                                        <constraint firstAttribute="height" constant="103" id="gaE-cu-Xc0"/>
+                                        <constraint firstAttribute="width" constant="157" id="m4w-xD-CQB"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal">
+                                    <state key="normal" image="griffin-mascot.png">
                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -138,7 +132,7 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="toSite:" destination="5GZ-xr-NU4" eventType="touchUpInside" id="tdj-0z-5D4"/>
+                                        <action selector="toSite:" destination="5GZ-xr-NU4" eventType="touchUpInside" id="uUK-dd-rSM"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -146,12 +140,10 @@
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="weV-vp-pry" secondAttribute="bottom" constant="42" id="4Jw-Pw-1mE"/>
                                 <constraint firstItem="weV-vp-pry" firstAttribute="centerX" secondItem="aWN-EM-GwR" secondAttribute="centerX" type="default" id="8wA-1x-WTI"/>
-                                <constraint firstItem="K3v-J2-dO8" firstAttribute="centerX" secondItem="aWN-EM-GwR" secondAttribute="centerX" type="default" id="9RE-P9-6v2"/>
-                                <constraint firstItem="Yro-aE-uQb" firstAttribute="top" secondItem="K3v-J2-dO8" secondAttribute="top" type="default" id="KSW-OM-tiq"/>
-                                <constraint firstItem="aWN-EM-GwR" firstAttribute="leading" secondItem="KkT-1r-FX6" secondAttribute="leading" constant="48" id="a5X-lj-an7"/>
-                                <constraint firstItem="K3v-J2-dO8" firstAttribute="top" secondItem="KkT-1r-FX6" secondAttribute="top" constant="12" id="ihV-xy-GGG"/>
-                                <constraint firstItem="Yro-aE-uQb" firstAttribute="centerX" secondItem="KkT-1r-FX6" secondAttribute="centerX" type="default" id="o3b-7r-IJP"/>
-                                <constraint firstItem="aWN-EM-GwR" firstAttribute="top" secondItem="K3v-J2-dO8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="qZy-Da-F7m"/>
+                                <constraint firstItem="aWN-EM-GwR" firstAttribute="leading" secondItem="KkT-1r-FX6" secondAttribute="leading" constant="48" id="9yL-fa-dc2"/>
+                                <constraint firstItem="Yro-aE-uQb" firstAttribute="leading" secondItem="KkT-1r-FX6" secondAttribute="leading" constant="38" id="K84-Ep-fGS"/>
+                                <constraint firstItem="Yro-aE-uQb" firstAttribute="top" secondItem="KkT-1r-FX6" secondAttribute="top" constant="12" id="QgR-4T-nrS"/>
+                                <constraint firstAttribute="bottom" secondItem="aWN-EM-GwR" secondAttribute="bottom" constant="58" id="XRt-nW-xNL"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -190,14 +182,14 @@
                                     <constraint firstItem="ZjT-vJ-FXt" firstAttribute="centerY" secondItem="h6K-o3-USx" secondAttribute="centerY" type="default" id="k6O-wH-mll"/>
                                 </constraints>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Calendar" id="H85-S7-Sc6">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Links" id="H85-S7-Sc6">
                                 <rect key="frame" x="0.0" y="123" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="Calendar" text="CALANDAR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go0-30-eob">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="Calendar" text="School Links" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go0-30-eob">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="142" id="eJd-bA-NXl"/>
                                             </constraints>
@@ -682,6 +674,192 @@ A variety of factors give more weight to post, and only posts that surpass a thr
             </objects>
             <point key="canvasLocation" x="71" y="72"/>
         </scene>
+        <!--School Links View Controller-->
+        <scene sceneID="f3j-Ga-Twm">
+            <objects>
+                <viewController storyboardIdentifier="School Links" id="yUa-Bh-pnl" customClass="LASchoolLinksViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VEi-38-9Rk">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20v-Ti-dDD">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="13V-a5-Ehy"/>
+                                    <constraint firstAttribute="height" constant="40" id="qyb-r3-KO9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="instagramSocialLink.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="instagramButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="Jlw-br-jZ7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-2W-6uO">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Vgj-59-E4F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="flickrSocialLink.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="flickrButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="HyX-vF-GW0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Instagram:                          @LosAlamitosHigh" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="232" translatesAutoresizingMaskIntoConstraints="NO" id="iLB-v9-BXO">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flickr:                                LosAlamitosHighSchool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="232" translatesAutoresizingMaskIntoConstraints="NO" id="5dU-GJ-N09">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Facebook:                          LosAlamitosHighSchool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="232" translatesAutoresizingMaskIntoConstraints="NO" id="JVa-YI-TPw">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter:                                @LosAlamitosHighSchool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="232" translatesAutoresizingMaskIntoConstraints="NO" id="jdo-yB-4Y3">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="YouTube:                         Griffin News 2013" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="232" translatesAutoresizingMaskIntoConstraints="NO" id="xNa-PC-SsG">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Youtube:                           Principal Arnold" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="232" translatesAutoresizingMaskIntoConstraints="NO" id="XpW-c4-jKb">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCX-xa-BJz">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rC2-DM-zNe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="facebookSocialLink.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="ZBg-po-Heg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doQ-eg-kbH">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CvL-oJ-giQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="twitterSocialLink.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="twitterButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="sAz-GG-vNw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arC-nN-2iS">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="a4X-SE-ckd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="youtubeSocialLink.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="youtubeButton1:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="SZV-81-tfr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-Kp-IPd">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="97V-Ck-9ca"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="youtubeSocialLink.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="youtubeButton2:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="FKz-on-L9f"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XpW-c4-jKb" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="0Fr-vc-2oX"/>
+                            <constraint firstItem="5dU-GJ-N09" firstAttribute="leading" secondItem="Tei-2W-6uO" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="1Hq-2C-pEh"/>
+                            <constraint firstAttribute="bottom" secondItem="7Vb-Kp-IPd" secondAttribute="bottom" constant="103" id="24k-Ey-qy2"/>
+                            <constraint firstItem="doQ-eg-kbH" firstAttribute="top" secondItem="VEi-38-9Rk" secondAttribute="top" constant="265" id="3eC-aO-rOO"/>
+                            <constraint firstItem="VCX-xa-BJz" firstAttribute="top" secondItem="JVa-YI-TPw" secondAttribute="top" type="default" id="4LL-JJ-Q2O"/>
+                            <constraint firstItem="Tei-2W-6uO" firstAttribute="bottom" secondItem="5dU-GJ-N09" secondAttribute="bottom" type="default" id="4XB-ak-mPJ"/>
+                            <constraint firstItem="doQ-eg-kbH" firstAttribute="top" secondItem="jdo-yB-4Y3" secondAttribute="top" type="default" id="7lo-bN-yNb"/>
+                            <constraint firstItem="VCX-xa-BJz" firstAttribute="top" secondItem="VEi-38-9Rk" secondAttribute="top" constant="195" id="86i-Gs-f79"/>
+                            <constraint firstItem="arC-nN-2iS" firstAttribute="bottom" secondItem="xNa-PC-SsG" secondAttribute="bottom" type="default" id="8cR-Ok-OBk"/>
+                            <constraint firstAttribute="trailing" secondItem="5dU-GJ-N09" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Atf-mq-9tv"/>
+                            <constraint firstItem="arC-nN-2iS" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Bih-U6-4b8"/>
+                            <constraint firstItem="doQ-eg-kbH" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CQe-M7-zgI"/>
+                            <constraint firstAttribute="trailing" secondItem="iLB-v9-BXO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="FuF-GQ-9SE"/>
+                            <constraint firstItem="7Vb-Kp-IPd" firstAttribute="bottom" secondItem="XpW-c4-jKb" secondAttribute="bottom" type="default" id="Fwg-gc-xaA"/>
+                            <constraint firstItem="xNa-PC-SsG" firstAttribute="leading" secondItem="arC-nN-2iS" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="G2f-ch-8g6"/>
+                            <constraint firstItem="20v-Ti-dDD" firstAttribute="top" secondItem="VEi-38-9Rk" secondAttribute="top" constant="55" id="GSm-o7-dn8"/>
+                            <constraint firstItem="5dU-GJ-N09" firstAttribute="leading" secondItem="iLB-v9-BXO" secondAttribute="leading" type="default" id="Kwd-RU-fE7"/>
+                            <constraint firstItem="7Vb-Kp-IPd" firstAttribute="top" secondItem="XpW-c4-jKb" secondAttribute="top" type="default" id="O2b-kA-VGI"/>
+                            <constraint firstItem="XpW-c4-jKb" firstAttribute="leading" secondItem="xNa-PC-SsG" secondAttribute="leading" type="default" id="OGp-d2-Thf"/>
+                            <constraint firstItem="JVa-YI-TPw" firstAttribute="leading" secondItem="5dU-GJ-N09" secondAttribute="leading" type="default" id="Op8-o6-OK0"/>
+                            <constraint firstAttribute="trailing" secondItem="jdo-yB-4Y3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="S1I-Pi-73h"/>
+                            <constraint firstItem="Tei-2W-6uO" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Va0-au-lOP"/>
+                            <constraint firstItem="arC-nN-2iS" firstAttribute="top" secondItem="xNa-PC-SsG" secondAttribute="top" type="default" id="X3S-SN-nMM"/>
+                            <constraint firstItem="iLB-v9-BXO" firstAttribute="leading" secondItem="20v-Ti-dDD" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="YsN-1T-e28"/>
+                            <constraint firstAttribute="trailing" secondItem="JVa-YI-TPw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aja-CV-aWK"/>
+                            <constraint firstItem="20v-Ti-dDD" firstAttribute="top" secondItem="iLB-v9-BXO" secondAttribute="top" type="default" id="e7t-kZ-Ox8"/>
+                            <constraint firstItem="20v-Ti-dDD" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hgp-Zk-chp"/>
+                            <constraint firstItem="XpW-c4-jKb" firstAttribute="leading" secondItem="7Vb-Kp-IPd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="j4W-B8-1rb"/>
+                            <constraint firstItem="Tei-2W-6uO" firstAttribute="top" secondItem="5dU-GJ-N09" secondAttribute="top" type="default" id="jLP-Wi-epk"/>
+                            <constraint firstItem="VCX-xa-BJz" firstAttribute="bottom" secondItem="JVa-YI-TPw" secondAttribute="bottom" type="default" id="jbZ-LJ-AXD"/>
+                            <constraint firstItem="20v-Ti-dDD" firstAttribute="bottom" secondItem="iLB-v9-BXO" secondAttribute="bottom" type="default" id="km9-WM-ejA"/>
+                            <constraint firstItem="JVa-YI-TPw" firstAttribute="leading" secondItem="VCX-xa-BJz" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="mJE-VX-vdn"/>
+                            <constraint firstItem="7Vb-Kp-IPd" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pnl-WL-M39"/>
+                            <constraint firstAttribute="trailing" secondItem="xNa-PC-SsG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="rFa-tA-yDH"/>
+                            <constraint firstItem="Tei-2W-6uO" firstAttribute="top" secondItem="VEi-38-9Rk" secondAttribute="top" constant="123" id="rov-24-oHL"/>
+                            <constraint firstItem="jdo-yB-4Y3" firstAttribute="leading" secondItem="JVa-YI-TPw" secondAttribute="leading" type="default" id="rr1-fa-t9V"/>
+                            <constraint firstItem="VCX-xa-BJz" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="sOo-vJ-qrj"/>
+                            <constraint firstItem="doQ-eg-kbH" firstAttribute="bottom" secondItem="jdo-yB-4Y3" secondAttribute="bottom" type="default" id="uVi-zF-9kl"/>
+                            <constraint firstItem="jdo-yB-4Y3" firstAttribute="leading" secondItem="doQ-eg-kbH" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="uqI-xm-gIW"/>
+                            <constraint firstAttribute="bottom" secondItem="arC-nN-2iS" secondAttribute="bottom" constant="173" id="ytq-bw-I7A"/>
+                            <constraint firstItem="xNa-PC-SsG" firstAttribute="leading" secondItem="jdo-yB-4Y3" secondAttribute="leading" type="default" id="z5V-S4-jdU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T62-7s-15A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="71" y="812"/>
+        </scene>
         <!--Feed View Controller - Feed-->
         <scene sceneID="18">
             <objects>
@@ -868,8 +1046,8 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-pr-b8M">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" type="user" id="VO2-4M-1Fk"/>
-                                    <constraint firstAttribute="width" constant="30" type="user" id="z9j-KJ-8SE"/>
+                                    <constraint firstAttribute="height" constant="40" id="3k0-NS-73r"/>
+                                    <constraint firstAttribute="width" constant="40" id="5q0-d5-YxV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="X" image="close-circle.png">
@@ -952,18 +1130,18 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                         <constraints>
                             <constraint firstItem="I2p-Um-gK1" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="20" symbolic="YES" type="default" id="2yu-kH-EMM"/>
                             <constraint firstItem="JZ4-uw-F2o" firstAttribute="centerX" secondItem="EzY-NR-7EO" secondAttribute="centerX" type="default" id="3kv-SU-a54"/>
+                            <constraint firstItem="eZb-pr-b8M" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" type="default" id="5vD-h1-NaX"/>
                             <constraint firstItem="JZ4-uw-F2o" firstAttribute="top" secondItem="EzY-NR-7EO" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="7iy-L9-7kb"/>
                             <constraint firstItem="anX-dG-kYn" firstAttribute="top" secondItem="JZ4-uw-F2o" secondAttribute="bottom" constant="21" type="user" id="ASk-FC-wZq"/>
                             <constraint firstItem="anX-dG-kYn" firstAttribute="top" secondItem="JZ4-uw-F2o" secondAttribute="bottom" constant="21" type="user" id="TSz-bO-kuV"/>
+                            <constraint firstAttribute="trailing" secondItem="eZb-pr-b8M" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="V0y-Vd-mUD"/>
                             <constraint firstItem="EzY-NR-7EO" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="180" type="user" id="WlA-8R-csH"/>
-                            <constraint firstAttribute="trailing" secondItem="eZb-pr-b8M" secondAttribute="trailing" constant="19" id="bcH-hS-Ffu"/>
+                            <constraint firstItem="anX-dG-kYn" firstAttribute="centerX" secondItem="ReM-FO-bdQ" secondAttribute="centerX" type="default" id="aSQ-6X-oFW"/>
                             <constraint firstItem="anX-dG-kYn" firstAttribute="leading" secondItem="y7r-hl-sHc" secondAttribute="leading" type="default" id="dAk-Pv-AjF"/>
                             <constraint firstItem="y7r-hl-sHc" firstAttribute="baseline" secondItem="anX-dG-kYn" secondAttribute="baseline" type="user" id="eO8-jK-awy"/>
+                            <constraint firstItem="anX-dG-kYn" firstAttribute="centerX" secondItem="JZ4-uw-F2o" secondAttribute="centerX" type="default" id="fYt-M5-atP"/>
                             <constraint firstItem="I2p-Um-gK1" firstAttribute="centerX" secondItem="EzY-NR-7EO" secondAttribute="centerX" type="default" id="o99-i4-AzF"/>
-                            <constraint firstItem="eZb-pr-b8M" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="20" symbolic="YES" type="default" id="oi7-1V-3zJ"/>
-                            <constraint firstItem="anX-dG-kYn" firstAttribute="centerX" secondItem="ReM-FO-bdQ" secondAttribute="centerX" type="default" id="qCI-2L-h1C"/>
                             <constraint firstItem="y7r-hl-sHc" firstAttribute="trailing" secondItem="anX-dG-kYn" secondAttribute="trailing" type="default" id="qtd-la-D2n"/>
-                            <constraint firstItem="JZ4-uw-F2o" firstAttribute="centerX" secondItem="anX-dG-kYn" secondAttribute="centerX" type="default" id="rkf-vm-OKT"/>
                         </constraints>
                         <connections>
                             <action selector="backgroundTapped:" destination="qcp-pC-bYb" eventType="touchUpInside" id="Iw8-m2-rGF"/>
@@ -1062,7 +1240,7 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEh-u4-mkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1072" y="734"/>
+            <point key="canvasLocation" x="1062" y="734"/>
         </scene>
         <!--Detail Notice View Controller-->
         <scene sceneID="W11-Zb-Chs">
@@ -1125,13 +1303,146 @@ A variety of factors give more weight to post, and only posts that surpass a thr
         <image name="close-circle.png" width="78" height="78"/>
         <image name="dr-arnold-wht2.png" width="222" height="328"/>
         <image name="edmodo-logo.png" width="294" height="314"/>
+        <image name="facebookSocialLink.png" width="92" height="92"/>
+        <image name="flickrSocialLink.png" width="92" height="92"/>
         <image name="griffin-mascot.png" width="581" height="374"/>
+        <image name="instagramSocialLink.png" width="92" height="92"/>
         <image name="localism-blk.png" width="391" height="128"/>
         <image name="placeholder.png" width="450" height="450"/>
         <image name="school-links.png" width="120" height="133"/>
         <image name="social-icon.png" width="156" height="115"/>
         <image name="socrative-logo.png" width="294" height="314"/>
+        <image name="twitterSocialLink.png" width="92" height="92"/>
+        <image name="youtubeSocialLink.png" width="92" height="91"/>
     </resources>
+    <classes>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="LAAboutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAboutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="SafetySecurityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="companyBanner" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="copywriteLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="faqLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="helpLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelSuggestFeature" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="paragraph1" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph3" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph4" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph5" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="prinicpalPhoto" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scroll" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="LADetailNoticeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailNoticeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="content" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAFeedViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAFeedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="likeButtonTapped:"/>
+                <relationship kind="action" name="revealMenu:"/>
+                <relationship kind="action" name="revealNotices:"/>
+            </relationships>
+        </class>
+        <class className="LAHashtagViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAHashtagViewController.h"/>
+        </class>
+        <class className="LAIntroOverviewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAIntroOverviewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="pagingScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="LALoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTapped:"/>
+                <relationship kind="action" name="closeButtonPressed:"/>
+                <relationship kind="action" name="send:"/>
+                <relationship kind="outlet" name="mobileNumberPrompt" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="validUserLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="verifyUserButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="LAMenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toSite:"/>
+                <relationship kind="outlet" name="namViewContainter" candidateClass="UIView"/>
+                <relationship kind="outlet" name="userIcon" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LANoticeItemCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LANoticeItemCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="briefDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thumbnailImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LANoticeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LANoticeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
+            </relationships>
+        </class>
+        <class className="LAPostCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPostCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateAndGradeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="icon" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="likeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="socialMediaImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LASchoolLinksViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASchoolLinksViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="facebookButton:"/>
+                <relationship kind="action" name="flickrButton:"/>
+                <relationship kind="action" name="instagramButton:"/>
+                <relationship kind="action" name="twitterButton:"/>
+                <relationship kind="action" name="youtubeButton1:"/>
+                <relationship kind="action" name="youtubeButton2:"/>
+            </relationships>
+        </class>
+        <class className="LASplashViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>
+        </class>
+        <class className="LAWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="revealNotices:"/>
+                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

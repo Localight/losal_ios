@@ -54,6 +54,12 @@
 		44C777D817D6739B0062FDF4 /* sign-in-02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C777D417D6739B0062FDF4 /* sign-in-02@2x.png */; };
 		65032EF617DA3C49004683BB /* iphone-sign-in-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 65032EF417DA3C49004683BB /* iphone-sign-in-01.png */; };
 		65032EF717DA3C49004683BB /* iphone-sign-in-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 65032EF517DA3C49004683BB /* iphone-sign-in-02.png */; };
+		65032EFE17DA7F30004683BB /* instagramSocialLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 65032EF817DA7F30004683BB /* instagramSocialLink.png */; };
+		65032EFF17DA7F30004683BB /* flickrSocialLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 65032EF917DA7F30004683BB /* flickrSocialLink.png */; };
+		65032F0017DA7F30004683BB /* facebookSocialLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 65032EFA17DA7F30004683BB /* facebookSocialLink.png */; };
+		65032F0117DA7F30004683BB /* twitterSocialLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 65032EFB17DA7F30004683BB /* twitterSocialLink.png */; };
+		65032F0217DA7F30004683BB /* youtubeSocialLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 65032EFC17DA7F30004683BB /* youtubeSocialLink.png */; };
+		65032F0717DA81A0004683BB /* LASchoolLinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65032F0517DA81A0004683BB /* LASchoolLinksViewController.m */; };
 		650B6B2F17CE740300F93BBD /* LAAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650B6B2E17CE740300F93BBD /* LAAboutViewController.m */; };
 		651F0C1017B9FBC20018794A /* LAPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F0C0F17B9FBC20018794A /* LAPostCell.m */; };
 		651F0C1417BAC1F00018794A /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 651F0C1317BAC1F00018794A /* photo2.jpg */; };
@@ -195,6 +201,13 @@
 		44C777D417D6739B0062FDF4 /* sign-in-02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-02@2x.png"; sourceTree = "<group>"; };
 		65032EF417DA3C49004683BB /* iphone-sign-in-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-sign-in-01.png"; sourceTree = "<group>"; };
 		65032EF517DA3C49004683BB /* iphone-sign-in-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-sign-in-02.png"; sourceTree = "<group>"; };
+		65032EF817DA7F30004683BB /* instagramSocialLink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagramSocialLink.png; sourceTree = "<group>"; };
+		65032EF917DA7F30004683BB /* flickrSocialLink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flickrSocialLink.png; sourceTree = "<group>"; };
+		65032EFA17DA7F30004683BB /* facebookSocialLink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookSocialLink.png; sourceTree = "<group>"; };
+		65032EFB17DA7F30004683BB /* twitterSocialLink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterSocialLink.png; sourceTree = "<group>"; };
+		65032EFC17DA7F30004683BB /* youtubeSocialLink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtubeSocialLink.png; sourceTree = "<group>"; };
+		65032F0417DA81A0004683BB /* LASchoolLinksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LASchoolLinksViewController.h; sourceTree = "<group>"; };
+		65032F0517DA81A0004683BB /* LASchoolLinksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LASchoolLinksViewController.m; sourceTree = "<group>"; };
 		650B6B2D17CE740300F93BBD /* LAAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAAboutViewController.h; sourceTree = "<group>"; };
 		650B6B2E17CE740300F93BBD /* LAAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAAboutViewController.m; sourceTree = "<group>"; };
 		651F0C0E17B9FBC20018794A /* LAPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAPostCell.h; sourceTree = "<group>"; };
@@ -447,6 +460,15 @@
 			name = Store;
 			sourceTree = "<group>";
 		};
+		65032F0917DA81B1004683BB /* School Links */ = {
+			isa = PBXGroup;
+			children = (
+				65032F0417DA81A0004683BB /* LASchoolLinksViewController.h */,
+				65032F0517DA81A0004683BB /* LASchoolLinksViewController.m */,
+			);
+			name = "School Links";
+			sourceTree = "<group>";
+		};
 		650B6B3217CE741C00F93BBD /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -589,6 +611,11 @@
 		6588D02D17A4BCC500B6C498 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				65032EF817DA7F30004683BB /* instagramSocialLink.png */,
+				65032EF917DA7F30004683BB /* flickrSocialLink.png */,
+				65032EFA17DA7F30004683BB /* facebookSocialLink.png */,
+				65032EFB17DA7F30004683BB /* twitterSocialLink.png */,
+				65032EFC17DA7F30004683BB /* youtubeSocialLink.png */,
 				65032EF417DA3C49004683BB /* iphone-sign-in-01.png */,
 				65032EF517DA3C49004683BB /* iphone-sign-in-02.png */,
 				656EA0F417D8E62000EF0E42 /* close-circle.png */,
@@ -662,6 +689,7 @@
 		65FA586E17A9880A006598B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				65032F0917DA81B1004683BB /* School Links */,
 				65B2A34117D5909B004DA2FA /* On-Boarding  */,
 				650B6B3217CE741C00F93BBD /* About */,
 				6576741017C57C0B00EC2881 /* WebView */,
@@ -802,6 +830,11 @@
 				656EA0F517D8E62000EF0E42 /* close-circle.png in Resources */,
 				65032EF617DA3C49004683BB /* iphone-sign-in-01.png in Resources */,
 				65032EF717DA3C49004683BB /* iphone-sign-in-02.png in Resources */,
+				65032EFE17DA7F30004683BB /* instagramSocialLink.png in Resources */,
+				65032EFF17DA7F30004683BB /* flickrSocialLink.png in Resources */,
+				65032F0017DA7F30004683BB /* facebookSocialLink.png in Resources */,
+				65032F0117DA7F30004683BB /* twitterSocialLink.png in Resources */,
+				65032F0217DA7F30004683BB /* youtubeSocialLink.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,6 +902,7 @@
 				652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */,
 				652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */,
 				44C777CD17D66EBC0062FDF4 /* LAIntroOverviewViewController.m in Sources */,
+				65032F0717DA81A0004683BB /* LASchoolLinksViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

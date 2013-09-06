@@ -61,7 +61,7 @@
                   [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Aeries Portal",
                   nil];
     // the calendar will ask you if you want to subscribe.
-    _menuItems = @[@"Feed",@"Calendar",@"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
+    _menuItems = @[@"Feed",@"School Links",@"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
   
     [_userIcon setFont:[UIFont fontWithName:@"iconmoon" size:30.0f]];
     if ([[[LAStoreManager sharedManager]getUser]firstName] > 0) {
@@ -136,11 +136,6 @@
     }];
 }
 
-- (IBAction)toSite:(id)sender
-{
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"http://www.losal.org/lahs"]];
-}
-
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -203,5 +198,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         self.slidingViewController.topViewController.view.frame = frame;
         [self.slidingViewController resetTopView];
     }];
+}
+- (IBAction)toSite:(id)sender {
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"http://www.losal.org/lahs"]];
+
 }
 @end
