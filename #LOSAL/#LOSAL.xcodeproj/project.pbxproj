@@ -45,6 +45,8 @@
 		43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9621217C6B444006F9AF4 /* LADataLoader.m */; };
 		43F9621517C6D7C7006F9AF4 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43F9621417C6D7C7006F9AF4 /* menu-icon.png */; };
 		43F9621F17CBD003006F9AF4 /* LANoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */; };
+		43F9622217CC01B4006F9AF4 /* LAHashtagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9622117CC01B4006F9AF4 /* LAHashtagViewController.m */; };
+		43F9622517CC0E38006F9AF4 /* LAHashtagAndPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9622417CC0E38006F9AF4 /* LAHashtagAndPost.m */; };
 		44C777CD17D66EBC0062FDF4 /* LAIntroOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C777CC17D66EBB0062FDF4 /* LAIntroOverviewViewController.m */; };
 		44C777D517D6739B0062FDF4 /* sign-in-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C777D117D6739B0062FDF4 /* sign-in-01.png */; };
 		44C777D617D6739B0062FDF4 /* sign-in-01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C777D217D6739B0062FDF4 /* sign-in-01@2x.png */; };
@@ -181,6 +183,10 @@
 		43F9621417C6D7C7006F9AF4 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
 		43F9621C17CBCFF2006F9AF4 /* LANoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeViewController.h; sourceTree = "<group>"; };
 		43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeViewController.m; sourceTree = "<group>"; };
+		43F9622017CC01B4006F9AF4 /* LAHashtagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAHashtagViewController.h; sourceTree = "<group>"; };
+		43F9622117CC01B4006F9AF4 /* LAHashtagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAHashtagViewController.m; sourceTree = "<group>"; };
+		43F9622317CC0E38006F9AF4 /* LAHashtagAndPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAHashtagAndPost.h; sourceTree = "<group>"; };
+		43F9622417CC0E38006F9AF4 /* LAHashtagAndPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAHashtagAndPost.m; sourceTree = "<group>"; };
 		44C777CB17D66EBB0062FDF4 /* LAIntroOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAIntroOverviewViewController.h; sourceTree = "<group>"; };
 		44C777CC17D66EBB0062FDF4 /* LAIntroOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAIntroOverviewViewController.m; sourceTree = "<group>"; };
 		44C777D117D6739B0062FDF4 /* sign-in-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-01.png"; sourceTree = "<group>"; };
@@ -855,6 +861,8 @@
 				43249B9817C689AF0063197B /* LAColor+Hex.m in Sources */,
 				43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */,
 				43F9621F17CBD003006F9AF4 /* LANoticeViewController.m in Sources */,
+				43F9622217CC01B4006F9AF4 /* LAHashtagViewController.m in Sources */,
+				43F9622517CC0E38006F9AF4 /* LAHashtagAndPost.m in Sources */,
 				654A737A17CD4F24009A28B3 /* LADetailNoticeViewController.m in Sources */,
 				650B6B2F17CE740300F93BBD /* LAAboutViewController.m in Sources */,
 				65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */,

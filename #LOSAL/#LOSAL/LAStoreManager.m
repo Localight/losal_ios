@@ -81,7 +81,27 @@
 }
 
 #pragma mark Posts
-// this is teh one i need to use
+- (void)getHashTags {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"HashTags"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *hashtags, NSError *error) {
+        if (!error) {
+            self.hashtagsAndPosts = [[NSMutableArray alloc] init];
+            self.uniqueHashtags = [[NSMutableArray alloc] init];
+            for (PFObject *hashtag in hashtags) {
+                LAHashtagAndPost *hashtagAndPost = [[LAHashtagAndPost alloc] init];
+                hashtagAndPost.hasttag = [hashtag objectForKey:@"hashTag"];
+                hashtagAndPost.postID = [hashtag objectForKey:@"postID"];
+                [self.hashtagsAndPosts addObject:hashtagAndPost];
+                
+                if ([self.uniqueHashtags indexOfObject:hashtagAndPost.hasttag] == NSNotFound) {
+                    [self.uniqueHashtags addObject:hashtagAndPost.hasttag];
+                }
+            }
+        }
+    }];
+}
 
 - (void)getFeedFromDate:(NSDate *)date
          WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock

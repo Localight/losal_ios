@@ -17,16 +17,12 @@
 
 @implementation LANoticeViewController
 
-//- (id)init
-//{
-//    self = [super initWithStyle:UITableViewStyleGrouped];
-//    if (self) {
-//        UINavigationItem *n = [self navigationItem];
-//        
-//        [n setTitle:@"Notices"];
-//        }
-//    return self;
-//}
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) CGFloat peekLeftAmount;
+@property (nonatomic, weak) IBOutlet UINavigationItem *titleItem;
+@end
+
+@implementation LANoticeViewController
 
 - (void)viewDidLoad
 { 

@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ec-e0-FGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1119" y="-590"/>
+            <point key="canvasLocation" x="1103" y="-634"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="41t-83-9wZ">
@@ -834,7 +834,7 @@ A variety of factors give more weight to post, and only posts that surpass a thr
             <objects>
                 <tableViewController storyboardIdentifier="Hashtags" id="0ex-sf-781" customClass="LAHashtagViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="a9y-Fq-XUl">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -856,7 +856,7 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iN7-9a-TGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="72"/>
+            <point key="canvasLocation" x="1116" y="28"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="RvX-dt-MB2">
@@ -997,7 +997,7 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lT1-g1-62t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558" y="-590"/>
+            <point key="canvasLocation" x="1502" y="-634"/>
         </scene>
         <!--Notice View Controller - Notices-->
         <scene sceneID="IsI-72-gIS">
@@ -1134,7 +1134,49 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzc-i6-d02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1537" y="718"/>
+            <point key="canvasLocation" x="1569" y="734"/>
+        </scene>
+        <!--Edmodo View Controller - Edmodo-->
+        <scene sceneID="JL9-Xe-E1w">
+            <objects>
+                <viewController storyboardIdentifier="Edmodo" title="Edmodo" id="hiV-wX-L0Y" customClass="LAEdmodoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DCA-Gf-8tg">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="kFj-r7-Wgr">
+                                <items>
+                                    <navigationItem title="#LOSAL Edmodo" id="YjA-rJ-Ded">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="iqo-Xw-YQg">
+                                            <connections>
+                                                <action selector="back:" destination="hiV-wX-L0Y" id="5be-AL-g8l"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgx-Vj-ldS">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kFj-r7-Wgr" firstAttribute="leading" secondItem="DCA-Gf-8tg" secondAttribute="leading" type="default" id="2Zb-8x-1dh"/>
+                            <constraint firstItem="pgx-Vj-ldS" firstAttribute="top" secondItem="kFj-r7-Wgr" secondAttribute="bottom" type="default" id="J2j-5X-7FY"/>
+                            <constraint firstItem="kFj-r7-Wgr" firstAttribute="trailing" secondItem="DCA-Gf-8tg" secondAttribute="trailing" type="default" id="NAS-1c-tV7"/>
+                            <constraint firstItem="pgx-Vj-ldS" firstAttribute="trailing" secondItem="DCA-Gf-8tg" secondAttribute="trailing" type="default" id="TrZ-v3-5YG"/>
+                            <constraint firstItem="pgx-Vj-ldS" firstAttribute="bottom" secondItem="DCA-Gf-8tg" secondAttribute="bottom" type="default" id="VcU-aT-zBX"/>
+                            <constraint firstItem="kFj-r7-Wgr" firstAttribute="top" secondItem="DCA-Gf-8tg" secondAttribute="top" type="default" id="duj-l7-SaT"/>
+                            <constraint firstItem="pgx-Vj-ldS" firstAttribute="leading" secondItem="DCA-Gf-8tg" secondAttribute="leading" type="default" id="w7E-e6-Mzt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="edmodoView" destination="pgx-Vj-ldS" id="cyq-9W-wYe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWI-B3-0Mm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3503" y="-764"/>
         </scene>
     </scenes>
     <resources>
@@ -1150,6 +1192,123 @@ A variety of factors give more weight to post, and only posts that surpass a thr
         <image name="social-icon.png" width="156" height="115"/>
         <image name="socrative-logo.png" width="294" height="314"/>
     </resources>
+    <classes>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="LAAboutViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAboutViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="SafetySecurityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="companyBanner" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="copywriteLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="faqLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="helpLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelSuggestFeature" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="paragraph1" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph2" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph3" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph4" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="paragraph5" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="prinicpalPhoto" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scroll" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="LADetailNoticeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailNoticeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="content" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LAFeedViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAFeedViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="likeButtonTapped:"/>
+                <relationship kind="action" name="revealMenu:"/>
+                <relationship kind="action" name="revealNotices:"/>
+            </relationships>
+        </class>
+        <class className="LAHashtagViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAHashtagViewController.h"/>
+        </class>
+        <class className="LAIntroOverviewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAIntroOverviewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="pagingScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="LALoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeButtonPressed:"/>
+                <relationship kind="action" name="send:"/>
+                <relationship kind="outlet" name="field1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="paragraph3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="validUserLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="verifyUserButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="LAMenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="toSite:"/>
+                <relationship kind="outlet" name="namViewContainter" candidateClass="UIView"/>
+                <relationship kind="outlet" name="userIcon" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LANoticeItemCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LANoticeItemCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="briefDescriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thumbnailImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LANoticeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LANoticeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
+            </relationships>
+        </class>
+        <class className="LAPostCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPostCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateAndGradeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="icon" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="likeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="socialMediaImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LASplashViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>
+        </class>
+        <class className="LAWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="revealNotices:"/>
+                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

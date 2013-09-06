@@ -604,7 +604,29 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     }
     [[self tableView]reloadData];
 }
-// Mental note, in theory we could set up the tablecell to have defaults where we don't handle the color change if a post is liked.
+
+- (void)processArray:(NSArray *)array {
+    if ([array count] > 0) {
+        [self.objects addObjectsFromArray:array];
+        //self.filteredObjects = [self filterObjects:self.objects];
+    } else {
+        self.moreResultsAvail = NO;
+    }
+    [self.tableView reloadData];
+    // Always remember to set loading to NO whenever you finish loading the data.
+    self.loading = NO;
+}
+
+- (NSArray *)filterObjects:(NSArray *)objects {
+    NSMutableArray *filteredObjects = [[NSMutableArray alloc] init];
+    
+    for (LAPostItem *post in objects) {
+        // Determine if postID is filters
+        [filteredObjects addObject:post];
+    }
+    return [NSArray arrayWithArray:filteredObjects];
+}
+
 #pragma mark - Social Manager Delegates
 
 - (void)twitterDidReceiveAnError:(NSString *)errorMessage {
