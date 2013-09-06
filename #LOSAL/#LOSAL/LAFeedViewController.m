@@ -377,14 +377,13 @@
              if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
              {
                  [[cell postImage]setImage:image];
-                 
                  [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
                  //[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]
                  //[cell.postImage setImage:image];
              }}];
     } else {
         [[cell postImage]setImage:nil];
-        [[cell messageArea]setBackgroundColor:nil];
+        [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
     }
     return cell;
 }

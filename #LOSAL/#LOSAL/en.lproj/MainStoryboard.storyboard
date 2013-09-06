@@ -33,8 +33,8 @@
                                 </connections>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="2aw-Me-eLD">
-                                <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ec-e0-FGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="-634"/>
+            <point key="canvasLocation" x="1122" y="-634"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="41t-83-9wZ">
@@ -680,7 +680,7 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-67" y="844"/>
+            <point key="canvasLocation" x="71" y="72"/>
         </scene>
         <!--Feed View Controller - Feed-->
         <scene sceneID="18">
@@ -862,14 +862,14 @@ A variety of factors give more weight to post, and only posts that surpass a thr
         <scene sceneID="RvX-dt-MB2">
             <objects>
                 <viewController restorationIdentifier="" storyboardIdentifier="Login" id="qcp-pC-bYb" customClass="LALoginViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ReM-FO-bdQ">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="ReM-FO-bdQ" customClass="UIControl">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-pr-b8M">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="VO2-4M-1Fk"/>
-                                    <constraint firstAttribute="width" constant="30" id="X5z-3J-Q85"/>
+                                    <constraint firstAttribute="height" constant="30" type="user" id="VO2-4M-1Fk"/>
+                                    <constraint firstAttribute="width" constant="30" type="user" id="z9j-KJ-8SE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="X" image="close-circle.png">
@@ -885,51 +885,37 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The #LOSAL App has special features for verified members of the Los Alamitos High School Community." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-Um-gK1">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="211" id="F8Z-TB-lCa"/>
+                                    <constraint firstAttribute="width" constant="211" type="user" id="6JH-Wj-yjQ"/>
+                                    <constraint firstAttribute="height" constant="120" type="user" id="RXh-FS-keA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="211" translatesAutoresizingMaskIntoConstraints="NO" id="P43-2m-CKH">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="211" id="Jwi-UY-Epj"/>
-                                    <constraint firstAttribute="height" constant="120" id="oQT-1T-iUd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Get the full experience! Enter your mobile number." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-NR-7EO">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="214" id="OC8-7D-6XZ"/>
-                                    <constraint firstAttribute="height" constant="61" id="Vqb-2B-pSc"/>
+                                    <constraint firstAttribute="height" constant="56" type="user" id="Bvd-Xh-vPL"/>
+                                    <constraint firstAttribute="width" constant="214" type="user" id="ifX-L0-rbU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter your mobile number." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="214" translatesAutoresizingMaskIntoConstraints="NO" id="WiP-dI-Kzy">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="2dY-cM-nxS"/>
-                                    <constraint firstAttribute="width" constant="214" id="LDK-f1-WEG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="(XXX) XXX-XXXX" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZ4-uw-F2o">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="(XXX) XXX-XXXX" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JZ4-uw-F2o">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="cj6-dj-WXI"/>
-                                    <constraint firstAttribute="width" constant="205" id="ng1-3P-G16"/>
+                                    <constraint firstAttribute="height" constant="30" type="user" id="cj6-dj-WXI"/>
+                                    <constraint firstAttribute="width" constant="205" type="user" id="zOF-Pu-7Fe"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7r-hl-sHc">
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" type="user" id="8qh-UF-4hp"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Verify">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -942,11 +928,12 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                                     <action selector="send:" destination="qcp-pC-bYb" eventType="touchUpInside" id="c6Z-XG-I34"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anX-dG-kYn">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anX-dG-kYn">
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="IEY-bJ-GdG"/>
-                                    <constraint firstAttribute="width" constant="88" id="jIR-sn-gaQ"/>
+                                    <constraint firstAttribute="width" constant="88" type="user" id="AAS-C6-h8a"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" type="user" id="bdw-mz-fJP"/>
+                                    <constraint firstAttribute="height" constant="36" type="user" id="sww-2l-Imk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Retry">
@@ -963,33 +950,28 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JZ4-uw-F2o" firstAttribute="centerX" secondItem="y7r-hl-sHc" secondAttribute="centerX" type="default" id="185-Kc-yY5"/>
-                            <constraint firstItem="I2p-Um-gK1" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="58" id="3dU-Eg-23X"/>
-                            <constraint firstItem="P43-2m-CKH" firstAttribute="baseline" secondItem="I2p-Um-gK1" secondAttribute="baseline" type="default" id="5Ea-fx-Q9O"/>
-                            <constraint firstAttribute="trailing" secondItem="eZb-pr-b8M" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="8D9-0Q-8Cz"/>
-                            <constraint firstItem="EzY-NR-7EO" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="195" id="9Aj-3k-FEC"/>
-                            <constraint firstItem="WiP-dI-Kzy" firstAttribute="top" secondItem="P43-2m-CKH" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="CyF-wl-L0V"/>
-                            <constraint firstItem="eZb-pr-b8M" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="20" symbolic="YES" type="default" id="LWB-dq-P4N"/>
-                            <constraint firstItem="anX-dG-kYn" firstAttribute="bottom" secondItem="y7r-hl-sHc" secondAttribute="bottom" type="default" id="O4o-YA-gHp"/>
-                            <constraint firstItem="anX-dG-kYn" firstAttribute="leading" secondItem="y7r-hl-sHc" secondAttribute="leading" type="default" id="SsL-rx-c9O"/>
-                            <constraint firstItem="JZ4-uw-F2o" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="269" id="YTT-TY-6YN"/>
-                            <constraint firstItem="anX-dG-kYn" firstAttribute="top" secondItem="y7r-hl-sHc" secondAttribute="top" type="default" id="YYB-Ea-ZMD"/>
-                            <constraint firstItem="WiP-dI-Kzy" firstAttribute="centerX" secondItem="P43-2m-CKH" secondAttribute="centerX" type="default" id="b0S-7u-SXw"/>
-                            <constraint firstItem="I2p-Um-gK1" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="20" symbolic="YES" type="default" id="bZO-mc-KBJ"/>
-                            <constraint firstItem="WiP-dI-Kzy" firstAttribute="centerX" secondItem="ReM-FO-bdQ" secondAttribute="centerX" type="default" id="cWP-VL-BWQ"/>
-                            <constraint firstItem="EzY-NR-7EO" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="44" id="dXc-gx-Qbt"/>
-                            <constraint firstItem="P43-2m-CKH" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="20" symbolic="YES" type="default" id="fLz-3B-3uC"/>
-                            <constraint firstItem="EzY-NR-7EO" firstAttribute="centerX" secondItem="JZ4-uw-F2o" secondAttribute="centerX" type="default" id="hRp-Gt-NS0"/>
-                            <constraint firstAttribute="bottom" secondItem="y7r-hl-sHc" secondAttribute="bottom" constant="193" id="lBu-LK-Ypa"/>
-                            <constraint firstItem="anX-dG-kYn" firstAttribute="trailing" secondItem="y7r-hl-sHc" secondAttribute="trailing" type="default" id="zII-VP-WaD"/>
+                            <constraint firstItem="I2p-Um-gK1" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="20" symbolic="YES" type="default" id="2yu-kH-EMM"/>
+                            <constraint firstItem="JZ4-uw-F2o" firstAttribute="centerX" secondItem="EzY-NR-7EO" secondAttribute="centerX" type="default" id="3kv-SU-a54"/>
+                            <constraint firstItem="JZ4-uw-F2o" firstAttribute="top" secondItem="EzY-NR-7EO" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="7iy-L9-7kb"/>
+                            <constraint firstItem="anX-dG-kYn" firstAttribute="top" secondItem="JZ4-uw-F2o" secondAttribute="bottom" constant="21" type="user" id="ASk-FC-wZq"/>
+                            <constraint firstItem="anX-dG-kYn" firstAttribute="top" secondItem="JZ4-uw-F2o" secondAttribute="bottom" constant="21" type="user" id="TSz-bO-kuV"/>
+                            <constraint firstItem="EzY-NR-7EO" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="180" type="user" id="WlA-8R-csH"/>
+                            <constraint firstAttribute="trailing" secondItem="eZb-pr-b8M" secondAttribute="trailing" constant="19" id="bcH-hS-Ffu"/>
+                            <constraint firstItem="anX-dG-kYn" firstAttribute="leading" secondItem="y7r-hl-sHc" secondAttribute="leading" type="default" id="dAk-Pv-AjF"/>
+                            <constraint firstItem="y7r-hl-sHc" firstAttribute="baseline" secondItem="anX-dG-kYn" secondAttribute="baseline" type="user" id="eO8-jK-awy"/>
+                            <constraint firstItem="I2p-Um-gK1" firstAttribute="centerX" secondItem="EzY-NR-7EO" secondAttribute="centerX" type="default" id="o99-i4-AzF"/>
+                            <constraint firstItem="eZb-pr-b8M" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="20" symbolic="YES" type="default" id="oi7-1V-3zJ"/>
+                            <constraint firstItem="anX-dG-kYn" firstAttribute="centerX" secondItem="ReM-FO-bdQ" secondAttribute="centerX" type="default" id="qCI-2L-h1C"/>
+                            <constraint firstItem="y7r-hl-sHc" firstAttribute="trailing" secondItem="anX-dG-kYn" secondAttribute="trailing" type="default" id="qtd-la-D2n"/>
+                            <constraint firstItem="JZ4-uw-F2o" firstAttribute="centerX" secondItem="anX-dG-kYn" secondAttribute="centerX" type="default" id="rkf-vm-OKT"/>
                         </constraints>
+                        <connections>
+                            <action selector="backgroundTapped:" destination="qcp-pC-bYb" eventType="touchUpInside" id="Iw8-m2-rGF"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="enterPhoneNumberField1" destination="EzY-NR-7EO" id="9Du-Mp-6ew"/>
-                        <outlet property="field1" destination="WiP-dI-Kzy" id="C3d-Wt-gvo"/>
-                        <outlet property="paragraph3" destination="P43-2m-CKH" id="UZv-o9-8v1"/>
+                        <outlet property="mobileNumberPrompt" destination="EzY-NR-7EO" id="whS-Fy-xHx"/>
                         <outlet property="phoneNumber" destination="JZ4-uw-F2o" id="a51-a0-SEA"/>
-                        <outlet property="phoneNumberField" destination="JZ4-uw-F2o" id="kY1-uX-Yd7"/>
                         <outlet property="retryButton" destination="anX-dG-kYn" id="cCE-Dx-43A"/>
                         <outlet property="validUserLabel" destination="I2p-Um-gK1" id="15k-2e-ekG"/>
                         <outlet property="verifyUserButton" destination="y7r-hl-sHc" id="PrS-RW-qPy"/>
@@ -997,7 +979,7 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lT1-g1-62t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1502" y="-634"/>
+            <point key="canvasLocation" x="1487" y="-641"/>
         </scene>
         <!--Notice View Controller - Notices-->
         <scene sceneID="IsI-72-gIS">
@@ -1080,7 +1062,7 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEh-u4-mkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="718"/>
+            <point key="canvasLocation" x="1072" y="734"/>
         </scene>
         <!--Detail Notice View Controller-->
         <scene sceneID="W11-Zb-Chs">
@@ -1136,48 +1118,6 @@ A variety of factors give more weight to post, and only posts that surpass a thr
             </objects>
             <point key="canvasLocation" x="1569" y="734"/>
         </scene>
-        <!--Edmodo View Controller - Edmodo-->
-        <scene sceneID="JL9-Xe-E1w">
-            <objects>
-                <viewController storyboardIdentifier="Edmodo" title="Edmodo" id="hiV-wX-L0Y" customClass="LAEdmodoViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DCA-Gf-8tg">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="kFj-r7-Wgr">
-                                <items>
-                                    <navigationItem title="#LOSAL Edmodo" id="YjA-rJ-Ded">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="iqo-Xw-YQg">
-                                            <connections>
-                                                <action selector="back:" destination="hiV-wX-L0Y" id="5be-AL-g8l"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgx-Vj-ldS">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="kFj-r7-Wgr" firstAttribute="leading" secondItem="DCA-Gf-8tg" secondAttribute="leading" type="default" id="2Zb-8x-1dh"/>
-                            <constraint firstItem="pgx-Vj-ldS" firstAttribute="top" secondItem="kFj-r7-Wgr" secondAttribute="bottom" type="default" id="J2j-5X-7FY"/>
-                            <constraint firstItem="kFj-r7-Wgr" firstAttribute="trailing" secondItem="DCA-Gf-8tg" secondAttribute="trailing" type="default" id="NAS-1c-tV7"/>
-                            <constraint firstItem="pgx-Vj-ldS" firstAttribute="trailing" secondItem="DCA-Gf-8tg" secondAttribute="trailing" type="default" id="TrZ-v3-5YG"/>
-                            <constraint firstItem="pgx-Vj-ldS" firstAttribute="bottom" secondItem="DCA-Gf-8tg" secondAttribute="bottom" type="default" id="VcU-aT-zBX"/>
-                            <constraint firstItem="kFj-r7-Wgr" firstAttribute="top" secondItem="DCA-Gf-8tg" secondAttribute="top" type="default" id="duj-l7-SaT"/>
-                            <constraint firstItem="pgx-Vj-ldS" firstAttribute="leading" secondItem="DCA-Gf-8tg" secondAttribute="leading" type="default" id="w7E-e6-Mzt"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="edmodoView" destination="pgx-Vj-ldS" id="cyq-9W-wYe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CWI-B3-0Mm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3503" y="-764"/>
-        </scene>
     </scenes>
     <resources>
         <image name="A-plus.png" width="104" height="103"/>
@@ -1192,123 +1132,6 @@ A variety of factors give more weight to post, and only posts that surpass a thr
         <image name="social-icon.png" width="156" height="115"/>
         <image name="socrative-logo.png" width="294" height="314"/>
     </resources>
-    <classes>
-        <class className="ECSlidingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
-        </class>
-        <class className="LAAboutViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAAboutViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="SafetySecurityLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="companyBanner" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="copywriteLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="faqLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="helpLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelSuggestFeature" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="paragraph1" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="paragraph2" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="paragraph3" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="paragraph4" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="paragraph5" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="prinicpalPhoto" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scroll" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="LADetailNoticeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LADetailNoticeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="content" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LAFeedViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAFeedViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="likeButtonTapped:"/>
-                <relationship kind="action" name="revealMenu:"/>
-                <relationship kind="action" name="revealNotices:"/>
-            </relationships>
-        </class>
-        <class className="LAHashtagViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAHashtagViewController.h"/>
-        </class>
-        <class className="LAIntroOverviewViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAIntroOverviewViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="pagingScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="LALoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LALoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeButtonPressed:"/>
-                <relationship kind="action" name="send:"/>
-                <relationship kind="outlet" name="field1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="paragraph3" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="validUserLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="verifyUserButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="LAMenuViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAMenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="toSite:"/>
-                <relationship kind="outlet" name="namViewContainter" candidateClass="UIView"/>
-                <relationship kind="outlet" name="userIcon" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LANoticeItemCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LANoticeItemCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="briefDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thumbnailImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LANoticeViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LANoticeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
-            </relationships>
-        </class>
-        <class className="LAPostCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAPostCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dateAndGradeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="icon" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="likeImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="messageArea" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="postImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="socialLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="socialMediaImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="timeImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="userNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LASplashViewController" superclassName="ECSlidingViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LASplashViewController.h"/>
-        </class>
-        <class className="LAWebViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="back:"/>
-                <relationship kind="action" name="revealNotices:"/>
-                <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

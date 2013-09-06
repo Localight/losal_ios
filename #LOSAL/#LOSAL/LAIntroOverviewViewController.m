@@ -29,7 +29,8 @@
     _contentArray = [NSMutableArray array];
 
     CGRect scrollFrame = self.view.bounds;
-    
+    //[_pageControl setPageIndicatorTintColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
+    [_pageControl setCurrentPageIndicatorTintColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
     // view 1 - intro image
     UIImage *introImage = [UIImage imageNamed:@"iphone-sign-in-01"];
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:introImage];

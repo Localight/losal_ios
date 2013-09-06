@@ -13,17 +13,15 @@
 - (void)wantsToCloseView;
 
 @end
-@interface LALoginViewController : UIViewController
+@interface LALoginViewController : UIViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *validUserLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel *paragraph3;
-
-@property (weak, nonatomic) IBOutlet UILabel *field1;
+@property (weak, nonatomic) IBOutlet UILabel *mobileNumberPrompt;
 
 @property (nonatomic, weak) id<LALoginViewControllerDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UIButton *retryButton;
 @property (weak, nonatomic) IBOutlet UIButton *verifyUserButton;
+- (IBAction)backgroundTapped:(id)sender;
 
 - (void)loginWithPin:(NSString *)pin;
 

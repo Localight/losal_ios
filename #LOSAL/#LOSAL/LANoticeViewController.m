@@ -15,12 +15,6 @@
 //#import "LAImageStore.h"
 #import "LAImageLoader.h"
 
-@implementation LANoticeViewController
-
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, assign) CGFloat peekLeftAmount;
-@property (nonatomic, weak) IBOutlet UINavigationItem *titleItem;
-@end
 
 @implementation LANoticeViewController
 
@@ -49,8 +43,7 @@
     [titleLabel setTextColor:[UIColor whiteColor]];
     [titleLabel setBackgroundColor:[UIColor clearColor]];
     [titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:25]];
-    self.titleItem.titleView = titleLabel;
-}
+    }
 - (id)initWithStyle:(UITableViewStyle)style
 {
     return [self init];
@@ -178,7 +171,6 @@ return cell;
 */
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)aTableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

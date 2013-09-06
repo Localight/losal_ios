@@ -13,6 +13,7 @@
     
 }
 @property (weak, nonatomic) IBOutlet UINavigationItem *navyItem;
-
+//@property (nonatomic, weak) IBOutlet UITableView *tableView;
+//
 @property (nonatomic, assign) CGFloat peekLeftAmount;
 @end
