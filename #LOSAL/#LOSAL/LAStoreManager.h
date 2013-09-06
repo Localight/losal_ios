@@ -13,11 +13,15 @@
 
 @interface LAStoreManager : NSObject
 
+@property (nonatomic, strong) NSMutableArray *hashtagsAndPosts;
+@property (nonatomic, strong) NSMutableArray *uniqueHashtags;
 @property (nonatomic, strong) LASettings *settings;
 
 + (id)sharedManager;
 
 - (void)trackOpen:(NSDictionary *)launchOptions;
+
+- (void)getHashTags;
 
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock;
 

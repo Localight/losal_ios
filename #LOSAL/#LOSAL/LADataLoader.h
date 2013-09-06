@@ -9,10 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "LAFeedViewController.h"
 
-@interface LADataLoader : UIColor
+@protocol LADataLoaderDelegate;
+
+@interface LADataLoader : NSObject
+
+@property (nonatomic, strong) id<LADataLoaderDelegate>delegate;
 
 @property (strong, nonatomic) LAFeedViewController *delegate;
 
 - (void)loadDataFromDate:(NSDate *)date;
 
 @end
+
+@protocol LADataLoaderDelegate <NSObject>
+
+-(void)processArray:(NSArray *)array;
+
+@end
+
+
+

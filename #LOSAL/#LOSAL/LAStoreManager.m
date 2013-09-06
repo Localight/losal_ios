@@ -8,11 +8,13 @@
 // Where are the posts being stored? -James
 #import "LAStoreManager.h"
 #import <Parse/Parse.h>
+#import "LAHashtagAndPost.h"
 
 @interface LAStoreManager ()
 
 @property (nonatomic, strong) LAUser *thisUser;
 @property (nonatomic, strong) NSMutableArray *likes;
+
 @end
 
 @implementation LAStoreManager

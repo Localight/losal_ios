@@ -12,8 +12,7 @@
 #import "ECSlidingViewController.h"
 #import "LAMenuViewController.h"
 #import "LANoticeViewController.h"
-
-#import "LADetailViewController.h"
+#import "LAHashtagViewController.h"
 
 #import "LAStoreManager.h"
 #import "LASocialManager.h"
@@ -39,6 +38,21 @@
 @property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) LASocialManager *socialManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
+
+// The data source to be displayed in table ()
+@property (strong, nonatomic) NSMutableArray *objects;
+@property (strong, nonatomic) NSArray *filteredObjects;
+// The counter of fetch batch.
+@property (nonatomic) int fetchBatch;
+// Indicates whether the data is already loading.
+// Don't load the next batch of data until this batch is finished.
+// You MUST set loading = NO when the fetch of a batch of data is completed.
+// See line 29 in DataLoader.m for example.
+@property (nonatomic) BOOL loading;
+// noMoreResultsAvail indicates if there are no more search results.
+// Implement noMoreResultsAvail in your app.
+// For demo purpsoses here, noMoreResultsAvail = NO.
+@property (nonatomic) BOOL moreResultsAvail;
 
 - (IBAction)likeButtonTapped:(id)sender;
 - (IBAction)revealMenu:(id)sender;
@@ -88,6 +102,13 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithCustomView:noticeBtn];
 
+    
+    UIButton *title = [UIButton buttonWithType:UIButtonTypeCustom];
+    [title setTitle:@"#LOSAL" forState:UIControlStateNormal];
+    title.frame = CGRectMake(0, 0, 70, 44);
+    [title.titleLabel setFont:[UIFont fontWithName:@"Roboto-Medium" size:24]];
+    [title addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = title;
     
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
     // You just need to set the opacity, radius, and color.
@@ -169,7 +190,7 @@
         if (!error)
         {
             self.objects = [NSMutableArray arrayWithArray:posts];
-            
+            //self.filteredObjects = [self filterObjects:self.objects];
             static BOOL firstTime = YES;
             if (firstTime) {
                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
@@ -209,6 +230,13 @@
     
     [self.slidingViewController anchorTopViewTo:ECLeft];
 }
+- (IBAction) titleTap:(id) sender
+{
+    LAHashtagViewController *hashtagController = [self.storyboard instantiateViewControllerWithIdentifier:@"Hashtags"];
+    
+    [self.navigationController pushViewController:hashtagController animated:NO];
+}
+
 
 - (void)loadRequest
 {
@@ -605,7 +633,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        //[[segue destinationViewController] setDetailItem:object];
     }
 }
 

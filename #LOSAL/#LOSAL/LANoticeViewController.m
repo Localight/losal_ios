@@ -48,6 +48,12 @@
 //    [[self tableView]setBackgroundColor:[UIColor colorWithWhite:0.2f alpha:1.0f]];
 //    [[self tableView]setSeparatorColor:[UIColor colorWithWhite:0.15f alpha:0.2f]];
 
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 70, 44)];
+    [titleLabel setText:@"Notices"];
+    [titleLabel setTextColor:[UIColor whiteColor]];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    [titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:25]];
+    self.titleItem.titleView = titleLabel;
 }
 - (id)initWithStyle:(UITableViewStyle)style
 {

@@ -30,6 +30,9 @@
         NSLog(@"Settings complete");
     }];
     
+    // Will download hashtags for later use
+    [self.storeManager getHashTags];
+    
     self.socialManager = [LASocialManager sharedManager];
     
     return YES;
