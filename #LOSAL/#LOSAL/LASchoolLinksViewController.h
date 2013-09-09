@@ -22,6 +22,6 @@
 
 - (IBAction)youtubeButton2:(id)sender;
 
-
+@property (weak, nonatomic) IBOutlet UINavigationItem *navyItem;
 
 @end

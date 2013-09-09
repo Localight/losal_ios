@@ -46,9 +46,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[self navyItem]setTitle:_titleName];
-    
+    [_navyItem setTitle:_titleName];
+  
     [[self webview]setDelegate:self];
     
     NSURLRequest *requestURL = [NSURLRequest requestWithURL:_url];

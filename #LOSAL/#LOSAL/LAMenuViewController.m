@@ -11,6 +11,7 @@
 #import "ECSlidingViewController.h"
 #import "LAWebViewController.h"
 #import "LAAboutViewController.h"
+#import "LAUser.h"
 @interface LAMenuViewController ()
 #define  DEFAULT_ICON "\uE00C"
 @property (nonatomic, strong) NSArray *menuItems;
@@ -57,20 +58,23 @@
     _sitesList = [NSDictionary dictionaryWithObjectsAndKeys:
                   [NSURL URLWithString:@"http://m.socrative.com/student/#joinRoom"],@"Socrative",
                   [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
-                  [NSURL URLWithString:@"webcal://losal.tandemcal.com/index.php?type=export&action=ical&export_type=now_to_infinity&schools=6&activities=15&event_status_types=1&limit=none&date_start=2013-08-28&page=2"] , @"Calendar",
+//                  [NSURL URLWithString:@"webcal://losal.tandemcal.com/index.php?type=export&action=ical&export_type=now_to_infinity&schools=6&activities=15&event_status_types=1&limit=none&date_start=2013-08-28&page=2"] , @"Calendar",
                   [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Aeries Portal",
                   nil];
     // the calendar will ask you if you want to subscribe.
-    _menuItems = @[@"Feed",@"School Links",@"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
+    _menuItems = @[@"Feed", @"Links", @"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
   
     [_userIcon setFont:[UIFont fontWithName:@"iconmoon" size:30.0f]];
-    if ([[[LAStoreManager sharedManager]getUser]firstName] > 0) {
-    [_userNameLabel setText:[[[LAStoreManager sharedManager]getUser]firstName]];
-    NSScanner *scanner = [NSScanner scannerWithString:[[[LAStoreManager sharedManager]getUser]icon]];
-    unsigned int code;
-    [scanner scanHexInt:&code];
-    [_userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
-    [_userIcon setTextColor:[self colorFromHexString:[[[LAStoreManager sharedManager]getUser]iconColor]]];
+    
+    if ([[[LAStoreManager sharedManager]getUser]firstName] > 0)
+    {
+        [_userNameLabel setText:[[[LAStoreManager sharedManager]getUser]firstName]];
+        [_userNameLabel setText:[[]]
+        NSScanner *scanner = [NSScanner scannerWithString:[[[LAStoreManager sharedManager]getUser]icon]];
+        unsigned int code;
+        [scanner scanHexInt:&code];
+        [_userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
+        [_userIcon setTextColor:[self colorFromHexString:[[[LAStoreManager sharedManager]getUser]iconColor]]];
     }else{
         [_userNameLabel setText:@"Non-Verified User"];
         [_userIcon setText:[NSString stringWithUTF8String:DEFAULT_ICON]];
@@ -118,7 +122,6 @@
     }
     [[cell textLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:20]];
     [[cell textLabel]setBackgroundColor:[UIColor whiteColor]];
-    //cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -182,14 +185,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
         
     } else{
-        NSString *identifier = @"WebView";
-        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-        
-        LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
-        
-        [webView setTitleName:cellName];
-        [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        anotherTopViewController = [[self storyboard]instantiateViewControllerWithIdentifier:cellName];
     }
     
     [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{

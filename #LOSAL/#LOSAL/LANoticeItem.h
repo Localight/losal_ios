@@ -27,5 +27,6 @@
 @property (nonatomic, copy) NSString *imageKey;
 @property (nonatomic, strong) NSString *noticeImageUrl;
 @property (nonatomic, strong) PFObject *postObject;
+@property (nonatomic, strong) PFFile *photoFile;
 - (void)setThumbnailDataFromImage:(UIImage *)image;
 @end

@@ -236,12 +236,21 @@
 }
 
 #pragma mark User
-- (LAUser *)getUser {
-    if (self.thisUser == nil) {
-        if ([PFUser currentUser].objectId != nil) {
-            self.thisUser = [[LAUser alloc] init];
+- (LAUser *)getUser
+{
+    if (self.thisUser == nil)
+    {
+        if ([PFUser currentUser].objectId != nil)
+        {
+            
+//            self.thisUser = [[LAUser alloc] init];
+            
             PFQuery *query = [PFUser query];
+            
+            
             [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+            
+            
             [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error)
              {
                  NSMutableArray *messages = nil;
