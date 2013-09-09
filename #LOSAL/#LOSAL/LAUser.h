@@ -10,6 +10,8 @@
 
 @interface LAUser : NSObject
 
+//@property (nonatomic, strong) PFUser *user;
+
 @property (nonatomic, strong) NSNumber *phoneNumber;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *firstName;
@@ -23,4 +25,5 @@
 @property (nonatomic, strong) NSString *twitterID;
 @property (nonatomic, strong) NSString *facebookID;
 @property (nonatomic, strong) NSString *instagramID;
+@property (nonatomic) BOOL userVerified;
 @end

@@ -15,7 +15,7 @@
 
 #define INSTAGRAM_ID @"64392b8719fb49f59f71213ed640fb68"
 
-@property (strong, nonatomic) LAStoreManager *storeManager;
+//@property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) Instagram *instagram;
 @property (nonatomic, strong) ACAccount *twitterAccount;
 @property (nonatomic, strong) ACAccount *facebookAccount;
@@ -40,7 +40,7 @@
         self.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
         self.instagram.sessionDelegate = self;
         
-        self.storeManager = [LAStoreManager sharedManager];
+//        self.storeManager = [LAStoreManager sharedManager];
     }
     return self;
 }
@@ -89,7 +89,7 @@
 
 #pragma - TWITTER
 - (BOOL)twitterSessionIsValid {
-    if ([self.storeManager getUser].twitterID != nil) {
+    if ([[LAStoreManager sharedManager]getUser].twitterID != nil){
         return YES;
     } else {
         return NO;
@@ -113,8 +113,9 @@
                  NSArray *twitterAccounts =
                  [accountStore accountsWithAccountType:twitterAccountType];
                  self.twitterAccount = [twitterAccounts objectAtIndex:0];
-                 [self.storeManager getUser].twitterID = self.twitterAccount.username;
-                 [self.storeManager saveUsersSocialIDs];
+                 [[LAStoreManager sharedManager]getUser].twitterID = self.twitterAccount.username;
+                 [[LAStoreManager sharedManager]saveUsersSocialIDs];
+    
                  [self.delegate twitterDidLogin];
              } else {
                  NSLog(@"%@", [error localizedDescription]);

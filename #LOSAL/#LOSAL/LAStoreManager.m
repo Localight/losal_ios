@@ -35,17 +35,14 @@
 {
     if (self = [super init])
     {
-        // Parse initialization
-        [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg"
-                      clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
         
-        //[PFUser enableAutomaticUser];
-        PFACL *defaultACL = [PFACL ACL];
-        
-        // Enable public read access by default, with any newly created PFObjects belonging to the current user
-        
-        [defaultACL setPublicReadAccess:YES];
-        [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+//        //[PFUser enableAutomaticUser];
+//        PFACL *defaultACL = [PFACL ACL];
+//        
+//        // Enable public read access by default, with any newly created PFObjects belonging to the current user
+//        
+//        [defaultACL setPublicReadAccess:YES];
+//        [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     }
     return self;
 }
@@ -236,6 +233,7 @@
 }
 
 #pragma mark User
+// our issues are here
 - (LAUser *)getUser
 {
     if (self.thisUser == nil)
@@ -288,7 +286,9 @@
 - (void)verifyPhoneNumberIsValid:(NSString *)phoneNumber
                   withCompletion:(void(^)(bool isValid))completionBlock {
     PFQuery *query = [PFUser query];
+    
     [query whereKey:@"username" equalTo:phoneNumber];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *user, NSError *error) {
         BOOL isValid = NO;
         if (!error) {
@@ -324,6 +324,26 @@
 - (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber pinNumber:(NSString *)pinNumber {
     
     NSError *error;
+    PFUser *user = [PFUser user];
+    [user setUsername:phoneNumber];
+    [user setPassword:pinNumber];
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            
+            //The registration was successful, go to the wall
+           // [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
+            
+        } else {
+            //Something bad has occurred
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                     message:errorString
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"Ok"
+                                                           otherButtonTitles:nil, nil];
+            [errorAlertView show];
+        }
+    }];
     [PFUser logInWithUsername:phoneNumber password:pinNumber error:&error];
     
     if(error) {

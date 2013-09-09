@@ -64,6 +64,8 @@
 
 - (IBAction)send:(id)sender {
 
+    PFUser *user = [PFUser user];
+    
     [self.storeManager verifyPhoneNumberIsValid:[_phoneNumber text] withCompletion:^(bool isValid) {
         if (isValid) {
             [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];
@@ -101,7 +103,8 @@
     [[self view]endEditing:YES];
 }
 
-- (void)loginWithPin:(NSString *)pin {
+- (void)loginWithPin:(NSString *)pin
+{
     if ([self.storeManager loginWithPhoneNumber:self.phoneNumber.text pinNumber:pin]) {
         [self dismiss];
     }

@@ -69,7 +69,7 @@
     if ([[[LAStoreManager sharedManager]getUser]firstName] > 0)
     {
         [_userNameLabel setText:[[[LAStoreManager sharedManager]getUser]firstName]];
-        [_userNameLabel setText:[[]]
+        //[_userNameLabel setText:[[]]
         NSScanner *scanner = [NSScanner scannerWithString:[[[LAStoreManager sharedManager]getUser]icon]];
         unsigned int code;
         [scanner scanHexInt:&code];

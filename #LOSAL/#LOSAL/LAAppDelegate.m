@@ -12,7 +12,7 @@
 
 @interface LAAppDelegate ()
 
-@property (nonatomic, strong) LAStoreManager *storeManager;
+//@property (nonatomic, strong) LAStoreManager *storeManager;
 @property (nonatomic, strong) LASocialManager *socialManager;
 
 @end
@@ -22,16 +22,22 @@
 {
     [application setStatusBarHidden:YES];
     
-    self.storeManager = [LAStoreManager sharedManager];
-    [self.storeManager trackOpen:launchOptions];
+    [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg"
+                  clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
+    
+    
+//    self.storeManager = [LAStoreManager sharedManager];
+    
+    [[LAStoreManager sharedManager]trackOpen:launchOptions];
     
     // Will have to do this when we get the background image from the server
-    [self.storeManager getSettingsWithCompletion:^(NSError *error) {
+    [[LAStoreManager sharedManager]getSettingsWithCompletion:^(NSError *error){
         NSLog(@"Settings complete");
     }];
     
     // Will download hashtags for later use
-    [self.storeManager getHashTags];
+    [[LAStoreManager sharedManager]getHashTags];
+//    [self.storeManager getHashTags];
     
     self.socialManager = [LASocialManager sharedManager];
     
@@ -45,17 +51,23 @@
     return [self.socialManager instagramhandleOpenURL:url];
 }
 
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation {
     
     NSLog(@"url from open is %@", url);
-    if (self.loginViewController) {
+    
+    if (self.loginViewController)
+    {
         [self.loginViewController loginWithPin:[self getPinFromUrl:url]];
     }
     
     return [self.socialManager instagramhandleOpenURL:url];
 }
 
--(NSString *)getPinFromUrl:(NSURL *)url {
+-(NSString *)getPinFromUrl:(NSURL *)url
+{
     NSString *urlString = [url absoluteString];
     NSRange pinRange = [urlString rangeOfString:@"//"];
     NSInteger start = pinRange.location + pinRange.length;
