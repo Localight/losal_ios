@@ -234,6 +234,8 @@
 
 #pragma mark User
 // our issues are here
+
+
 - (LAUser *)getUser
 {
     if (self.thisUser == nil)
@@ -286,7 +288,6 @@
 - (void)verifyPhoneNumberIsValid:(NSString *)phoneNumber
                   withCompletion:(void(^)(bool isValid))completionBlock {
     PFQuery *query = [PFUser query];
-    
     [query whereKey:@"username" equalTo:phoneNumber];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *user, NSError *error) {
@@ -301,38 +302,45 @@
 }
 
 - (void)sendRegistrationRequestForPhoneNumber:(NSString *)phoneNumber {
+   
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
 
     NSString *urlString = @"https://api.parse.com/1/functions/register";
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:[NSURL URLWithString:urlString]];
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg" forHTTPHeaderField:@"X-Parse-Application-Id"];
-    [request setValue:@"gyMlPJBhaRG0SV083c3n7ApzsjLnvvbLvXKW0jJm" forHTTPHeaderField:@"X-Parse-REST-API-Key"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg"
+   forHTTPHeaderField:@"X-Parse-Application-Id"];
+    [request setValue:@"gyMlPJBhaRG0SV083c3n7ApzsjLnvvbLvXKW0jJm"
+    forHTTPHeaderField:@"X-Parse-REST-API-Key"];
+    [request setValue:@"application/x-www-form-urlencoded"
+   forHTTPHeaderField:@"Content-Type"];
     
     NSString *requestString = [NSString stringWithFormat:@"phone=%@", phoneNumber];
-    NSData *requestData = [ NSData dataWithBytes: [ requestString UTF8String ] length: [ requestString length ] ];
+    NSData *requestData = [NSData dataWithBytes:[requestString UTF8String]length:[requestString length]];
     [request setHTTPBody:requestData];
     
-    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *reply, NSError *error) {
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:queue
+                           completionHandler:^(NSURLResponse *response, NSData *reply, NSError *error) {
         NSString *replyString = [[NSString alloc] initWithBytes:[reply bytes] length:[reply length] encoding: NSASCIIStringEncoding];
         NSLog(@"Reply: %@", replyString);
     }];
 }
 
-- (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber pinNumber:(NSString *)pinNumber {
-    
+- (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber
+                   pinNumber:(NSString *)pinNumber
+{
     NSError *error;
     PFUser *user = [PFUser user];
+    NSLog(@"%@ INFO about our user", user);
     [user setUsername:phoneNumber];
     [user setPassword:pinNumber];
+    
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            
-            //The registration was successful, go to the wall
-           // [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
-            
+            succeeded = YES;
+            [_thisUser setUserVerified:YES];// this flag will be used later. 
         } else {
             //Something bad has occurred
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -342,16 +350,20 @@
                                                            cancelButtonTitle:@"Ok"
                                                            otherButtonTitles:nil, nil];
             [errorAlertView show];
+            succeeded = NO;
         }
     }];
-    [PFUser logInWithUsername:phoneNumber password:pinNumber error:&error];
-    
+    [PFUser logInWithUsername:phoneNumber
+                     password:pinNumber
+                        error:&error];
+    BOOL result;
     if(error) {
-        return NO;
+        result = NO;
     } else {
         [self getUser]; // will store user data in self.thisUser
-        return YES;
+        result = YES;
     }
+    return result;
 }
 
 - (void)logout {

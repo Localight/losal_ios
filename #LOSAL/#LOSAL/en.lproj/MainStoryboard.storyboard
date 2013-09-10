@@ -1122,7 +1122,7 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="send:" destination="qcp-pC-bYb" eventType="touchUpInside" id="c6Z-XG-I34"/>
+                                    <action selector="verifyUser:" destination="qcp-pC-bYb" eventType="touchUpInside" id="2GA-wX-oDu"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anX-dG-kYn">
@@ -1141,7 +1141,7 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="send:" destination="qcp-pC-bYb" eventType="touchUpInside" id="BRH-V1-Ybv"/>
+                                    <action selector="verifyUser:" destination="qcp-pC-bYb" eventType="touchUpInside" id="Ac1-hK-bKq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1388,7 +1388,7 @@ A variety of factors give more weight to post, and only posts that surpass a thr
             <relationships>
                 <relationship kind="action" name="backgroundTapped:"/>
                 <relationship kind="action" name="closeButtonPressed:"/>
-                <relationship kind="action" name="send:"/>
+                <relationship kind="action" name="verifyUser:"/>
                 <relationship kind="outlet" name="mobileNumberPrompt" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="phoneNumber" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="retryButton" candidateClass="UIButton"/>
@@ -1452,7 +1452,6 @@ A variety of factors give more weight to post, and only posts that surpass a thr
         <class className="LAWebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LAWebViewController.h"/>
             <relationships>
-                <relationship kind="action" name="back:"/>
                 <relationship kind="action" name="revealNotices:"/>
                 <relationship kind="outlet" name="navyItem" candidateClass="UINavigationItem"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>

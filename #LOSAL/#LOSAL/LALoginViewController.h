@@ -21,6 +21,12 @@
 @property (nonatomic, weak) id<LALoginViewControllerDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UIButton *retryButton;
 @property (weak, nonatomic) IBOutlet UIButton *verifyUserButton;
+
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
+
+- (IBAction)closeButtonPressed:(id)sender;
+- (IBAction)verifyUser:(id)sender;
+
 - (IBAction)backgroundTapped:(id)sender;
 
 - (void)loginWithPin:(NSString *)pin;

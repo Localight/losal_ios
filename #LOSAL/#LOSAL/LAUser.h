@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LAUser : NSObject
+@interface LAUser : PFUser
 
 //@property (nonatomic, strong) PFUser *user;
 

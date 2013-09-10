@@ -13,11 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 @interface LALoginViewController ()
 
-@property (strong, nonatomic) LAStoreManager *storeManager;
-@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (strong, nonatomic) LAAppDelegate *appDelegate;
-- (IBAction)closeButtonPressed:(id)sender;
-- (IBAction)send:(id)sender;
 @end
 
 @implementation LALoginViewController
@@ -48,10 +44,9 @@
     [_phoneNumber setValue:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]
                 forKeyPath:@"_placeholderLabel.textColor"];
     
-    self.storeManager = [LAStoreManager sharedManager];
-    
-    self.appDelegate = (LAAppDelegate *)[[UIApplication sharedApplication] delegate];
-    self.appDelegate.loginViewController = self;
+        
+//    self.appDelegate = (LAAppDelegate *)[[UIApplication sharedApplication] delegate];
+//    self.appDelegate.loginViewController = self;
 }
 //- (IBAction)skip:(id)sender {
 //    [self dismiss];
@@ -62,18 +57,20 @@
     [self.delegate wantsToCloseView];
 }
 
-- (IBAction)send:(id)sender {
-
-    PFUser *user = [PFUser user];
-    
-    [self.storeManager verifyPhoneNumberIsValid:[_phoneNumber text] withCompletion:^(bool isValid) {
-        if (isValid) {
+- (IBAction)verifyUser:(id)sender
+{
+    [[LAStoreManager sharedManager]verifyPhoneNumberIsValid:[_phoneNumber text]
+                                            withCompletion:^(bool isValid)
+    {
+        if (isValid)
+        {
             [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];
             [_mobileNumberPrompt setText:@"No text message? Email us and we'll see what the deal is, or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
             self.phoneNumber.hidden = YES;
             [_verifyUserButton setHidden:YES];
             [_retryButton setHidden:NO];
-            [self.storeManager sendRegistrationRequestForPhoneNumber:self.phoneNumber.text];
+            [[LAStoreManager sharedManager]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
+            // This will send a request to parse to send a tex to this phone
         }else{
             [_mobileNumberPrompt setText:@"Enter your mobile number"];
             
@@ -81,7 +78,7 @@
             [_validUserLabel setHidden:YES];
             [_retryButton setHidden:NO];
             [_verifyUserButton setHidden:YES];
-            [self.storeManager sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
+            [[LAStoreManager sharedManager]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
         }
     }];
 }
@@ -105,12 +102,14 @@
 
 - (void)loginWithPin:(NSString *)pin
 {
-    if ([self.storeManager loginWithPhoneNumber:self.phoneNumber.text pinNumber:pin]) {
+    if ([[LAStoreManager sharedManager]loginWithPhoneNumber:[_phoneNumber text] pinNumber:pin])
+    {
         [self dismiss];
     }
 }
 
-- (void)dismiss {
+- (void)dismiss
+{
     self.appDelegate.loginViewController = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
