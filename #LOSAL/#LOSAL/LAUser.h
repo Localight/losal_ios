@@ -8,22 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LAUser : PFUser
+@interface LAUser : NSObject
 
 //@property (nonatomic, strong) PFUser *user;
 
-@property (nonatomic, strong) NSNumber *phoneNumber;
+@property (nonatomic, strong) NSString *phoneNumber;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *grade;
-@property (nonatomic, strong) NSString *icon;
+@property (nonatomic, strong) NSString *iconString;
 @property (nonatomic, strong) NSString *iconColor;
 @property (nonatomic, strong) NSDate   *birthday;
 @property (nonatomic, strong) NSString *studentID;
+@property (nonatomic, strong) NSString *pinNumberFromUrl;
 
 @property (nonatomic, strong) NSString *twitterID;
 @property (nonatomic, strong) NSString *facebookID;
 @property (nonatomic, strong) NSString *instagramID;
 @property (nonatomic) BOOL userVerified;
 @end
+

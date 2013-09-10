@@ -29,6 +29,6 @@
 
 - (IBAction)backgroundTapped:(id)sender;
 
-- (void)loginWithPin:(NSString *)pin;
+//- (void)loginWithPin:(NSString *)pin;
 
 @end

@@ -13,6 +13,7 @@
 @interface LAStoreManager ()
 
 @property (nonatomic, strong) LAUser *thisUser;
+@property (nonatomic, strong) PFUser *user;
 @property (nonatomic, strong) NSMutableArray *likes;
 
 @end
@@ -35,6 +36,7 @@
 {
     if (self = [super init])
     {
+        [_thisUser setUserVerified:NO];
         
 //        //[PFUser enableAutomaticUser];
 //        PFACL *defaultACL = [PFACL ACL];
@@ -152,7 +154,7 @@
                                  postItem.postUser.grade = [user objectForKey:@"year"];
                                  postItem.postUser.firstName = [user objectForKey:@"firstName"];
                                  postItem.postUser.lastName = [user objectForKey:@"lastName"];
-                                 postItem.postUser.icon = [user objectForKey:@"icon"];
+                                 postItem.postUser.iconString = [user objectForKey:@"icon"];
                                  postItem.postUser.iconColor = [user objectForKey:@"faveColor"];
                              }
                          }
@@ -285,22 +287,29 @@
     [[PFUser currentUser]saveEventually];
 }
 
+// change flag for number verified here. 
 - (void)verifyPhoneNumberIsValid:(NSString *)phoneNumber
                   withCompletion:(void(^)(bool isValid))completionBlock {
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:phoneNumber];
     
+    // need to come back and clean this up
     [query findObjectsInBackgroundWithBlock:^(NSArray *user, NSError *error) {
         BOOL isValid = NO;
         if (!error) {
+            [_thisUser setUserVerified:YES];
             if ([user count] > 0) {
                 isValid = YES;
             }
+        }else{
+            [_thisUser setUserVerified:NO];
         }
         completionBlock(isValid);   
     }];
 }
 
+//this part sends for the number
+// step 1 send the request for the text message. 
 - (void)sendRegistrationRequestForPhoneNumber:(NSString *)phoneNumber {
    
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -328,21 +337,20 @@
     }];
 }
 
-- (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber
-                   pinNumber:(NSString *)pinNumber
+- (void)loginWithPhoneNumber;
 {
-    NSError *error;
-    PFUser *user = [PFUser user];
-    NSLog(@"%@ INFO about our user", user);
-    [user setUsername:phoneNumber];
-    [user setPassword:pinNumber];
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            succeeded = YES;
-            [_thisUser setUserVerified:YES];// this flag will be used later. 
-        } else {
-            //Something bad has occurred
+    NSLog(@"%@ INFO about our user", _user);
+
+    [PFUser logInWithUsernameInBackground:[_thisUser phoneNumber]
+                                 password:[_thisUser pinNumberFromUrl]
+                                    block:^(PFUser *user, NSError *error){
+        if (user) {
+            
+            [_thisUser setIconString:[user objectForKey:@"icon"]];
+            [_thisUser setIconColor:[user objectForKey:@"faveColor"]];
+            [_thisUser setFirstName:[user objectForKey:@"firstName"]];
+            [_thisUser setLastName:[user objectForKey:@"lastName"]];
+        }else{
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                      message:errorString
@@ -350,20 +358,8 @@
                                                            cancelButtonTitle:@"Ok"
                                                            otherButtonTitles:nil, nil];
             [errorAlertView show];
-            succeeded = NO;
         }
     }];
-    [PFUser logInWithUsername:phoneNumber
-                     password:pinNumber
-                        error:&error];
-    BOOL result;
-    if(error) {
-        result = NO;
-    } else {
-        [self getUser]; // will store user data in self.thisUser
-        result = YES;
-    }
-    return result;
 }
 
 - (void)logout {

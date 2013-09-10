@@ -62,6 +62,8 @@
     [[LAStoreManager sharedManager]verifyPhoneNumberIsValid:[_phoneNumber text]
                                             withCompletion:^(bool isValid)
     {
+        [[LAStoreManager sharedManager]setUsername:[_phoneNumber text]];
+        
         if (isValid)
         {
             [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];
@@ -69,8 +71,10 @@
             self.phoneNumber.hidden = YES;
             [_verifyUserButton setHidden:YES];
             [_retryButton setHidden:NO];
+            //should contiune here where it left off.
             [[LAStoreManager sharedManager]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
-            // This will send a request to parse to send a tex to this phone
+            [[LAStoreManager sharedManager]loginWithPhoneNumber];
+             // This will send a request to parse to send a tex to this phone
         }else{
             [_mobileNumberPrompt setText:@"Enter your mobile number"];
             
@@ -81,6 +85,9 @@
             [[LAStoreManager sharedManager]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
         }
     }];
+    
+    [self dismiss];
+    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -100,13 +107,14 @@
     [[self view]endEditing:YES];
 }
 
-- (void)loginWithPin:(NSString *)pin
-{
-    if ([[LAStoreManager sharedManager]loginWithPhoneNumber:[_phoneNumber text] pinNumber:pin])
-    {
-        [self dismiss];
-    }
-}
+// come back to if we might need to fix or undo.
+//- (void)loginWithPin:(NSString *)pin
+//{
+//    if ([[LAStoreManager sharedManager]loginWithPhoneNumber:[_phoneNumber text] pinNumber:pin])
+//    {
+//        [self dismiss];
+//    }
+//}
 
 - (void)dismiss
 {

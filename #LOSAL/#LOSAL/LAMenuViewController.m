@@ -66,11 +66,12 @@
   
     [_userIcon setFont:[UIFont fontWithName:@"iconmoon" size:30.0f]];
     
-    if ([[[LAStoreManager sharedManager]getUser]firstName] > 0)
+    if ([[LAStoreManager sharedManager]userVerified])
     {
-        [_userNameLabel setText:[[[LAStoreManager sharedManager]getUser]firstName]];
-        //[_userNameLabel setText:[[]]
-        NSScanner *scanner = [NSScanner scannerWithString:[[[LAStoreManager sharedManager]getUser]icon]];
+        // parse first name and last later.
+        [_userNameLabel setText:[[LAStoreManager sharedManager]firstName]];
+    
+        NSScanner *scanner = [NSScanner scannerWithString:[[LAStoreManager sharedManager]iconString]];
         unsigned int code;
         [scanner scanHexInt:&code];
         [_userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];

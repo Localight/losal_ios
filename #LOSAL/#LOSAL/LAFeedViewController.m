@@ -310,11 +310,11 @@
     // Set up users icon
     [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
     
-    if ([postItem.postUser.icon length] > 0) {
-        NSScanner *scanner = [NSScanner scannerWithString:postItem.postUser.icon];
+    if ([postItem.postUser.iconString length] > 0) {
+        NSScanner *scanner = [NSScanner scannerWithString:postItem.postUser.iconString];
         unsigned int code;
         [scanner scanHexInt:&code];
-        cell.icon.text  = [NSString stringWithFormat:@"%C", (unsigned short)code];
+        [[cell icon]setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
         [cell.icon setTextColor:[self colorFromHexString:postItem.postUser.iconColor]];
     } else {
         cell.icon.text = [NSString stringWithUTF8String:DEFAULT_ICON];

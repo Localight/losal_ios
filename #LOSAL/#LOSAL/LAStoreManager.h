@@ -19,6 +19,8 @@
 
 + (id)sharedManager;
 
+-(NSString *)getPinFromUrl:(NSURL *)url;
+
 - (void)trackOpen:(NSDictionary *)launchOptions;
 
 - (void)getHashTags;
@@ -39,7 +41,7 @@
 
 - (void)sendRegistrationRequestForPhoneNumber:(NSString *)phoneNumber;
 - (void)verifyPhoneNumberIsValid:(NSString *)phoneNumber withCompletion:(void(^)(bool isValid))completionBlock;
-- (BOOL)loginWithPhoneNumber:(NSString *)phoneNumber pinNumber:(NSString *)pinNumber;
+- (void)loginWithPhoneNumber;
 
 - (void)logout;
 
