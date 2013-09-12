@@ -9,12 +9,10 @@
 #import "LAStoreManager.h"
 #import <Parse/Parse.h>
 #import "LAHashtagAndPost.h"
-
+#import "LAUser.h"
 @interface LAStoreManager ()
-
-@property (nonatomic, strong) LAUser *thisUser;
 @property (nonatomic, strong) PFUser *user;
-@property (nonatomic, strong) NSMutableArray *likes;
+
 
 @end
 
@@ -22,22 +20,28 @@
 
 #pragma mark Singleton Methods
 
-+ (id)sharedManager
++ (LAStoreManager *)defaultStore
 {
-    static LAStoreManager *sharedMyManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
-    });
-    return sharedMyManager;
+    static LAStoreManager *defaultStore = nil;
+    if(!defaultStore)
+        defaultStore = [[super allocWithZone:nil] init];
+    
+    return defaultStore;
 }
++ (id)allocWithZone:(NSZone *)zone
+{
+    return [self defaultStore];
+}
+
 
 - (id)init
 {
     if (self = [super init])
     {
-        [_thisUser setUserVerified:NO];
-        
+        userContainerItems = [[NSMutableArray alloc]init];
+        likesItems = [[NSMutableArray alloc]init];
+        hashtagsAndPostsItems = [[NSMutableArray alloc]init];
+        uniqueHashtagsItems = [[NSMutableArray alloc]init];
 //        //[PFUser enableAutomaticUser];
 //        PFACL *defaultACL = [PFACL ACL];
 //        
@@ -84,20 +88,30 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"HashTags"];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *hashtags, NSError *error) {
-        if (!error) {
-            self.hashtagsAndPosts = [[NSMutableArray alloc] init];
-            self.uniqueHashtags = [[NSMutableArray alloc] init];
-            for (PFObject *hashtag in hashtags) {
-                LAHashtagAndPost *hashtagAndPost = [[LAHashtagAndPost alloc] init];
-                hashtagAndPost.hasttag = [hashtag objectForKey:@"hashTag"];
-                hashtagAndPost.postID = [hashtag objectForKey:@"postID"];
-                [self.hashtagsAndPosts addObject:hashtagAndPost];
-                
-                if ([self.uniqueHashtags indexOfObject:hashtagAndPost.hasttag] == NSNotFound) {
-                    [self.uniqueHashtags addObject:hashtagAndPost.hasttag];
-                }
+    [query findObjectsInBackgroundWithBlock:^(NSArray *hashtagsArray, NSError *error) {
+       
+        if (!error)
+        {
+            for (PFObject *hashtag in hashtagsArray)
+            {
+                LAHashtagAndPost *item = [[LAHashtagAndPost alloc] init];
+                [item setHasttag:[hashtag objectForKey:@"hashTag"]];
+                [item setPostID:[hashtag objectForKey:@"postID"]];
+                [hashtagsAndPostsItems addObject:item];
+                     // not sure why he had this in here, it doesn't make sense if it doesn't have something in there why put it in their?
+//                if ([self.uniqueHashtags indexOfObject:hashtagAndPost.hasttag] == NSNotFound) {
+//                    [self.uniqueHashtags addObject:hashtagAndPost.hasttag];
+//                }
             }
+        }else{
+            //TODO: not sure i did this part right might need to come back too.
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                     message:errorString
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"Ok"
+                                                           otherButtonTitles:nil, nil];
+            [errorAlertView show];
         }
     }];
 }
@@ -135,17 +149,19 @@
                          // This does not require a network access.
                          NSLog(@"post looks like %@", post);
                          LAPostItem *postItem = [[LAPostItem alloc] init];
+                         
                          [postItem setPostObject:post];
                          
                          //postItem.postObject = post;// this line is weird
-                         postItem.postTime = [post objectForKey:@"postTime"];
-                         postItem.socialNetwork = [post objectForKey:@"socialNetworkName"];
-                         postItem.socialNetworkPostID = [post objectForKey:@"socialNetworkPostID"];
-                         postItem.text = [post objectForKey:@"text"];
-                         postItem.imageURLString = [post objectForKey:@"url"];
-                         postItem.isLikedByThisUser = [self doesThisUserLike:post.objectId];
+                         [postItem setPostTime:[post objectForKey:@"postTime"]];
+                         [postItem setSocialNetwork:[post objectForKey:@"socialNetworkName"]];
+                         [postItem setSocialNetworkPostID:[post objectForKey:@"socialNetworkPostID"]];
+                         [postItem setText:[post objectForKey:@"text"]];
+                         [postItem setImageURLString:[post objectForKey:@"url"]];
+                         [postItem setIsLikedByThisUser:[self doesThisUserLike:[post objectId]]];
                          
                          // Only copy user information if this is a verified user
+                         // if this user isn't verified then they won't have this info to begin with.-james
                          if (self.thisUser != nil) {
                              PFObject *user = [post objectForKey:@"user"];
                              if (user != nil) {
@@ -179,23 +195,28 @@
 }
 
 #pragma mark Likes
-- (BOOL)doesThisUserLike:(NSString *)postID {
-    BOOL doesUserLikePost = [self.likes containsObject:postID];
+- (BOOL)doesThisUserLike:(NSString *)postID
+{
+    BOOL doesUserLikePost = [likesItems containsObject:postID];
+    
     return doesUserLikePost;
 }
 
 - (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock
 {
-    self.likes = [[NSMutableArray alloc] init];
     // Now get all likes for user if user is already set
-    if ([PFUser currentUser]) {
+    if ([PFUser currentUser])
+    {
         PFQuery *likesQuery = [PFQuery queryWithClassName:@"Likes"];
+        
         [likesQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
+        
         [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error) {
             if (!error) {
-                for (PFObject *like in likes) {
+                for (PFObject *like in likes)
+                {
                     PFObject *post = [like objectForKey:@"postID"];
-                    [self.likes addObject:post.objectId];
+                    [likesItems addObject:[post objectId]];
                 }
                 completionBlock(error);
             }
@@ -223,6 +244,7 @@
     [like setObject:postObject forKey:@"postID"];
     
     // photos are public, but may only be modified by the user who uploaded them
+    //TODO: need to look at this closer
     PFACL *likeACL = [PFACL ACLWithUser:[PFUser currentUser]];
     [likeACL setPublicReadAccess:YES];
     like.ACL = likeACL;
@@ -237,7 +259,7 @@
 #pragma mark User
 // our issues are here
 
-
+//TODO: still have no idea what this is even for.
 - (LAUser *)getUser
 {
     if (self.thisUser == nil)
@@ -258,7 +280,9 @@
                  NSMutableArray *messages = nil;
                  if (!error) {
                      messages = [[NSMutableArray alloc] init];
-                     for (PFObject *user in users) {
+                     for (PFObject *user in users)
+                     {
+                        
                          self.thisUser.twitterID = [user objectForKey:@"twitterID"];
                          self.thisUser.facebookID = [user objectForKey:@"facebookID"];
                          self.thisUser.instagramID = [user objectForKey:@"instagramID"];
@@ -271,8 +295,9 @@
     }
     return self.thisUser;
 }
-
-- (void)saveUsersSocialIDs {
+//TODO: come back and finish the LAUser our thoughts was to have the store manager create a new lAuser Object, and if the user isn't verified, to do a normal alloc init. if the user is verified, then use the info from parse to create the new LAUser object. 
+- (void)saveUsersSocialIDs
+{
     
     if (self.thisUser.twitterID != nil) {
         [[PFUser currentUser] setObject:self.thisUser.twitterID forKey:@"twitterID"];
@@ -288,24 +313,20 @@
 }
 
 // change flag for number verified here. 
-- (void)verifyPhoneNumberIsValid:(NSString *)phoneNumber
-                  withCompletion:(void(^)(bool isValid))completionBlock {
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:phoneNumber];
-    
+- (BOOL)verifyPhoneNumberIsValid:(NSString *)phoneNumber
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:phoneNumber equalTo:@"username"];
     // need to come back and clean this up
-    [query findObjectsInBackgroundWithBlock:^(NSArray *user, NSError *error) {
-        BOOL isValid = NO;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            NSLog(@"This user has a number in the DataBase");
             [_thisUser setUserVerified:YES];
-            if ([user count] > 0) {
-                isValid = YES;
-            }
         }else{
             [_thisUser setUserVerified:NO];
         }
-        completionBlock(isValid);   
     }];
+    return [_thisUser userVerified];
 }
 
 //this part sends for the number
@@ -344,10 +365,13 @@
     [PFUser logInWithUsernameInBackground:[_thisUser phoneNumber]
                                  password:[_thisUser pinNumberFromUrl]
                                     block:^(PFUser *user, NSError *error){
-        if (user) {
-            
-            [_thisUser setIconString:[user objectForKey:@"icon"]];
-            [_thisUser setIconColor:[user objectForKey:@"faveColor"]];
+        if (user)
+        {
+            NSScanner *scanner = [NSScanner scannerWithString:[user objectForKey:@"icon"]];
+            unsigned int code;
+            [scanner scanHexInt:&code];
+            [_thisUser setIconString:[NSString stringWithFormat:@"%C", (unsigned short)code]];
+            [_thisUser setIconColor:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
             [_thisUser setFirstName:[user objectForKey:@"firstName"]];
             [_thisUser setLastName:[user objectForKey:@"lastName"]];
         }else{
@@ -360,6 +384,15 @@
             [errorAlertView show];
         }
     }];
+}
+-(UIColor *)colorFromHexString:(NSString *)hexString
+{
+    NSUInteger red, green, blue;
+    sscanf([hexString UTF8String], "#%02X%02X%02X", &red, &green, &blue);
+    
+    UIColor *color = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
+    
+    return (color);
 }
 
 - (void)logout {

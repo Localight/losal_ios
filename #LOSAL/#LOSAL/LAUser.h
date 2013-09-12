@@ -13,19 +13,26 @@
 //@property (nonatomic, strong) PFUser *user;
 
 @property (nonatomic, strong) NSString *phoneNumber;
+@property (nonatomic, strong) NSString *iconStringFromParse;
+@property (nonatomic, strong) NSString *iconStringColorFromParse;
+@property (nonatomic, strong) NSString *pinNumberFromUrl;
+@property (nonatomic, strong) NSString *iconString;
+@property (nonatomic, strong) UIColor *iconColor;
+
+
+
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *grade;
-@property (nonatomic, strong) NSString *iconString;
-@property (nonatomic, strong) NSString *iconColor;
+
 @property (nonatomic, strong) NSDate   *birthday;
 @property (nonatomic, strong) NSString *studentID;
-@property (nonatomic, strong) NSString *pinNumberFromUrl;
 
+@property (nonatomic, strong) NSString *displayName;
 @property (nonatomic, strong) NSString *twitterID;
 @property (nonatomic, strong) NSString *facebookID;
 @property (nonatomic, strong) NSString *instagramID;
-@property (nonatomic) BOOL userVerified;
+@property (assign) BOOL userVerified; // is the user signed in?
 @end
 

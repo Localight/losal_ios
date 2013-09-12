@@ -14,11 +14,11 @@
 }
 // Come back to, and work on.
 
-@property (weak, nonatomic) IBOutlet UIView *namViewContainter;
+@property (nonatomic, weak) IBOutlet UIView *namViewContainter;
 
-@property (weak, nonatomic) IBOutlet UILabel *userIcon;
+@property (nonatomic, weak) IBOutlet UILabel *userIcon;
 
-@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *userNameLabel;
 
 - (IBAction)toSite:(id)sender;
 

@@ -9,17 +9,25 @@
 #import <Foundation/Foundation.h>
 #import "LASettings.h"
 #import "LAPostItem.h"
-#import "LAUser.h"
+@class LAUser;
 
 @interface LAStoreManager : NSObject
-
-@property (nonatomic, strong) NSMutableArray *hashtagsAndPosts;
-@property (nonatomic, strong) NSMutableArray *uniqueHashtags;
+{
+    NSMutableArray *userContainerItems;
+    NSMutableArray *likesItems;
+    NSMutableArray *hashtagsAndPostsItems;
+    NSMutableArray *uniqueHashtagsItems;
+}
 @property (nonatomic, strong) LASettings *settings;
 
-+ (id)sharedManager;
++ (LAStoreManager *)defaultStore;
 
--(NSString *)getPinFromUrl:(NSURL *)url;
+- (NSArray *)allUserItems;
+- (NSArray *)allLikeItems;
+- (NSArray *)allHashtagAndPostItems;
+- (NSArray *)allUniqueHashtags;
+
+- (LAUser *)createUser;
 
 - (void)trackOpen:(NSDictionary *)launchOptions;
 
@@ -40,7 +48,7 @@
 - (void)deleteUsersLike:(PFObject *)postObject;
 
 - (void)sendRegistrationRequestForPhoneNumber:(NSString *)phoneNumber;
-- (void)verifyPhoneNumberIsValid:(NSString *)phoneNumber withCompletion:(void(^)(bool isValid))completionBlock;
+- (BOOL)verifyPhoneNumberIsValid:(NSString *)phoneNumber;
 - (void)loginWithPhoneNumber;
 
 - (void)logout;

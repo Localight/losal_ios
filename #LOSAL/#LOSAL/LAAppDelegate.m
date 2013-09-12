@@ -65,6 +65,7 @@
     NSInteger start = pinRange.location + pinRange.length;
     NSInteger length = [urlString length] - start;
     NSString *pinString = [urlString substringWithRange:NSMakeRange(start, length)];
+//    [[LAStoreManager sharedManager]setUserVerified:YES];
     [[LAStoreManager sharedManager]setPassword:pinString];
     //from here you need to log in.
     

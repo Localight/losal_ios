@@ -59,35 +59,29 @@
 
 - (IBAction)verifyUser:(id)sender
 {
-    [[LAStoreManager sharedManager]verifyPhoneNumberIsValid:[_phoneNumber text]
-                                            withCompletion:^(bool isValid)
+    if ([[LAStoreManager sharedManager]verifyPhoneNumberIsValid:[_phoneNumber text]])
     {
-        [[LAStoreManager sharedManager]setUsername:[_phoneNumber text]];
+        [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];
+        [_mobileNumberPrompt setText:@"No text message? Email us and we'll see what the deal is, or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
+        self.phoneNumber.hidden = YES;
+        [_verifyUserButton setHidden:YES];
+        [_retryButton setHidden:NO];
+        //should contiune here where it left off.
+        [[LAStoreManager sharedManager]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
+        [[LAStoreManager sharedManager]loginWithPhoneNumber];
+        //[[LAStoreManager sharedManager]setUserVerified:YES];
+        // This will send a request to parse to send a tex to this phone
+    }else{
+        //[[LAStoreManager sharedManager]setUserVerified:NO];
+        [_mobileNumberPrompt setText:@"Enter your mobile number"];
         
-        if (isValid)
-        {
-            [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];
-            [_mobileNumberPrompt setText:@"No text message? Email us and we'll see what the deal is, or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
-            self.phoneNumber.hidden = YES;
-            [_verifyUserButton setHidden:YES];
-            [_retryButton setHidden:NO];
-            //should contiune here where it left off.
-            [[LAStoreManager sharedManager]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
-            [[LAStoreManager sharedManager]loginWithPhoneNumber];
-             // This will send a request to parse to send a tex to this phone
-        }else{
-            [_mobileNumberPrompt setText:@"Enter your mobile number"];
-            
-            [_validUserLabel setText:@"Oops! Did you miss the app registration? Your number wasn't recognized. Email us for access or retry below."];
-            [_validUserLabel setHidden:YES];
-            [_retryButton setHidden:NO];
-            [_verifyUserButton setHidden:YES];
-            [[LAStoreManager sharedManager]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
-        }
-    }];
-    
+        [_validUserLabel setText:@"Oops! Did you miss the app registration? Your number wasn't recognized. Email us for access or retry below."];
+        [_validUserLabel setHidden:YES];
+        [_retryButton setHidden:NO];
+        [_verifyUserButton setHidden:YES];
+       // [[LAStoreManager sharedManager]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
+    }
     [self dismiss];
-    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

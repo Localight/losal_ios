@@ -32,6 +32,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         // Custom initialization
     }
     return self;
@@ -64,23 +65,14 @@
     // the calendar will ask you if you want to subscribe.
     _menuItems = @[@"Feed", @"Links", @"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
   
+    [_userNameLabel setText:@"Non-Verified User"];
+    
+    [_userIcon setText:[[LAStoreManager sharedManager]iconString]];
+    [_userIcon setTextColor:[[LAStoreManager sharedManager]iconColor]];
     [_userIcon setFont:[UIFont fontWithName:@"iconmoon" size:30.0f]];
     
-    if ([[LAStoreManager sharedManager]userVerified])
-    {
-        // parse first name and last later.
-        [_userNameLabel setText:[[LAStoreManager sharedManager]firstName]];
     
-        NSScanner *scanner = [NSScanner scannerWithString:[[LAStoreManager sharedManager]iconString]];
-        unsigned int code;
-        [scanner scanHexInt:&code];
-        [_userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
-        [_userIcon setTextColor:[self colorFromHexString:[[[LAStoreManager sharedManager]getUser]iconColor]]];
-    }else{
-        [_userNameLabel setText:@"Non-Verified User"];
-        [_userIcon setText:[NSString stringWithUTF8String:DEFAULT_ICON]];
-    }
-    // Set up users icon
+// Set up users icon
 //    [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
 //    
 //    if ([postItem.postUser.icon length] > 0) {
@@ -100,17 +92,6 @@
 {
     return [[self menuItems]count];
 }
-     
--(UIColor *)colorFromHexString:(NSString *)hexString
-{
-    NSUInteger red, green, blue;
-    sscanf([hexString UTF8String], "#%02X%02X%02X", &red, &green, &blue);
-         
-    UIColor *color = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
-         
-    return (color);
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
