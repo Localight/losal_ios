@@ -59,16 +59,25 @@
 
 - (IBAction)verifyUser:(id)sender
 {
-    if ([[LAStoreManager sharedManager]verifyPhoneNumberIsValid:[_phoneNumber text]])
+    
+    if ([[LAStoreManager defaultStore]verifyPhoneNumberIsValid:[_phoneNumber text]])
     {
-        [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];
+        
+        [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];\
+        [_validUserLabel setTextColor:[UIColor whiteColor]];
         [_mobileNumberPrompt setText:@"No text message? Email us and we'll see what the deal is, or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
+        [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
         self.phoneNumber.hidden = YES;
         [_verifyUserButton setHidden:YES];
         [_retryButton setHidden:NO];
         //should contiune here where it left off.
-        [[LAStoreManager sharedManager]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
-        [[LAStoreManager sharedManager]loginWithPhoneNumber];
+        [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
+
+        // once we get the pin from the text message we can log them in.
+        // anytime they click that text message they should be loged in.
+        
+        // The create user will store the info of this user on the phone, and allows to call stuff from the la user.
+        
         //[[LAStoreManager sharedManager]setUserVerified:YES];
         // This will send a request to parse to send a tex to this phone
     }else{

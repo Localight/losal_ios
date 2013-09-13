@@ -81,7 +81,7 @@
     [super viewDidLoad];
     
     // This is where you populate the table with data
-    self.storeManager = [LAStoreManager sharedManager];
+    self.storeManager = [LAStoreManager defaultStore];
     self.socialManager = [LASocialManager sharedManager];
     self.socialManager.delegate = self;
     self.imageLoader = [LAImageLoader sharedManager];
@@ -192,9 +192,12 @@
             self.objects = [NSMutableArray arrayWithArray:posts];
             //self.filteredObjects = [self filterObjects:self.objects];
             static BOOL firstTime = YES;
-            if (firstTime) {
-                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
-                              withRowAnimation:UITableViewRowAnimationTop];
+            if (firstTime)
+            {
+//                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
+//                              withRowAnimation:UITableViewRowAnimationAutomatic];
+//                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
+//                              withRowAnimation:UITableViewRowAnimationTop];
                 firstTime = NO;
             } else {
                 [[self tableView] reloadData];   
@@ -260,7 +263,8 @@
     }
     [_objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table View
@@ -315,7 +319,7 @@
         unsigned int code;
         [scanner scanHexInt:&code];
         [[cell icon]setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
-        [cell.icon setTextColor:[self colorFromHexString:postItem.postUser.iconColor]];
+        [[cell icon]setTextColor:[self colorFromHexString:[[postItem postUser]iconStringColorFromParse]]];
     } else {
         cell.icon.text = [NSString stringWithUTF8String:DEFAULT_ICON];
         [cell.icon setTextColor:[UIColor whiteColor]];

@@ -13,7 +13,7 @@
 
 - (void)loadDataFromDate:(NSDate *)date
 {
-    [[LAStoreManager sharedManager] getFeedFromDate:date WithCompletion:^(NSArray *array, NSError *error)
+    [[LAStoreManager defaultStore] getFeedFromDate:date WithCompletion:^(NSArray *array, NSError *error)
     {
         NSLog(@"Loaded more data");
         if (!error)

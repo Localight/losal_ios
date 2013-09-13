@@ -13,21 +13,23 @@
 
 @interface LAStoreManager : NSObject
 {
-    NSMutableArray *userContainerItems;
     NSMutableArray *likesItems;
     NSMutableArray *hashtagsAndPostsItems;
     NSMutableArray *uniqueHashtagsItems;
+    NSMutableArray *postItems;
 }
 @property (nonatomic, strong) LASettings *settings;
+@property (nonatomic, strong) PFUser *user;
+@property (nonatomic, strong) LAUser *currentUser;
 
 + (LAStoreManager *)defaultStore;
 
-- (NSArray *)allUserItems;
 - (NSArray *)allLikeItems;
 - (NSArray *)allHashtagAndPostItems;
 - (NSArray *)allUniqueHashtags;
-
+- (NSArray *)allPostItems;
 - (LAUser *)createUser;
+- (LAUser *)getUser;
 
 - (void)trackOpen:(NSDictionary *)launchOptions;
 
@@ -39,9 +41,7 @@
 
 - (void)getFeedWithCompletion:(void (^)(NSArray *posts, NSError *error))completionBlock;
 
-- (LAUser *)getUser;
-
-- (void)saveUsersSocialIDs;
+//- (void)saveUsersSocialIDs;
 
 - (void)saveUsersLike:(PFObject *)postObject;
 
@@ -50,7 +50,6 @@
 - (void)sendRegistrationRequestForPhoneNumber:(NSString *)phoneNumber;
 - (BOOL)verifyPhoneNumberIsValid:(NSString *)phoneNumber;
 - (void)loginWithPhoneNumber;
-
 - (void)logout;
 
 @end

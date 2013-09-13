@@ -17,19 +17,22 @@
 {
     self = [super init];
      if(self) {
+         
          [self setDisplayName:name];
          [self setIconString:icon];
          [self setIconColor:color];
      }
     return self;
 }
-
-- (id) init
+- (id)init
 {
+    // set the flag for user verified. 
+    [self setUserVerified:nil];
     return [self initWithDisplayName:@"Non-Verified User"
                       userIconString:[NSString stringWithUTF8String:DEFAULT_ICON]
                        userIconColor:[UIColor whiteColor]];
 }
+
 //    [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
 //
 //    if ([postItem.postUser.icon length] > 0) {

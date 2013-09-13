@@ -10,12 +10,6 @@
 #import "LAStoreManager.h"
 #import "LAHashtagAndPost.h"
 
-@interface LAHashtagViewController ()
-
-@property (nonatomic, strong) LAStoreManager *storeManager;
-
-@end
-
 @implementation LAHashtagViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -31,7 +25,6 @@
 {
     [super viewDidLoad];
 
-    self.storeManager = [LAStoreManager sharedManager];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +44,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.storeManager.uniqueHashtags count];
+//    return [self.storeManager.uniqueHashtags count];
+    return [[[LAStoreManager defaultStore]allUniqueHashtags]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,7 +53,9 @@
     static NSString *CellIdentifier = @"hashtagCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    [cell.textLabel setText:[self.storeManager.uniqueHashtags objectAtIndex:indexPath.row]];
+    [cell.textLabel setText:[[[LAStoreManager defaultStore]allUniqueHashtags] objectAtIndex:[indexPath row]]];
+    
+     //     [self.storeManager.uniqueHashtags objectAtIndex:indexPath.row]];
     
     [cell.textLabel setFont:[UIFont fontWithName:@"Roboto-Medium" size:17]];
     

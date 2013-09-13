@@ -28,15 +28,16 @@
     
 //    self.storeManager = [LAStoreManager sharedManager];
     
-    [[LAStoreManager sharedManager]trackOpen:launchOptions];
+    [[LAStoreManager defaultStore]trackOpen:launchOptions];
+    [[LAStoreManager defaultStore]createUser]; 
     
-    // Will have to do this when we get the background image from the server
-    [[LAStoreManager sharedManager]getSettingsWithCompletion:^(NSError *error){
+
+    [[LAStoreManager defaultStore]getSettingsWithCompletion:^(NSError *error){
         NSLog(@"Settings complete");
     }];
     
     // Will download hashtags for later use
-    [[LAStoreManager sharedManager]getHashTags];
+    [[LAStoreManager defaultStore]getHashTags];
 //    [self.storeManager getHashTags];
     
     self.socialManager = [LASocialManager sharedManager];
@@ -65,8 +66,13 @@
     NSInteger start = pinRange.location + pinRange.length;
     NSInteger length = [urlString length] - start;
     NSString *pinString = [urlString substringWithRange:NSMakeRange(start, length)];
+    
+    
 //    [[LAStoreManager sharedManager]setUserVerified:YES];
-    [[LAStoreManager sharedManager]setPassword:pinString];
+    // We se the user's password to the pinstring then log in using the LAUser info.
+    [[[LAStoreManager defaultStore]currentUser]setPinNumberFromUrl:pinString];
+    [[LAStoreManager defaultStore]loginWithPhoneNumber];
+
     //from here you need to log in.
     
 //    if (self.loginViewController)

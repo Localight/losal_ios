@@ -88,12 +88,15 @@
 }
 
 #pragma - TWITTER
-- (BOOL)twitterSessionIsValid {
-    if ([[LAStoreManager sharedManager]getUser].twitterID != nil){
-        return YES;
+- (BOOL)twitterSessionIsValid
+{
+    bool isValid;
+    if ([[LAStoreManager defaultStore]currentUser].twitterUserID != nil){
+        isValid = YES;
     } else {
-        return NO;
+        isValid = NO;
     }
+    return isValid;
 }
 
 - (void)twitterLogin {
@@ -113,8 +116,11 @@
                  NSArray *twitterAccounts =
                  [accountStore accountsWithAccountType:twitterAccountType];
                  self.twitterAccount = [twitterAccounts objectAtIndex:0];
-                 [[LAStoreManager sharedManager]getUser].twitterID = self.twitterAccount.username;
-                 [[LAStoreManager sharedManager]saveUsersSocialIDs];
+                 [[LAStoreManager defaultStore]currentUser].twitterUserID = self.twitterAccount.username;
+                 
+//                 [[LAStoreManager sharedManager]getUser].twitterID = self.twitterAccount.username;
+                 // shouldn't need this with the changes i've made, but just incase.
+//                 [[LAStoreManager sharedManager]saveUsersSocialIDs];
     
                  [self.delegate twitterDidLogin];
              } else {

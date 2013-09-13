@@ -12,27 +12,27 @@
 
 //@property (nonatomic, strong) PFUser *user;
 
-@property (nonatomic, strong) NSString *phoneNumber;
+@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong) NSString *phoneNumber;//used for logging in
 @property (nonatomic, strong) NSString *iconStringFromParse;
 @property (nonatomic, strong) NSString *iconStringColorFromParse;
 @property (nonatomic, strong) NSString *pinNumberFromUrl;
 @property (nonatomic, strong) NSString *iconString;
-@property (nonatomic, strong) UIColor *iconColor;
-
-
-
+@property (nonatomic, strong) UIColor  *iconColor;
+@property (nonatomic, strong) NSString *objectID;
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *grade;
+@property (nonatomic, strong) NSString *userCategory;
 
-@property (nonatomic, strong) NSDate   *birthday;
-@property (nonatomic, strong) NSString *studentID;
+//@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong) NSString *twitterDisplayName;
+//@property (nonatomic, strong) NSString *facebookDisplayName;
+@property (nonatomic, strong) NSString *instagramDisplayName;
+@property (nonatomic, strong) NSString *twitterUserID;
+@property (nonatomic, strong) NSString *instagramUserID;
 
-@property (nonatomic, strong) NSString *displayName;
-@property (nonatomic, strong) NSString *twitterID;
-@property (nonatomic, strong) NSString *facebookID;
-@property (nonatomic, strong) NSString *instagramID;
-@property (assign) BOOL userVerified; // is the user signed in?
+@property (nonatomic, assign, getter=isUserVerifed) bool userVerified; // is the user signed in?
 @end
 

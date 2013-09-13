@@ -9,4 +9,7 @@
 #import "LAPostItem.h"
 
 @implementation LAPostItem
+//TODO: add in init values for postItems;
+// we want to set this up similar to the LAUser
+
 @end
