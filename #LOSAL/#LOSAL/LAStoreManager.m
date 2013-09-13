@@ -29,12 +29,13 @@
 
 - (id)init
 {
-    if (self = [super init])
+    self = [super init];
+    if (self)
     {
         likesItems = [[NSMutableArray alloc]init];
         hashtagsAndPostsItems = [[NSMutableArray alloc]init];
         uniqueHashtagsItems = [[NSMutableArray alloc]init];
-        _currentUser = [[LAUser alloc]init];
+        _currentUser = [[LAUser alloc]init];//
 //        //[PFUser enableAutomaticUser];
 //        PFACL *defaultACL = [PFACL ACL];
 //        
@@ -46,10 +47,10 @@
     return self;
 }
 
-- (void)trackOpen:(NSDictionary *)launchOptions
-{
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-}
+//- (void)trackOpen:(NSDictionary *)launchOptions
+//{
+//    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+//}
 
 #pragma mark Settings
 
@@ -136,7 +137,8 @@
             [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
              {
                  NSMutableArray *messages = nil;
-                 if (!error) {
+                 if (!error)
+                 {
                      messages = [[NSMutableArray alloc] init];
                     for (PFObject *post in posts) {
                         
@@ -198,23 +200,29 @@
 - (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock
 {
     // Now get all likes for user if user is already set
-    if ([PFUser currentUser])
-    {
         PFQuery *likesQuery = [PFQuery queryWithClassName:@"Likes"];
-        
-        [likesQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
+//         [query whereKey:@"username" equalTo:phoneNumber];
+    
+    if ([[[LAStoreManager defaultStore]currentUser]userVerified])
+    {
+            [likesQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
         
         [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error) {
-            if (!error) {
+            if (!error)
+            {
                 for (PFObject *like in likes)
                 {
                     PFObject *post = [like objectForKey:@"postID"];
+                    
                     [likesItems addObject:[post objectId]];
                 }
                 completionBlock(error);
             }
         }];
+    } else{
+        NSLog(@"user isn't verifed no likes for you");
     }
+    
 }
 - (NSArray *)allPostItems
 {
@@ -274,7 +282,13 @@
 //TODO: still have no idea what this is even for.
 - (LAUser *)createUser
 {
-    _currentUser = [[LAUser alloc]init];
+    [PFAnonymousUtils logInWithBlock:^(PFUser *user, NSError *error) {
+        if (error) {
+            NSLog(@"Anonymous login failed.");
+        } else {
+            NSLog(@"Anonymous user logged in.");
+        }
+    }];
     [PFUser enableAutomaticUser];
     NSLog(@"%@",_currentUser);
     return _currentUser;
@@ -374,7 +388,7 @@
             NSLog(@"This user does not have a number in the DataBase and the error is: %@", error);
         }
     }];
-    return [_currentUser isUserVerifed];
+    return [_currentUser userVerified];
 }
 
 //this part sends for the number
@@ -403,18 +417,43 @@
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:queue
                            completionHandler:^(NSURLResponse *response, NSData *reply, NSError *error) {
-        NSString *replyString = [[NSString alloc] initWithBytes:[reply bytes] length:[reply length] encoding: NSASCIIStringEncoding];
+        NSString *replyString = [[NSString alloc] initWithBytes:[reply bytes]
+                                                         length:[reply length]
+                                                       encoding: NSASCIIStringEncoding];
         NSLog(@"Reply: %@", replyString);
     }];
+
 }
 - (void)loginWithPhoneNumber;
 {
-    NSLog(@"%@ INFO about our user", _user);
+ 
+//    // I might want to take this out.
+//    [PFUser logOut];
+//    PFUser *currentUser1 = [PFUser currentUser]; // this will now be nil
+//    
+//    NSLog(@"%@",currentUser1);
+//    PFUser *user = [[PFUser alloc]init];
+//    [user setUsername:[_currentUser phoneNumber]];
+//    [user setPassword:[_currentUser pinNumberFromUrl]];
+    // if that doesn't work try this
+    // [user setUsername:[_current useNameFromParse;
+    // [user setPasword: [_currnet userPaswordFromParse;
 
-    [PFUser logInWithUsernameInBackground:[_currentUser phoneNumber]
-                                 password:[_currentUser pinNumberFromUrl]
+    NSLog(@"%@", [_currentUser pinNumberFromUrl]);
+    
+    PFUser *p = [[PFUser alloc]init];
+    [p setPassword:[_currentUser pinNumberFromUrl]];
+    [p setUsername:[_currentUser phoneNumber]];
+    
+//    [[PFUser currentUser]setPassword:[_currentUser pinNumberFromUrl]];
+//    [[PFUser currentUser]setUsername:[_currentUser phoneNumber]];
+    // need to get the password passed some how, getting errors with that.
+    
+    [PFUser logInWithUsernameInBackground:[p username]
+                                 password:[p password]
                                     block:^(PFUser *user, NSError *error)
     {
+        NSLog(@"about to contact parse for userdata");
         if (user)
         {
             NSScanner *scanner = [NSScanner scannerWithString:[user objectForKey:@"icon"]];
@@ -433,9 +472,10 @@
             [_currentUser setObjectID:[user objectForKey:@"objectID"]];
             [_currentUser setPhoneNumber:[user objectForKey:@"username"]];
             [_currentUser setUserCategory:[user objectForKey:@"userType"]];
+            
             NSLog(@"the user logged in.");
-           
         }else{
+            NSLog(@"whoops, something happened.");
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                      message:errorString
@@ -445,6 +485,7 @@
             [errorAlertView show];
         }
     }];
+    
 }
 // this works fine.
 -(UIColor *)colorFromHexString:(NSString *)hexString
@@ -460,5 +501,37 @@
 - (void)logout {
     [PFUser logOut];
     self.currentUser = nil;
+}
+// we could use this method to revalidate;
+// we could say if the
+- (void)reValidateUser
+{
+    PFUser *currentUser = [PFUser currentUser];
+    // if user wants to enter phone number
+    if (!currentUser)// if the user is not logged in.
+    {
+        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Request for Text Message"
+                                                        message:@"Would you like to re-enter your phone number and have the text message sent to you again? Please enter your phone number below or click NO to leave this screen."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"No"
+                                              otherButtonTitles:@"Yes", nil];
+        [prompt setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
+        [myTextField setBackgroundColor:[UIColor whiteColor]];
+        [prompt addSubview:myTextField];
+        CGAffineTransform myTransform = CGAffineTransformMakeTranslation(0.0, 130.0);
+        [prompt setTransform:myTransform];
+        [prompt show];
+        [self sendRegistrationRequestForPhoneNumber:[myTextField text]];
+        
+//        // show the signup or login scren
+//        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"You are already Validated. Would you like to reValidate and the text message send agai?" delegate:nil cancelButtonTitle:@"Yes" otherButtonTitles:"No", ];
+    } else {
+        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Oops!"
+                                                        message:@"It looks like you are already Verified and logged In."                                                        delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+        [prompt show];
+    }
 }
 @end

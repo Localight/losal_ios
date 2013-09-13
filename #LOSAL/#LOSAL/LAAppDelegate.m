@@ -28,7 +28,8 @@
     
 //    self.storeManager = [LAStoreManager sharedManager];
     
-    [[LAStoreManager defaultStore]trackOpen:launchOptions];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     [[LAStoreManager defaultStore]createUser]; 
     
 
@@ -57,7 +58,7 @@
  sourceApplication:(NSString *)sourceApplication
         annotation:(id)annotation {
     
-    //NSLog(@"url from open is %@", url);
+    NSLog(@"url from open is %@", url);
     
     // here is where we could add the get pin fromUrl and save it.
     // I'm thinking about passing the url to the store and from the store passing it to the LAUser
@@ -67,35 +68,14 @@
     NSInteger length = [urlString length] - start;
     NSString *pinString = [urlString substringWithRange:NSMakeRange(start, length)];
     
-    
+    NSLog(@"we caught the website thing");
 //    [[LAStoreManager sharedManager]setUserVerified:YES];
     // We se the user's password to the pinstring then log in using the LAUser info.
+    NSLog(@"%@",pinString);
     [[[LAStoreManager defaultStore]currentUser]setPinNumberFromUrl:pinString];
-    [[LAStoreManager defaultStore]loginWithPhoneNumber];
-
-    //from here you need to log in.
-    
-//    if (self.loginViewController)
-//    {
-//        NSLog(@"WE ARE IN LOGIN VIEW CONTROLLER");
-//        [self.loginViewController loginWithPin:pinString];
-//    }else{
-//        NSLog(@"WE ARE NOT IN LOGIN VIEW CONTROLLER");
-//    }
-    
+     [[LAStoreManager defaultStore]loginWithPhoneNumber];
     return [self.socialManager instagramhandleOpenURL:url];// doesn't make sense come back too.
 }
-
-//-(NSString *)getPinFromUrl:(NSURL *)url
-//{
-//    NSString *urlString = [url absoluteString];
-//    NSRange pinRange = [urlString rangeOfString:@"//"];
-//    NSInteger start = pinRange.location + pinRange.length;
-//    NSInteger length = [urlString length] - start;
-//    NSString *pinString = [urlString substringWithRange:NSMakeRange(start, length)];
-//    
-//    return pinString;
-//}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

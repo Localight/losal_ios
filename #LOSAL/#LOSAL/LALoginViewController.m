@@ -59,38 +59,44 @@
 
 - (IBAction)verifyUser:(id)sender
 {
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"username" equalTo:[_phoneNumber text]];
     
-    if ([[LAStoreManager defaultStore]verifyPhoneNumberIsValid:[_phoneNumber text]])
-    {
-        
-        [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];\
-        [_validUserLabel setTextColor:[UIColor whiteColor]];
-        [_mobileNumberPrompt setText:@"No text message? Email us and we'll see what the deal is, or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
-        [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
-        self.phoneNumber.hidden = YES;
-        [_verifyUserButton setHidden:YES];
-        [_retryButton setHidden:NO];
-        //should contiune here where it left off.
-        [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
-
-        // once we get the pin from the text message we can log them in.
-        // anytime they click that text message they should be loged in.
-        
-        // The create user will store the info of this user on the phone, and allows to call stuff from the la user.
-        
-        //[[LAStoreManager sharedManager]setUserVerified:YES];
-        // This will send a request to parse to send a tex to this phone
-    }else{
-        //[[LAStoreManager sharedManager]setUserVerified:NO];
-        [_mobileNumberPrompt setText:@"Enter your mobile number"];
-        
-        [_validUserLabel setText:@"Oops! Did you miss the app registration? Your number wasn't recognized. Email us for access or retry below."];
-        [_validUserLabel setHidden:YES];
-        [_retryButton setHidden:NO];
-        [_verifyUserButton setHidden:YES];
-       // [[LAStoreManager sharedManager]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
-    }
-    [self dismiss];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        int count = 0;
+        if (!error)
+        {
+            NSLog(@"This user has a number in the DataBase");
+            [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];\
+            [_validUserLabel setTextColor:[UIColor whiteColor]];
+            [_mobileNumberPrompt setText:@"No text message? Email us and we'll see what the deal is, or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
+            [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
+            //  self.phoneNumber.hidden = YES;
+            [_verifyUserButton setHidden:YES];
+            [_retryButton setHidden:NO];
+            [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:[_phoneNumber text]];
+            [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
+            NSLog(@"the next step");
+            [[[LAStoreManager defaultStore]currentUser]setUserVerified:true];
+        }else{
+            [_mobileNumberPrompt setText:@"Enter your mobile number"];
+            
+            [_validUserLabel setText:@"Oops! Did you miss the app registration? Your number wasn't recognized. Email us for access or retry below."];
+            [_validUserLabel setTextColor:[UIColor whiteColor]];
+            [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
+            [_retryButton setHidden:YES];
+            NSLog(@"did we get here?");
+            [_verifyUserButton setHidden:YES];
+            while (count > 2) {
+                count ++;
+                [self verifyUser:sender];
+            }
+            [[[LAStoreManager defaultStore]currentUser]setUserVerified:false];
+            
+            NSLog(@"This user does not have a number in the DataBase and the error is: %@", error);
+        }
+    }];
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:_dismissBlock];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

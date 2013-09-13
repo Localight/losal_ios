@@ -132,7 +132,7 @@
     {
         [self performSegueWithIdentifier:@"kIntroductionSegue" sender:self];
     }
-    else if ([self.storeManager getUser] == nil) {
+    else if ([[LAStoreManager defaultStore]currentUser]) {
         UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
         
         UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
@@ -163,15 +163,17 @@
         [backgroundImage setAlpha:1.0f];
     }];
     [[LANoticesStore defaultStore]updateEntries];
+    [self fetchEntries];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self fetchEntries];
 }
 - (void)fetchEntries
 {
-    self.moreResultsAvail = YES;
+//    self.moreResultsAvail = YES;
+    
+    [self setMoreResultsAvail:YES];
     
     UIView *currentTitleView = [[self navigationItem] titleView];
     
@@ -183,27 +185,33 @@
     
     [[self navigationItem] setTitleView:currentTitleView];
     
+    
     [self.storeManager getFeedWithCompletion:^(NSArray *posts, NSError *error)
     {
         NSLog(@"Completion block called!");
         
         if (!error)
         {
+            // going to need to fix this up as well.
             self.objects = [NSMutableArray arrayWithArray:posts];
-            //self.filteredObjects = [self filterObjects:self.objects];
+            self.filteredObjects = [self filterObjects:self.objects];
             static BOOL firstTime = YES;
-            if (firstTime)
-            {
-//                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
-//                              withRowAnimation:UITableViewRowAnimationAutomatic];
-//                [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
-//                              withRowAnimation:UITableViewRowAnimationTop];
-                firstTime = NO;
-            } else {
-                [[self tableView] reloadData];   
-            }
             
+            if (firstTime) 
+            {
+                    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
+                                  withRowAnimation:UITableViewRowAnimationAutomatic];
+                    
+                    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
+                                  withRowAnimation:UITableViewRowAnimationTop];
+                    firstTime = NO;
+                    [[self tableView] reloadData];
+            } else {
+                
+            }
+            //dispatch 
             NSLog(@"error is %@", error);
+            
             
         } else {
             // If things went bad, show an alert view
@@ -228,7 +236,6 @@
 }
 - (IBAction)revealNotices:(id)sender
 {
-    
     NSLog(@"%lu", (unsigned long)[[[LANoticesStore defaultStore]allItems]count]);
     
     [self.slidingViewController anchorTopViewTo:ECLeft];
@@ -239,7 +246,6 @@
     
     [self.navigationController pushViewController:hashtagController animated:NO];
 }
-
 
 - (void)loadRequest
 {

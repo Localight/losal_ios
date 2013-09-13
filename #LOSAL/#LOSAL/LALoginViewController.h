@@ -24,6 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 
+@property (nonatomic, copy) void (^dismissBlock)(void);
 - (IBAction)closeButtonPressed:(id)sender;
 - (IBAction)verifyUser:(id)sender;
 

@@ -18,8 +18,9 @@
     NSMutableArray *uniqueHashtagsItems;
     NSMutableArray *postItems;
 }
+@property (weak, nonatomic) id controller;
 @property (nonatomic, strong) LASettings *settings;
-@property (nonatomic, strong) PFUser *user;
+//@property (nonatomic, strong) PFUser *user;
 @property (nonatomic, strong) LAUser *currentUser;
 
 + (LAStoreManager *)defaultStore;
@@ -29,9 +30,8 @@
 - (NSArray *)allUniqueHashtags;
 - (NSArray *)allPostItems;
 - (LAUser *)createUser;
-- (LAUser *)getUser;
 
-- (void)trackOpen:(NSDictionary *)launchOptions;
+//- (void)trackOpen:(NSDictionary *)launchOptions;
 
 - (void)getHashTags;
 
@@ -49,6 +49,7 @@
 
 - (void)sendRegistrationRequestForPhoneNumber:(NSString *)phoneNumber;
 - (BOOL)verifyPhoneNumberIsValid:(NSString *)phoneNumber;
+- (void)reValidateUser;
 - (void)loginWithPhoneNumber;
 - (void)logout;
 

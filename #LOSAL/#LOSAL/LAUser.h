@@ -32,7 +32,7 @@
 @property (nonatomic, strong) NSString *instagramDisplayName;
 @property (nonatomic, strong) NSString *twitterUserID;
 @property (nonatomic, strong) NSString *instagramUserID;
-
-@property (nonatomic, assign, getter=isUserVerifed) bool userVerified; // is the user signed in?
+@property (assign) BOOL userVerified;
+//@property (nonatomic, assign, getter=isUserVerifed) bool userVerified; // is the user signed in?
 @end
 
