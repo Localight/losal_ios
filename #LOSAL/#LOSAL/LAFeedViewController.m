@@ -35,7 +35,6 @@
 
 #define  DEFAULT_ICON "\uE00C"
 
-@property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) LASocialManager *socialManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
 
@@ -70,8 +69,58 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self)
+    {
+        self.socialManager = [LASocialManager sharedManager];
+        self.socialManager.delegate = self;
+        self.imageLoader = [LAImageLoader sharedManager];
+        UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        menuBtn.frame = CGRectMake(0, 0, 30, 30);
+        [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
+        [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                                 initWithCustomView:menuBtn];
+        UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        noticeBtn.frame = CGRectMake(0, 0, 27, 27);
+        [noticeBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
+        [noticeBtn addTarget:self action:@selector(revealNotices:) forControlEvents:UIControlEventTouchUpInside];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                                  initWithCustomView:noticeBtn];
+        UIButton *title = [UIButton buttonWithType:UIButtonTypeCustom];
+        [title setTitle:@"#LOSAL" forState:UIControlStateNormal];
+        title.frame = CGRectMake(0, 0, 70, 44);
+        [title.titleLabel setFont:[UIFont fontWithName:@"Roboto-Medium" size:24]];
+        [title addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.titleView = title;
+        
+        [[[self view]layer]setShadowOpacity:0.75f];
+        [[[self view]layer]setShadowRadius:0.75f];
+        [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
+        
+        NSString *imageLight;
+        NSString *imageDark;
+        if (self.view.frame.size.height > 480) {
+            imageLight = @"griffin-dance-bg-1";
+            imageDark = @"dark-griffin-dance-bg-1";
+        } else {
+            imageLight = @"griffin-dance-bg-2";
+            imageDark = @"dark-griffin-dance-bg-2";
+        }
+        UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageLight]];
+        [[self tableView]setBackgroundView:backgroundImage];
+        [UIView animateWithDuration:1.0f animations:^{
+            [[self tableView] setBackgroundColor:[UIColor blackColor]];
+            [backgroundImage setAlpha:0.3f];
+        } completion:^(BOOL finished) {
+            [backgroundImage setImage:[UIImage imageNamed:imageDark]];
+            [backgroundImage setAlpha:1.0f];
+        }];
+        //come back to this updateEntries
+       // [[LANoticesStore defaultStore]updateEntries];
+       // this should be in store
+        [self fetchEntries];
     }
     return self;
 }
@@ -81,40 +130,8 @@
     [super viewDidLoad];
     
     // This is where you populate the table with data
-    self.storeManager = [LAStoreManager defaultStore];
-    self.socialManager = [LASocialManager sharedManager];
-    self.socialManager.delegate = self;
-    self.imageLoader = [LAImageLoader sharedManager];
-    
-    UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    menuBtn.frame = CGRectMake(0, 0, 30, 30);
-    [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
-    [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithCustomView:menuBtn];
-
-    UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    noticeBtn.frame = CGRectMake(0, 0, 27, 27);
-    [noticeBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
-    [noticeBtn addTarget:self action:@selector(revealNotices:) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithCustomView:noticeBtn];
-
-    
-    UIButton *title = [UIButton buttonWithType:UIButtonTypeCustom];
-    [title setTitle:@"#LOSAL" forState:UIControlStateNormal];
-    title.frame = CGRectMake(0, 0, 70, 44);
-    [title.titleLabel setFont:[UIFont fontWithName:@"Roboto-Medium" size:24]];
-    [title addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.titleView = title;
-    
     // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
     // You just need to set the opacity, radius, and color.
-    [[[self view]layer]setShadowOpacity:0.75f];
-    [[[self view]layer]setShadowRadius:0.75f];
-    [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
     
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
@@ -144,26 +161,6 @@
     }
 
     // Set up splash to dimmed background animation
-    NSString *imageLight;
-    NSString *imageDark;
-    if (self.view.frame.size.height > 480) {
-        imageLight = @"griffin-dance-bg-1";
-        imageDark = @"dark-griffin-dance-bg-1";
-    } else {
-        imageLight = @"griffin-dance-bg-2";
-        imageDark = @"dark-griffin-dance-bg-2";
-    }
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageLight]];
-    [[self tableView]setBackgroundView:backgroundImage];
-    [UIView animateWithDuration:1.0f animations:^{
-        [[self tableView] setBackgroundColor:[UIColor blackColor]];
-        [backgroundImage setAlpha:0.3f];
-    } completion:^(BOOL finished) {
-        [backgroundImage setImage:[UIImage imageNamed:imageDark]];
-        [backgroundImage setAlpha:1.0f];
-    }];
-    [[LANoticesStore defaultStore]updateEntries];
-    [self fetchEntries];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -185,8 +182,7 @@
     
     [[self navigationItem] setTitleView:currentTitleView];
     
-    
-    [self.storeManager getFeedWithCompletion:^(NSArray *posts, NSError *error)
+    [[LAStoreManager defaultStore]getFeedWithCompletion:^(NSArray *posts, NSError *error)
     {
         NSLog(@"Completion block called!");
         
@@ -602,12 +598,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             {
                 [postItem setIsLikedByThisUser:YES];
                 [self.socialManager likePostItem:postItem];
-                [self.storeManager saveUsersLike:postItem.postObject];
+                [[LAStoreManager defaultStore]saveUsersLike:[postItem postObject]];
+
                 
             }else{
                 [postItem setIsLikedByThisUser:NO];
                 [self.socialManager unLikePostItem:postItem];
-                [self.storeManager deleteUsersLike:postItem.postObject];
+                [[LAStoreManager defaultStore]deleteUsersLike:[postItem postObject]];
             }
         }
     }
@@ -626,7 +623,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     self.loading = NO;
 }
 
-- (NSArray *)filterObjects:(NSArray *)objects {
+- (NSArray *)filterObjects:(NSArray *)objects
+{
     NSMutableArray *filteredObjects = [[NSMutableArray alloc] init];
     
     for (LAPostItem *post in objects) {

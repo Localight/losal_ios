@@ -20,26 +20,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [application setStatusBarHidden:YES];
+    //[application setStatusBarHidden:YES];
     
     [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg"
                   clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
     
+    PFACL *defaultACL = [PFACL ACL];
+    // Enable public read access by default, with any newly created PFObjects belonging to the current user
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
 //    self.storeManager = [LAStoreManager sharedManager];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [PFUser enableAutomaticUser];
+    [[PFUser currentUser] saveInBackground];
+    //[[LAStoreManager defaultStore]createUser];
     
-    [[LAStoreManager defaultStore]createUser]; 
-    
-
     [[LAStoreManager defaultStore]getSettingsWithCompletion:^(NSError *error){
         NSLog(@"Settings complete");
     }];
     
     // Will download hashtags for later use
     [[LAStoreManager defaultStore]getHashTags];
-//    [self.storeManager getHashTags];
     
     self.socialManager = [LASocialManager sharedManager];
     

@@ -17,6 +17,7 @@
     NSMutableArray *hashtagsAndPostsItems;
     NSMutableArray *uniqueHashtagsItems;
     NSMutableArray *postItems;
+    NSMutableArray *mainPostItems;
 }
 @property (weak, nonatomic) id controller;
 @property (nonatomic, strong) LASettings *settings;
@@ -29,7 +30,8 @@
 - (NSArray *)allHashtagAndPostItems;
 - (NSArray *)allUniqueHashtags;
 - (NSArray *)allPostItems;
-- (LAUser *)createUser;
+- (NSArray *)allMainPostItems;
+//- (LAUser *)createUser;
 
 //- (void)trackOpen:(NSDictionary *)launchOptions;
 

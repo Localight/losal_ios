@@ -16,8 +16,9 @@
             userIconColor:(UIColor *)color
 {
     self = [super init];
-     if(self) {
-         
+     if(self)
+     {
+         NSLog(@"Default LAUser was Created.");
          [self setDisplayName:name];
          [self setIconString:icon];
          [self setIconColor:color];

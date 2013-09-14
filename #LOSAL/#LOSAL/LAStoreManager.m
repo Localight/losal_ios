@@ -33,24 +33,14 @@
     if (self)
     {
         likesItems = [[NSMutableArray alloc]init];
+        // need to create a store for each of these indivdually
         hashtagsAndPostsItems = [[NSMutableArray alloc]init];
         uniqueHashtagsItems = [[NSMutableArray alloc]init];
-        _currentUser = [[LAUser alloc]init];//
-//        //[PFUser enableAutomaticUser];
-//        PFACL *defaultACL = [PFACL ACL];
-//        
-//        // Enable public read access by default, with any newly created PFObjects belonging to the current user
-//        
-//        [defaultACL setPublicReadAccess:YES];
-//        [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+        _currentUser = [[LAUser alloc]init];
+        
     }
     return self;
 }
-
-//- (void)trackOpen:(NSDictionary *)launchOptions
-//{
-//    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-//}
 
 #pragma mark Settings
 
@@ -224,6 +214,11 @@
     }
     
 }
+- (NSArray *)allMainPostItems
+{
+    return mainPostItems;
+}
+
 - (NSArray *)allPostItems
 {
     return postItems;
@@ -277,22 +272,19 @@
 }
 
 #pragma mark User
-// our issues are here
-
-//TODO: still have no idea what this is even for.
-- (LAUser *)createUser
-{
-    [PFAnonymousUtils logInWithBlock:^(PFUser *user, NSError *error) {
-        if (error) {
-            NSLog(@"Anonymous login failed.");
-        } else {
-            NSLog(@"Anonymous user logged in.");
-        }
-    }];
-    [PFUser enableAutomaticUser];
-    NSLog(@"%@",_currentUser);
-    return _currentUser;
-}
+//- (LAUser *)createUser
+//{
+//    [PFAnonymousUtils logInWithBlock:^(PFUser *user, NSError *error) {
+//        if (error) {
+//            NSLog(@"Anonymous login failed.");
+//        } else {
+//            NSLog(@"Anonymous user logged in.");
+//        }
+//    }];
+//    [PFUser enableAutomaticUser];
+//    NSLog(@"%@",_currentUser);
+//    return _currentUser;
+//}
 // I decided we don't need this and just update the user info when they are logged in.
 //- (LAUser *)updateUserInfo
 //{
