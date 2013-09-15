@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSString *socialNetworkPostID;
 @property (nonatomic, strong) NSString *imageURLString;
 @property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSString *userFirstName;
+@property (nonatomic, strong) NSString *userLastName;
 @property (nonatomic, strong) LAUser   *postUser;
 @property (assign) BOOL isLikedByThisUser;
 
