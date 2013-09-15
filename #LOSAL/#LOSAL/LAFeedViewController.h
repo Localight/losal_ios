@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "LADataLoader.h"
 
-@interface LAFeedViewController : UITableViewController 
+@interface LAFeedViewController : UITableViewController
 
 @end

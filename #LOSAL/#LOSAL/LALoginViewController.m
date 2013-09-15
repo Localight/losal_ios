@@ -94,7 +94,7 @@
             [[[LAStoreManager defaultStore]currentUser]setUserVerified:false];
             
             NSLog(@"This user does not have a number in the DataBase and the error is: %@", error);
-        }
+         }
     }];
     [[self presentingViewController] dismissViewControllerAnimated:YES completion:_dismissBlock];
 }

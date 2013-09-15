@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "LAHashtagAndPost.h"
 #import "LAUser.h"
+
 @implementation LAStoreManager
 
 #pragma mark Singleton Methods
@@ -36,8 +37,8 @@
         // need to create a store for each of these indivdually
         hashtagsAndPostsItems = [[NSMutableArray alloc]init];
         uniqueHashtagsItems = [[NSMutableArray alloc]init];
+        mainPostItems = [[NSMutableArray alloc]init];
         _currentUser = [[LAUser alloc]init];
-        
     }
     return self;
 }
@@ -51,11 +52,14 @@
     
     NSError *error;
     NSArray *objects = [query findObjects:&error];
-    if (!error && [objects count] > 0) {
+    if (!error && [objects count] > 0)
+    {
         PFObject *appSettings = [objects lastObject];
-        self.settings = [[LASettings alloc] init];
-        self.settings.queryIntervalDays = [[appSettings objectForKey:@"queryIntervalDays"] intValue];
-        self.settings.schoolName = [appSettings objectForKey:@"school"];
+        _settings = [[LASettings alloc]init];
+        [[self settings]setQueryIntervalDays:[[appSettings objectForKey:@"queryIntervalDays"] intValue]];
+        NSLog(@"%d",[[self settings]queryIntervalDays]);
+        [[self settings]setSchoolName:[appSettings objectForKey:@"school"]];
+        
         PFFile *backgroundFile = [appSettings objectForKey:@"backgroundImage"];
         NSData *data = [backgroundFile getData:&error];
         if (error) {
@@ -103,80 +107,104 @@
 - (void)getFeedFromDate:(NSDate *)date
          WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
-    [self getUserLikesWithCompletion:^(NSError *error)
-    {
-        if (!error) {
-            completionBlock(nil, error);
-        } else {
-            PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-            
-            [query orderByDescending:@"postTime"];
-            
-            NSTimeInterval interval = self.settings.queryIntervalDays * -1 * 24 * 60 * 60;
-            
-            NSDate *startDate = date;
-            
-            NSDate *endDate = [startDate dateByAddingTimeInterval:interval];
-            
-            [query whereKey:@"postTime" lessThan:startDate];
-            [query whereKey:@"postTime" greaterThan:endDate];
-            [query whereKey:@"status" equalTo:@"1"];
-            [query includeKey:@"user"];
-            
-            //TODO: come back to and fix. We want to fix the way post are stored.
-            [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
+//    [self getUserLikesWithCompletion:^(NSError *error) {
+//        if (error) {
+//            completionBlock(nil, error);
+//        } else {
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    
+    [query orderByDescending:@"postTime"];
+    NSLog(@"%d", [[[LAStoreManager defaultStore]settings]queryIntervalDays]);
+    
+    int a = [[[LAStoreManager defaultStore]settings]queryIntervalDays];
+    
+    // what the hell is this for?
+    NSTimeInterval interval = a * -1 * 24 * 60 * 60;
+    NSLog(@"%f",interval);
+    NSDate *startDate = date;
+    
+    NSDate *endDate = [startDate dateByAddingTimeInterval:interval];
+    
+    [query whereKey:@"postTime" lessThan:startDate];
+    [query whereKey:@"postTime" greaterThan:endDate];
+    [query whereKey:@"status" equalTo:@"1"];
+    [query includeKey:@"user"];
+    
+    // populate the array with post items, and then.. just hold onto it till we need it.
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
+     {
+         if (!error)
+         {
+             for (PFObject *post in posts)
              {
-                 NSMutableArray *messages = nil;
-                 if (!error)
-                 {
-                     messages = [[NSMutableArray alloc] init];
-                    for (PFObject *post in posts) {
-                        
-                         // This does not require a network access.
-                         NSLog(@"post looks like %@", post);
-                         LAPostItem *postItem = [[LAPostItem alloc] init];
-                        
-                         [postItem setPostObject:post];
-                         [postItem setPostTime:[post objectForKey:@"postTime"]];
-                         [postItem setSocialNetwork:[post objectForKey:@"socialNetworkName"]];
-                         [postItem setSocialNetworkPostID:[post objectForKey:@"socialNetworkPostID"]];
-                         [postItem setText:[post objectForKey:@"text"]];
-                         [postItem setImageURLString:[post objectForKey:@"url"]];
-                         [postItem setIsLikedByThisUser:[self doesThisUserLike:[post objectId]]];
-                        
-                         // Only copy user information if this is a verified user
-                         // if this user isn't verified then they won't have this info to begin with.-james
-                            if (_currentUser != nil) {
-                             PFObject *user = [post objectForKey:@"user"];
-                             if (user != nil) {
-                                 NSLog(@"user is %@", user);
-                                 postItem.postUser = [[LAUser alloc] init];
-                                 postItem.postUser.grade = [user objectForKey:@"year"];
-                                 postItem.postUser.firstName = [user objectForKey:@"firstName"];
-                                 postItem.postUser.lastName = [user objectForKey:@"lastName"];
-                                 postItem.postUser.iconString = [user objectForKey:@"icon"];
-                                 postItem.postUser.iconColor = [user objectForKey:@"faveColor"];
-                             }
-                         }
-                        
-                         [messages addObject:postItem];
-                     }
-                 } else {
-                     // Log details of the failure
-                     NSLog(@"Error: %@ %@", error, [error userInfo]);
+                 // This does not require a network access.
+                 NSLog(@"post looks like %@", post);
+                 LAPostItem *postItem = [[LAPostItem alloc] init];
+                 
+                 [postItem setPostObject:post];
+                 [postItem setPostTime:[post objectForKey:@"postTime"]];
+                 [postItem setSocialNetwork:[post objectForKey:@"socialNetworkName"]];
+                 [postItem setSocialNetworkPostID:[post objectForKey:@"socialNetworkPostID"]];
+                 [postItem setText:[post objectForKey:@"text"]];
+                 [postItem setImageURLString:[post objectForKey:@"url"]];
+                 [postItem setIsLikedByThisUser:[[LAStoreManager defaultStore]doesThisUserLike:[post objectId]]];
+                 PFObject *user = [post objectForKey:@"user"];
+                 if (user != nil) {
+                     NSLog(@"user is %@", user);
+                     // postItem.postUser = [[LAUser alloc] init];
+                     [postItem setGradeLevel:[user objectForKey:@"year"]];
+                     [postItem setFirstName:[user objectForKey:@"firstName"]];
+                     [postItem setLastName:[user objectForKey:@"lastName"]];
+                     [postItem setIconString:[user objectForKey:@"icon"]];
+                     [postItem setIconColor:[user objectForKey:@"faveColor"]];
                  }
-                 completionBlock(messages, error);
-             }];
-        }
+                 [mainPostItems addObject:postItem];
+             }
+         }else {
+             // If things went bad, show an alert view
+             NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
+                                      [error localizedDescription]];
+             
+             // Create and show an alert view with this error displayed
+             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                          message:errorString
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+             [av show];
+             // If you come here you got the array
+             NSLog(@"results are %@", posts);
+         }
+         
+     }];
+}
+- (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
+{
+    [self getFeedFromDate:[NSDate date] WithCompletion:^(NSArray *posts, NSError *error) {
+        completionBlock(posts, error);
     }];
 }
 
-- (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
+//- (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
+//{
+//    [self getFeedFromDate:[NSDate date] WithCompletion:^(NSArray *posts, NSError *error)
+//    {
+//        completionBlock(posts, error);
+//    }];
+//}
+- (void)processArray:(NSArray *)array
 {
-    [self getFeedFromDate:[NSDate date] WithCompletion:^(NSArray *posts, NSError *error)
+    if ([array count] > 0)
     {
-        completionBlock(posts, error);
-    }];
+        [mainPostItems addObjectsFromArray:array];
+        //self.filteredObjects = [self filterObjects:self.objects];
+    } else {
+        [self setMoreResultsAvail:NO];
+    }
+    [self setLoading:NO];
+    // Always remember to set loading to NO whenever you finish loading the data.
+//    [self.tableView reloadData];
+        // Always remember to set loading to NO whenever you finish loading the data.
 }
 
 #pragma mark Likes
@@ -195,7 +223,7 @@
     
     if ([[[LAStoreManager defaultStore]currentUser]userVerified])
     {
-            [likesQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
+        [likesQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
         
         [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error) {
             if (!error)
@@ -210,7 +238,7 @@
             }
         }];
     } else{
-        NSLog(@"user isn't verifed no likes for you");
+        NSLog(@"user isn't verifed no ""likes"" for you");
     }
     
 }

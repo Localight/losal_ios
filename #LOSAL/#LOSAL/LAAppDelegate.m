@@ -77,6 +77,9 @@
     NSLog(@"%@",pinString);
     [[[LAStoreManager defaultStore]currentUser]setPinNumberFromUrl:pinString];
      [[LAStoreManager defaultStore]loginWithPhoneNumber];
+    [[LAStoreManager defaultStore]getUserLikesWithCompletion:^(NSError *error) {
+        NSLog(@"getting the likes");
+    }];
     return [self.socialManager instagramhandleOpenURL:url];// doesn't make sense come back too.
 }
 

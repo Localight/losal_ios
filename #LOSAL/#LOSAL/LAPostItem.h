@@ -20,9 +20,14 @@
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSString *userFirstName;
 @property (nonatomic, strong) NSString *userLastName;
-@property (nonatomic, strong) LAUser   *postUser;
-@property (assign) BOOL isLikedByThisUser;
+@property (nonatomic, strong) NSString *gradeLevel;
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *iconString;
+@property (nonatomic, strong) NSString *iconColor;
 
+//@property (nonatomic, strong) LAUser   *postUser;
+@property (assign) BOOL isLikedByThisUser;
 
 
 @end

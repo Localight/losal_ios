@@ -39,19 +39,19 @@
 @property (strong, nonatomic) LAImageLoader *imageLoader;
 
 // The data source to be displayed in table ()
-@property (strong, nonatomic) NSMutableArray *objects;
-@property (strong, nonatomic) NSArray *filteredObjects;
+//@property (strong, nonatomic) NSMutableArray *objects;
+//@property (strong, nonatomic) NSArray *filteredObjects;
 // The counter of fetch batch.
 @property (nonatomic) int fetchBatch;
 // Indicates whether the data is already loading.
 // Don't load the next batch of data until this batch is finished.
 // You MUST set loading = NO when the fetch of a batch of data is completed.
 // See line 29 in DataLoader.m for example.
-@property (nonatomic) BOOL loading;
+
 // noMoreResultsAvail indicates if there are no more search results.
 // Implement noMoreResultsAvail in your app.
 // For demo purpsoses here, noMoreResultsAvail = NO.
-@property (nonatomic) BOOL moreResultsAvail;
+
 
 - (IBAction)likeButtonTapped:(id)sender;
 - (IBAction)revealMenu:(id)sender;
@@ -71,56 +71,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        self.socialManager = [LASocialManager sharedManager];
-        self.socialManager.delegate = self;
-        self.imageLoader = [LAImageLoader sharedManager];
-        UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        menuBtn.frame = CGRectMake(0, 0, 30, 30);
-        [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
-        [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
-        
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                                 initWithCustomView:menuBtn];
-        UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        noticeBtn.frame = CGRectMake(0, 0, 27, 27);
-        [noticeBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
-        [noticeBtn addTarget:self action:@selector(revealNotices:) forControlEvents:UIControlEventTouchUpInside];
-        
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                                  initWithCustomView:noticeBtn];
-        UIButton *title = [UIButton buttonWithType:UIButtonTypeCustom];
-        [title setTitle:@"#LOSAL" forState:UIControlStateNormal];
-        title.frame = CGRectMake(0, 0, 70, 44);
-        [title.titleLabel setFont:[UIFont fontWithName:@"Roboto-Medium" size:24]];
-        [title addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
-        self.navigationItem.titleView = title;
-        
-        [[[self view]layer]setShadowOpacity:0.75f];
-        [[[self view]layer]setShadowRadius:0.75f];
-        [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
-        
-        NSString *imageLight;
-        NSString *imageDark;
-        if (self.view.frame.size.height > 480) {
-            imageLight = @"griffin-dance-bg-1";
-            imageDark = @"dark-griffin-dance-bg-1";
-        } else {
-            imageLight = @"griffin-dance-bg-2";
-            imageDark = @"dark-griffin-dance-bg-2";
-        }
-        UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageLight]];
-        [[self tableView]setBackgroundView:backgroundImage];
-        [UIView animateWithDuration:1.0f animations:^{
-            [[self tableView] setBackgroundColor:[UIColor blackColor]];
-            [backgroundImage setAlpha:0.3f];
-        } completion:^(BOOL finished) {
-            [backgroundImage setImage:[UIImage imageNamed:imageDark]];
-            [backgroundImage setAlpha:1.0f];
-        }];
-        //come back to this updateEntries
-       // [[LANoticesStore defaultStore]updateEntries];
-       // this should be in store
-        [self fetchEntries];
     }
     return self;
 }
@@ -128,11 +78,54 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.socialManager = [LASocialManager sharedManager];
+    self.socialManager.delegate = self;
+    self.imageLoader = [LAImageLoader sharedManager];
+    UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    menuBtn.frame = CGRectMake(0, 0, 30, 30);
+    [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
+    [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
     
-    // This is where you populate the table with data
-    // shadowPath, shadowOffset, and rotation is handled by ECSlidingViewController.
-    // You just need to set the opacity, radius, and color.
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithCustomView:menuBtn];
+    UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    noticeBtn.frame = CGRectMake(0, 0, 27, 27);
+    [noticeBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
+    [noticeBtn addTarget:self action:@selector(revealNotices:) forControlEvents:UIControlEventTouchUpInside];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithCustomView:noticeBtn];
+    UIButton *title = [UIButton buttonWithType:UIButtonTypeCustom];
+    [title setTitle:@"#LOSAL" forState:UIControlStateNormal];
+    title.frame = CGRectMake(0, 0, 70, 44);
+    [title.titleLabel setFont:[UIFont fontWithName:@"Roboto-Medium" size:24]];
+    [title addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = title;
+    
+    [[[self view]layer]setShadowOpacity:0.75f];
+    [[[self view]layer]setShadowRadius:0.75f];
+    [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
+    
+    NSString *imageLight;
+    NSString *imageDark;
+    
+    if (self.view.frame.size.height > 480) {
+        imageLight = @"griffin-dance-bg-1";
+        imageDark = @"dark-griffin-dance-bg-1";
+    } else {
+        imageLight = @"griffin-dance-bg-2";
+        imageDark = @"dark-griffin-dance-bg-2";
+    }
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageLight]];
+    [[self tableView]setBackgroundView:backgroundImage];
+    
+    [UIView animateWithDuration:1.0f animations:^{
+        [[self tableView] setBackgroundColor:[UIColor blackColor]];
+        [backgroundImage setAlpha:0.3f];
+    } completion:^(BOOL finished){
+        [backgroundImage setImage:[UIImage imageNamed:imageDark]];
+        [backgroundImage setAlpha:1.0f];
+    }];
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
         self.slidingViewController.underLeftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
     }
@@ -159,73 +152,16 @@
             NSLog(@"showing login view");
         }];
     }
-
+    [self fetchEntries];
     // Set up splash to dimmed background animation
 }
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-- (void)fetchEntries
-{
-//    self.moreResultsAvail = YES;
-    
-    [self setMoreResultsAvail:YES];
-    
-    UIView *currentTitleView = [[self navigationItem] titleView];
-    
-    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
-                                       initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    [[self navigationItem] setTitleView:aiView];
-    
-    [aiView startAnimating];
-    
-    [[self navigationItem] setTitleView:currentTitleView];
-    
-    [[LAStoreManager defaultStore]getFeedWithCompletion:^(NSArray *posts, NSError *error)
-    {
-        NSLog(@"Completion block called!");
-        
-        if (!error)
-        {
-            // going to need to fix this up as well.
-            self.objects = [NSMutableArray arrayWithArray:posts];
-            self.filteredObjects = [self filterObjects:self.objects];
-            static BOOL firstTime = YES;
-            
-            if (firstTime) 
-            {
-                    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
-                                  withRowAnimation:UITableViewRowAnimationAutomatic];
-                    
-                    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
-                                  withRowAnimation:UITableViewRowAnimationTop];
-                    firstTime = NO;
-                    [[self tableView] reloadData];
-            } else {
-                
-            }
-            //dispatch 
-            NSLog(@"error is %@", error);
-            
-            
-        } else {
-            // If things went bad, show an alert view
-            NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
-                                     [error localizedDescription]];
-            
-            // Create and show an alert view with this error displayed
-            UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                         message:errorString
-                                                        delegate:nil
-                                               cancelButtonTitle:@"OK"
-                                               otherButtonTitles:nil];
-            [av show];
-            // If you come here you got the array
-            NSLog(@"results are %@", posts);
-        }
-    }];
-}
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//   ;
+//   
+//}
+// all this does is popoulate the array with data.
 - (IBAction)revealMenu:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
@@ -247,7 +183,7 @@
 {
     LADataLoader *loader = [[LADataLoader alloc] init];
     loader.delegate = self;
-    LAPostItem *postItem = [self.objects lastObject];
+    LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]lastObject];
     [loader loadDataFromDate:postItem.postTime];
 }
 
@@ -258,22 +194,23 @@
 }
 
 //get rid of this later
-- (void)insertNewObject:(id)sender
-{
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath]
-                          withRowAnimation:UITableViewRowAnimationAutomatic];
-}
+//- (void)insertNewObject:(id)sender
+//{
+//    if (![[LAStoreManager defaultStore]allMainPostItems]) {
+//       
+//    }
+//    [[LAStoreManager defaultStore]allMainPostItems]inse
+//    [_objects insertObject:[NSDate date] atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath]
+//                          withRowAnimation:UITableViewRowAnimationAutomatic];
+//}
 
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if ([_objects count] > 0) {
+    if ([[[LAStoreManager defaultStore]allMainPostItems]count] > 0) {
         return 1;
     } else {
         return 0;
@@ -283,9 +220,58 @@
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return [self.objects count] + 1;
+    return [[[LAStoreManager defaultStore]allMainPostItems]count] + 1;
 }
 
+- (void)fetchEntries
+{
+    [[LAStoreManager defaultStore]setMoreResultsAvail:YES];
+    
+    UIView *currentTitleView = [[self navigationItem] titleView];
+    
+    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
+                                       initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [[self navigationItem] setTitleView:aiView];
+    
+    [aiView startAnimating];
+    
+    [[self navigationItem] setTitleView:currentTitleView];
+    [[LAStoreManager defaultStore]getFeedWithCompletion:^(NSArray *posts, NSError *error)
+     {
+         NSLog(@"Completion block called!");
+         if (!error)
+         {
+             //self.objects = [NSMutableArray arrayWithArray:posts];
+             //self.filteredObjects = [self filterObjects:self.objects];
+             static BOOL firstTime = YES;
+             if (firstTime) {
+                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
+                               withRowAnimation:UITableViewRowAnimationTop];
+                 firstTime = NO;
+             } else {
+                 [[self tableView] reloadData];
+             }
+             
+             NSLog(@"error is %@", error);
+             
+         } else {
+             // If things went bad, show an alert view
+             NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
+                                      [error localizedDescription]];
+             
+             // Create and show an alert view with this error displayed
+             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                          message:errorString
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+             [av show];
+             // If you come here you got the array
+             NSLog(@"results are %@", posts);
+         }
+     }];
+    [[self tableView]reloadData];
+}
 - (UITableViewCell *)configureCell:(NSIndexPath *)indexPath {
     // This method might need to be wittled down, I think some of this stuff doesn't belong here.
     // mostly the color changing of the like posts
@@ -298,8 +284,9 @@
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                  reuseIdentifier:cellIdentifier];
     }
-    LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
     
+    LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
+
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
     //[[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]];
@@ -311,111 +298,122 @@
     [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     //NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
-    [[cell messageArea] setText:[postItem text]];
     
     // Set up users icon
     [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
-    
-    if ([postItem.postUser.iconString length] > 0) {
-        NSScanner *scanner = [NSScanner scannerWithString:postItem.postUser.iconString];
+    // check to make sure user is verified, then show info.
+    if ([[[LAStoreManager defaultStore]currentUser]userVerified]) {
+        NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
         unsigned int code;
         [scanner scanHexInt:&code];
         [[cell icon]setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
-        [[cell icon]setTextColor:[self colorFromHexString:[[postItem postUser]iconStringColorFromParse]]];
-    } else {
-        cell.icon.text = [NSString stringWithUTF8String:DEFAULT_ICON];
-        [cell.icon setTextColor:[UIColor whiteColor]];
-    }
-    
-    UIImage *ago = [[UIImage imageNamed:@"clock"]imageWithOverlayColor:[UIColor whiteColor]];
-    [[cell timeImage] setImage:ago];
-    NSString *grade = @""; // set to blank in case there is no grade from post Item
-    NSString *name = @""; // set to blank in case there is no name from post Item
-    if (postItem.postUser != nil) {
-        grade = postItem.postUser.grade;
-        name = postItem.postUser.firstName;
-    }
-    [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], grade]];
-    [[cell userNameLabel] setText:name];
-   
-    if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
-    {
-        UIImage *facebookIcon = [[UIImage imageNamed:@"facebook"]imageWithOverlayColor:[UIColor whiteColor]];
-        [[cell socialMediaImage]setImage:facebookIcon];
-        UIImage *thumbsup = [[UIImage imageNamed:@"facebooklike"]imageWithOverlayColor:[UIColor whiteColor]];
-        [[cell likeImage]setImage:thumbsup];
-    } else if([[postItem socialNetwork] isEqualToString:@"Instagram"]){
-        UIImage *instagramIcon = [[UIImage imageNamed:@"instagram"]imageWithOverlayColor:[UIColor whiteColor]];
-        [[cell socialMediaImage]setImage:instagramIcon];
-        UIImage *heart = [[UIImage imageNamed:@"instagramlike"]imageWithOverlayColor:[UIColor whiteColor]];
-        [[cell likeImage]setImage:heart];
-    } else {
-        UIImage *twitterIcon = [[UIImage imageNamed:@"twitter"]imageWithOverlayColor:[UIColor whiteColor]];
-        [[cell socialMediaImage]setImage:twitterIcon];
-        UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor whiteColor]];
-        [[cell likeImage]setImage:star];
-    }
+        [[cell icon]setTextColor:[self colorFromHexString:[postItem iconColor]]];
+        NSString *lastName = [[postItem lastName]substringFromIndex:1];
+        NSString *firstName = [postItem firstName];
+        NSString *displayName = [firstName stringByAppendingString:lastName];
+        [[cell userNameLabel]setText:displayName];
+        [[cell messageArea] setText:[postItem text]];
 
-    
-    // by default we want the
-    if ([postItem isLikedByThisUser])
-    {
+        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem gradeLevel]]];
         if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
         {
-            UIImage *thumbsup = [[UIImage imageNamed:@"facebooklike"]imageWithOverlayColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];/*#40c7f2*/
+            UIImage *facebookIcon = [[UIImage imageNamed:@"facebook"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell socialMediaImage]setImage:facebookIcon];
+            UIImage *thumbsup = [[UIImage imageNamed:@"facebooklike"]imageWithOverlayColor:[UIColor whiteColor]];
             [[cell likeImage]setImage:thumbsup];
         } else if([[postItem socialNetwork] isEqualToString:@"Instagram"]){
-            UIImage *heart = [[UIImage imageNamed:@"instagramlike"]imageWithOverlayColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];/*#40c7f2*/
+            UIImage *instagramIcon = [[UIImage imageNamed:@"instagram"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell socialMediaImage]setImage:instagramIcon];
+            UIImage *heart = [[UIImage imageNamed:@"instagramlike"]imageWithOverlayColor:[UIColor whiteColor]];
             [[cell likeImage]setImage:heart];
         } else {
-            UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];/*#40c7f2*/
+            UIImage *twitterIcon = [[UIImage imageNamed:@"twitter"]imageWithOverlayColor:[UIColor whiteColor]];
+            [[cell socialMediaImage]setImage:twitterIcon];
+            UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor whiteColor]];
             [[cell likeImage]setImage:star];
         }
-    }    
-    if (![[postItem imageURLString] length] == 0)
-    {
-        // Set image to nil, in case the cell was reused.
-        [cell.postImage setImage:nil];
-        [self.imageLoader processImageDataWithURLString:postItem.imageURLString
-                                                  forId:postItem.postObject.objectId // why do we need to object ID?
-                                               andBlock:^(UIImage *image)
-         {
-             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+        // by default we want the
+        if ([postItem isLikedByThisUser])
+        {
+            if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
+            {
+                UIImage *thumbsup = [[UIImage imageNamed:@"facebooklike"]imageWithOverlayColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];/*#40c7f2*/
+                [[cell likeImage]setImage:thumbsup];
+            } else if([[postItem socialNetwork] isEqualToString:@"Instagram"]){
+                UIImage *heart = [[UIImage imageNamed:@"instagramlike"]imageWithOverlayColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];/*#40c7f2*/
+                [[cell likeImage]setImage:heart];
+            } else {
+                UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];/*#40c7f2*/
+                [[cell likeImage]setImage:star];
+            }
+        }
+        // we use this to tell the difference between tweets and instagram
+        if (![[postItem imageURLString] length] == 0)
+        {
+            // Set image to nil, in case the cell was reused.
+            [cell.postImage setImage:nil];
+            [self.imageLoader processImageDataWithURLString:postItem.imageURLString
+                                                      forId:postItem.postObject.objectId // why do we need to object ID?
+                                                   andBlock:^(UIImage *image)
              {
-                 [[cell postImage]setImage:image];
-                 [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
-                 //[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]
-                 //[cell.postImage setImage:image];
-             }}];
+                 if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+                 {
+                     [[cell postImage]setImage:image];
+                     [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
+                     //[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]
+                     //[cell.postImage setImage:image];
+                 }}];
+        } else {
+            [[cell postImage]setImage:nil];
+            [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
+        }
     } else {
-        [[cell postImage]setImage:nil];
-        [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
+        [[cell userNameLabel]setText:nil];
+        [[cell dateAndGradeLabel]setText:nil];
+        [[cell likeImage]setImage:nil];
+        [[cell socialMediaImage]setImage:nil];
+        [[cell icon]setText:[NSString stringWithUTF8String:DEFAULT_ICON]];
+        [[cell icon]setTextColor:[UIColor whiteColor]];
+       // [[cell messageArea]setText:nil];
     }
-    return cell;
+    UIImage *ago = [[UIImage imageNamed:@"clock"]imageWithOverlayColor:[UIColor whiteColor]];
+    [[cell timeImage] setImage:ago];
+//    
+//    NSString *grade = @""; // set to blank in case there is no grade from post Item
+//    NSString *name = @""; // set to blank in case there is no name from post Item
+//    if (postItem.postUser != nil) {
+//        grade = postItem.postUser.grade;
+//        name = postItem.postUser.firstName;
+//    }
+//    
+        return cell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // If scrolled beyond two thirds of the table, load next batch of data.
-    if (indexPath.row >= (self.objects.count/5 *4)) {
-        if (!self.loading && self.moreResultsAvail) {
-            self.loading = YES;
-            // loadRequest is the method that loads the next batch of data.
+    if (indexPath.row >= (([[[LAStoreManager defaultStore]allMainPostItems]count])/5 *4))
+    {
+        if (![[LAStoreManager defaultStore]loading] && [[LAStoreManager defaultStore]moreResultsAvail])
+        {
+            [[LAStoreManager defaultStore]setLoading:YES];
+                      // loadRequest is the method that loads the next batch of data.
             [self loadRequest];
         }
     }
     
     UITableViewCell *cell;
     
-    if (indexPath.row < [self.objects count]) {
+    if (indexPath.row < [[[LAStoreManager defaultStore]allMainPostItems]count]) {
         cell = [self configureCell:indexPath];
     } else {
         NSString *cellIdentifier = @"moreCell";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:cellIdentifier];
         // The currently requested cell is the last cell.
-        if (self.moreResultsAvail) {
+        if ([[LAStoreManager defaultStore]moreResultsAvail])
+        {
             // If there are results available, display @"Loading More..." in the last cell
             
             cell.textLabel.text = @"Loading More Posts...";
@@ -441,21 +439,27 @@
 }
 
 -(UIColor *)colorFromHexString:(NSString *)hexString {
-    
+    UIColor *color;
+    if (hexString)
+    {
     NSUInteger red, green, blue;
     sscanf([hexString UTF8String], "#%02X%02X%02X", &red, &green, &blue);
     
-    UIColor *color = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
-    
-    return (color);
+    color = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
+        
+    }else{
+        color = [UIColor whiteColor];
+    }
+    return color;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat size;
-    if (indexPath.row < [self.objects count]) {
+    if (indexPath.row < [[[LAStoreManager defaultStore]allMainPostItems]count]) {
         // using postItem because cell hasn't been made yet.
-        LAPostItem *postItem = [_objects objectAtIndex:[indexPath row]];
+        LAPostItem *postItem =[[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
+        //[_objects objectAtIndex:[indexPath row]];
         
         if ([postItem imageURLString] == 0) {
             size = 150;
@@ -536,14 +540,16 @@ canEditRowAtIndexPath:(NSIndexPath *)indexPath
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
-
+// don't think this get's called either
 - (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [_objects removeObjectAtIndex:indexPath.row];
+        NSLog(@"someones's trying to delete cells that's not right.");
+        
+        //[_objects removeObjectAtIndex:indexPath.row];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
@@ -582,7 +588,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     if (indexPath != nil)
     {
         // Get postitem and pass it to the like method in the social managher
-        LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
+        
+        LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
         
         if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO)
         {
@@ -592,7 +599,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             
             [socialView show];
         } else {
-            LAPostItem *postItem = [_objects objectAtIndex:indexPath.row];
+            LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
             
             if (![postItem isLikedByThisUser])
             {
@@ -610,29 +617,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     }
     [[self tableView]reloadData];
 }
-
-- (void)processArray:(NSArray *)array {
-    if ([array count] > 0) {
-        [self.objects addObjectsFromArray:array];
-        //self.filteredObjects = [self filterObjects:self.objects];
-    } else {
-        self.moreResultsAvail = NO;
-    }
-    [self.tableView reloadData];
-    // Always remember to set loading to NO whenever you finish loading the data.
-    self.loading = NO;
-}
-
-- (NSArray *)filterObjects:(NSArray *)objects
-{
-    NSMutableArray *filteredObjects = [[NSMutableArray alloc] init];
-    
-    for (LAPostItem *post in objects) {
-        // Determine if postID is filters
-        [filteredObjects addObject:post];
-    }
-    return [NSArray arrayWithArray:filteredObjects];
-}
+// not even sure this does anything
+//- (NSArray *)filterObjects:(NSArray *)objects
+//{
+//    NSMutableArray *filteredObjects = [[NSMutableArray alloc] init];
+//    
+//    for (LAPostItem *post in objects) {
+//        // Determine if postID is filters
+//        [filteredObjects addObject:post];
+//    }
+//    return [NSArray arrayWithArray:filteredObjects];
+//}
 
 #pragma mark - Social Manager Delegates
 
@@ -656,15 +651,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSLog(@"Received restul %@", result);
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"])
-    {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        //[[segue destinationViewController] setDetailItem:object];
-    }
-}
+// this isn't even being used.
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([[segue identifier] isEqualToString:@"showDetail"])
+//    {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//      
+//        NSDate *object = _objects[indexPath.row];
+//        //[[segue destinationViewController] setDetailItem:object];
+//    }
+//}
 
 
 - (BOOL)firstTimeLaunched

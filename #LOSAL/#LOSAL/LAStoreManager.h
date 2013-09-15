@@ -19,6 +19,8 @@
     NSMutableArray *postItems;
     NSMutableArray *mainPostItems;
 }
+@property (nonatomic) BOOL loading;
+@property (nonatomic) BOOL moreResultsAvail;
 @property (weak, nonatomic) id controller;
 @property (nonatomic, strong) LASettings *settings;
 //@property (nonatomic, strong) PFUser *user;
@@ -34,15 +36,15 @@
 //- (LAUser *)createUser;
 
 //- (void)trackOpen:(NSDictionary *)launchOptions;
-
+- (void)processArray:(NSArray *)array;
 - (void)getHashTags;
 
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock;
 
 - (void)getFeedFromDate:(NSDate *)date WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock;
-
+- (BOOL)doesThisUserLike:(NSString *)postID;
 - (void)getFeedWithCompletion:(void (^)(NSArray *posts, NSError *error))completionBlock;
-
+- (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock;
 //- (void)saveUsersSocialIDs;
 
 - (void)saveUsersLike:(PFObject *)postObject;
