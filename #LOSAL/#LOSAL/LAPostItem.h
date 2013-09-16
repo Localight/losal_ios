@@ -21,12 +21,9 @@
 @property (nonatomic, strong) NSString *userFirstName;
 @property (nonatomic, strong) NSString *userLastName;
 @property (nonatomic, strong) NSString *gradeLevel;
-@property (nonatomic, strong) NSString *firstName;
-@property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *iconString;
-@property (nonatomic, strong) NSString *iconColor;
-
-//@property (nonatomic, strong) LAUser   *postUser;
+@property (nonatomic, strong) UIColor *userColorChoice;
+@property (nonatomic, strong) LAUser   *postUser;
 @property (assign) BOOL isLikedByThisUser;
 
 

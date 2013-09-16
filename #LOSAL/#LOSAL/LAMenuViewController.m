@@ -65,6 +65,7 @@
     // the calendar will ask you if you want to subscribe.
     _menuItems = @[@"Feed", @"Links", @"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
   
+    
     [_userNameLabel setText:[[[LAStoreManager defaultStore]currentUser]firstName]];
     [_userNameLabel setTextColor:[UIColor whiteColor]];
     [_userIcon setFont:[UIFont fontWithName:@"iconmoon" size:30.0f]];

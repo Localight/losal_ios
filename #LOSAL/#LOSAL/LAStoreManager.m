@@ -141,7 +141,7 @@
                  NSLog(@"post looks like %@", post);
                  LAPostItem *postItem = [[LAPostItem alloc] init];
                  
-                 [postItem setPostObject:post];
+//               [postItem setPostObject:post];
                  [postItem setPostTime:[post objectForKey:@"postTime"]];
                  [postItem setSocialNetwork:[post objectForKey:@"socialNetworkName"]];
                  [postItem setSocialNetworkPostID:[post objectForKey:@"socialNetworkPostID"]];
@@ -153,12 +153,16 @@
                      NSLog(@"user is %@", user);
                      // postItem.postUser = [[LAUser alloc] init];
                      [postItem setGradeLevel:[user objectForKey:@"year"]];
-                     [postItem setFirstName:[user objectForKey:@"firstName"]];
-                     [postItem setLastName:[user objectForKey:@"lastName"]];
+                     [postItem setUserFirstName:[user objectForKey:@"firstName"]];
+                     [postItem setUserLastName:[user objectForKey:@"lastName"]];
+                     NSScanner *scanner = [NSScanner scannerWithString:[user objectForKey:@"icon"]];
+                     unsigned int code;
+                     [scanner scanHexInt:&code];
+                     [postItem setIconString:[NSString stringWithFormat:@"%C",(unsigned short)code]];
                      [postItem setIconString:[user objectForKey:@"icon"]];
-                     [postItem setIconColor:[user objectForKey:@"faveColor"]];
+                     [postItem setUserColorChoice:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
+                     [mainPostItems addObject:postItem];
                  }
-                 [mainPostItems addObject:postItem];
              }
          }else {
              // If things went bad, show an alert view

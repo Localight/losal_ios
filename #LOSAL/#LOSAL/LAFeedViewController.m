@@ -1,4 +1,4 @@
-//
+
 //  LAFeedViewController.m
 //  #LOSAL
 //
@@ -272,7 +272,8 @@
      }];
     [[self tableView]reloadData];
 }
-- (UITableViewCell *)configureCell:(NSIndexPath *)indexPath {
+- (UITableViewCell *)configureCell:(NSIndexPath *)indexPath
+{
     // This method might need to be wittled down, I think some of this stuff doesn't belong here.
     // mostly the color changing of the like posts
     
@@ -289,8 +290,6 @@
 
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
-    //[[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]];
-    
     [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
     
     NSDate *timePosted = [postItem postTime];
@@ -299,22 +298,33 @@
     //NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
     
-    // Set up users icon
-    [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+    // Set up users icon[cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+   
     // check to make sure user is verified, then show info.
-    if ([[[LAStoreManager defaultStore]currentUser]userVerified]) {
-        NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
-        unsigned int code;
-        [scanner scanHexInt:&code];
-        [[cell icon]setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
-        [[cell icon]setTextColor:[self colorFromHexString:[postItem iconColor]]];
-        NSString *lastName = [[postItem lastName]substringFromIndex:1];
-        NSString *firstName = [postItem firstName];
-        NSString *displayName = [firstName stringByAppendingString:lastName];
-        [[cell userNameLabel]setText:displayName];
+    if ([[[LAStoreManager defaultStore]currentUser]userVerified])
+    {
+        NSLog(@"%@",[postItem iconString]);
+        
+        [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+        
+        if ([[postItem iconString]length] > 0) {
+            NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
+            unsigned int code;
+            [scanner scanHexInt:&code];
+            [[cell icon]setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
+            [[cell icon]setTextColor:[postItem userColorChoice]];
+        } else {
+            cell.icon.text = [NSString stringWithUTF8String:DEFAULT_ICON];
+            [cell.icon setTextColor:[UIColor whiteColor]];
+        }
+//        NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
+//        unsigned int code;
+//        [scanner scanHexInt:&code];
+//        [[cell icon]setText:[NSString stringWithFormat:@"%C",(unsigned short)code]];
+        [[cell userNameLabel]setText:[postItem userFirstName]];
         [[cell messageArea] setText:[postItem text]];
-
         [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem gradeLevel]]];
+        
         if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
         {
             UIImage *facebookIcon = [[UIImage imageNamed:@"facebook"]imageWithOverlayColor:[UIColor whiteColor]];
@@ -332,6 +342,7 @@
             UIImage *star = [[UIImage imageNamed:@"twitterlike"]imageWithOverlayColor:[UIColor whiteColor]];
             [[cell likeImage]setImage:star];
         }
+        
         // by default we want the
         if ([postItem isLikedByThisUser])
         {
@@ -347,6 +358,7 @@
                 [[cell likeImage]setImage:star];
             }
         }
+        
         // we use this to tell the difference between tweets and instagram
         if (![[postItem imageURLString] length] == 0)
         {
@@ -363,19 +375,33 @@
                      //[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]
                      //[cell.postImage setImage:image];
                  }}];
+            // if it's  tweet set the message image to nil
         } else {
             [[cell postImage]setImage:nil];
             [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
         }
+        
     } else {
+        
+        [[cell messageArea] setText:[postItem text]];
+        [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
         [[cell userNameLabel]setText:nil];
         [[cell dateAndGradeLabel]setText:nil];
         [[cell likeImage]setImage:nil];
         [[cell socialMediaImage]setImage:nil];
         [[cell icon]setText:[NSString stringWithUTF8String:DEFAULT_ICON]];
         [[cell icon]setTextColor:[UIColor whiteColor]];
-       // [[cell messageArea]setText:nil];
+        [self.imageLoader processImageDataWithURLString:postItem.imageURLString
+                                                  forId:postItem.postObject.objectId // why do we need to object ID?
+                                               andBlock:^(UIImage *image)
+         {
+             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+             {
+                 [[cell postImage]setImage:image];
+             }
+         }];
     }
+       // [[cell messageArea]setText:nil];
     UIImage *ago = [[UIImage imageNamed:@"clock"]imageWithOverlayColor:[UIColor whiteColor]];
     [[cell timeImage] setImage:ago];
 //    
