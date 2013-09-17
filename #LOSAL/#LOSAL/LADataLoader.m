@@ -18,7 +18,8 @@
         NSLog(@"Loaded more data");
         if (!error)
         {
-            [self.delegate processArray:array];
+            [[LAStoreManager defaultStore]processArray:array];
+//            [self.delegate processArray:array];
         }
     }];
 }

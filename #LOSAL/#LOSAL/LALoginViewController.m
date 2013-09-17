@@ -77,7 +77,7 @@
             [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:[_phoneNumber text]];
             [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
             NSLog(@"the next step");
-            [[[LAStoreManager defaultStore]currentUser]setUserVerified:true];
+           // [[[LAStoreManager defaultStore]currentUser]setUserVerified:true];
         }else{
             [_mobileNumberPrompt setText:@"Enter your mobile number"];
             

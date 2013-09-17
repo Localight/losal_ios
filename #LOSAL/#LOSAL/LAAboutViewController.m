@@ -51,7 +51,6 @@
     [_copywriteLabel setFont:[UIFont fontWithName:@"Roboto-Bold" size:16]];
 
     
-    
     UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     menuBtn.frame = CGRectMake(0, 0, 30, 30);
     [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];

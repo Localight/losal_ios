@@ -46,10 +46,43 @@
 //    [_userNameLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:17]];
     
 }
+-(void)receivedUpdateNotification:(NSNotification *) notification
+{
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    if ([[notification name] isEqualToString:@"updateUserDisplay"])
+    {
+        NSLog(@"%@",[[[LAStoreManager defaultStore]currentUser]userCategory]);
+        if ( [[[[LAStoreManager defaultStore]currentUser]userCategory] isEqualToString:@"Student"])
+        {
+            NSString * newLastNameString = [[[[LAStoreManager defaultStore]currentUser]lastName] substringWithRange:NSMakeRange(0, 1)];
+            NSString *newName = [NSString stringWithFormat:@"%@ %@.", [[[LAStoreManager defaultStore]currentUser]firstName], newLastNameString];
+            [_userNameLabel setText:newName];
+        }else{
+            NSString *newDisplayName = [NSString stringWithFormat:@"%@ %@",[[[LAStoreManager defaultStore]currentUser]prefix], [[[LAStoreManager defaultStore]currentUser]lastName]];
+            [_userNameLabel setText:newDisplayName];
+        }
+        [_userIcon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+        NSLog(@"this is the users's first name: %@", [[[LAStoreManager defaultStore]currentUser]firstName]);
+        NSScanner *scanner = [NSScanner scannerWithString:[[[LAStoreManager defaultStore]currentUser]iconString]];
+        unsigned int code;
+        [scanner scanHexInt:&code];
+        [_userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
+        [_userIcon setTextColor:[[[LAStoreManager defaultStore]currentUser]iconColor]];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+    
+	[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedUpdateNotification:)
+                                                 name:@"updateUserDisplay"
+                                               object:nil];
+
     [[self slidingViewController] setAnchorRightRevealAmount:240.f];
     [[self slidingViewController] setUnderLeftWidthLayout:ECFullWidth];
     //[[self view] setBackgroundColor:[UIColor whiteColor]];
@@ -65,14 +98,21 @@
     // the calendar will ask you if you want to subscribe.
     _menuItems = @[@"Feed", @"Links", @"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
   
+    NSLog(@"this is the users's first name: %@", [[[LAStoreManager defaultStore]currentUser]firstName]);
+
+        [_userIcon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+        NSScanner *scanner = [NSScanner scannerWithString:[[[LAStoreManager defaultStore]currentUser]iconString]];
+        unsigned int code;
+        [scanner scanHexInt:&code];
+        [_userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
+        [_userIcon setTextColor:[[[LAStoreManager defaultStore]currentUser]iconColor]];
     
-    [_userNameLabel setText:[[[LAStoreManager defaultStore]currentUser]firstName]];
-    [_userNameLabel setTextColor:[UIColor whiteColor]];
-    [_userIcon setFont:[UIFont fontWithName:@"iconmoon" size:30.0f]];
-    [_userIcon setText:[[[LAStoreManager defaultStore]currentUser]iconString]];
-    [_userIcon setTextColor:[[[LAStoreManager defaultStore]currentUser]iconColor]];
-    
-    
+//        [_userNameLabel setText:@"Non-Verified User"];
+//        [_userIcon setText:[NSString stringWithUTF8String:DEFAULT_ICON]];
+//        [_userIcon setTextColor:[UIColor whiteColor]];
+//    }
+        [_userNameLabel setText:[[[LAStoreManager defaultStore]currentUser]displayName]];
+    //[_userNameLabel setTextColor:[UIColor whiteColor]];
 // Set up users icon
 //    [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
 //    

@@ -149,18 +149,20 @@
                  [postItem setImageURLString:[post objectForKey:@"url"]];
                  [postItem setIsLikedByThisUser:[[LAStoreManager defaultStore]doesThisUserLike:[post objectId]]];
                  PFObject *user = [post objectForKey:@"user"];
-                 if (user != nil) {
+                 if (user != nil)
+                 {
                      NSLog(@"user is %@", user);
                      // postItem.postUser = [[LAUser alloc] init];
-                     [postItem setGradeLevel:[user objectForKey:@"year"]];
+                     
+                     [postItem setPrefix:[user objectForKey:@"prefix"]];//if they have a prefix
+                     [postItem setGradeLevel:[user objectForKey:@"year"]];//if they have a grade.
+                     // the following sets up the user's display name.
                      [postItem setUserFirstName:[user objectForKey:@"firstName"]];
                      [postItem setUserLastName:[user objectForKey:@"lastName"]];
-                     NSScanner *scanner = [NSScanner scannerWithString:[user objectForKey:@"icon"]];
-                     unsigned int code;
-                     [scanner scanHexInt:&code];
-                     [postItem setIconString:[NSString stringWithFormat:@"%C",(unsigned short)code]];
                      [postItem setIconString:[user objectForKey:@"icon"]];
                      [postItem setUserColorChoice:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
+                     [postItem setUserCategory:[user objectForKey:@"userType"]];//find out what they are
+                     
                      [mainPostItems addObject:postItem];
                  }
              }
@@ -463,6 +465,7 @@
     // [user setUsername:[_current useNameFromParse;
     // [user setPasword: [_currnet userPaswordFromParse;
 
+    
     NSLog(@"%@", [_currentUser pinNumberFromUrl]);
     
     PFUser *p = [[PFUser alloc]init];
@@ -477,26 +480,31 @@
                                  password:[p password]
                                     block:^(PFUser *user, NSError *error)
     {
+        NSLog(@"this is the pfusers current password, it should be the pass word from parse: %@",[[PFUser currentUser]password]);
         NSLog(@"about to contact parse for userdata");
         if (user)
         {
-            NSScanner *scanner = [NSScanner scannerWithString:[user objectForKey:@"icon"]];
-            unsigned int code;
-            [scanner scanHexInt:&code];
-            [_currentUser setIconString:[NSString stringWithFormat:@"%C", (unsigned short)code]];
+            [_currentUser setIconString:[user objectForKey:@"icon"]];
             [_currentUser setIconColor:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
             
             [_currentUser setTwitterDisplayName:[user objectForKey:@"twitterID"]];
             [_currentUser setInstagramDisplayName:[user objectForKey:@"instagramID"]];
             [_currentUser setTwitterUserID:[user objectForKey:@"userInstagramId"]];
             [_currentUser setInstagramUserID:[user objectForKey:@"userTwitterId"]];
-            [_currentUser setFirstName:[user objectForKey: @"firstName"]];
-            [_currentUser setDisplayName:[user objectForKey:@"firstName"]];
-            [_currentUser setLastName:[user objectForKey:@"lastName"]];
-            [_currentUser setObjectID:[user objectForKey:@"objectID"]];
-            [_currentUser setPhoneNumber:[user objectForKey:@"username"]];
             [_currentUser setUserCategory:[user objectForKey:@"userType"]];
             
+            [_currentUser setObjectID:[user objectForKey:@"objectID"]];
+            [_currentUser setPhoneNumber:[user objectForKey:@"username"]];
+            [_currentUser setFirstName:[user objectForKey:@"firstName"]];
+            [_currentUser setLastName:[user objectForKey:@"lastName"]];
+            [_currentUser setPrefix:[user objectForKey:@"prefix"]];
+            [_currentUser setUserVerified:YES];
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"Reload"
+             object:self];
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"updateUserDisplay"
+             object:self];
             NSLog(@"the user logged in.");
         }else{
             NSLog(@"whoops, something happened.");

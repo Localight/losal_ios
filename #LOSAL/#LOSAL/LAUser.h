@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *grade;
 @property (nonatomic, strong) NSString *userCategory;
+@property (nonatomic, strong) NSString *prefix;
 
 //@property (nonatomic, strong) NSString *displayName;
 @property (nonatomic, strong) NSString *twitterDisplayName;

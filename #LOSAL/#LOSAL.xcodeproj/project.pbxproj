@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		43249B8F17C522D00063197B /* LAWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43249B8E17C522D00063197B /* LAWebViewController.m */; };
-		43249B9317C584270063197B /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43249B9117C584100063197B /* icomoon.ttf */; };
 		43249B9817C689AF0063197B /* LAColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 43249B9717C689AF0063197B /* LAColor+Hex.m */; };
 		43397B4317B93582003F4977 /* LAImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4217B93582003F4977 /* LAImage+Color.m */; };
 		43397B4517B93716003F4977 /* Mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = 43397B4417B93716003F4977 /* Mustache.png */; };
@@ -75,6 +74,20 @@
 		6523AE4317B42A1E00AFD830 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3717B42A1E00AFD830 /* Roboto-Regular.ttf */; };
 		6523AE4417B42A1E00AFD830 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */; };
 		6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */; };
+		6525769617E7821E00BA43F7 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6525769517E7821E00BA43F7 /* icomoon.ttf */; };
+		6525769917E787EA00BA43F7 /* gradientlosal1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6525769717E787EA00BA43F7 /* gradientlosal1.png */; };
+		6525769A17E787EA00BA43F7 /* gradientlosal2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6525769817E787EA00BA43F7 /* gradientlosal2.png */; };
+		652576A617E791F700BA43F7 /* AppIcon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 6525769C17E791F700BA43F7 /* AppIcon29x29.png */; };
+		652576A717E791F700BA43F7 /* AppIcon29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6525769D17E791F700BA43F7 /* AppIcon29x29@2x.png */; };
+		652576A817E791F700BA43F7 /* AppIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6525769E17E791F700BA43F7 /* AppIcon40x40.png */; };
+		652576A917E791F700BA43F7 /* AppIcon40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6525769F17E791F700BA43F7 /* AppIcon40x40@2x.png */; };
+		652576AA17E791F700BA43F7 /* AppIcon60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 652576A017E791F700BA43F7 /* AppIcon60x60.png */; };
+		652576AB17E791F700BA43F7 /* AppIcon60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 652576A117E791F700BA43F7 /* AppIcon60x60@2x.png */; };
+		652576AC17E791F700BA43F7 /* AppIcon76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 652576A217E791F700BA43F7 /* AppIcon76x76.png */; };
+		652576AD17E791F700BA43F7 /* AppIcon76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 652576A317E791F700BA43F7 /* AppIcon76x76@2x.png */; };
+		652576AE17E791F700BA43F7 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 652576A417E791F700BA43F7 /* iTunesArtwork.png */; };
+		652576AF17E791F700BA43F7 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 652576A517E791F700BA43F7 /* iTunesArtwork@2x.png */; };
+		652576B117E7922E00BA43F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 652576B017E7922E00BA43F7 /* Images.xcassets */; };
 		652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 652F518C17D00DCA004DD0DA /* LANoticesStore.m */; };
 		652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 652F519217D02124004DD0DA /* LANoticeItemCell.m */; };
 		6530907017BD87C400ADA359 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906A17BD87C400ADA359 /* facebook.png */; };
@@ -137,7 +150,6 @@
 /* Begin PBXFileReference section */
 		43249B8D17C522D00063197B /* LAWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAWebViewController.h; sourceTree = "<group>"; };
 		43249B8E17C522D00063197B /* LAWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAWebViewController.m; sourceTree = "<group>"; };
-		43249B9117C584100063197B /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
 		43249B9617C689AE0063197B /* LAColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LAColor+Hex.h"; sourceTree = "<group>"; };
 		43249B9717C689AF0063197B /* LAColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LAColor+Hex.m"; sourceTree = "<group>"; };
 		43397B4117B93582003F4977 /* LAImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LAImage+Color.h"; sourceTree = "<group>"; };
@@ -225,6 +237,20 @@
 		6523AE3717B42A1E00AFD830 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		6525769517E7821E00BA43F7 /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
+		6525769717E787EA00BA43F7 /* gradientlosal1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradientlosal1.png; sourceTree = "<group>"; };
+		6525769817E787EA00BA43F7 /* gradientlosal2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradientlosal2.png; sourceTree = "<group>"; };
+		6525769C17E791F700BA43F7 /* AppIcon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon29x29.png; sourceTree = "<group>"; };
+		6525769D17E791F700BA43F7 /* AppIcon29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon29x29@2x.png"; sourceTree = "<group>"; };
+		6525769E17E791F700BA43F7 /* AppIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon40x40.png; sourceTree = "<group>"; };
+		6525769F17E791F700BA43F7 /* AppIcon40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon40x40@2x.png"; sourceTree = "<group>"; };
+		652576A017E791F700BA43F7 /* AppIcon60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon60x60.png; sourceTree = "<group>"; };
+		652576A117E791F700BA43F7 /* AppIcon60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon60x60@2x.png"; sourceTree = "<group>"; };
+		652576A217E791F700BA43F7 /* AppIcon76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon76x76.png; sourceTree = "<group>"; };
+		652576A317E791F700BA43F7 /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon76x76@2x.png"; sourceTree = "<group>"; };
+		652576A417E791F700BA43F7 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		652576A517E791F700BA43F7 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		652576B017E7922E00BA43F7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		652F518B17D00DCA004DD0DA /* LANoticesStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticesStore.h; sourceTree = "<group>"; };
 		652F518C17D00DCA004DD0DA /* LANoticesStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticesStore.m; sourceTree = "<group>"; };
 		652F519117D02124004DD0DA /* LANoticeItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeItemCell.h; sourceTree = "<group>"; };
@@ -433,6 +459,8 @@
 		43BE533E17C3BD7B008BE0E7 /* Background Images */ = {
 			isa = PBXGroup;
 			children = (
+				6525769717E787EA00BA43F7 /* gradientlosal1.png */,
+				6525769817E787EA00BA43F7 /* gradientlosal2.png */,
 				44C777D117D6739B0062FDF4 /* sign-in-01.png */,
 				44C777D217D6739B0062FDF4 /* sign-in-01@2x.png */,
 				44C777D317D6739B0062FDF4 /* sign-in-02.png */,
@@ -481,6 +509,7 @@
 		6523AE2D17B4261000AFD830 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				6525769517E7821E00BA43F7 /* icomoon.ttf */,
 				6523AE2E17B42A1E00AFD830 /* Roboto-Black.ttf */,
 				6523AE2F17B42A1E00AFD830 /* Roboto-BlackItalic.ttf */,
 				6523AE3017B42A1E00AFD830 /* Roboto-Bold.ttf */,
@@ -493,9 +522,25 @@
 				6523AE3717B42A1E00AFD830 /* Roboto-Regular.ttf */,
 				6523AE3817B42A1E00AFD830 /* Roboto-Thin.ttf */,
 				6523AE3917B42A1E00AFD830 /* Roboto-ThinItalic.ttf */,
-				43249B9117C584100063197B /* icomoon.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		6525769B17E791F700BA43F7 /* LOSAL App Icon [Squared] */ = {
+			isa = PBXGroup;
+			children = (
+				6525769C17E791F700BA43F7 /* AppIcon29x29.png */,
+				6525769D17E791F700BA43F7 /* AppIcon29x29@2x.png */,
+				6525769E17E791F700BA43F7 /* AppIcon40x40.png */,
+				6525769F17E791F700BA43F7 /* AppIcon40x40@2x.png */,
+				652576A017E791F700BA43F7 /* AppIcon60x60.png */,
+				652576A117E791F700BA43F7 /* AppIcon60x60@2x.png */,
+				652576A217E791F700BA43F7 /* AppIcon76x76.png */,
+				652576A317E791F700BA43F7 /* AppIcon76x76@2x.png */,
+				652576A417E791F700BA43F7 /* iTunesArtwork.png */,
+				652576A517E791F700BA43F7 /* iTunesArtwork@2x.png */,
+			);
+			path = "LOSAL App Icon [Squared]";
 			sourceTree = "<group>";
 		};
 		6530907617BD8C7D00ADA359 /* Icons */ = {
@@ -604,6 +649,7 @@
 				43DC44BA17A796DC005729D8 /* Store */,
 				4378F37517B2DF0E00DEBE6A /* Utilities */,
 				65FA586E17A9880A006598B1 /* Views */,
+				652576B017E7922E00BA43F7 /* Images.xcassets */,
 			);
 			path = "#LOSAL";
 			sourceTree = "<group>";
@@ -611,6 +657,7 @@
 		6588D02D17A4BCC500B6C498 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6525769B17E791F700BA43F7 /* LOSAL App Icon [Squared] */,
 				65032EF817DA7F30004683BB /* instagramSocialLink.png */,
 				65032EF917DA7F30004683BB /* flickrSocialLink.png */,
 				65032EFA17DA7F30004683BB /* facebookSocialLink.png */,
@@ -750,6 +797,11 @@
 				CLASSPREFIX = LA;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Localism;
+				TargetAttributes = {
+					6588D02217A4BCC500B6C498 = {
+						DevelopmentTeam = UAQU83P824;
+					};
+				};
 			};
 			buildConfigurationList = 6588D01E17A4BCC500B6C498 /* Build configuration list for PBXProject "#LOSAL" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -780,21 +832,27 @@
 				4397674617B1A89F0040C947 /* Instagram1.png in Resources */,
 				4397674C17B2A75C0040C947 /* placeholder.png in Resources */,
 				6523AE3A17B42A1E00AFD830 /* Roboto-Black.ttf in Resources */,
+				652576AC17E791F700BA43F7 /* AppIcon76x76.png in Resources */,
 				6523AE3B17B42A1E00AFD830 /* Roboto-BlackItalic.ttf in Resources */,
 				6523AE3C17B42A1E00AFD830 /* Roboto-Bold.ttf in Resources */,
 				6523AE3D17B42A1E00AFD830 /* Roboto-BoldItalic.ttf in Resources */,
 				6523AE3E17B42A1E00AFD830 /* Roboto-Italic.ttf in Resources */,
+				652576AB17E791F700BA43F7 /* AppIcon60x60@2x.png in Resources */,
 				6523AE3F17B42A1E00AFD830 /* Roboto-Light.ttf in Resources */,
 				6523AE4017B42A1E00AFD830 /* Roboto-LightItalic.ttf in Resources */,
 				6523AE4117B42A1E00AFD830 /* Roboto-Medium.ttf in Resources */,
+				652576AF17E791F700BA43F7 /* iTunesArtwork@2x.png in Resources */,
 				6523AE4217B42A1E00AFD830 /* Roboto-MediumItalic.ttf in Resources */,
 				6523AE4317B42A1E00AFD830 /* Roboto-Regular.ttf in Resources */,
 				6523AE4417B42A1E00AFD830 /* Roboto-Thin.ttf in Resources */,
+				652576AE17E791F700BA43F7 /* iTunesArtwork.png in Resources */,
 				6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */,
 				43397B4517B93716003F4977 /* Mustache.png in Resources */,
 				6549236817B9591A003F39E3 /* do-git in Resources */,
+				6525769617E7821E00BA43F7 /* icomoon.ttf in Resources */,
 				6549236A17B9591A003F39E3 /* README.md in Resources */,
 				651F0C1417BAC1F00018794A /* photo2.jpg in Resources */,
+				652576A817E791F700BA43F7 /* AppIcon40x40.png in Resources */,
 				6530907017BD87C400ADA359 /* facebook.png in Resources */,
 				6530907117BD87C400ADA359 /* instagramlike.png in Resources */,
 				6530907217BD87C400ADA359 /* instagram.png in Resources */,
@@ -805,19 +863,21 @@
 				43BE532F17C2EDA4008BE0E7 /* griffin-dance-bg-1.png in Resources */,
 				43BE533117C2EE15008BE0E7 /* dark-griffin-dance-bg-1.png in Resources */,
 				43BE533517C3BA9A008BE0E7 /* Default-568h@2x.png in Resources */,
+				6525769A17E787EA00BA43F7 /* gradientlosal2.png in Resources */,
 				43BE533717C3BB36008BE0E7 /* Default@2x.png in Resources */,
 				43BE533917C3BB96008BE0E7 /* Default.png in Resources */,
 				43BE533C17C3BCB5008BE0E7 /* dark-griffin-dance-bg-2.png in Resources */,
 				43BE533D17C3BCB5008BE0E7 /* griffin-dance-bg-2.png in Resources */,
+				652576A617E791F700BA43F7 /* AppIcon29x29.png in Resources */,
 				6576740717C55ACD00EC2881 /* lightning.png in Resources */,
 				6576740B17C55D2800EC2881 /* edmodo-logo.png in Resources */,
 				6576740D17C5615400EC2881 /* news.png in Resources */,
 				6576740F17C5776E00EC2881 /* griffin-mascot.png in Resources */,
-				43249B9317C584270063197B /* icomoon.ttf in Resources */,
 				43F9621517C6D7C7006F9AF4 /* menu-icon.png in Resources */,
 				65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */,
 				65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */,
 				65EBCE2F17CD3103009138E8 /* social-icon.png in Resources */,
+				652576B117E7922E00BA43F7 /* Images.xcassets in Resources */,
 				65C522ED17D109F900C5622C /* school-links.png in Resources */,
 				65B2A33E17D551CD004DA2FA /* gradient-text.png in Resources */,
 				65B2A34017D55944004DA2FA /* dark-gradient.png in Resources */,
@@ -825,16 +885,21 @@
 				44C777D617D6739B0062FDF4 /* sign-in-01@2x.png in Resources */,
 				44C777D717D6739B0062FDF4 /* sign-in-02.png in Resources */,
 				44C777D817D6739B0062FDF4 /* sign-in-02@2x.png in Resources */,
+				652576A917E791F700BA43F7 /* AppIcon40x40@2x.png in Resources */,
 				65B2A35417D7D426004DA2FA /* dr-arnold-wht2.png in Resources */,
 				65B2A35617D7D42C004DA2FA /* localism-blk.png in Resources */,
 				656EA0F317D8E55B00EF0E42 /* iphone-sign-in.png in Resources */,
+				652576AA17E791F700BA43F7 /* AppIcon60x60.png in Resources */,
 				656EA0F517D8E62000EF0E42 /* close-circle.png in Resources */,
 				65032EF617DA3C49004683BB /* iphone-sign-in-01.png in Resources */,
 				65032EF717DA3C49004683BB /* iphone-sign-in-02.png in Resources */,
 				65032EFE17DA7F30004683BB /* instagramSocialLink.png in Resources */,
 				65032EFF17DA7F30004683BB /* flickrSocialLink.png in Resources */,
+				6525769917E787EA00BA43F7 /* gradientlosal1.png in Resources */,
 				65032F0017DA7F30004683BB /* facebookSocialLink.png in Resources */,
+				652576AD17E791F700BA43F7 /* AppIcon76x76@2x.png in Resources */,
 				65032F0117DA7F30004683BB /* twitterSocialLink.png in Resources */,
+				652576A717E791F700BA43F7 /* AppIcon29x29@2x.png in Resources */,
 				65032F0217DA7F30004683BB /* youtubeSocialLink.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1018,7 +1083,7 @@
 		6588D05F17A4BCC500B6C498 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: James Hall (GP9RHSU4YV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1029,7 +1094,7 @@
 				INFOPLIST_FILE = "#LOSAL/#LOSAL-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "26616841-1185-4AB3-800F-9FCCDE8563C4";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1038,8 +1103,8 @@
 		6588D06017A4BCC500B6C498 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: James Hall (UAQU83P824)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Hall (UAQU83P824)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

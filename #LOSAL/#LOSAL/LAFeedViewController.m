@@ -71,7 +71,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-    }
+            }
+    
     return self;
 }
 
@@ -152,6 +153,12 @@
             NSLog(@"showing login view");
         }];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedReloadNotification:)
+                                                 name:@"Reload"
+                                               object:nil];
+
     [self fetchEntries];
     // Set up splash to dimmed background animation
 }
@@ -179,12 +186,22 @@
     [self.navigationController pushViewController:hashtagController animated:NO];
 }
 
+-(void)receivedReloadNotification:(NSNotification *) notification
+{
+            // [notification name] should always be @"TestNotification"
+        // unless you use this method for observation of other notifications
+        // as well.
+    if ([[notification name] isEqualToString:@"Reload"]){
+        [[self tableView]reloadData];
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 - (void)loadRequest
 {
     LADataLoader *loader = [[LADataLoader alloc] init];
     loader.delegate = self;
     LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]lastObject];
-    [loader loadDataFromDate:postItem.postTime];
+    [loader loadDataFromDate:[postItem postTime]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -285,47 +302,76 @@
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                  reuseIdentifier:cellIdentifier];
     }
+    // this sets up the image if an image is present
     
     LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
+    
+    if (![[postItem imageURLString]length] == 0)
+    {
+        // Set image to nil, in case the cell was reused.
+        [cell.postImage setImage:nil];
+        [self.imageLoader processImageDataWithURLString:postItem.imageURLString
+                                                  forId:postItem.postObject.objectId // why do we need to object ID?
+                                               andBlock:^(UIImage *image)
+         {
+             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+             {
+                 [[cell postImage]setImage:image];
+                 [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradientlosal2"]]];
+                 //[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]
+                 //[cell.postImage setImage:image];
+             }}];
+        // if it's  tweet set the message image to nil
+    } else {
+        [[cell postImage]setImage:nil];
+        [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradientlosal2"]]];
+    }
 
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
     [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
-    
+    UIImage *ago = [[UIImage imageNamed:@"clock"]imageWithOverlayColor:[UIColor whiteColor]];
+    [[cell timeImage] setImage:ago];
     NSDate *timePosted = [postItem postTime];
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     //NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
-    
+    // the following sets up the user's icons.
+    NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
+    unsigned int code;
+    [scanner scanHexInt:&code];
+    [[cell icon]setText:[NSString stringWithFormat:@"%C",(unsigned short)code]];
+    [[cell icon]setTextColor:[postItem userColorChoice]];
+    [[cell icon]setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+
+    [[cell messageArea] setText:[postItem text]];
+    [[cell messageArea]setTextColor:[UIColor whiteColor]];
     // Set up users icon[cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
-   
-    // check to make sure user is verified, then show info.
+    // set up the icons for users of type students
     if ([[[LAStoreManager defaultStore]currentUser]userVerified])
     {
-        NSLog(@"%@",[postItem iconString]);
-        
-        [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
-        
-        if ([[postItem iconString]length] > 0) {
-            NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
-            unsigned int code;
-            [scanner scanHexInt:&code];
-            [[cell icon]setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
-            [[cell icon]setTextColor:[postItem userColorChoice]];
-        } else {
-            cell.icon.text = [NSString stringWithUTF8String:DEFAULT_ICON];
-            [cell.icon setTextColor:[UIColor whiteColor]];
+        if ([[postItem userCategory] isEqualToString:@"Student"])
+        {
+            NSString * newLastNameString = [[postItem userLastName] substringWithRange:NSMakeRange(0, 1)];
+            NSString *newName = [NSString stringWithFormat:@"%@ %@.", [postItem userFirstName], newLastNameString];
+            [[cell userNameLabel]setText:newName];
+            [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem gradeLevel]]];
+        }else{
+            NSString *newDisplayName = [NSString stringWithFormat:@"%@ %@", [postItem prefix], [postItem userLastName]];
+            [[cell userNameLabel]setText:newDisplayName];
+            [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem userCategory]]];
+            [[cell likeImage]setImage:nil];
+            [[cell socialMediaImage]setImage:nil];
         }
-//        NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
-//        unsigned int code;
-//        [scanner scanHexInt:&code];
-//        [[cell icon]setText:[NSString stringWithFormat:@"%C",(unsigned short)code]];
-        [[cell userNameLabel]setText:[postItem userFirstName]];
-        [[cell messageArea] setText:[postItem text]];
-        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem gradeLevel]]];
-        
-        if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
+    }else {
+        [[cell userNameLabel]setHidden:YES];
+        [[cell socialLabel]setHidden:YES];
+        [[cell socialMediaImage]setHidden:YES];
+        [[cell likeImage]setHidden:YES];
+        [[cell dateAndGradeLabel]setHidden:YES];
+    }
+    if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
         {
             UIImage *facebookIcon = [[UIImage imageNamed:@"facebook"]imageWithOverlayColor:[UIColor whiteColor]];
             [[cell socialMediaImage]setImage:facebookIcon];
@@ -359,66 +405,13 @@
             }
         }
         
-        // we use this to tell the difference between tweets and instagram
-        if (![[postItem imageURLString] length] == 0)
-        {
-            // Set image to nil, in case the cell was reused.
-            [cell.postImage setImage:nil];
-            [self.imageLoader processImageDataWithURLString:postItem.imageURLString
-                                                      forId:postItem.postObject.objectId // why do we need to object ID?
-                                                   andBlock:^(UIImage *image)
-             {
-                 if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
-                 {
-                     [[cell postImage]setImage:image];
-                     [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
-                     //[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]
-                     //[cell.postImage setImage:image];
-                 }}];
-            // if it's  tweet set the message image to nil
-        } else {
-            [[cell postImage]setImage:nil];
-            [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
-        }
-        
-    } else {
-        
-        [[cell messageArea] setText:[postItem text]];
-        [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"dark-gradient"]]];
-        [[cell userNameLabel]setText:nil];
-        [[cell dateAndGradeLabel]setText:nil];
-        [[cell likeImage]setImage:nil];
-        [[cell socialMediaImage]setImage:nil];
-        [[cell icon]setText:[NSString stringWithUTF8String:DEFAULT_ICON]];
-        [[cell icon]setTextColor:[UIColor whiteColor]];
-        [self.imageLoader processImageDataWithURLString:postItem.imageURLString
-                                                  forId:postItem.postObject.objectId // why do we need to object ID?
-                                               andBlock:^(UIImage *image)
-         {
-             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
-             {
-                 [[cell postImage]setImage:image];
-             }
-         }];
-    }
-       // [[cell messageArea]setText:nil];
-    UIImage *ago = [[UIImage imageNamed:@"clock"]imageWithOverlayColor:[UIColor whiteColor]];
-    [[cell timeImage] setImage:ago];
-//    
-//    NSString *grade = @""; // set to blank in case there is no grade from post Item
-//    NSString *name = @""; // set to blank in case there is no name from post Item
-//    if (postItem.postUser != nil) {
-//        grade = postItem.postUser.grade;
-//        name = postItem.postUser.firstName;
-//    }
-//    
-        return cell;
+    return cell;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // If scrolled beyond two thirds of the table, load next batch of data.
+    // If scrolled beyond two thirds of the table, load next batch of data..
     if (indexPath.row >= (([[[LAStoreManager defaultStore]allMainPostItems]count])/5 *4))
     {
         if (![[LAStoreManager defaultStore]loading] && [[LAStoreManager defaultStore]moreResultsAvail])
@@ -431,7 +424,7 @@
     
     UITableViewCell *cell;
     
-    if (indexPath.row < [[[LAStoreManager defaultStore]allMainPostItems]count]) {
+    if ([indexPath row] < [[[LAStoreManager defaultStore]allMainPostItems]count]) {
         cell = [self configureCell:indexPath];
     } else {
         NSString *cellIdentifier = @"moreCell";
@@ -709,5 +702,4 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
     return !hasLaunched;
 }
-
 @end

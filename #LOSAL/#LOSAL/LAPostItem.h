@@ -23,7 +23,10 @@
 @property (nonatomic, strong) NSString *gradeLevel;
 @property (nonatomic, strong) NSString *iconString;
 @property (nonatomic, strong) UIColor *userColorChoice;
+@property (nonatomic, strong) NSString *userCategory;
 @property (nonatomic, strong) LAUser   *postUser;
+@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong) NSString *prefix;
 @property (assign) BOOL isLikedByThisUser;
 
 
