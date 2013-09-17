@@ -1,4 +1,4 @@
-
+ 
 //  LAFeedViewController.m
 //  #LOSAL
 //
@@ -191,19 +191,35 @@
             // [notification name] should always be @"TestNotification"
         // unless you use this method for observation of other notifications
         // as well.
-    if ([[notification name] isEqualToString:@"Reload"]){
+    if ([[notification name] isEqualToString:@"Reload"])
+    {
         [[self tableView]reloadData];
     }
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 - (void)loadRequest
 {
-    LADataLoader *loader = [[LADataLoader alloc] init];
-    loader.delegate = self;
+   
+  //  LADataLoader *loader = [[LADataLoader alloc] init];
+   // loader.delegate = self;
     LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]lastObject];
-    [loader loadDataFromDate:[postItem postTime]];
-}
+    
+    [[LAStoreManager defaultStore] getFeedFromDate:[postItem postTime] WithCompletion:^(NSArray *array, NSError *error)
+     {
+         NSLog(@"Loaded more data");
+         if (!error)
+         {
+             NSLog(@"got here");
+             [[LAStoreManager defaultStore]processArray:array];
+             [[NSNotificationCenter defaultCenter]
+              postNotificationName:@"Reload"
+              object:self];
+             //            [self.delegate processArray:array];
+         }else{
+             NSLog(@"%@", error);
+         }
+     }];
 
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -222,7 +238,10 @@
 //    [self.tableView insertRowsAtIndexPaths:@[indexPath]
 //                          withRowAnimation:UITableViewRowAnimationAutomatic];
 //}
-
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -242,6 +261,7 @@
 
 - (void)fetchEntries
 {
+    
     [[LAStoreManager defaultStore]setMoreResultsAvail:YES];
     
     UIView *currentTitleView = [[self navigationItem] titleView];
@@ -412,17 +432,21 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // If scrolled beyond two thirds of the table, load next batch of data..
-    if (indexPath.row >= (([[[LAStoreManager defaultStore]allMainPostItems]count])/5 *4))
+    if ([indexPath row] >= (([[[LAStoreManager defaultStore]allMainPostItems]count]/5) *4))
     {
         if (![[LAStoreManager defaultStore]loading] && [[LAStoreManager defaultStore]moreResultsAvail])
         {
             [[LAStoreManager defaultStore]setLoading:YES];
                       // loadRequest is the method that loads the next batch of data.
             [self loadRequest];
+        }else{
+            NSLog(@"something went wrong again!");
         }
     }
     
     UITableViewCell *cell;
+    
+    NSLog(@"the cell count is %lu", (unsigned long)[[[LAStoreManager defaultStore]allMainPostItems]count]);
     
     if ([indexPath row] < [[[LAStoreManager defaultStore]allMainPostItems]count]) {
         cell = [self configureCell:indexPath];

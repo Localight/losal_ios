@@ -9,7 +9,7 @@
 #import "LAAppDelegate.h"
 #import "LAStoreManager.h"
 #import "LASocialManager.h"
-
+#import "LANoticesStore.h"
 @interface LAAppDelegate ()
 
 //@property (nonatomic, strong) LAStoreManager *storeManager;
@@ -40,7 +40,7 @@
     [[LAStoreManager defaultStore]getSettingsWithCompletion:^(NSError *error){
         NSLog(@"Settings complete");
     }];
-    
+    [[LANoticesStore defaultStore]updateEntries];
     // Will download hashtags for later use
     [[LAStoreManager defaultStore]getHashTags];
     

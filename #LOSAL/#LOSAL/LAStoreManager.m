@@ -116,10 +116,9 @@
     [query orderByDescending:@"postTime"];
     NSLog(@"%d", [[[LAStoreManager defaultStore]settings]queryIntervalDays]);
     
-    int a = [[[LAStoreManager defaultStore]settings]queryIntervalDays];
     
     // what the hell is this for?
-    NSTimeInterval interval = a * -1 * 24 * 60 * 60;
+    NSTimeInterval interval =  [[[LAStoreManager defaultStore]settings]queryIntervalDays] * -1 * 24 * 60 * 60;
     NSLog(@"%f",interval);
     NSDate *startDate = date;
     
@@ -148,6 +147,7 @@
                  [postItem setText:[post objectForKey:@"text"]];
                  [postItem setImageURLString:[post objectForKey:@"url"]];
                  [postItem setIsLikedByThisUser:[[LAStoreManager defaultStore]doesThisUserLike:[post objectId]]];
+                 
                  PFObject *user = [post objectForKey:@"user"];
                  if (user != nil)
                  {
@@ -203,10 +203,13 @@
     if ([array count] > 0)
     {
         [mainPostItems addObjectsFromArray:array];
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"Reload"
+         object:self];
         //self.filteredObjects = [self filterObjects:self.objects];
     } else {
         [self setMoreResultsAvail:NO];
-    }
+            }
     [self setLoading:NO];
     // Always remember to set loading to NO whenever you finish loading the data.
 //    [self.tableView reloadData];

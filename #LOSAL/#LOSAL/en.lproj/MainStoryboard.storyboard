@@ -180,8 +180,8 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="social-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZjT-vJ-FXt">
-                                            <rect key="frame" x="20" y="3" width="38" height="38"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="social-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZjT-vJ-FXt">
+                                            <rect key="frame" x="20" y="5" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="38" id="Mar-7Z-oHV"/>
                                                 <constraint firstAttribute="width" constant="38" id="N5W-3h-KZa"/>
@@ -215,8 +215,8 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="school-links.png" translatesAutoresizingMaskIntoConstraints="NO" id="MXd-dz-p2c">
-                                            <rect key="frame" x="20" y="3" width="38" height="38"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="school-links.png" translatesAutoresizingMaskIntoConstraints="NO" id="MXd-dz-p2c">
+                                            <rect key="frame" x="20" y="4" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="38" id="JYH-uT-zyh"/>
                                                 <constraint firstAttribute="width" constant="38" id="RkS-Ky-raH"/>
@@ -251,8 +251,8 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="A-plus.png" translatesAutoresizingMaskIntoConstraints="NO" id="2G0-H0-8ci">
-                                            <rect key="frame" x="20" y="3" width="38" height="38"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="A-plus.png" translatesAutoresizingMaskIntoConstraints="NO" id="2G0-H0-8ci">
+                                            <rect key="frame" x="20" y="4" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="38" id="AkT-RK-YDZ"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="KrW-ft-rj8"/>
@@ -286,8 +286,8 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="socrative-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="MTE-tu-mgk">
-                                            <rect key="frame" x="20" y="3" width="38" height="38"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="socrative-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="MTE-tu-mgk">
+                                            <rect key="frame" x="20" y="4" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="D9F-GX-2yU"/>
                                                 <constraint firstAttribute="height" constant="38" id="JU9-1S-Egd"/>
@@ -321,8 +321,8 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="edmodo-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="fV6-VR-xks">
-                                            <rect key="frame" x="20" y="3" width="38" height="38"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="edmodo-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="fV6-VR-xks">
+                                            <rect key="frame" x="20" y="4" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Aln-DM-Iws"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="Eyg-3H-PLV"/>
@@ -452,7 +452,7 @@
                                             <constraint firstAttribute="width" constant="280" id="qjC-Ce-3vO"/>
                                             <constraint firstAttribute="height" constant="1306" id="yG7-yZ-ADg"/>
                                         </constraints>
-                                        <string key="text">Do you need to report an emergency?  
+                                        <mutableString key="text">Do you need to report an emergency?  
 Click to call 911 now.  
 
 Not an emergency? 
@@ -473,14 +473,14 @@ Level 2 access is for verified parents, faculty and staff.  Verification for adu
 Level 3 access is for non-verified app users. They only see a photo wall in the social feed. They do not see textual content of posts or the obfuscated persona.
 
 Privacy and server security
-Localism Inc.'s CEP is 100% FERPA-compliant meeting or exceeding applicable provisions of the Family Educational Rights and Privacy Act (FERPA), 20 U.S.C. 1232g. Privacy and security measures are in place to protect user data and data transfer. The privacy and security of student data is our first priority. Children's Online Privacy Protection Act: Our Applications and Services are directed to the general public.
+Localism Inc.'s CEP is 100% FERPA-compliant meeting or exceeding applicable provisions of the Family Educational Rights and Privacy Act (FERPA), 20 U.S.C. 1232g. Privacy and security measures are in place to protect user data and data transfer. The privacy and security of student data is our first priority. 
 See our privacy policy for more information.
 
 Privacy policy (English)
 (links to http://localism.co/losalapp/privacy/english/ )
 
 Política de privacidad (Español)
-(Links to http://localism.co/losalapp/privacy/espanol/ )</string>
+(Links to http://localism.co/losalapp/privacy/espanol/ )</mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
@@ -1276,6 +1276,7 @@ Learn more at Localism.co/schools</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <constraints>
                                     <constraint firstItem="Z03-rm-Ql6" firstAttribute="bottom" secondItem="gU2-GG-zgj" secondAttribute="bottom" id="4Rf-ED-nI7"/>
