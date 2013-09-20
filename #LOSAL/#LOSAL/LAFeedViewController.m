@@ -162,6 +162,10 @@
     [self fetchEntries];
     // Set up splash to dimmed background animation
 }
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 //- (void)viewWillAppear:(BOOL)animated
 //{
 //    [super viewWillAppear:animated];
@@ -198,7 +202,6 @@
 }
 - (void)loadRequest
 {
-   
   //  LADataLoader *loader = [[LADataLoader alloc] init];
    // loader.delegate = self;
     LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]lastObject];
@@ -261,7 +264,6 @@
 
 - (void)fetchEntries
 {
-    
     [[LAStoreManager defaultStore]setMoreResultsAvail:YES];
     
     UIView *currentTitleView = [[self navigationItem] titleView];

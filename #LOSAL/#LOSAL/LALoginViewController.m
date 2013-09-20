@@ -59,21 +59,24 @@
 
 - (IBAction)verifyUser:(id)sender
 {
+    
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     [query whereKey:@"username" equalTo:[_phoneNumber text]];
     
+    [[_verifyUserButton titleLabel]setText:@"Retry"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         int count = 0;
         if (!error)
         {
+            [[_verifyUserButton titleLabel]setText:@"Retry"];
             NSLog(@"This user has a number in the DataBase");
             [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];\
-            [_validUserLabel setTextColor:[UIColor whiteColor]];
+            [_validUserLabel setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
             [_mobileNumberPrompt setText:@"No text message? Email us and we'll see what the deal is, or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
             [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
             //  self.phoneNumber.hidden = YES;
-            [_verifyUserButton setHidden:YES];
-            [_retryButton setHidden:NO];
+         
+            //[_retryButton setHidden:NO];
             [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:[_phoneNumber text]];
             [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
             NSLog(@"the next step");
@@ -82,9 +85,9 @@
             [_mobileNumberPrompt setText:@"Enter your mobile number"];
             
             [_validUserLabel setText:@"Oops! Did you miss the app registration? Your number wasn't recognized. Email us for access or retry below."];
-            [_validUserLabel setTextColor:[UIColor whiteColor]];
+            [_validUserLabel setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
             [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
-            [_retryButton setHidden:YES];
+            
             NSLog(@"did we get here?");
             [_verifyUserButton setHidden:YES];
             while (count > 2) {
