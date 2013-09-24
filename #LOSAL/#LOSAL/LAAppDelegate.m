@@ -18,12 +18,16 @@
 @end
 @implementation LAAppDelegate
 
+static NSString * const firstTimeLaunchkey = @"firstTimeLaunchedKey";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // const pointer
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:firstTimeLaunchkey];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES
-                                            withAnimation:UIStatusBarAnimationNone];
+   
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES
+//                                            withAnimation:UIStatusBarAnimationNone];
     
     [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg"
                   clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
@@ -110,6 +114,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [[NSUserDefaults standardUserDefaults] synchronize];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 

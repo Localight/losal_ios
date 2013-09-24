@@ -30,7 +30,6 @@
 {
     [super viewDidLoad];
     
-    [_retryButton setHidden:YES];
 //    [_validUserLabel setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
 //    [_mobileNumberPrompt setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
 //    [_phoneNumber setBackgroundColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
@@ -40,7 +39,6 @@
     
     [_phoneNumber setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
     [_verifyUserButton setBackgroundColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
-    [_retryButton setBackgroundColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
     [_phoneNumber setValue:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]
                 forKeyPath:@"_placeholderLabel.textColor"];
     
@@ -59,11 +57,11 @@
 
 - (IBAction)verifyUser:(id)sender
 {
-    
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     [query whereKey:@"username" equalTo:[_phoneNumber text]];
     
     [[_verifyUserButton titleLabel]setText:@"Retry"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         int count = 0;
         if (!error)
@@ -115,7 +113,7 @@
 //    self.backButton.hidden = YES;
 //}
 
-- (IBAction)backgroundTapped:(id)sender {
+- (IBAction)backgroundTapped:(id)sender{
     [[self view]endEditing:YES];
 }
 
@@ -128,8 +126,8 @@
 //    }
 //}
 
-- (void)dismiss
-{
+- (void)dismiss{
+    
     self.appDelegate.loginViewController = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }

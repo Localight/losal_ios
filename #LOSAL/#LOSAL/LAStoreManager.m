@@ -39,6 +39,7 @@
         uniqueHashtagsItems = [[NSMutableArray alloc]init];
         mainPostItems = [[NSMutableArray alloc]init];
         _currentUser = [[LAUser alloc]init];
+        
     }
     return self;
 }
@@ -111,12 +112,12 @@
 //        if (error) {
 //            completionBlock(nil, error);
 //        } else {
+    
+    
+   
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     
     [query orderByDescending:@"postTime"];
-    NSLog(@"%d", [[[LAStoreManager defaultStore]settings]queryIntervalDays]);
-    
-    
     // what the hell is this for?
     NSTimeInterval interval =  [[[LAStoreManager defaultStore]settings]queryIntervalDays] * -1 * 24 * 60 * 60;
     NSLog(@"%f",interval);
@@ -132,28 +133,31 @@
     // populate the array with post items, and then.. just hold onto it till we need it.
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
      {
+         
          if (!error)
          {
-             for (PFObject *post in posts)
+             NSLog(@"parse was queried at %@ and the size of the array is %lu.",[NSDate date], (unsigned long)[posts count]);
+             
+             for (PFObject *postObjects in posts)
              {
+                
                  // This does not require a network access.
-                 NSLog(@"post looks like %@", post);
+//                 NSLog(@"post looks like %@", post);
                  LAPostItem *postItem = [[LAPostItem alloc] init];
                  
 //               [postItem setPostObject:post];
-                 [postItem setPostTime:[post objectForKey:@"postTime"]];
-                 [postItem setSocialNetwork:[post objectForKey:@"socialNetworkName"]];
-                 [postItem setSocialNetworkPostID:[post objectForKey:@"socialNetworkPostID"]];
-                 [postItem setText:[post objectForKey:@"text"]];
-                 [postItem setImageURLString:[post objectForKey:@"url"]];
-                 [postItem setIsLikedByThisUser:[[LAStoreManager defaultStore]doesThisUserLike:[post objectId]]];
+                 [postItem setPostTime:[postObjects objectForKey:@"postTime"]];
+                 [postItem setSocialNetwork:[postObjects objectForKey:@"socialNetworkName"]];
+                 [postItem setSocialNetworkPostID:[postObjects objectForKey:@"socialNetworkPostID"]];
+                 [postItem setText:[postObjects objectForKey:@"text"]];
+                 [postItem setImageURLString:[postObjects objectForKey:@"url"]];
+                 [postItem setIsLikedByThisUser:[[LAStoreManager defaultStore]doesThisUserLike:[postObjects objectId]]];
                  
-                 PFObject *user = [post objectForKey:@"user"];
+                 PFObject *user = [postObjects objectForKey:@"user"];
                  if (user != nil)
                  {
-                     NSLog(@"user is %@", user);
+//                     NSLog(@"user is %@", user);
                      // postItem.postUser = [[LAUser alloc] init];
-                     
                      [postItem setPrefix:[user objectForKey:@"prefix"]];//if they have a prefix
                      [postItem setGradeLevel:[user objectForKey:@"year"]];//if they have a grade.
                      // the following sets up the user's display name.
@@ -162,10 +166,10 @@
                      [postItem setIconString:[user objectForKey:@"icon"]];
                      [postItem setUserColorChoice:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
                      [postItem setUserCategory:[user objectForKey:@"userType"]];//find out what they are
-                     
-                     [mainPostItems addObject:postItem];
                  }
+                  [mainPostItems addObject:postItem];
              }
+              NSLog(@"the size of the mainpostitems is now from outside the block:%lu",(unsigned long)[mainPostItems count]);
          }else {
              // If things went bad, show an alert view
              NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
@@ -181,8 +185,10 @@
              // If you come here you got the array
              NSLog(@"results are %@", posts);
          }
-         
+         _lastPostInArray  = [mainPostItems lastObject];
      }];
+    
+    NSLog(@"the size of the mainpostitems is now from outside the block: %lu",(unsigned long)[mainPostItems count]);
 }
 - (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
@@ -198,18 +204,20 @@
 //        completionBlock(posts, error);
 //    }];
 //}
-- (void)processArray:(NSArray *)array
+- (void)processArray:(NSMutableArray *)array
 {
     if ([array count] > 0)
     {
+        NSLog(@" the length of the array before %lu",(unsigned long)[mainPostItems count]);
         [mainPostItems addObjectsFromArray:array];
+        NSLog(@"the length of the array after %lu",(unsigned long)[mainPostItems count]);
         [[NSNotificationCenter defaultCenter]
          postNotificationName:@"Reload"
          object:self];
         //self.filteredObjects = [self filterObjects:self.objects];
     } else {
         [self setMoreResultsAvail:NO];
-            }
+    }
     [self setLoading:NO];
     // Always remember to set loading to NO whenever you finish loading the data.
 //    [self.tableView reloadData];
@@ -470,6 +478,7 @@
 
     
     NSLog(@"%@", [_currentUser pinNumberFromUrl]);
+    NSLog(@"%@", [_currentUser phoneNumber]);
     
     PFUser *p = [[PFUser alloc]init];
     [p setPassword:[_currentUser pinNumberFromUrl]];
@@ -539,34 +548,6 @@
 }
 // we could use this method to revalidate;
 // we could say if the
-- (void)reValidateUser
-{
-    PFUser *currentUser = [PFUser currentUser];
-    // if user wants to enter phone number
-    if (!currentUser)// if the user is not logged in.
-    {
-        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Request for Text Message"
-                                                        message:@"Would you like to re-enter your phone number and have the text message sent to you again? Please enter your phone number below or click NO to leave this screen."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"No"
-                                              otherButtonTitles:@"Yes", nil];
-        [prompt setAlertViewStyle:UIAlertViewStylePlainTextInput];
-        UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
-        [myTextField setBackgroundColor:[UIColor whiteColor]];
-        [prompt addSubview:myTextField];
-        CGAffineTransform myTransform = CGAffineTransformMakeTranslation(0.0, 130.0);
-        [prompt setTransform:myTransform];
-        [prompt show];
-        [self sendRegistrationRequestForPhoneNumber:[myTextField text]];
-        
-//        // show the signup or login scren
-//        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"You are already Validated. Would you like to reValidate and the text message send agai?" delegate:nil cancelButtonTitle:@"Yes" otherButtonTitles:"No", ];
-    } else {
-        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Oops!"
-                                                        message:@"It looks like you are already Verified and logged In."                                                        delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil, nil];
-        [prompt show];
-    }
-}
+
+
 @end

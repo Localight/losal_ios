@@ -90,7 +90,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Non-VerifiedUser" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRl-ak-blM">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Non-Registered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRl-ak-blM">
                                     <rect key="frame" x="62" y="14" width="170" height="30"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -518,10 +518,9 @@ A variety of factors give more weight to post, and only posts that surpass a thr
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                                     </textView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Copyright 2013 Localism Inc. All rights reserved." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24O-Pv-3ji">
-                                        <rect key="frame" x="36" y="3113" width="248" height="29"/>
+                                        <rect key="frame" x="36" y="3233" width="248" height="29"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="29" id="22C-UR-xzt"/>
-                                            <constraint firstAttribute="width" constant="248" id="P6B-ge-mSr"/>
+                                            <constraint firstAttribute="height" constant="29" id="YUa-do-YlK"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -545,20 +544,28 @@ Learn more at Localism.co/schools</string>
                                             <constraint firstAttribute="height" constant="182" id="HGf-fn-OeF"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="localism-blk.png" translatesAutoresizingMaskIntoConstraints="NO" id="loc-hM-hyL">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="localism-blk.png" translatesAutoresizingMaskIntoConstraints="NO" id="loc-hM-hyL">
                                         <rect key="frame" x="25" y="6" width="259" height="55"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPn-6h-wiN">
+                                        <rect key="frame" x="98" y="3195" width="113" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="ReVerify Button">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ReVerify:" destination="X02-i6-goS" eventType="touchUpInside" id="loo-uU-Vdf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="top" secondItem="5Gm-SU-tGd" secondAttribute="bottom" constant="66" id="19r-3H-sEL"/>
                                     <constraint firstItem="y4X-1C-aaj" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="486" id="2Mv-yv-qJX"/>
                                     <constraint firstItem="v8O-V4-jWK" firstAttribute="top" secondItem="WRm-tY-Ybj" secondAttribute="bottom" constant="8" symbolic="YES" id="5YH-9Q-sCh"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="210" id="5fO-On-H0Y"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="sx5-lE-14d" secondAttribute="leading" id="6Qu-ja-ZfG"/>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="top" secondItem="5Gm-SU-tGd" secondAttribute="bottom" constant="66" id="6ma-nb-io5"/>
+                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="36" id="6p4-eP-IIn"/>
                                     <constraint firstItem="Tsx-Ju-WkZ" firstAttribute="top" secondItem="JQv-0H-Or6" secondAttribute="bottom" constant="8" symbolic="YES" id="6zp-rd-WRj"/>
                                     <constraint firstItem="y4X-1C-aaj" firstAttribute="top" secondItem="Hmr-Xk-0X3" secondAttribute="bottom" constant="8" symbolic="YES" id="95h-1S-wn4"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="centerX" secondItem="24O-Pv-3ji" secondAttribute="centerX" id="AsK-bk-TFR"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="Hmr-Xk-0X3" secondAttribute="leading" id="Cgb-iv-kpA"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="v8O-V4-jWK" secondAttribute="leading" id="Ddr-y5-RTl"/>
                                     <constraint firstItem="Hmr-Xk-0X3" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" id="FJY-1r-00N"/>
@@ -570,27 +577,33 @@ Learn more at Localism.co/schools</string>
                                     <constraint firstItem="5Gm-SU-tGd" firstAttribute="centerX" secondItem="mqF-Dz-T4N" secondAttribute="centerX" id="JMJ-n1-6aJ"/>
                                     <constraint firstItem="JQv-0H-Or6" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" id="MDI-ns-JqP"/>
                                     <constraint firstAttribute="bottom" secondItem="WRm-tY-Ybj" secondAttribute="bottom" constant="3063" id="MJJ-Lw-EiR"/>
+                                    <constraint firstItem="loc-hM-hyL" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="6" id="Mga-vf-KCb"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="top" secondItem="GVC-Ff-ZC3" secondAttribute="bottom" constant="1" id="NvH-tH-xZJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="24O-Pv-3ji" secondAttribute="trailing" constant="36" id="OWu-F4-jcu"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="Tsx-Ju-WkZ" secondAttribute="leading" id="QhL-t3-AaU"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="trailing" secondItem="y4X-1C-aaj" secondAttribute="trailing" id="SJN-Uo-Lfy"/>
                                     <constraint firstAttribute="trailing" secondItem="Tsx-Ju-WkZ" secondAttribute="trailing" constant="97" id="TQc-ZQ-RhB"/>
                                     <constraint firstItem="5Gm-SU-tGd" firstAttribute="top" secondItem="3QJ-x9-Hfu" secondAttribute="bottom" constant="8" symbolic="YES" id="TaF-gz-fh2"/>
+                                    <constraint firstItem="loc-hM-hyL" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="25" id="Ud6-gL-lVP"/>
                                     <constraint firstItem="5Gm-SU-tGd" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="2865" id="V8M-g4-KaJ"/>
                                     <constraint firstItem="5Gm-SU-tGd" firstAttribute="centerX" secondItem="v8O-V4-jWK" secondAttribute="centerX" id="VJ9-8t-ev5"/>
                                     <constraint firstAttribute="trailing" secondItem="Hmr-Xk-0X3" secondAttribute="trailing" constant="20" id="VrY-uj-JuW"/>
+                                    <constraint firstItem="DPn-6h-wiN" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="98" id="Wl7-aw-iVs"/>
                                     <constraint firstItem="sx5-lE-14d" firstAttribute="top" secondItem="v8O-V4-jWK" secondAttribute="bottom" constant="8" symbolic="YES" id="XyP-fb-h4M"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" symbolic="YES" id="Ypx-uS-X7k"/>
+                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="centerX" secondItem="5Gm-SU-tGd" secondAttribute="centerX" id="Z0l-9U-y02"/>
+                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="trailing" secondItem="loc-hM-hyL" secondAttribute="trailing" id="ZpY-vv-5Mc"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="JQv-0H-Or6" secondAttribute="leading" id="apq-XL-Z2D"/>
                                     <constraint firstItem="Hmr-Xk-0X3" firstAttribute="top" secondItem="sx5-lE-14d" secondAttribute="bottom" constant="8" symbolic="YES" id="dzV-nD-LFE"/>
                                     <constraint firstItem="JQv-0H-Or6" firstAttribute="top" secondItem="y4X-1C-aaj" secondAttribute="bottom" constant="8" symbolic="YES" id="hF4-fi-4eb"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="GVC-Ff-ZC3" secondAttribute="leading" id="hKF-gf-6eM"/>
                                     <constraint firstAttribute="trailing" secondItem="WRm-tY-Ybj" secondAttribute="trailing" constant="148" id="hUr-Q4-gkW"/>
+                                    <constraint firstItem="GVC-Ff-ZC3" firstAttribute="top" secondItem="loc-hM-hyL" secondAttribute="bottom" constant="8" symbolic="YES" id="hz6-U3-O8I"/>
                                     <constraint firstItem="5Gm-SU-tGd" firstAttribute="centerX" secondItem="GVC-Ff-ZC3" secondAttribute="centerX" id="l3d-Zx-UFp"/>
                                     <constraint firstItem="WRm-tY-Ybj" firstAttribute="trailing" secondItem="sx5-lE-14d" secondAttribute="trailing" id="m65-B4-PSL"/>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="36" id="q7k-K9-aJP"/>
+                                    <constraint firstAttribute="bottom" secondItem="24O-Pv-3ji" secondAttribute="bottom" constant="36" id="pKv-DK-ph6"/>
                                     <constraint firstItem="3QJ-x9-Hfu" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" id="rvN-oD-1OC"/>
-                                    <constraint firstAttribute="bottom" secondItem="24O-Pv-3ji" secondAttribute="bottom" constant="156" id="yGx-iW-aYS"/>
+                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="top" secondItem="DPn-6h-wiN" secondAttribute="bottom" constant="8" symbolic="YES" id="ryy-7G-VOE"/>
+                                    <constraint firstItem="loc-hM-hyL" firstAttribute="centerX" secondItem="DPn-6h-wiN" secondAttribute="centerX" id="zcJ-eP-a5g"/>
                                 </constraints>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-un-5ba">
@@ -712,10 +725,10 @@ Learn more at Localism.co/schools</string>
             </objects>
             <point key="canvasLocation" x="71" y="72"/>
         </scene>
-        <!--School Links View Controller-->
+        <!--School Links View Controller - SchoolLinks-->
         <scene sceneID="f3j-Ga-Twm">
             <objects>
-                <viewController storyboardIdentifier="Links" id="yUa-Bh-pnl" customClass="LASchoolLinksViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Links" title="SchoolLinks" id="yUa-Bh-pnl" customClass="LASchoolLinksViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="akk-0u-6Xe"/>
                         <viewControllerLayoutGuide type="bottom" id="Gr4-c3-o3k"/>
@@ -748,7 +761,7 @@ Learn more at Localism.co/schools</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-2W-6uO">
-                                <rect key="frame" x="20" y="127.99999999999999" width="40" height="40"/>
+                                <rect key="frame" x="20" y="128" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8ut-Jy-mjG"/>
                                 </constraints>
@@ -771,7 +784,7 @@ Learn more at Localism.co/schools</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Facebook:                          LosAlamitosHighSchool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="JVa-YI-TPw">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Facebook:                          LosAlamitosHighSchool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="JVa-YI-TPw">
                                 <rect key="frame" x="68" y="190" width="230" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="22r-Ux-4yb"/>
@@ -780,7 +793,7 @@ Learn more at Localism.co/schools</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Twitter:                                @LosAlamitosHighSchool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="jdo-yB-4Y3">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter:                                @LosAlamitosHighSchool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="jdo-yB-4Y3">
                                 <rect key="frame" x="68" y="259" width="230" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -869,15 +882,15 @@ Learn more at Localism.co/schools</string>
                             <constraint firstItem="JVa-YI-TPw" firstAttribute="trailing" secondItem="5dU-GJ-N09" secondAttribute="trailing" id="KiX-WO-NXh"/>
                             <constraint firstItem="doQ-eg-kbH" firstAttribute="centerY" secondItem="VEi-38-9Rk" secondAttribute="centerY" id="LHH-W1-v26"/>
                             <constraint firstItem="iLB-v9-BXO" firstAttribute="centerY" secondItem="20v-Ti-dDD" secondAttribute="centerY" id="MNf-HX-XRi"/>
-                            <constraint firstItem="JVa-YI-TPw" firstAttribute="top" secondItem="5dU-GJ-N09" secondAttribute="bottom" constant="22" id="QSJ-7s-pIH"/>
+                            <constraint firstItem="JVa-YI-TPw" firstAttribute="top" secondItem="5dU-GJ-N09" secondAttribute="bottom" constant="17" id="QSJ-7s-pIH"/>
                             <constraint firstItem="iLB-v9-BXO" firstAttribute="leading" secondItem="20v-Ti-dDD" secondAttribute="trailing" constant="8" symbolic="YES" id="Rim-uZ-V8V"/>
                             <constraint firstItem="arC-nN-2iS" firstAttribute="centerY" secondItem="xNa-PC-SsG" secondAttribute="centerY" id="SBG-zC-dgB"/>
-                            <constraint firstItem="jdo-yB-4Y3" firstAttribute="top" secondItem="JVa-YI-TPw" secondAttribute="bottom" constant="20" id="TWM-ae-PaN"/>
+                            <constraint firstItem="jdo-yB-4Y3" firstAttribute="top" secondItem="JVa-YI-TPw" secondAttribute="bottom" constant="19" id="TWM-ae-PaN"/>
                             <constraint firstItem="XpW-c4-jKb" firstAttribute="top" secondItem="xNa-PC-SsG" secondAttribute="bottom" constant="19" id="UlB-p5-Asr"/>
                             <constraint firstItem="20v-Ti-dDD" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" constant="20" symbolic="YES" id="Wm8-fa-bQN"/>
-                            <constraint firstItem="VCX-xa-BJz" firstAttribute="top" secondItem="JVa-YI-TPw" secondAttribute="top" id="Xlx-x6-mUf"/>
+                            <constraint firstItem="VCX-xa-BJz" firstAttribute="top" secondItem="JVa-YI-TPw" secondAttribute="top" constant="5" id="Xlx-x6-mUf"/>
                             <constraint firstItem="doQ-eg-kbH" firstAttribute="leading" secondItem="VCX-xa-BJz" secondAttribute="leading" id="biw-CH-0B1"/>
-                            <constraint firstItem="xNa-PC-SsG" firstAttribute="top" secondItem="jdo-yB-4Y3" secondAttribute="bottom" constant="5" id="bmf-cT-O8n"/>
+                            <constraint firstItem="xNa-PC-SsG" firstAttribute="top" secondItem="jdo-yB-4Y3" secondAttribute="bottom" constant="11" id="bmf-cT-O8n"/>
                             <constraint firstItem="5dU-GJ-N09" firstAttribute="leading" secondItem="JVa-YI-TPw" secondAttribute="leading" id="bxU-cM-Tbl"/>
                             <constraint firstAttribute="trailing" secondItem="iLB-v9-BXO" secondAttribute="trailing" constant="22" id="czT-fs-WBq"/>
                             <constraint firstItem="JVa-YI-TPw" firstAttribute="leading" secondItem="jdo-yB-4Y3" secondAttribute="leading" id="eiw-4e-iDT"/>
@@ -891,13 +904,19 @@ Learn more at Localism.co/schools</string>
                             <constraint firstItem="5dU-GJ-N09" firstAttribute="leading" secondItem="Tei-2W-6uO" secondAttribute="trailing" constant="8" symbolic="YES" id="v5M-TP-hUR"/>
                         </constraints>
                     </view>
+                    <keyCommands/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="navyItem" destination="wzr-JR-mPV" id="WFd-xD-Usy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T62-7s-15A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="807"/>
+            <point key="canvasLocation" x="-323" y="811"/>
         </scene>
         <!--Feed View Controller - Feed-->
         <scene sceneID="18">
@@ -923,15 +942,15 @@ Learn more at Localism.co/schools</string>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Qz-Qk-Ivo">
                                             <rect key="frame" x="44" y="30" width="10" height="10"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="10" id="5ET-1b-jxw"/>
-                                                <constraint firstAttribute="width" constant="10" id="pWG-r0-FVd"/>
+                                                <constraint firstAttribute="height" constant="10" id="hbY-dQ-QGi"/>
+                                                <constraint firstAttribute="width" constant="10" id="ugx-eH-hWN"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88F-Cq-LRr">
                                             <rect key="frame" x="43" y="10" width="79" height="16"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="79" id="A4u-dG-Mga"/>
-                                                <constraint firstAttribute="height" constant="16" id="DY1-y5-xA1"/>
+                                                <constraint firstAttribute="height" constant="16" id="Bcj-9C-Lfx"/>
+                                                <constraint firstAttribute="width" constant="79" id="xHM-Oh-1ZT"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -943,18 +962,11 @@ Learn more at Localism.co/schools</string>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" indicatorStyle="black" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BT-y6-oBJ">
-                                            <rect key="frame" x="10" y="287" width="300" height="61"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="72" id="a0c-7K-0Ad"/>
-                                            </constraints>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
-                                        </textView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaa-pB-dw4">
                                             <rect key="frame" x="242" y="10" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="hPO-SR-KSq"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                             <state key="normal">
                                                 <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -967,14 +979,11 @@ Learn more at Localism.co/schools</string>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="HkS-1o-KRv">
                                             <rect key="frame" x="280" y="10" width="30" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="RVt-Rd-527"/>
+                                                <constraint firstAttribute="width" constant="30" id="b2q-dG-FWy"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="t4j-KR-diI">
                                             <rect key="frame" x="242" y="10" width="30" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="CDG-i9-1Qx"/>
-                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="L" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pah-gq-M15">
                                             <rect key="frame" x="10" y="7" width="36" height="36"/>
@@ -982,37 +991,47 @@ Learn more at Localism.co/schools</string>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="cRC-ul-2YD">
+                                            <rect key="frame" x="10" y="302" width="300" height="46"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="46" id="JL8-kG-ObC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="pah-gq-M15" firstAttribute="leading" secondItem="1BT-y6-oBJ" secondAttribute="leading" id="1LN-EK-sWi"/>
-                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="2Qz-Qk-Ivo" secondAttribute="bottom" constant="8" symbolic="YES" id="3xE-Fy-W7m"/>
-                                        <constraint firstItem="pah-gq-M15" firstAttribute="leading" secondItem="uhh-iY-viR" secondAttribute="leading" constant="10" id="4I6-OD-tLb"/>
-                                        <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="uhh-iY-viR" secondAttribute="leading" constant="43" id="5W0-GP-hlV"/>
-                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="t4j-KR-diI" secondAttribute="bottom" constant="8" symbolic="YES" id="7C7-n1-ouM"/>
-                                        <constraint firstItem="vaa-pB-dw4" firstAttribute="leading" secondItem="jUi-bt-Nv5" secondAttribute="trailing" constant="31" id="7mz-lN-a74"/>
-                                        <constraint firstItem="jUi-bt-Nv5" firstAttribute="leading" secondItem="2Qz-Qk-Ivo" secondAttribute="trailing" constant="8" symbolic="YES" id="9YJ-Ud-SvI"/>
-                                        <constraint firstItem="t4j-KR-diI" firstAttribute="leading" secondItem="vaa-pB-dw4" secondAttribute="leading" id="FGJ-b0-mdn"/>
-                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="trailing" secondItem="1BT-y6-oBJ" secondAttribute="trailing" id="KIc-3m-ePy"/>
-                                        <constraint firstItem="t4j-KR-diI" firstAttribute="top" secondItem="HkS-1o-KRv" secondAttribute="top" id="Kgz-CS-XOq"/>
-                                        <constraint firstItem="HkS-1o-KRv" firstAttribute="leading" secondItem="t4j-KR-diI" secondAttribute="trailing" constant="8" symbolic="YES" id="LDm-Xk-aCV"/>
-                                        <constraint firstItem="1BT-y6-oBJ" firstAttribute="bottom" secondItem="HKZ-Gn-0BW" secondAttribute="bottom" id="MCK-eY-bm7"/>
-                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="jUi-bt-Nv5" secondAttribute="bottom" constant="6" id="QDK-RH-ZFH"/>
-                                        <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="leading" secondItem="uhh-iY-viR" secondAttribute="leading" constant="44" id="WwZ-ok-MY4"/>
-                                        <constraint firstItem="HkS-1o-KRv" firstAttribute="trailing" secondItem="1BT-y6-oBJ" secondAttribute="trailing" id="emD-5V-zK8"/>
-                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="HkS-1o-KRv" secondAttribute="bottom" constant="8" symbolic="YES" id="g4d-qd-xwn"/>
-                                        <constraint firstItem="jUi-bt-Nv5" firstAttribute="leading" secondItem="pah-gq-M15" secondAttribute="trailing" constant="16" id="gpq-Hc-DeD"/>
-                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="vaa-pB-dw4" secondAttribute="bottom" constant="8" symbolic="YES" id="iIf-7D-esG"/>
-                                        <constraint firstItem="t4j-KR-diI" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="top" id="iat-aE-XO6"/>
-                                        <constraint firstItem="1BT-y6-oBJ" firstAttribute="centerX" secondItem="uhh-iY-viR" secondAttribute="centerX" id="jaB-4L-jpO"/>
-                                        <constraint firstItem="vaa-pB-dw4" firstAttribute="centerY" secondItem="pah-gq-M15" secondAttribute="centerY" id="k3g-jf-8B8"/>
-                                        <constraint firstItem="pah-gq-M15" firstAttribute="top" secondItem="uhh-iY-viR" secondAttribute="top" constant="7" id="mGE-SV-ioL"/>
-                                        <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="bottom" constant="4" id="nJF-3D-KWH"/>
-                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="leading" secondItem="1BT-y6-oBJ" secondAttribute="leading" id="pPx-oc-Orf"/>
-                                        <constraint firstItem="t4j-KR-diI" firstAttribute="top" secondItem="vaa-pB-dw4" secondAttribute="top" id="r76-Zz-K3z"/>
-                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="pah-gq-M15" secondAttribute="bottom" constant="5" id="xQI-iL-Kr3"/>
-                                        <constraint firstItem="jUi-bt-Nv5" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="bottom" constant="1" id="yk3-4B-nJ6"/>
-                                        <constraint firstAttribute="bottom" secondItem="1BT-y6-oBJ" secondAttribute="bottom" constant="10" id="zhK-eJ-5Oy"/>
+                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="pah-gq-M15" secondAttribute="bottom" constant="5" id="0nf-6l-Efl"/>
+                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="t4j-KR-diI" secondAttribute="bottom" constant="8" symbolic="YES" id="1iQ-6X-fd3"/>
+                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="trailing" secondItem="HkS-1o-KRv" secondAttribute="trailing" id="4hW-Rx-EhO"/>
+                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="centerX" secondItem="uhh-iY-viR" secondAttribute="centerX" id="8Nd-K9-13n"/>
+                                        <constraint firstItem="jUi-bt-Nv5" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="bottom" constant="1" id="8sa-dU-lP9"/>
+                                        <constraint firstItem="jUi-bt-Nv5" firstAttribute="leading" secondItem="pah-gq-M15" secondAttribute="trailing" constant="16" id="ARo-BY-jr0"/>
+                                        <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="leading" secondItem="uhh-iY-viR" secondAttribute="leading" constant="44" id="BhL-8R-CYd"/>
+                                        <constraint firstItem="t4j-KR-diI" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="top" id="DgT-85-xo3"/>
+                                        <constraint firstItem="pah-gq-M15" firstAttribute="leading" secondItem="cRC-ul-2YD" secondAttribute="leading" id="FSN-py-ADJ"/>
+                                        <constraint firstItem="cRC-ul-2YD" firstAttribute="bottom" secondItem="HKZ-Gn-0BW" secondAttribute="bottom" id="GCF-Gw-4d5"/>
+                                        <constraint firstItem="jUi-bt-Nv5" firstAttribute="leading" secondItem="2Qz-Qk-Ivo" secondAttribute="trailing" constant="8" symbolic="YES" id="Kvj-vs-uTE"/>
+                                        <constraint firstItem="t4j-KR-diI" firstAttribute="leading" secondItem="jUi-bt-Nv5" secondAttribute="trailing" constant="31" id="L4d-bp-9Wt"/>
+                                        <constraint firstItem="HkS-1o-KRv" firstAttribute="leading" secondItem="t4j-KR-diI" secondAttribute="trailing" constant="8" symbolic="YES" id="M0y-XO-zt0"/>
+                                        <constraint firstItem="pah-gq-M15" firstAttribute="centerY" secondItem="t4j-KR-diI" secondAttribute="centerY" id="NSG-0U-dTr"/>
+                                        <constraint firstItem="cRC-ul-2YD" firstAttribute="trailing" secondItem="HKZ-Gn-0BW" secondAttribute="trailing" id="QjI-ST-yWo"/>
+                                        <constraint firstAttribute="bottom" secondItem="HKZ-Gn-0BW" secondAttribute="bottom" constant="10" id="UQs-ho-pS8"/>
+                                        <constraint firstItem="HkS-1o-KRv" firstAttribute="leading" secondItem="vaa-pB-dw4" secondAttribute="trailing" constant="8" symbolic="YES" id="Vjp-1x-8nU"/>
+                                        <constraint firstItem="88F-Cq-LRr" firstAttribute="leading" secondItem="uhh-iY-viR" secondAttribute="leading" constant="43" id="WEy-Jn-0Zl"/>
+                                        <constraint firstItem="pah-gq-M15" firstAttribute="leading" secondItem="uhh-iY-viR" secondAttribute="leading" constant="10" id="Yk9-V0-0us"/>
+                                        <constraint firstItem="cRC-ul-2YD" firstAttribute="leading" secondItem="HKZ-Gn-0BW" secondAttribute="leading" id="ZIj-7q-zCr"/>
+                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="vaa-pB-dw4" secondAttribute="bottom" constant="8" symbolic="YES" id="bHD-94-Qus"/>
+                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="HkS-1o-KRv" secondAttribute="bottom" constant="8" symbolic="YES" id="d4t-7T-njH"/>
+                                        <constraint firstItem="vaa-pB-dw4" firstAttribute="leading" secondItem="t4j-KR-diI" secondAttribute="leading" id="ili-Gh-uF4"/>
+                                        <constraint firstItem="t4j-KR-diI" firstAttribute="top" secondItem="HkS-1o-KRv" secondAttribute="top" id="lFd-2J-wGM"/>
+                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="2Qz-Qk-Ivo" secondAttribute="bottom" constant="8" symbolic="YES" id="lOl-1E-ORk"/>
+                                        <constraint firstItem="pah-gq-M15" firstAttribute="top" secondItem="uhh-iY-viR" secondAttribute="top" constant="7" id="lWM-Tm-OW0"/>
+                                        <constraint firstItem="HKZ-Gn-0BW" firstAttribute="top" secondItem="jUi-bt-Nv5" secondAttribute="bottom" constant="6" id="lfr-a0-8Lx"/>
+                                        <constraint firstItem="2Qz-Qk-Ivo" firstAttribute="top" secondItem="88F-Cq-LRr" secondAttribute="bottom" constant="4" id="nd4-aU-Vet"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1020,8 +1039,8 @@ Learn more at Localism.co/schools</string>
                                     <outlet property="dateAndGradeLabel" destination="jUi-bt-Nv5" id="5ER-eU-9Mq"/>
                                     <outlet property="icon" destination="pah-gq-M15" id="OXt-lT-2cn"/>
                                     <outlet property="likeImage" destination="t4j-KR-diI" id="6dK-jv-Ch9"/>
-                                    <outlet property="messageArea" destination="1BT-y6-oBJ" id="Gan-KY-etf"/>
-                                    <outlet property="postImage" destination="HKZ-Gn-0BW" id="DLn-g6-DYw"/>
+                                    <outlet property="messageArea" destination="cRC-ul-2YD" id="YvX-2t-n7D"/>
+                                    <outlet property="postImage" destination="HKZ-Gn-0BW" id="6bc-ej-ARn"/>
                                     <outlet property="socialMediaImage" destination="HkS-1o-KRv" id="LM6-gV-wZv"/>
                                     <outlet property="timeImage" destination="2Qz-Qk-Ivo" id="vIU-I2-Mis"/>
                                     <outlet property="userNameLabel" destination="88F-Cq-LRr" id="4gY-Bg-JSc"/>
@@ -1037,6 +1056,7 @@ Learn more at Localism.co/schools</string>
                     <navigationItem key="navigationItem" title="#LOSAL" id="36"/>
                     <connections>
                         <segue destination="2l5-3i-ohL" kind="modal" identifier="kIntroductionSegue" id="dfx-sA-Av6"/>
+                        <segue destination="UaJ-BV-dCn" kind="push" identifier="toDetailView" id="lOt-g8-doW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -1069,7 +1089,7 @@ Learn more at Localism.co/schools</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iN7-9a-TGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1122" y="64"/>
+            <point key="canvasLocation" x="1485" y="36"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="RvX-dt-MB2">
@@ -1107,10 +1127,10 @@ Learn more at Localism.co/schools</string>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Get the full experience! Enter your mobile number." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-NR-7EO">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Get the full experience! Enter your mobile number." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-NR-7EO">
                                 <rect key="frame" x="20" y="207" width="280" height="69"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="Olr-YV-u6q"/>
+                                    <constraint firstAttribute="height" constant="69" id="Olr-YV-u6q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1130,7 +1150,7 @@ Learn more at Localism.co/schools</string>
                                 <rect key="frame" x="97" y="355" width="126" height="47"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="ROw-3Q-kpJ"/>
+                                    <constraint firstAttribute="height" constant="47" id="i33-3d-iys"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Verify">
@@ -1148,17 +1168,17 @@ Learn more at Localism.co/schools</string>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eZb-pr-b8M" firstAttribute="trailing" secondItem="JZ4-uw-F2o" secondAttribute="trailing" id="5dO-0Z-rRS"/>
-                            <constraint firstItem="7D1-0e-9kr" firstAttribute="top" secondItem="y7r-hl-sHc" secondAttribute="bottom" constant="166" id="Nzz-n9-ZpT"/>
-                            <constraint firstItem="EzY-NR-7EO" firstAttribute="top" secondItem="I2p-Um-gK1" secondAttribute="bottom" constant="90" id="YU6-p5-fOM"/>
+                            <constraint firstItem="y7r-hl-sHc" firstAttribute="top" secondItem="JZ4-uw-F2o" secondAttribute="bottom" constant="8" symbolic="YES" id="8i9-PH-lOO"/>
+                            <constraint firstItem="7D1-0e-9kr" firstAttribute="top" secondItem="y7r-hl-sHc" secondAttribute="bottom" constant="166" id="DZ9-7G-6NH"/>
+                            <constraint firstItem="y7r-hl-sHc" firstAttribute="centerX" secondItem="JZ4-uw-F2o" secondAttribute="centerX" id="IRn-2m-afn"/>
+                            <constraint firstItem="y7r-hl-sHc" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="97" id="RaT-Mk-txL"/>
+                            <constraint firstItem="EzY-NR-7EO" firstAttribute="top" secondItem="I2p-Um-gK1" secondAttribute="bottom" constant="67" id="YU6-p5-fOM"/>
                             <constraint firstItem="JZ4-uw-F2o" firstAttribute="top" secondItem="EzY-NR-7EO" secondAttribute="bottom" constant="18" id="aQJ-Ue-4iu"/>
                             <constraint firstItem="I2p-Um-gK1" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="20" symbolic="YES" id="aTu-Ta-I8K"/>
                             <constraint firstItem="JZ4-uw-F2o" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="20" symbolic="YES" id="b5s-i5-GPR"/>
-                            <constraint firstItem="EzY-NR-7EO" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="35" id="eIK-RM-sZN"/>
+                            <constraint firstItem="EzY-NR-7EO" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="20" id="eIK-RM-sZN"/>
                             <constraint firstItem="eZb-pr-b8M" firstAttribute="leading" secondItem="I2p-Um-gK1" secondAttribute="trailing" constant="16" id="ekt-X7-PX7"/>
-                            <constraint firstAttribute="trailing" secondItem="EzY-NR-7EO" secondAttribute="trailing" constant="71" id="gSb-95-0dm"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="centerX" secondItem="JZ4-uw-F2o" secondAttribute="centerX" id="kYY-3i-wPZ"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="top" secondItem="JZ4-uw-F2o" secondAttribute="bottom" constant="8" symbolic="YES" id="nt7-Hi-9hR"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="97" id="wd8-WZ-n8C"/>
+                            <constraint firstAttribute="trailing" secondItem="EzY-NR-7EO" secondAttribute="trailing" constant="20" id="gSb-95-0dm"/>
                             <constraint firstItem="eZb-pr-b8M" firstAttribute="top" secondItem="I2p-Um-gK1" secondAttribute="top" id="wgC-me-SmI"/>
                             <constraint firstAttribute="trailing" secondItem="eZb-pr-b8M" secondAttribute="trailing" constant="20" symbolic="YES" id="zrV-xE-Nxm"/>
                         </constraints>
@@ -1175,7 +1195,7 @@ Learn more at Localism.co/schools</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lT1-g1-62t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1487" y="-641"/>
+            <point key="canvasLocation" x="1485" y="-634"/>
         </scene>
         <!--Notice View Controller - Notices-->
         <scene sceneID="IsI-72-gIS">
@@ -1185,13 +1205,9 @@ Learn more at Localism.co/schools</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" id="JlE-Ka-fAZ">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="NoticeCell" rowHeight="70" id="gU2-GG-zgj" customClass="LANoticeItemCell">
-                                <rect key="frame" x="0.0" y="79" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gU2-GG-zgj" id="tel-eY-eGH">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
@@ -1249,7 +1265,6 @@ Learn more at Localism.co/schools</string>
                                     <outlet property="dateLabel" destination="HaW-IP-WOL" id="l77-no-k44"/>
                                     <outlet property="thumbnailImage" destination="Z03-rm-Ql6" id="JeR-FB-6DS"/>
                                     <outlet property="titleLabel" destination="Ysl-2W-F9I" id="iLg-w5-rac"/>
-                                    <segue destination="UaJ-BV-dCn" kind="push" id="LjA-ED-fTB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1262,7 +1277,7 @@ Learn more at Localism.co/schools</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEh-u4-mkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="734"/>
+            <point key="canvasLocation" x="953" y="827"/>
         </scene>
         <!--Detail Notice View Controller-->
         <scene sceneID="W11-Zb-Chs">
@@ -1273,7 +1288,7 @@ Learn more at Localism.co/schools</string>
                         <viewControllerLayoutGuide type="bottom" id="Kq9-t4-tEx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zfp-A0-QVC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crz-r1-G8Q">
@@ -1289,7 +1304,7 @@ Learn more at Localism.co/schools</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMY-cg-k0Z">
-                                <rect key="frame" x="20" y="246" width="280" height="270"/>
+                                <rect key="frame" x="20" y="246" width="280" height="206"/>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1321,7 +1336,7 @@ Learn more at Localism.co/schools</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzc-i6-d02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1569" y="734"/>
+            <point key="canvasLocation" x="1787" y="750"/>
         </scene>
     </scenes>
     <resources>

@@ -98,13 +98,25 @@
     [cell setTableView:tableView];
     
     // Configure the cell..
+//    if ([p isAnAd]==1) {
+//        [cell setTitleLabel:nil];
+//        [cell setBriefDescriptionLabel:nil];
+//        PFImageView *creature = [[PFImageView alloc] init];
+//        creature.image = [UIImage imageNamed:@"1.jpg"]; // placeholder image
+//        creature.file = (PFFile *)file;
+//        [creature loadInBackground];
+//        UIImageView *imageView = [[UIImageView alloc] initWithImage:@"Default"];
+//        imageView.frame = CGRectMake(6.5, 6.5, 65., 65.);
+//        [cell addSubview:imageView];
+//        
+//    }
     [[cell titleLabel]setText:[p noticeTitle]];
     [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell briefDescriptionLabel]setText:[p noticeContent]];
     [[cell briefDescriptionLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
-    [[cell dateLabel]setText:[NSString stringWithFormat:@"%@", [p startDate]]];//[NSString stringWithFormat:@"$%d", [p valueInDollars]]];
-    // need to format date
-    [[cell dateLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+//    [[cell dateLabel]setText:[NSString stringWithFormat:@"%@", [p startDate]]];//[NSString stringWithFormat:@"$%d", [p valueInDollars]]];
+//    // need to format date
+//    [[cell dateLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     
     if (![[p noticeImageUrl] length] == 0)
     {

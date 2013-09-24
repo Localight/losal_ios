@@ -10,6 +10,7 @@
 #import "ECSlidingViewController.h"
 #import "LAMenuViewController.h"
 #import "LANoticeViewController.h"
+#import "LAStoreManager.h"
 @interface LAAboutViewController ()
 
 @end
@@ -82,4 +83,44 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)ReVerify:(id)sender{
+    //PFUser *currentUser = [PFUser currentUser];
+    // if user wants to enter phone number
+    if (![[[LAStoreManager defaultStore]currentUser]userVerified])// if the user is not logged in.
+    {
+        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Request for Text Message"
+                                                        message:@"Would you like to re-enter your phone number and have the text message sent to you again? Please enter your phone number below or click NO to leave this screen."
+                                                       delegate:self
+                                              cancelButtonTitle:@"No"
+                                              otherButtonTitles:@"Yes", nil];
+        
+        [prompt setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
+        [myTextField setBackgroundColor:[UIColor whiteColor]];
+        [prompt addSubview:myTextField];
+        CGAffineTransform myTransform = CGAffineTransformMakeTranslation(0.0, 130.0);
+        [prompt setTransform:myTransform];
+        [prompt show];
+  
+        [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[myTextField text]];
+
+        
+        //        // show the signup or login scren
+        //        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"You are already Validated. Would you like to reValidate and the text message send agai?" delegate:nil cancelButtonTitle:@"Yes" otherButtonTitles:"No", ];
+    } else {
+        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Oops!"
+                                                        message:@"It looks like you are already Verified and logged In."                                                        delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+        [prompt show];
+    }
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+        NSString *number = [[alertView textFieldAtIndex:0]text];
+        NSLog(@"%@",number);
+        [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:number];
+        [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:number];
+        // name contains the entered value
+}
 @end

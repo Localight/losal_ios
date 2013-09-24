@@ -19,10 +19,12 @@
     NSMutableArray *postItems;
     NSMutableArray *mainPostItems;
 }
+@property (nonatomic, strong)LAPostItem *lastPostInArray;
 @property (nonatomic) BOOL loading;
 @property (nonatomic) BOOL moreResultsAvail;
 @property (weak, nonatomic) id controller;
 @property (nonatomic, strong) LASettings *settings;
+
 //@property (nonatomic, strong) PFUser *user;
 @property (nonatomic, strong) LAUser *currentUser;
 

@@ -10,5 +10,8 @@
 #import "LADataLoader.h"
 
 @interface LAFeedViewController : UITableViewController
+{
+    
+}
 
 @end

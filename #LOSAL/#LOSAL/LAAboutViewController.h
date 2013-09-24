@@ -29,4 +29,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *faqLabel;
 @property (weak, nonatomic) IBOutlet UILabel *copywriteLabel;
 
+- (IBAction)ReVerify:(id)sender;
 @end

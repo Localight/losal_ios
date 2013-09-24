@@ -58,18 +58,21 @@
         {
             NSString * newLastNameString = [[[[LAStoreManager defaultStore]currentUser]lastName] substringWithRange:NSMakeRange(0, 1)];
             NSString *newName = [NSString stringWithFormat:@"%@ %@.", [[[LAStoreManager defaultStore]currentUser]firstName], newLastNameString];
-            [_userNameLabel setText:newName];
+            [userNameLabel setText:newName];
+            [userNameLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:24]];
         }else{
             NSString *newDisplayName = [NSString stringWithFormat:@"%@ %@",[[[LAStoreManager defaultStore]currentUser]prefix], [[[LAStoreManager defaultStore]currentUser]lastName]];
-            [_userNameLabel setText:newDisplayName];
+            [userNameLabel setText:newDisplayName];
+            [userNameLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:24]];
+
         }
-        [_userIcon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+        [userIcon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
         NSLog(@"this is the users's first name: %@", [[[LAStoreManager defaultStore]currentUser]firstName]);
         NSScanner *scanner = [NSScanner scannerWithString:[[[LAStoreManager defaultStore]currentUser]iconString]];
         unsigned int code;
         [scanner scanHexInt:&code];
-        [_userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
-        [_userIcon setTextColor:[[[LAStoreManager defaultStore]currentUser]iconColor]];
+        [userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
+        [userIcon setTextColor:[[[LAStoreManager defaultStore]currentUser]iconColor]];
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -99,19 +102,19 @@
     _menuItems = @[@"Feed", @"Links", @"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
   
     NSLog(@"this is the users's first name: %@", [[[LAStoreManager defaultStore]currentUser]firstName]);
-
-        [_userIcon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+        [userNameLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:24]];
+    
+        [userIcon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
         NSScanner *scanner = [NSScanner scannerWithString:[[[LAStoreManager defaultStore]currentUser]iconString]];
         unsigned int code;
         [scanner scanHexInt:&code];
-        [_userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
-        [_userIcon setTextColor:[[[LAStoreManager defaultStore]currentUser]iconColor]];
+        [userIcon setText:[NSString stringWithFormat:@"%C", (unsigned short)code]];
+        [userIcon setTextColor:[[[LAStoreManager defaultStore]currentUser]iconColor]];
     
 //        [_userNameLabel setText:@"Non-Verified User"];
 //        [_userIcon setText:[NSString stringWithUTF8String:DEFAULT_ICON]];
 //        [_userIcon setTextColor:[UIColor whiteColor]];
-//    }
-        [_userNameLabel setText:[[[LAStoreManager defaultStore]currentUser]displayName]];
+//    }userNameLabelrNameLabel setText:[[[LAStoreManager defaultStore]currentUser]displayName]];
     //[_userNameLabel setTextColor:[UIColor whiteColor]];
 // Set up users icon
 //    [cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];

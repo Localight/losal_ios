@@ -1,4 +1,5 @@
- 
+
+//
 //  LAFeedViewController.m
 //  #LOSAL
 //
@@ -62,6 +63,7 @@
 @end
 
 @implementation LAFeedViewController
+
 
 
 #pragma mark - UIViewController
@@ -138,29 +140,36 @@
     
     // This was messing up the scrolling in the UI table view so need to figure out a way to add this back - Joaquin
     //[self.view addGestureRecognizer:self.slidingViewController.panGesture];
-    
-    if ([self firstTimeLaunched])
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"firstTimeLaunchedKey"])
     {
         [self performSegueWithIdentifier:@"kIntroductionSegue" sender:self];
-    }
-    else if ([[LAStoreManager defaultStore]currentUser]) {
         UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
         
         UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
         
         [self presentViewController:loginController animated:YES
                          completion:^{
-            NSLog(@"showing login view");
-        }];
+                             NSLog(@"showing login view");
+                         }];
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"firstTimeLaunchedKey"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        }else{
+        [[self tableView]reloadData];
+        NSLog(@"you should be showing nothing");
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedReloadNotification:)
                                                  name:@"Reload"
                                                object:nil];
-
     [self fetchEntries];
-    // Set up splash to dimmed background animation
+        // Set up splash to dimmed background animation
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+   
+   // [[self tableView] reloadData];
 }
 - (BOOL)prefersStatusBarHidden
 {
@@ -204,25 +213,11 @@
 {
   //  LADataLoader *loader = [[LADataLoader alloc] init];
    // loader.delegate = self;
-    LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]lastObject];
-    
-    [[LAStoreManager defaultStore] getFeedFromDate:[postItem postTime] WithCompletion:^(NSArray *array, NSError *error)
-     {
-         NSLog(@"Loaded more data");
-         if (!error)
-         {
-             NSLog(@"got here");
-             [[LAStoreManager defaultStore]processArray:array];
-             [[NSNotificationCenter defaultCenter]
-              postNotificationName:@"Reload"
-              object:self];
-             //            [self.delegate processArray:array];
-         }else{
-             NSLog(@"%@", error);
-         }
-     }];
-
-}
+    //LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]lastObject];
+    NSLog(@"This gets called when the tableiview reaches 2/3s of it's size.");
+    // I think my error is here.
+    // this block doesn't come back to this call. 
+    }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -261,6 +256,7 @@
 {
     return [[[LAStoreManager defaultStore]allMainPostItems]count] + 1;
 }
+
 
 - (void)fetchEntries
 {
@@ -309,7 +305,6 @@
              NSLog(@"results are %@", posts);
          }
      }];
-    [[self tableView]reloadData];
 }
 - (UITableViewCell *)configureCell:(NSIndexPath *)indexPath
 {
@@ -319,11 +314,12 @@
     NSString *cellIdentifier = @"postCell";
     
     LAPostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil)
-    {
+    
+    if (!cell){
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                  reuseIdentifier:cellIdentifier];
     }
+    
     // this sets up the image if an image is present
     
     LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
@@ -339,16 +335,23 @@
              if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
              {
                  [[cell postImage]setImage:image];
-                 [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradientlosal2"]]];
+                 [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-iphone4"]]];
                  //[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]
                  //[cell.postImage setImage:image];
              }}];
         // if it's  tweet set the message image to nil
     } else {
         [[cell postImage]setImage:nil];
-        [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradientlosal2"]]];
+//        [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-iphone4"]]];
     }
+    NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
+    unsigned int code;
+    [scanner scanHexInt:&code];
+    [[cell icon]setText:[NSString stringWithFormat:@"%C",(unsigned short)code]];
+    [[cell icon]setTextColor:[postItem userColorChoice]];
+    [[cell icon]setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
 
+    //TODO: create NSUserdefaults
     [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
     [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
@@ -360,39 +363,57 @@
     //NSLog(@"%@",[self fuzzyTime:[df stringFromDate:timePosted]]);
     
     // the following sets up the user's icons.
-    NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
-    unsigned int code;
-    [scanner scanHexInt:&code];
-    [[cell icon]setText:[NSString stringWithFormat:@"%C",(unsigned short)code]];
-    [[cell icon]setTextColor:[postItem userColorChoice]];
-    [[cell icon]setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
-
+    
     [[cell messageArea] setText:[postItem text]];
     [[cell messageArea]setTextColor:[UIColor whiteColor]];
+    [[cell messageArea]sizeToFit];
+    
     // Set up users icon[cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+    NSLog(@"%@", [postItem userFirstName]);
+    
     // set up the icons for users of type students
-    if ([[[LAStoreManager defaultStore]currentUser]userVerified])
+    if ([postItem userFirstName] == nil){
+        [[cell userNameLabel]setText:@"Unknown"];
+        [[cell userNameLabel]setTextColor:[UIColor whiteColor]];
+        [[cell icon]setText:@DEFAULT_ICON];
+        [[cell icon]setTextColor:[UIColor whiteColor]];
+        
+        
+    }else if([[postItem userCategory]isEqualToString:@"Student"])
     {
-        if ([[postItem userCategory] isEqualToString:@"Student"])
-        {
-            NSString * newLastNameString = [[postItem userLastName] substringWithRange:NSMakeRange(0, 1)];
-            NSString *newName = [NSString stringWithFormat:@"%@ %@.", [postItem userFirstName], newLastNameString];
-            [[cell userNameLabel]setText:newName];
-            [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem gradeLevel]]];
-        }else{
-            NSString *newDisplayName = [NSString stringWithFormat:@"%@ %@", [postItem prefix], [postItem userLastName]];
-            [[cell userNameLabel]setText:newDisplayName];
-            [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem userCategory]]];
-            [[cell likeImage]setImage:nil];
-            [[cell socialMediaImage]setImage:nil];
-        }
-    }else {
+        NSString * newLastNameString = [[postItem userLastName] substringWithRange:NSMakeRange(0, 1)];
+        NSString *newName = [NSString stringWithFormat:@"%@ %@.", [postItem userFirstName], newLastNameString];
+        [[cell userNameLabel]setText:newName];
+        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem gradeLevel]]];
+    }else{
+        NSString *newDisplayName = [NSString stringWithFormat:@"%@ %@", [postItem prefix], [postItem userLastName]];
+        
+        [[cell userNameLabel]setText:newDisplayName];
+        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem userCategory]]];
+        
+    }
+    
+    if (![[[LAStoreManager defaultStore]currentUser]userVerified])
+    {
+        [[cell icon]setHidden:YES];
+        [[cell timeImage]setHidden:YES];
         [[cell userNameLabel]setHidden:YES];
         [[cell socialLabel]setHidden:YES];
         [[cell socialMediaImage]setHidden:YES];
         [[cell likeImage]setHidden:YES];
-        [[cell dateAndGradeLabel]setHidden:YES];
+        [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@_______________________", [self fuzzyTime:[df stringFromDate:timePosted]]]];
     }
+    if (![[[[LAStoreManager defaultStore]currentUser]userCategory] isEqualToString:@"Student"]) {
+        [[cell socialMediaImage]setHidden:YES];
+        [[cell likeImage]setHidden:YES];
+    }
+//    }else if(![[[[LAStoreManager defaultStore]currentUser]userCategory] isEqualToString:@"student"]){
+//        [[cell socialLabel]setHidden:YES];
+//        [[cell socialMediaImage]setHidden:YES];
+//    }else{
+//        //do nothing..
+//    }
+    
     if ([[postItem socialNetwork] isEqualToString:@"Facebook"])
         {
             UIImage *facebookIcon = [[UIImage imageNamed:@"facebook"]imageWithOverlayColor:[UIColor whiteColor]];
@@ -433,17 +454,42 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"the current index path is %ld", (long)[indexPath row]);
+    NSLog(@"the current size of the array is %lu",(unsigned long)[[[LAStoreManager defaultStore]allMainPostItems]count]);
+    
+    int a = ([[[LAStoreManager defaultStore]allMainPostItems]count]/5)*4;
+    NSLog(@"the row number has to be greater than than or equal to %d inorder to call for more data" ,a);
     // If scrolled beyond two thirds of the table, load next batch of data..
     if ([indexPath row] >= (([[[LAStoreManager defaultStore]allMainPostItems]count]/5) *4))
     {
-        if (![[LAStoreManager defaultStore]loading] && [[LAStoreManager defaultStore]moreResultsAvail])
+        NSLog(@"you number got bigger than or equal to the 2/3's of th posts");
+        if ( (![[LAStoreManager defaultStore]loading]) && [[LAStoreManager defaultStore]moreResultsAvail])
         {
+            NSLog(@"if your seeing this message then you should be loading more data!");
             [[LAStoreManager defaultStore]setLoading:YES];
                       // loadRequest is the method that loads the next batch of data.
-            [self loadRequest];
+            [[LAStoreManager defaultStore] getFeedFromDate:[[[LAStoreManager defaultStore]lastPostInArray]postTime] WithCompletion:^(NSArray *array, NSError *error)
+             {
+                 NSLog(@"Loaded more data");
+                 if (!error)
+                 {
+                     NSLog(@"got here");
+                     [[LAStoreManager defaultStore]processArray:array];
+                     [[NSNotificationCenter defaultCenter]
+                      postNotificationName:@"Reload"
+                      object:self];
+                     //            [self.delegate processArray:array];
+                 }else{
+                     NSLog(@"%@", error);
+                 }
+             }];
+            
+            
         }else{
             NSLog(@"something went wrong again!");
         }
+    }else{
+        NSLog(@"if you make it here the row value was less than  5/4 of the array size. Current value of row is %d, and the current value of the array is: %d",[indexPath row], a);
     }
     
     UITableViewCell *cell;
@@ -709,23 +755,22 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 //}
 
 
-- (BOOL)firstTimeLaunched
-{
-#warning remove this before shipping!
-    // debug
-    return YES;
-    
-    static NSString *firsTTimeLaunchedKey = @"firsTTimeLaunchedKey";
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL hasLaunched = [defaults boolForKey:firsTTimeLaunchedKey];
-    
-    if (!hasLaunched)
-    {
-        [defaults setBool:YES forKey:firsTTimeLaunchedKey];
-        [defaults synchronize];
-    }
-    
-    return !hasLaunched;
-}
+//- (BOOL)firstTimeLaunched
+//{
+//    #warning remove this before shipping!
+////    static BOOL firstTimeLaunch = YES;
+//    //TODO: consider using date as something to compare to.
+//    // any time the current date is further from the orginal date'
+//    // load as normal. this way the app only loads the screens once. 
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    BOOL firstTimeLaunch;
+//    if ([[NSUserDefaults standardUserDefaults]boolForKey:firstTimeLaunch]) {
+//        firstTimeLaunch =NO;
+//    }else{
+//        firstTimeLaunch =YES;
+//        [defaults setBool:NO forKey:firstTimeLaunchkey];
+//        [defaults synchronize];
+//    }
+//    return firstTimeLaunch;
+//}
 @end

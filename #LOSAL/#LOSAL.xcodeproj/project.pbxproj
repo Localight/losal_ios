@@ -126,6 +126,7 @@
 		6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0A917A4C02D00B6C498 /* UIImage+ImageWithUIView.m */; };
 		6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */; };
 		6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 6588D0B117A4C9CE00B6C498 /* menuBtn.png */; };
+		65951E2017EFAE790072A2C3 /* gradient-iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 65951E1F17EFAE790072A2C3 /* gradient-iphone4.png */; };
 		65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */; };
 		65B2A33E17D551CD004DA2FA /* gradient-text.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A33D17D551CD004DA2FA /* gradient-text.png */; };
 		65B2A34017D55944004DA2FA /* dark-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B2A33F17D55944004DA2FA /* dark-gradient.png */; };
@@ -304,6 +305,7 @@
 		6588D0AC17A4C31C00B6C498 /* LAMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAMenuViewController.h; sourceTree = "<group>"; };
 		6588D0AD17A4C31C00B6C498 /* LAMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAMenuViewController.m; sourceTree = "<group>"; };
 		6588D0B117A4C9CE00B6C498 /* menuBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBtn.png; sourceTree = "<group>"; };
+		65951E1F17EFAE790072A2C3 /* gradient-iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient-iphone4.png"; sourceTree = "<group>"; };
 		65ADBBED17CFFCFC0070C57C /* LANoticeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeItem.h; sourceTree = "<group>"; };
 		65ADBBEE17CFFCFC0070C57C /* LANoticeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeItem.m; sourceTree = "<group>"; };
 		65B2A33D17D551CD004DA2FA /* gradient-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient-text.png"; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 		43BE533E17C3BD7B008BE0E7 /* Background Images */ = {
 			isa = PBXGroup;
 			children = (
+				65951E1F17EFAE790072A2C3 /* gradient-iphone4.png */,
 				6525769717E787EA00BA43F7 /* gradientlosal1.png */,
 				6525769817E787EA00BA43F7 /* gradientlosal2.png */,
 				44C777D117D6739B0062FDF4 /* sign-in-01.png */,
@@ -863,6 +866,7 @@
 				43BE532F17C2EDA4008BE0E7 /* griffin-dance-bg-1.png in Resources */,
 				43BE533117C2EE15008BE0E7 /* dark-griffin-dance-bg-1.png in Resources */,
 				43BE533517C3BA9A008BE0E7 /* Default-568h@2x.png in Resources */,
+				65951E2017EFAE790072A2C3 /* gradient-iphone4.png in Resources */,
 				6525769A17E787EA00BA43F7 /* gradientlosal2.png in Resources */,
 				43BE533717C3BB36008BE0E7 /* Default@2x.png in Resources */,
 				43BE533917C3BB96008BE0E7 /* Default.png in Resources */,
@@ -1031,8 +1035,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: James Hall (GP9RHSU4YV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: James Hall (GP9RHSU4YV)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1066,8 +1070,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Joaquin Brown";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Joaquin Brown";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: James Hall (UAQU83P824)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: James Hall (UAQU83P824)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

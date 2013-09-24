@@ -69,8 +69,9 @@
                  LANoticeItem *p = [[LANoticeItem alloc] initWithnoticeObject:parseNoticeObject
                                                                   NoticeTitle:[parseNoticeObject objectForKey:@"title"]
                                                                 noticeContent:[parseNoticeObject objectForKey:@"description"]];
-                 
-                [p setStartDate:[parseNoticeObject objectForKey:@"startDate"]];
+                 NSString *number = [parseNoticeObject objectForKey:@"ad"];
+                 [p setIsAnAd:[number intValue]];
+                 [p setStartDate:[parseNoticeObject objectForKey:@"startDate"]];
                  [p setEndDate:[parseNoticeObject objectForKey:@"endDate"]];
                  // This does not require a network access.
                  NSLog(@"notices looks like %@", parseNoticeObject);

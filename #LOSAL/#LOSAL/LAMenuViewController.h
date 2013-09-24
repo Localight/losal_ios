@@ -10,15 +10,12 @@
 
 @interface LAMenuViewController : UITableViewController
 {
+    __weak IBOutlet UIView *namViewContainter;
+    __weak IBOutlet UILabel *userIcon;
+    __weak IBOutlet UILabel *userNameLabel;
     
 }
 // Come back to, and work on.
-
-@property (nonatomic, weak) IBOutlet UIView *namViewContainter;
-
-@property (nonatomic, weak) IBOutlet UILabel *userIcon;
-
-@property (nonatomic, weak) IBOutlet UILabel *userNameLabel;
 
 - (IBAction)toSite:(id)sender;
 

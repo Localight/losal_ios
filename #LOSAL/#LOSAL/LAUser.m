@@ -29,7 +29,7 @@
 {
     // set the flag for user verified. 
     [self setUserVerified:false];
-    return [self initWithDisplayName:@"Non-Verified User"
+    return [self initWithDisplayName:@"Non-Registered"
                       userIconString:[NSString stringWithUTF8String:DEFAULT_ICON]
                        userIconColor:[UIColor whiteColor]];
 }
