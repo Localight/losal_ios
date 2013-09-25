@@ -1219,14 +1219,14 @@ Learn more at Localism.co/schools</string>
                                                 <constraint firstAttribute="width" constant="70" id="2nF-AQ-Q5D"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title of Notice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysl-2W-F9I">
-                                            <rect key="frame" x="78" y="0.0" width="222" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Title of Notice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysl-2W-F9I">
+                                            <rect key="frame" x="78" y="0.0" width="222" height="26"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="first line of post" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUX-GF-XeA">
-                                            <rect key="frame" x="78" y="20" width="222" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="first line of post" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="222" translatesAutoresizingMaskIntoConstraints="NO" id="rUX-GF-XeA">
+                                            <rect key="frame" x="78" y="26" width="222" height="38"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="BG4-eB-3zB"/>
                                             </constraints>
@@ -1234,35 +1234,29 @@ Learn more at Localism.co/schools</string>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date Received" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaW-IP-WOL">
-                                            <rect key="frame" x="78" y="48" width="222" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huc-Or-VRz">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="cu2-nX-WMH"/>
+                                                <constraint firstAttribute="width" constant="70" id="dEW-kE-htd"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <constraints>
                                     <constraint firstItem="Z03-rm-Ql6" firstAttribute="bottom" secondItem="gU2-GG-zgj" secondAttribute="bottom" id="4Rf-ED-nI7"/>
-                                    <constraint firstAttribute="trailing" secondItem="HaW-IP-WOL" secondAttribute="trailing" constant="20" id="FnP-hK-RYP"/>
                                     <constraint firstItem="Z03-rm-Ql6" firstAttribute="top" secondItem="gU2-GG-zgj" secondAttribute="top" id="L2W-MX-1nu"/>
                                     <constraint firstItem="rUX-GF-XeA" firstAttribute="top" secondItem="gU2-GG-zgj" secondAttribute="top" constant="20" id="Uhs-DZ-uUN"/>
                                     <constraint firstItem="Ysl-2W-F9I" firstAttribute="leading" secondItem="Z03-rm-Ql6" secondAttribute="trailing" constant="8" symbolic="YES" id="YEH-iR-wCi"/>
                                     <constraint firstItem="rUX-GF-XeA" firstAttribute="leading" secondItem="Z03-rm-Ql6" secondAttribute="trailing" constant="8" symbolic="YES" id="ZpN-Wl-pol"/>
-                                    <constraint firstItem="HaW-IP-WOL" firstAttribute="leading" secondItem="Z03-rm-Ql6" secondAttribute="trailing" constant="8" symbolic="YES" id="afy-OI-uMb"/>
                                     <constraint firstItem="Z03-rm-Ql6" firstAttribute="leading" secondItem="gU2-GG-zgj" secondAttribute="leading" id="iZG-Ci-yAy"/>
                                     <constraint firstItem="Ysl-2W-F9I" firstAttribute="top" secondItem="gU2-GG-zgj" secondAttribute="top" id="ix2-2k-47N"/>
                                     <constraint firstAttribute="trailing" secondItem="Ysl-2W-F9I" secondAttribute="trailing" constant="20" id="kuD-sY-cpS"/>
-                                    <constraint firstAttribute="bottom" secondItem="HaW-IP-WOL" secondAttribute="bottom" constant="1" id="wcL-39-7EO"/>
                                     <constraint firstAttribute="trailing" secondItem="rUX-GF-XeA" secondAttribute="trailing" constant="20" id="xhv-yd-Lc7"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="adImage" destination="huc-Or-VRz" id="rvI-Z5-Kgm"/>
                                     <outlet property="briefDescriptionLabel" destination="rUX-GF-XeA" id="cXy-Yi-iOc"/>
-                                    <outlet property="dateLabel" destination="HaW-IP-WOL" id="l77-no-k44"/>
                                     <outlet property="thumbnailImage" destination="Z03-rm-Ql6" id="JeR-FB-6DS"/>
                                     <outlet property="titleLabel" destination="Ysl-2W-F9I" id="iLg-w5-rac"/>
                                 </connections>

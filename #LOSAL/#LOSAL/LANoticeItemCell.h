@@ -22,4 +22,6 @@
 
 @property (weak, nonatomic) UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *adImage;
+
 @end

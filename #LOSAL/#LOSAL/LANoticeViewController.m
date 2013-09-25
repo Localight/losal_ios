@@ -110,10 +110,19 @@
 //        [cell addSubview:imageView];
 //        
 //    }
-    [[cell titleLabel]setText:[p noticeTitle]];
-    [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
-    [[cell briefDescriptionLabel]setText:[p noticeContent]];
-    [[cell briefDescriptionLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+    if ([p isAnAd]== 1) {
+        [[cell titleLabel]setText:@"this should be an ad"];
+        [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
+        [[cell thumbnailImage]setHidden:YES];
+        [[cell briefDescriptionLabel]setHidden:YES];
+        
+    }else{
+        [[cell adImage]setHidden:YES];
+        [[cell titleLabel]setText:[p noticeTitle]];
+        [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
+        [[cell briefDescriptionLabel]setText:[p teaserText]];
+        [[cell briefDescriptionLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
+    }
 //    [[cell dateLabel]setText:[NSString stringWithFormat:@"%@", [p startDate]]];//[NSString stringWithFormat:@"$%d", [p valueInDollars]]];
 //    // need to format date
 //    [[cell dateLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];

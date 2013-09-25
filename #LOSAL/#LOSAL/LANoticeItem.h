@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSString *audienceTypes;
 @property (nonatomic, strong) NSString *buttonString;
 @property (nonatomic, strong) NSString *buttonText;
-
+@property (nonatomic, strong) NSString *teaserText;
 @property (nonatomic, strong) NSString *startDate;
 @property (nonatomic, strong) NSString *endDate;
 @property (nonatomic) int isAnAd;

@@ -56,8 +56,8 @@
     // we will change this method to update, with in it, we will make sure to check the dates of the posts
     PFQuery *query = [PFQuery queryWithClassName:@"Notifications"];
     //[query orderByDescending:@"createAt"];
-    [query whereKey:@"startDate" lessThan:[NSDate date]];
-    [query whereKey:@"endDate" greaterThan:[NSDate date]];
+//    [query whereKey:@"startDate" lessThan:[NSDate date]];
+//    [query whereKey:@"endDate" greaterThan:[NSDate date]];
     
     // PFObject *myNotices = [[PFObject alloc]init];
     [query findObjectsInBackgroundWithBlock:^(NSArray *parseNoticeArray, NSError *error)
@@ -74,7 +74,7 @@
                  [p setIsAnAd:[number intValue]];
                  [p setInterestField:[parseNoticeObject objectForKey:@"audienceInterests"]];
                  [p setAudienceTypes:[parseNoticeObject objectForKey:@"audienceTypes"]];
-                 
+                 [p setTeaserText:[parseNoticeObject objectForKey:@"teaser"]];
                  [p setStartDate:[parseNoticeObject objectForKey:@"startDate"]];
                  [p setEndDate:[parseNoticeObject objectForKey:@"endDate"]];
                  [p setButtonString:[parseNoticeObject objectForKey:@"buttonLink"]];
@@ -85,7 +85,7 @@
 //                 [p setNoticeTitle:[parseNoticeObject objectForKey:@"title"]];
 //                 [p setNoticeContent:[parseNoticeObject objectForKey:@"description"]];
                  //[p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
-                 //NSLog(@"image url %@", [parseNoticeObject objectForKey:@"image"]);
+                 NSLog(@"image url %@", [parseNoticeObject objectForKey:@"image"]);
                  [allItems addObject:p];
              }
          }else{
