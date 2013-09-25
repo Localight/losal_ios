@@ -136,9 +136,8 @@
          
          if (!error)
          {
-             NSLog(@"parse was queried at %@ and the size of the array is %lu.",[NSDate date], (unsigned long)[posts count]);
-             
-             for (PFObject *postObjects in posts)
+            NSLog(@"parse was queried at %@ and the size of the array is %lu.",[NSDate date], (unsigned long)[posts count]);
+             for (PFObject *post in posts)
              {
                 
                  // This does not require a network access.
@@ -146,14 +145,14 @@
                  LAPostItem *postItem = [[LAPostItem alloc] init];
                  
 //               [postItem setPostObject:post];
-                 [postItem setPostTime:[postObjects objectForKey:@"postTime"]];
-                 [postItem setSocialNetwork:[postObjects objectForKey:@"socialNetworkName"]];
-                 [postItem setSocialNetworkPostID:[postObjects objectForKey:@"socialNetworkPostID"]];
-                 [postItem setText:[postObjects objectForKey:@"text"]];
-                 [postItem setImageURLString:[postObjects objectForKey:@"url"]];
-                 [postItem setIsLikedByThisUser:[[LAStoreManager defaultStore]doesThisUserLike:[postObjects objectId]]];
+                 [postItem setPostTime:[post objectForKey:@"postTime"]];
+                 [postItem setSocialNetwork:[post objectForKey:@"socialNetworkName"]];
+                 [postItem setSocialNetworkPostID:[post objectForKey:@"socialNetworkPostID"]];
+                 [postItem setText:[post objectForKey:@"text"]];
+                 [postItem setImageURLString:[post objectForKey:@"url"]];
+                 [postItem setIsLikedByThisUser:[[LAStoreManager defaultStore]doesThisUserLike:[post objectId]]];
                  
-                 PFObject *user = [postObjects objectForKey:@"user"];
+                 PFObject *user = [post objectForKey:@"user"];
                  if (user != nil)
                  {
 //                     NSLog(@"user is %@", user);
@@ -169,7 +168,7 @@
                  }
                   [mainPostItems addObject:postItem];
              }
-              NSLog(@"the size of the mainpostitems is now from outside the block:%lu",(unsigned long)[mainPostItems count]);
+            NSLog(@"the size of the mainpostitems is now from outside the block:%lu",(unsigned long)[mainPostItems count]);
          }else {
              // If things went bad, show an alert view
              NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
@@ -317,81 +316,6 @@
 }
 
 #pragma mark User
-//- (LAUser *)createUser
-//{
-//    [PFAnonymousUtils logInWithBlock:^(PFUser *user, NSError *error) {
-//        if (error) {
-//            NSLog(@"Anonymous login failed.");
-//        } else {
-//            NSLog(@"Anonymous user logged in.");
-//        }
-//    }];
-//    [PFUser enableAutomaticUser];
-//    NSLog(@"%@",_currentUser);
-//    return _currentUser;
-//}
-// I decided we don't need this and just update the user info when they are logged in.
-//- (LAUser *)updateUserInfo
-//{
-//    PFQuery *query = [PFUser query];
-//    [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error)
-//    {
-//        if (!error)
-//        {
-//            for (PFObject *user in users)
-//            {
-//                [_currentUser setTwitterDisplayName:[user objectForKey:@"twitterID"]];
-//                [_currentUser setInstagramDisplayName:[user objectForKey:@"instagramID"]];
-//                [_currentUser setTwitterUserID:[user objectForKey:@"userInstagramId"]];
-//                [_currentUser setInstagramUserID:[user objectForKey:@"userTwitterId"]];
-//                [_currentUser setFirstName:[user objectForKey: @"firstName"]];
-//                [_currentUser setLastName:[user objectForKey:@"lastName"]];
-//                [_currentUser setObjectID:[user objectForKey:@"objectID"]];
-//                [_currentUser setPhoneNumber:[user objectForKey:@"username"]];
-//                [_currentUser setUserCategory:[user objectForKey:@"userType"]];
-//                [_currentUser setIconStringFromParse:[user objectForKey:@"icon"]];
-//                [_currentUser setIconStringColorFromParse:[user objectForKey:@"faveColor"]];
-//            }
-//        }else{
-//            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-//            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
-//                                                                     message:errorString
-//                                                                    delegate:nil
-//                                                           cancelButtonTitle:@"Ok"
-//                                                           otherButtonTitles:nil, nil];
-//            [errorAlertView show];
-//
-//        }
-//    }];
-//    return _currentUser;
-//}
-
-//- (LAUser *)getUser {
-//    if (self.currentUser == nil) {
-//        if ([PFUser currentUser].objectId != nil)
-//        {
-//            self.currentUser = [[LAUser alloc] init];
-//            PFQuery *query = [PFUser query];
-//            [query whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
-//            [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error)
-//             {
-//                 NSMutableArray *messages = nil;
-//                 if (!error) {
-//                     messages = [[NSMutableArray alloc] init];
-//                     for (PFObject *user in users) {
-//                         self.currentUser.twitterID = [user objectForKey:@"twitterID"];
-//                         self.currentUser.facebookID = [user objectForKey:@"facebookID"];
-//                         self.currentUser.instagramID = [user objectForKey:@"instagramID"];
-//                     }
-//                 }
-//             }];
-//        } else {
-//            [PFUser enableAutomaticUser];
-//        }
-//    }
-//    return self.currentUser;
-//TODO: come back and finish the LAUser our thoughts was to have the store manager create a new lAuser Object, and if the user isn't verified, to do a normal alloc init. if the user is verified, then use the info from parse to create the new LAUser object.
 //- (void)saveUsersSocialIDs
 //{
 //    if (self.currentUser.twitterID != nil) {
@@ -511,13 +435,21 @@
             [_currentUser setLastName:[user objectForKey:@"lastName"]];
             [_currentUser setPrefix:[user objectForKey:@"prefix"]];
             [_currentUser setUserVerified:YES];
+            
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"Reload"
              object:self];
+            
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"updateUserDisplay"
              object:self];
+            
             NSLog(@"the user logged in.");
+            
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"DissmisView"
+             object:self];
+
         }else{
             NSLog(@"whoops, something happened.");
             NSString *errorString = [[error userInfo] objectForKey:@"error"];

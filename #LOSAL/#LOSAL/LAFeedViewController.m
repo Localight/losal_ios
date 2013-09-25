@@ -154,6 +154,7 @@
         [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"firstTimeLaunchedKey"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         }else{
+            
         [[self tableView]reloadData];
         NSLog(@"you should be showing nothing");
     }
@@ -201,9 +202,9 @@
 
 -(void)receivedReloadNotification:(NSNotification *) notification
 {
-            // [notification name] should always be @"TestNotification"
-        // unless you use this method for observation of other notifications
-        // as well.
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
     if ([[notification name] isEqualToString:@"Reload"])
     {
         [[self tableView]reloadData];

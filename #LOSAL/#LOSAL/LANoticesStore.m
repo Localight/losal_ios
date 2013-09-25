@@ -64,21 +64,28 @@
      {
          if (!error)
          {
-             for (PFObject *parseNoticeObject in parseNoticeArray)
+             for(PFObject *parseNoticeObject in parseNoticeArray)
              {
                  LANoticeItem *p = [[LANoticeItem alloc] initWithnoticeObject:parseNoticeObject
                                                                   NoticeTitle:[parseNoticeObject objectForKey:@"title"]
                                                                 noticeContent:[parseNoticeObject objectForKey:@"description"]];
                  NSString *number = [parseNoticeObject objectForKey:@"ad"];
+                 NSLog(@"%@", number);
                  [p setIsAnAd:[number intValue]];
+                 [p setInterestField:[parseNoticeObject objectForKey:@"audienceInterests"]];
+                 [p setAudienceTypes:[parseNoticeObject objectForKey:@"audienceTypes"]];
+                 
                  [p setStartDate:[parseNoticeObject objectForKey:@"startDate"]];
                  [p setEndDate:[parseNoticeObject objectForKey:@"endDate"]];
+                 [p setButtonString:[parseNoticeObject objectForKey:@"buttonLink"]];
+                 [p setButtonText:[parseNoticeObject objectForKey:@"buttonText"]];
+                 
                  // This does not require a network access.
                  NSLog(@"notices looks like %@", parseNoticeObject);
 //                 [p setNoticeTitle:[parseNoticeObject objectForKey:@"title"]];
 //                 [p setNoticeContent:[parseNoticeObject objectForKey:@"description"]];
-                 [p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
-                 NSLog(@"image url %@", [parseNoticeObject objectForKey:@"image"]);
+                 //[p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
+                 //NSLog(@"image url %@", [parseNoticeObject objectForKey:@"image"]);
                  [allItems addObject:p];
              }
          }else{

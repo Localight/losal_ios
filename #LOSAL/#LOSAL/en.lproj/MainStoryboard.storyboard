@@ -1089,7 +1089,7 @@ Learn more at Localism.co/schools</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iN7-9a-TGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1485" y="36"/>
+            <point key="canvasLocation" x="1895" y="78"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="RvX-dt-MB2">
@@ -1277,7 +1277,7 @@ Learn more at Localism.co/schools</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEh-u4-mkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="827"/>
+            <point key="canvasLocation" x="575" y="803"/>
         </scene>
         <!--Detail Notice View Controller-->
         <scene sceneID="W11-Zb-Chs">
@@ -1336,7 +1336,7 @@ Learn more at Localism.co/schools</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzc-i6-d02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="750"/>
+            <point key="canvasLocation" x="1683" y="868"/>
         </scene>
     </scenes>
     <resources>

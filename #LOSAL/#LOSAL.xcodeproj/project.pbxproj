@@ -103,6 +103,7 @@
 		654A737A17CD4F24009A28B3 /* LADetailNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654A737917CD4F24009A28B3 /* LADetailNoticeViewController.m */; };
 		656EA0F317D8E55B00EF0E42 /* iphone-sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = 656EA0F217D8E55B00EF0E42 /* iphone-sign-in.png */; };
 		656EA0F517D8E62000EF0E42 /* close-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 656EA0F417D8E62000EF0E42 /* close-circle.png */; };
+		656FB82A17F38D8900629C46 /* LAImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FB82917F38D8900629C46 /* LAImageStore.m */; };
 		6576740717C55ACD00EC2881 /* lightning.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740617C55ACD00EC2881 /* lightning.png */; };
 		6576740B17C55D2800EC2881 /* edmodo-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740A17C55D2800EC2881 /* edmodo-logo.png */; };
 		6576740D17C5615400EC2881 /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740C17C5615400EC2881 /* news.png */; };
@@ -271,6 +272,8 @@
 		654A737917CD4F24009A28B3 /* LADetailNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LADetailNoticeViewController.m; sourceTree = "<group>"; };
 		656EA0F217D8E55B00EF0E42 /* iphone-sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-sign-in.png"; sourceTree = "<group>"; };
 		656EA0F417D8E62000EF0E42 /* close-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-circle.png"; sourceTree = "<group>"; };
+		656FB82817F38D8900629C46 /* LAImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAImageStore.h; sourceTree = "<group>"; };
+		656FB82917F38D8900629C46 /* LAImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAImageStore.m; sourceTree = "<group>"; };
 		6576740617C55ACD00EC2881 /* lightning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightning.png; sourceTree = "<group>"; };
 		6576740A17C55D2800EC2881 /* edmodo-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edmodo-logo.png"; sourceTree = "<group>"; };
 		6576740C17C5615400EC2881 /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
@@ -411,6 +414,8 @@
 				652F518C17D00DCA004DD0DA /* LANoticesStore.m */,
 				652F519117D02124004DD0DA /* LANoticeItemCell.h */,
 				652F519217D02124004DD0DA /* LANoticeItemCell.m */,
+				656FB82817F38D8900629C46 /* LAImageStore.h */,
+				656FB82917F38D8900629C46 /* LAImageStore.m */,
 			);
 			name = Notices;
 			sourceTree = "<group>";
@@ -942,6 +947,7 @@
 				6588D03317A4BCC500B6C498 /* main.m in Sources */,
 				6588D03717A4BCC500B6C498 /* LAAppDelegate.m in Sources */,
 				6588D04317A4BCC500B6C498 /* LAFeedViewController.m in Sources */,
+				656FB82A17F38D8900629C46 /* LAImageStore.m in Sources */,
 				6588D04617A4BCC500B6C498 /* LADetailViewController.m in Sources */,
 				6588D06617A4BEBF00B6C498 /* LASplashViewController.m in Sources */,
 				6588D0AA17A4C02D00B6C498 /* ECSlidingViewController.m in Sources */,

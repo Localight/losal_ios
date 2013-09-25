@@ -41,6 +41,10 @@
     [_verifyUserButton setBackgroundColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
     [_phoneNumber setValue:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]
                 forKeyPath:@"_placeholderLabel.textColor"];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedDismissNotification:)
+                                                 name:@"DissmisView"
+                                               object:nil];
     
         
 //    self.appDelegate = (LAAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -126,10 +130,21 @@
 //    }
 //}
 
-- (void)dismiss{
-    
+- (void)dismiss
+{
     self.appDelegate.loginViewController = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)receivedDismissNotification:(NSNotification *) notification
+{
+    if ([[notification name] isEqualToString:@"DissmisView"])
+    {
+        [self.delegate wantsToCloseView];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
+        
 }
 - (void)dealloc
 {

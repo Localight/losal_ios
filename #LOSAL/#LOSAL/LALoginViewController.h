@@ -27,7 +27,7 @@
 @property (nonatomic, copy) void (^dismissBlock)(void);
 - (IBAction)closeButtonPressed:(id)sender;
 - (IBAction)verifyUser:(id)sender;
-
+- (void)receivedDismissNotification:(NSNotification *) notification;
 - (IBAction)backgroundTapped:(id)sender;
 
 //- (void)loginWithPin:(NSString *)pin;

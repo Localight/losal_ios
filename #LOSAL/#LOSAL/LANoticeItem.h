@@ -18,6 +18,11 @@
              
 @property (nonatomic, strong) NSString *noticeTitle;
 @property (nonatomic, strong) NSString *noticeContent;
+@property (nonatomic, strong) NSString *interestField;
+@property (nonatomic, strong) NSString *audienceTypes;
+@property (nonatomic, strong) NSString *buttonString;
+@property (nonatomic, strong) NSString *buttonText;
+
 @property (nonatomic, strong) NSString *startDate;
 @property (nonatomic, strong) NSString *endDate;
 @property (nonatomic) int isAnAd;
@@ -25,7 +30,9 @@
 
 @property (nonatomic, strong) UIImage *thumbnail;
 @property (nonatomic, strong) NSData *thumbnailData;
+
 @property (nonatomic, copy) NSString *imageKey;
+
 @property (nonatomic, strong) NSString *noticeImageUrl;
 @property (nonatomic, strong) PFObject *postObject;
 @property (nonatomic, strong) PFFile *photoFile;
