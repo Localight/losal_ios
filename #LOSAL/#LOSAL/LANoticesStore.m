@@ -8,6 +8,7 @@
 
 #import "LANoticesStore.h"
 #import "LANoticeItem.h"
+#import "LAImageStore.h"
 //#import "LAImageStore.h"
 #import <Parse/Parse.h>
 @implementation LANoticesStore
@@ -54,7 +55,7 @@
 - (void)updateEntries
 {
     // we will change this method to update, with in it, we will make sure to check the dates of the posts
-    PFQuery *query = [PFQuery queryWithClassName:@"Notifications"];
+      PFQuery *query = [PFQuery queryWithClassName:@"Notifications"];
     //[query orderByDescending:@"createAt"];
 //    [query whereKey:@"startDate" lessThan:[NSDate date]];
 //    [query whereKey:@"endDate" greaterThan:[NSDate date]];
@@ -79,7 +80,11 @@
                  [p setEndDate:[parseNoticeObject objectForKey:@"endDate"]];
                  [p setButtonString:[parseNoticeObject objectForKey:@"buttonLink"]];
                  [p setButtonText:[parseNoticeObject objectForKey:@"buttonText"]];
+                 [p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
                  
+                //[item setThumbnailDataFromImage:image];
+                 
+                 // possible error will come from above.
                  // This does not require a network access.
                  NSLog(@"notices looks like %@", parseNoticeObject);
 //                 [p setNoticeTitle:[parseNoticeObject objectForKey:@"title"]];

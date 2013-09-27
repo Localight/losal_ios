@@ -22,18 +22,6 @@
     [content setText:[_item noticeContent]];
     
     [[self navigationItem] setTitle:[_item noticeTitle]];
-    
-    NSString *imageKey = [_item imageKey];
-    if (imageKey) {
-        // Get image for image key from image store
-        UIImage *imageToDisplay =
-        [[LAImageStore defaultImageStore] imageForKey:imageKey];
-        // Use that image to put on the screen in imageView
-        [imageView setImage:imageToDisplay];
-    } else {
-        // Clear the imageView
-        [imageView setImage:nil];
-    }
 }
 //    // Create a NSDateFormatter that will turn a date into a simple date string
 //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

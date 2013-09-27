@@ -13,10 +13,10 @@
 //@property (nonatomic, strong) PFUser *user;
 
 @property (nonatomic, strong) NSString *displayName;
-@property (nonatomic, strong) NSString *phoneNumber;//used for logging in
+//@property (nonatomic, strong) NSString *phoneNumber;//used for logging in
 @property (nonatomic, strong) NSString *iconStringFromParse;
 @property (nonatomic, strong) NSString *iconStringColorFromParse;
-@property (nonatomic, strong) NSString *pinNumberFromUrl;
+//@property (nonatomic, strong) NSString *pinNumberFromUrl;
 @property (nonatomic, strong) NSString *iconString;
 @property (nonatomic, strong) UIColor  *iconColor;
 @property (nonatomic, strong) NSString *objectID;

@@ -29,6 +29,7 @@
 @property (nonatomic, readonly, strong) NSDate *dateRecieved;//could also be dateMessageSent
 
 @property (nonatomic, strong) UIImage *thumbnail;
+
 @property (nonatomic, strong) NSData *thumbnailData;
 
 @property (nonatomic, copy) NSString *imageKey;

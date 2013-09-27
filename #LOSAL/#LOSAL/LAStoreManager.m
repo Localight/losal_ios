@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import "LAHashtagAndPost.h"
 #import "LAUser.h"
+#import "KeychainItemWrapper.h"
+#import <Security/Security.h>
 
 @implementation LAStoreManager
 
@@ -167,6 +169,7 @@
                      [postItem setUserCategory:[user objectForKey:@"userType"]];//find out what they are
                  }
                   [mainPostItems addObject:postItem];
+                 
              }
             NSLog(@"the size of the mainpostitems is now from outside the block:%lu",(unsigned long)[mainPostItems count]);
          }else {
@@ -184,10 +187,12 @@
              // If you come here you got the array
              NSLog(@"results are %@", posts);
          }
+         [[NSNotificationCenter defaultCenter]
+          postNotificationName:@"Reload"
+          object:self];
          _lastPostInArray  = [mainPostItems lastObject];
      }];
-    
-    NSLog(@"the size of the mainpostitems is now from outside the block: %lu",(unsigned long)[mainPostItems count]);
+        NSLog(@"the size of the mainpostitems is now from outside the block: %lu",(unsigned long)[mainPostItems count]);
 }
 - (void)getFeedWithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
@@ -400,17 +405,17 @@
     // [user setUsername:[_current useNameFromParse;
     // [user setPasword: [_currnet userPaswordFromParse;
 
-    
-    NSLog(@"%@", [_currentUser pinNumberFromUrl]);
-    NSLog(@"%@", [_currentUser phoneNumber]);
-    
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
+                                                                            accessGroup:nil];
     PFUser *p = [[PFUser alloc]init];
-    [p setPassword:[_currentUser pinNumberFromUrl]];
-    [p setUsername:[_currentUser phoneNumber]];
+    
+    [p setPassword:[keychainItem objectForKey:(__bridge id)(kSecValueData)]];
+    [p setUsername:[keychainItem objectForKey:(__bridge id)kSecAttrAccount]];
     
 //    [[PFUser currentUser]setPassword:[_currentUser pinNumberFromUrl]];
 //    [[PFUser currentUser]setUsername:[_currentUser phoneNumber]];
     // need to get the password passed some how, getting errors with that.
+    //TODO: come back to and make all of the user attributes NSDefualts.
     
     [PFUser logInWithUsernameInBackground:[p username]
                                  password:[p password]
@@ -430,7 +435,6 @@
             [_currentUser setUserCategory:[user objectForKey:@"userType"]];
             
             [_currentUser setObjectID:[user objectForKey:@"objectID"]];
-            [_currentUser setPhoneNumber:[user objectForKey:@"username"]];
             [_currentUser setFirstName:[user objectForKey:@"firstName"]];
             [_currentUser setLastName:[user objectForKey:@"lastName"]];
             [_currentUser setPrefix:[user objectForKey:@"prefix"]];

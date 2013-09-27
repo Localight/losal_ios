@@ -97,6 +97,7 @@
 		6530907417BD87C400ADA359 /* twitterlike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906E17BD87C400ADA359 /* twitterlike.png */; };
 		6530907517BD87C400ADA359 /* facebooklike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906F17BD87C400ADA359 /* facebooklike.png */; };
 		6530907917BD956E00ADA359 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530907817BD956E00ADA359 /* clock.png */; };
+		653160B617F5F37600BFE162 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 653160B517F5F37600BFE162 /* KeychainItemWrapper.m */; };
 		6549236817B9591A003F39E3 /* do-git in Resources */ = {isa = PBXBuildFile; fileRef = 6549236417B9591A003F39E3 /* do-git */; };
 		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
 		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
@@ -264,6 +265,8 @@
 		6530906E17BD87C400ADA359 /* twitterlike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterlike.png; sourceTree = "<group>"; };
 		6530906F17BD87C400ADA359 /* facebooklike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebooklike.png; sourceTree = "<group>"; };
 		6530907817BD956E00ADA359 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		653160B417F5F37600BFE162 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		653160B517F5F37600BFE162 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		6549236417B9591A003F39E3 /* do-git */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.csh; path = "do-git"; sourceTree = "<group>"; };
 		6549236517B9591A003F39E3 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
 		6549236617B9591A003F39E3 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
@@ -326,13 +329,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43DC44C217A7A159005729D8 /* Security.framework in Frameworks */,
 				4358C00E17BC255600525BB8 /* Accounts.framework in Frameworks */,
 				4358C00C17BC216400525BB8 /* Social.framework in Frameworks */,
 				4378F31F17B2D28D00DEBE6A /* ImageIO.framework in Frameworks */,
 				4397674017B06AE90040C947 /* libz.dylib in Frameworks */,
 				43DC44C617A7A1BE005729D8 /* MobileCoreServices.framework in Frameworks */,
 				43DC44C417A7A186005729D8 /* SystemConfiguration.framework in Frameworks */,
-				43DC44C217A7A159005729D8 /* Security.framework in Frameworks */,
 				43DC44C017A7A125005729D8 /* CFNetwork.framework in Frameworks */,
 				43DC44BE17A7A10A005729D8 /* CoreLocation.framework in Frameworks */,
 				43DC44BC17A7A0EF005729D8 /* AudioToolbox.framework in Frameworks */,
@@ -652,6 +655,8 @@
 				6588D06717A4BF2300B6C498 /* External Libraries */,
 				6588D03517A4BCC500B6C498 /* LAAppDelegate.h */,
 				6588D03617A4BCC500B6C498 /* LAAppDelegate.m */,
+				653160B417F5F37600BFE162 /* KeychainItemWrapper.h */,
+				653160B517F5F37600BFE162 /* KeychainItemWrapper.m */,
 				4397674717B1BCB50040C947 /* Model */,
 				4358C00317BBF9E200525BB8 /* Social Libraries */,
 				43DC44BA17A796DC005729D8 /* Store */,
@@ -952,6 +957,7 @@
 				6588D06617A4BEBF00B6C498 /* LASplashViewController.m in Sources */,
 				6588D0AA17A4C02D00B6C498 /* ECSlidingViewController.m in Sources */,
 				6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */,
+				653160B617F5F37600BFE162 /* KeychainItemWrapper.m in Sources */,
 				6588D0AE17A4C31C00B6C498 /* LAMenuViewController.m in Sources */,
 				43DC44B717A79638005729D8 /* LAStoreManager.m in Sources */,
 				4397674A17B1BCD80040C947 /* LAPostItem.m in Sources */,

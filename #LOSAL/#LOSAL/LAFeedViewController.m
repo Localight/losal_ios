@@ -73,7 +73,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-            }
+        
+    }
     
     return self;
 }
@@ -81,6 +82,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self fetchEntries];
+    
+    if (!([[NSUserDefaults standardUserDefaults]boolForKey:@"firstTimeLaunchedKey"]&&[[[LAStoreManager defaultStore]currentUser]userVerified]))
+    {
+        [self performSegueWithIdentifier:@"kIntroductionSegue" sender:self];
+        UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+        
+        UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+        
+        [self presentViewController:loginController animated:YES
+                         completion:^{
+                             NSLog(@"showing login view");
+                         }];
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"firstTimeLaunchedKey"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        
+    } else {
+        
+        // call login in method used stored password and pin numbers
+        // keep user logged in.
+        NSLog(@"you should be showing nothing");
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedReloadNotification:)
+                                                 name:@"Reload"
+                                               object:nil];
+    // Set up splash to dimmed background animation
+
     self.socialManager = [LASocialManager sharedManager];
     self.socialManager.delegate = self;
     self.imageLoader = [LAImageLoader sharedManager];
@@ -137,52 +168,26 @@
     {
         self.slidingViewController.underRightViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Notices"];
     }
+    //TODO: big TODO!! get the user to stay logged in. and store all his data.
     
     // This was messing up the scrolling in the UI table view so need to figure out a way to add this back - Joaquin
     //[self.view addGestureRecognizer:self.slidingViewController.panGesture];
-    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"firstTimeLaunchedKey"])
-    {
-        [self performSegueWithIdentifier:@"kIntroductionSegue" sender:self];
-        UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
-        
-        UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
-        
-        [self presentViewController:loginController animated:YES
-                         completion:^{
-                             NSLog(@"showing login view");
-                         }];
-        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"firstTimeLaunchedKey"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-        }else{
-            
-        [[self tableView]reloadData];
-        NSLog(@"you should be showing nothing");
-    }
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receivedReloadNotification:)
-                                                 name:@"Reload"
-                                               object:nil];
-    [self fetchEntries];
-        // Set up splash to dimmed background animation
-}
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-   
-   // [[self tableView] reloadData];
-}
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
+    // I like the way this works. Neat pattern.
+    // basically you count on something not being created, and you call expect nil or false.
+    // then you tell the if statement to count on that fact that it will be false or nil.
+    // if it is false or nil then, present the "thing"(view in our case) and create the statement I was checking for.
+    // therefore at all times in history the statment will be true, because you saved it in the user defaults.
 }
 //- (void)viewWillAppear:(BOOL)animated
 //{
 //    [super viewWillAppear:animated];
-//   ;
 //   
+//   // [[self tableView] reloadData];
 //}
-// all this does is popoulate the array with data.
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 - (IBAction)revealMenu:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
@@ -257,7 +262,6 @@
 {
     return [[[LAStoreManager defaultStore]allMainPostItems]count] + 1;
 }
-
 
 - (void)fetchEntries
 {

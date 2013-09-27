@@ -10,6 +10,8 @@
 #import "LAStoreManager.h"
 #import "LASocialManager.h"
 #import "LANoticesStore.h"
+#import "KeychainItemWrapper.h"
+#import <Security/Security.h>
 @interface LAAppDelegate ()
 
 //@property (nonatomic, strong) LAStoreManager *storeManager;
@@ -18,15 +20,11 @@
 @end
 @implementation LAAppDelegate
 
-static NSString * const firstTimeLaunchkey = @"firstTimeLaunchedKey";
+//static NSString * const firstTimeLaunchkey = @"hasLaunchedOnce";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // const pointer
-    if (![[NSUserDefaults standardUserDefaults]boolForKey:firstTimeLaunchkey]) {
-        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:firstTimeLaunchkey];
-    }
     
-   
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES
 //                                            withAnimation:UIStatusBarAnimationNone];
@@ -81,10 +79,18 @@ static NSString * const firstTimeLaunchkey = @"firstTimeLaunchedKey";
     NSString *pinString = [urlString substringWithRange:NSMakeRange(start, length)];
     
     NSLog(@"we caught the website thing");
+    
 //    [[LAStoreManager sharedManager]setUserVerified:YES];
     // We se the user's password to the pinstring then log in using the LAUser info.
     NSLog(@"%@",pinString);
-    [[[LAStoreManager defaultStore]currentUser]setPinNumberFromUrl:pinString];
+    
+    // This is where we would use store the user password and username with the key thing, then from here on out call the keychain method
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
+                                                                            accessGroup:nil];
+    
+    [keychainItem setObject:pinString forKey:(__bridge id)kSecValueData];
+//    [keychainItem setObject:@"username you are saving" forKey:kSecAttrAccount];
+//    [[[LAStoreManager defaultStore]currentUser]setPinNumberFromUrl:[keychainItem objectForKey:kSecValueData]];
      [[LAStoreManager defaultStore]loginWithPhoneNumber];
     [[LAStoreManager defaultStore]getUserLikesWithCompletion:^(NSError *error) {
         NSLog(@"getting the likes");

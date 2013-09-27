@@ -43,7 +43,7 @@
     [titleLabel setTextColor:[UIColor whiteColor]];
     [titleLabel setBackgroundColor:[UIColor clearColor]];
     [titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:25]];
-    }
+}
 - (id)initWithStyle:(UITableViewStyle)style
 {
     return [self init];
@@ -97,24 +97,13 @@
     [cell setController:self];
     [cell setTableView:tableView];
     
-    // Configure the cell..
-//    if ([p isAnAd]==1) {
-//        [cell setTitleLabel:nil];
-//        [cell setBriefDescriptionLabel:nil];
-//        PFImageView *creature = [[PFImageView alloc] init];
-//        creature.image = [UIImage imageNamed:@"1.jpg"]; // placeholder image
-//        creature.file = (PFFile *)file;
-//        [creature loadInBackground];
-//        UIImageView *imageView = [[UIImageView alloc] initWithImage:@"Default"];
-//        imageView.frame = CGRectMake(6.5, 6.5, 65., 65.);
-//        [cell addSubview:imageView];
-//        
-//    }
-    if ([p isAnAd]== 1) {
-        [[cell titleLabel]setText:@"this should be an ad"];
-        [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
+     if ([p isAnAd]== 1) {
+         [[cell titleLabel]setHidden:YES];
+//        [[cell titleLabel]setText:@"this should be an ad"];
+//        [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
         [[cell thumbnailImage]setHidden:YES];
         [[cell briefDescriptionLabel]setHidden:YES];
+        [[cell adImage]setHidden:NO];
         
     }else{
         [[cell adImage]setHidden:YES];
@@ -123,28 +112,37 @@
         [[cell briefDescriptionLabel]setText:[p teaserText]];
         [[cell briefDescriptionLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
     }
-//    [[cell dateLabel]setText:[NSString stringWithFormat:@"%@", [p startDate]]];//[NSString stringWithFormat:@"$%d", [p valueInDollars]]];
-//    // need to format date
-//    [[cell dateLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
     
-    if (![[p noticeImageUrl] length] == 0)
-    {
-        // Set image to nil, in case the cell was reused.
-        [cell setThumbnailImage:nil];
-        [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
-                                                              forId:[[p postObject]objectId]
-                                                           andBlock:^(UIImage *image)
-        {
-             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
-             {
-                 [[cell thumbnailImage]setImage:image];
-                 
-             }}];
-    } else {
-        [[cell thumbnailImage]setImage:nil];
-    }
-return cell;
+    [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
+                                                          forId:[[p postObject]objectId]
+                                                       andBlock:^(UIImage *image)
+     {
+         [[cell thumbnailImage]setImage:image];
+         }];
+
+
+
+//    if (![[p noticeImageUrl] length] == 0)
+//    {
+//        // Set image to nil, in case the cell was reused.
+//        //[cell setThumbnailImage:nil];
+//        [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
+//                                                              forId:[[p postObject]objectId]
+//                                                           andBlock:^(UIImage *image)
+//        {
+//                [[cell thumbnailImage]setImage:image];
+////             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+////             {
+////                 [[cell thumbnailImage]setImage:image];
+////                 
+////             }
+//         
+//    } else {
+//        //[[cell thumbnailImage]setImage:nil];
+//    }
+    return cell;
 }
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

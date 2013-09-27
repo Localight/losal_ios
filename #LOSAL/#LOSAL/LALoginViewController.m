@@ -11,6 +11,8 @@
 #import "LAAppDelegate.h"
 #import "LAIntroOverviewViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "KeychainItemWrapper.h"
+#import <Security/Security.h>
 @interface LALoginViewController ()
 
 @property (strong, nonatomic) LAAppDelegate *appDelegate;
@@ -61,8 +63,14 @@
 
 - (IBAction)verifyUser:(id)sender
 {
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
+                                                                            accessGroup:nil];
+    
+    [keychainItem setObject:[_phoneNumber text] forKey:(__bridge id)(kSecAttrAccount)];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    [query whereKey:@"username" equalTo:[_phoneNumber text]];
+    
+    [query whereKey:@"username" equalTo:[keychainItem objectForKey:(__bridge id)kSecAttrAccount]];
     
     [[_verifyUserButton titleLabel]setText:@"Retry"];
     
@@ -79,8 +87,9 @@
             //  self.phoneNumber.hidden = YES;
          
             //[_retryButton setHidden:NO];
-            [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:[_phoneNumber text]];
-            [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[_phoneNumber text]];
+            
+//            [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:[_phoneNumber text]];
+            [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[keychainItem objectForKey:(__bridge id)(kSecAttrAccount)]];
             NSLog(@"the next step");
            // [[[LAStoreManager defaultStore]currentUser]setUserVerified:true];
         }else{
@@ -91,7 +100,7 @@
             [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
             
             NSLog(@"did we get here?");
-            [_verifyUserButton setHidden:YES];
+//            [_verifyUserButton setHidden:YES];
             while (count > 2) {
                 count ++;
                 [self verifyUser:sender];

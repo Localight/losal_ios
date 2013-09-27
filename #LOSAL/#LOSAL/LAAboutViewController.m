@@ -11,6 +11,8 @@
 #import "LAMenuViewController.h"
 #import "LANoticeViewController.h"
 #import "LAStoreManager.h"
+#import "KeychainItemWrapper.h"
+#import <Security/Security.h>
 @interface LAAboutViewController ()
 
 @end
@@ -117,10 +119,15 @@
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-        NSString *number = [[alertView textFieldAtIndex:0]text];
-        NSLog(@"%@",number);
-        [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:number];
-        [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:number];
+    NSString *number = [[alertView textFieldAtIndex:0]text];
+    NSLog(@"%@",number);
+    
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
+                                                                            accessGroup:nil];
+    
+    [keychainItem setObject:number forKey:(__bridge id)kSecValueData];
+    
+    [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[keychainItem objectForKey:(__bridge id)(kSecAttrAccount)]];
         // name contains the entered value
 }
 @end
