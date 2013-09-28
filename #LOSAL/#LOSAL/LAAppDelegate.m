@@ -23,7 +23,8 @@
 //static NSString * const firstTimeLaunchkey = @"hasLaunchedOnce";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // const pointer
+   
+// const pointer
     
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES
@@ -63,6 +64,8 @@
     return [self.socialManager instagramhandleOpenURL:url];
 }
 
+
+
 -(BOOL)application:(UIApplication *)application
            openURL:(NSURL *)url
  sourceApplication:(NSString *)sourceApplication
@@ -89,6 +92,11 @@
                                                                             accessGroup:nil];
     
     [keychainItem setObject:pinString forKey:(__bridge id)kSecValueData];
+    
+//    [PFUser logInWithUsernameInBackground:[keychainItem objectForKey:(__bridge id)(kSecAttrAccount)]
+//                                 password:[keychainItem objectForKey:(__bridge id)(kSecValueData)]
+//                                   target:self
+//                                 selector:@selector(handleUserLogin:error:)];
 //    [keychainItem setObject:@"username you are saving" forKey:kSecAttrAccount];
 //    [[[LAStoreManager defaultStore]currentUser]setPinNumberFromUrl:[keychainItem objectForKey:kSecValueData]];
      [[LAStoreManager defaultStore]loginWithPhoneNumber];

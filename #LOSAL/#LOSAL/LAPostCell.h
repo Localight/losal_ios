@@ -21,4 +21,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *socialMediaImage;
 @property (weak, nonatomic) IBOutlet UIImageView *timeImage;
 
+- (IBAction)showImage:(id)sender;
 @end

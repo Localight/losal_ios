@@ -63,35 +63,34 @@
 
 - (IBAction)verifyUser:(id)sender
 {
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
-                                                                            accessGroup:nil];
-    
-    [keychainItem setObject:[_phoneNumber text] forKey:(__bridge id)(kSecAttrAccount)];
-    
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     
-    [query whereKey:@"username" equalTo:[keychainItem objectForKey:(__bridge id)kSecAttrAccount]];
+    [query whereKey:@"username" equalTo:[_phoneNumber text] ];
     
-    [[_verifyUserButton titleLabel]setText:@"Retry"];
-    
+    // glitch we need to come back too. with the log in.
+    // for some reason even if you enter the wrong number it gets and error, but still logs you in.
+    // need to come back to and fix for now, move on.
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         int count = 0;
+//        NSArray* scoreArray = [query findObjects];
         if (!error)
         {
+            KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
+                                                                                    accessGroup:nil];
+            
+            [keychainItem setObject:[_phoneNumber text] forKey:(__bridge id)(kSecAttrAccount)];
+            
             [[_verifyUserButton titleLabel]setText:@"Retry"];
             NSLog(@"This user has a number in the DataBase");
             [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];\
             [_validUserLabel setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
             [_mobileNumberPrompt setText:@"No text message? Email us and we'll see what the deal is, or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
             [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
-            //  self.phoneNumber.hidden = YES;
-         
-            //[_retryButton setHidden:NO];
-            
-//            [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:[_phoneNumber text]];
+//          [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:[_phoneNumber text]];
             [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[keychainItem objectForKey:(__bridge id)(kSecAttrAccount)]];
             NSLog(@"the next step");
-           // [[[LAStoreManager defaultStore]currentUser]setUserVerified:true];
+            
+            [[[LAStoreManager defaultStore]currentUser]setUserVerified:YES];
         }else{
             [_mobileNumberPrompt setText:@"Enter your mobile number"];
             
@@ -105,12 +104,12 @@
                 count ++;
                 [self verifyUser:sender];
             }
-            [[[LAStoreManager defaultStore]currentUser]setUserVerified:false];
+            [[[LAStoreManager defaultStore]currentUser]setUserVerified:NO];
             
-            NSLog(@"This user does not have a number in the DataBase and the error is: %@", error);
+            NSLog(@"This user does not have a number in the DataBase and the error is: %@, %@", error, [error userInfo]);
          }
     }];
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:_dismissBlock];
+    //[[self presentingViewController] dismissViewControllerAnimated:YES completion:_dismissBlock];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

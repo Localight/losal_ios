@@ -992,7 +992,7 @@ Learn more at Localism.co/schools</string>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="cRC-ul-2YD">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="cRC-ul-2YD">
                                             <rect key="frame" x="10" y="302" width="300" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <constraints>

@@ -32,6 +32,8 @@
 
 #import "LADataLoader.h"
 #import "LANoticesStore.h"
+#import "KeychainItemWrapper.h"
+#import <Security/Security.h>
 @interface LAFeedViewController ()
 
 #define  DEFAULT_ICON "\uE00C"
@@ -85,7 +87,9 @@
     
     [self fetchEntries];
     
-    if (!([[NSUserDefaults standardUserDefaults]boolForKey:@"firstTimeLaunchedKey"]&&[[[LAStoreManager defaultStore]currentUser]userVerified]))
+  //  &&[[[LAStoreManager defaultStore]currentUser]userVerified]
+    
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"firstTimeLaunchedKey"])
     {
         [self performSegueWithIdentifier:@"kIntroductionSegue" sender:self];
         UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
@@ -98,11 +102,12 @@
                          }];
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"firstTimeLaunchedKey"];
         [[NSUserDefaults standardUserDefaults]synchronize];
-        
     } else {
-        
+        [[LAStoreManager defaultStore]loginWithPhoneNumber];
+       
         // call login in method used stored password and pin numbers
         // keep user logged in.
+        
         NSLog(@"you should be showing nothing");
     }
     
@@ -371,7 +376,7 @@
     
     [[cell messageArea] setText:[postItem text]];
     [[cell messageArea]setTextColor:[UIColor whiteColor]];
-    [[cell messageArea]sizeToFit];
+//    [[cell messageArea]sizeToFit];
     
     // Set up users icon[cell.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
     NSLog(@"%@", [postItem userFirstName]);
@@ -689,7 +694,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
         if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO)
         {
-            LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 64, self.view.bounds.size.width - 40, 230)];
+            LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 80, self.view.bounds.size.width - 40, 230)];
+            
+            
            
             [self.navigationController.view addSubview:socialView];
             

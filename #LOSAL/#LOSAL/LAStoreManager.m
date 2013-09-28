@@ -41,7 +41,6 @@
         uniqueHashtagsItems = [[NSMutableArray alloc]init];
         mainPostItems = [[NSMutableArray alloc]init];
         _currentUser = [[LAUser alloc]init];
-        
     }
     return self;
 }
@@ -344,13 +343,13 @@
     [query whereKey:@"username" equalTo:phoneNumber];
     
     // need to come back and clean this up
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
         if (!error)
         {
             NSLog(@"This user has a number in the DataBase");
-            [_currentUser setUserVerified:true];
+            [_currentUser setUserVerified:YES];
         }else{
-            [_currentUser setUserVerified:false];
             NSLog(@"This user does not have a number in the DataBase and the error is: %@", error);
         }
     }];
@@ -390,9 +389,8 @@
     }];
 
 }
-- (void)loginWithPhoneNumber;
+- (void)loginWithPhoneNumber
 {
- 
 //    // I might want to take this out.
 //    [PFUser logOut];
 //    PFUser *currentUser1 = [PFUser currentUser]; // this will now be nil
@@ -407,18 +405,18 @@
 
     KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
                                                                             accessGroup:nil];
-    PFUser *p = [[PFUser alloc]init];
-    
-    [p setPassword:[keychainItem objectForKey:(__bridge id)(kSecValueData)]];
-    [p setUsername:[keychainItem objectForKey:(__bridge id)kSecAttrAccount]];
-    
+//    PFUser *p = [[PFUser alloc]init];
+//    
+//    [p setPassword:];
+//    [p setUsername:];
+//
 //    [[PFUser currentUser]setPassword:[_currentUser pinNumberFromUrl]];
 //    [[PFUser currentUser]setUsername:[_currentUser phoneNumber]];
     // need to get the password passed some how, getting errors with that.
     //TODO: come back to and make all of the user attributes NSDefualts.
     
-    [PFUser logInWithUsernameInBackground:[p username]
-                                 password:[p password]
+    [PFUser logInWithUsernameInBackground:[keychainItem objectForKey:(__bridge id)kSecAttrAccount]
+                                 password:[keychainItem objectForKey:(__bridge id)(kSecValueData)]
                                     block:^(PFUser *user, NSError *error)
     {
         NSLog(@"this is the pfusers current password, it should be the pass word from parse: %@",[[PFUser currentUser]password]);

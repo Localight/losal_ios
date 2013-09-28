@@ -28,7 +28,7 @@
 - (id)init
 {
     // set the flag for user verified. 
-    [self setUserVerified:false];
+    [self setUserVerified:NO];
     return [self initWithDisplayName:@"Non-Registered"
                       userIconString:[NSString stringWithUTF8String:DEFAULT_ICON]
                        userIconColor:[UIColor whiteColor]];
