@@ -98,6 +98,7 @@
 		6530907517BD87C400ADA359 /* facebooklike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906F17BD87C400ADA359 /* facebooklike.png */; };
 		6530907917BD956E00ADA359 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530907817BD956E00ADA359 /* clock.png */; };
 		653160B617F5F37600BFE162 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 653160B517F5F37600BFE162 /* KeychainItemWrapper.m */; };
+		65381B1317F9E3070055F483 /* LAHashTagStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 65381B1217F9E3070055F483 /* LAHashTagStore.m */; };
 		6549236817B9591A003F39E3 /* do-git in Resources */ = {isa = PBXBuildFile; fileRef = 6549236417B9591A003F39E3 /* do-git */; };
 		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
 		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
@@ -271,6 +272,8 @@
 		6530907817BD956E00ADA359 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		653160B417F5F37600BFE162 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		653160B517F5F37600BFE162 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		65381B1117F9E3070055F483 /* LAHashTagStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAHashTagStore.h; sourceTree = "<group>"; };
+		65381B1217F9E3070055F483 /* LAHashTagStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAHashTagStore.m; sourceTree = "<group>"; };
 		6549236417B9591A003F39E3 /* do-git */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.csh; path = "do-git"; sourceTree = "<group>"; };
 		6549236517B9591A003F39E3 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
 		6549236617B9591A003F39E3 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
@@ -404,6 +407,8 @@
 				651F0C0F17B9FBC20018794A /* LAPostCell.m */,
 				43F9622017CC01B4006F9AF4 /* LAHashtagViewController.h */,
 				43F9622117CC01B4006F9AF4 /* LAHashtagViewController.m */,
+				65381B1117F9E3070055F483 /* LAHashTagStore.h */,
+				65381B1217F9E3070055F483 /* LAHashTagStore.m */,
 				6588D04417A4BCC500B6C498 /* LADetailViewController.h */,
 				6588D04517A4BCC500B6C498 /* LADetailViewController.m */,
 				4358C00017BAF67700525BB8 /* LASocialNetworksView.h */,
@@ -998,6 +1003,7 @@
 				650B6B2F17CE740300F93BBD /* LAAboutViewController.m in Sources */,
 				65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */,
 				652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */,
+				65381B1317F9E3070055F483 /* LAHashTagStore.m in Sources */,
 				652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */,
 				44C777CD17D66EBC0062FDF4 /* LAIntroOverviewViewController.m in Sources */,
 				65032F0717DA81A0004683BB /* LASchoolLinksViewController.m in Sources */,

@@ -762,7 +762,7 @@ Learn more at Localism.co/schools</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-2W-6uO">
-                                <rect key="frame" x="20" y="128" width="40" height="40"/>
+                                <rect key="frame" x="20" y="127.99999999999999" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8ut-Jy-mjG"/>
                                 </constraints>
@@ -1058,6 +1058,7 @@ Learn more at Localism.co/schools</string>
                     <connections>
                         <segue destination="2l5-3i-ohL" kind="modal" identifier="kIntroductionSegue" id="dfx-sA-Av6"/>
                         <segue destination="UaJ-BV-dCn" kind="push" identifier="toDetailView" id="lOt-g8-doW"/>
+                        <segue destination="WRJ-py-LyS" kind="push" identifier="toHashtagPicker" id="qa2-qX-og4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -1073,7 +1074,7 @@ Learn more at Localism.co/schools</string>
                         <viewControllerLayoutGuide type="bottom" id="5Ti-Hi-cab"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yCs-5l-KCz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XTj-cZ-dTp">
@@ -1083,6 +1084,7 @@ Learn more at Localism.co/schools</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="I1Y-g9-9Vm"/>
                     <connections>
                         <outlet property="picker" destination="XTj-cZ-dTp" id="btH-e7-DmF"/>
                     </connections>

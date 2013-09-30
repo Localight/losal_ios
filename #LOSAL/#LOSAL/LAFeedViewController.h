@@ -13,9 +13,9 @@
 // that a ChildViewControllerDelegate type exists so that we can use it
 // later.
 
-@interface LAFeedViewController : UITableViewController<LANoticeViewControllerDelegate>
+@interface LAFeedViewController : UITableViewController<LANoticeViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 {
-    
+
 }
 
 @end

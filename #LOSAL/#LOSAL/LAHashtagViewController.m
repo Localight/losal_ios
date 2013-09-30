@@ -57,6 +57,7 @@
       didSelectRow:(NSInteger)row
        inComponent:(NSInteger)component
 {
+    
    // this is where we will add the logic to load the array with different posts based on the hashtag search
 //    NSLog(@"Selected Row %d", row);
 //    switch(row)
@@ -88,7 +89,8 @@
 //            break;
 //    }
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"hashtagCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];

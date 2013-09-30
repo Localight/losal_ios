@@ -42,7 +42,7 @@
 
 @property (strong, nonatomic) LASocialManager *socialManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
-
+@property (strong, nonatomic) UIActionSheet *sheet;
 // The data source to be displayed in table ()
 //@property (strong, nonatomic) NSMutableArray *objects;
 //@property (strong, nonatomic) NSArray *filteredObjects;
@@ -207,10 +207,50 @@
 }
 - (IBAction) titleTap:(id) sender
 {
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"HashTagFilter"
+                                                             delegate:nil
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    [actionSheet setActionSheetStyle:UIActionSheetStyleAutomatic];
+    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    
+    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
+    
+    pickerView.showsSelectionIndicator = YES;
+    pickerView.dataSource = self;
+    pickerView.delegate = self;
+
+    [actionSheet addSubview:pickerView];
+   
+    
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Close"]];
+    closeButton.momentary = YES;
+    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    closeButton.tintColor = [UIColor blackColor];
+    [closeButton addTarget:self
+                    action:@selector(dismissActionSheet:)
+          forControlEvents:UIControlEventValueChanged];
+    
+    [actionSheet addSubview:closeButton];
+    
+    [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+    
+    [actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    
+    
+    
     LAHashtagViewController *hashtagController = [self.storyboard instantiateViewControllerWithIdentifier:@"Hashtags"];
     
-    [self.navigationController pushViewController:hashtagController animated:NO];
+    [self.navigationController pushViewController:hashtagController animated:YES];
 }
+//-( void)dismissActionSheet:(UISegmentedControl*)sender{
+//     UIActionSheet actionSheet = (UIActionSheet)[sender superview];
+//     [actionSheet dismissWithClickedButtonIndex:0
+//                                       animated:YES];
+// }
 
 -(void)receivedReloadNotification:(NSNotification *) notification
 {
@@ -638,7 +678,17 @@
     
     return newImage;
 }
-
+- (void)processArray:(NSArray *)array {
+    if ([array count] > 0) {
+        [self.objects addObjectsFromArray:array];
+        //self.filteredObjects = [self filterObjects:self.objects];
+    } else {
+        self.moreResultsAvail = NO;
+    }
+    [self.tableView reloadData];
+    // Always remember to set loading to NO whenever you finish loading the data.
+    self.loading = NO;
+}
 - (BOOL)tableView:(UITableView *)tableView
 canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -798,4 +848,79 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 //    }
 //    return firstTimeLaunch;
 //}
+- (void)pickerView:(UIPickerView *)pickerView
+      didSelectRow:(NSInteger)row
+       inComponent:(NSInteger)component
+{
+    // this is where we will add the logic to load the array with different posts based on the hashtag search
+    //    NSLog(@"Selected Row %d", row);
+    //    switch(row)
+    //    {
+    //
+    //        case 0:
+    //            self.color.text = @"Blue #0000FF";
+    //            self.color.textColor = [UIColor colorWithRed:0.0f/255.0f green: 0.0f/255.0f blue:255.0f/255.0f alpha:255.0f/255.0f];
+    //            break;
+    //        case 1:
+    //            self.color.text = @"Green #00FF00";
+    //            self.color.textColor = [UIColor colorWithRed:0.0f/255.0f green: 255.0f/255.0f blue:0.0f/255.0f alpha:255.0f/255.0f];
+    //            break;
+    //        case 2:
+    //            self.color.text = @"Orange #FF681F";
+    //            self.color.textColor = [UIColor colorWithRed:205.0f/255.0f green:   140.0f/255.0f blue:31.0f/255.0f alpha:255.0f/255.0f];
+    //            break;
+    //        case 3:
+    //            self.color.text = @"Purple #FF00FF";
+    //            self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:   0.0f/255.0f blue:255.0f/255.0f alpha:255.0f/255.0f];
+    //            break;
+    //        case 4:
+    //            self.color.text = @"Red #FF0000";
+    //            self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:   0.0f/255.0f blue:0.0f/255.0f alpha:255.0f/255.0f];
+    //            break;
+    //        case 5:
+    //            self.color.text = @"Yellow #FFFF00";
+    //            self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:   255.0f/255.0f blue:0.0f/255.0f alpha:255.0f/255.0f];
+    //            break;
+    //    }
+
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView
+    widthForComponent:(NSInteger)component
+{
+    return 200;
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView
+rowHeightForComponent:(NSInteger)component
+{
+    return 50;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    return [[[LAStoreManager defaultStore]allUniqueHashtags] objectAtIndex:row];
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+    return [[[LAStoreManager defaultStore]allUniqueHashtags]count];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showDetail"])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSDate *object = _objects[indexPath.row];
+        //[[segue destinationViewController] setDetailItem:object];
+    }
+}
 @end

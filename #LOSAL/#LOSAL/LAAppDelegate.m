@@ -48,7 +48,7 @@
     [[LAStoreManager defaultStore]getSettingsWithCompletion:^(NSError *error){
         NSLog(@"Settings complete");
     }];
-    [[LANoticesStore defaultStore]updateEntries];
+    //[[LANoticesStore defaultStore]updateEntries];
     // Will download hashtags for later use
     [[LAStoreManager defaultStore]getHashTags];
     

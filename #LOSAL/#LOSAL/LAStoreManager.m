@@ -89,9 +89,9 @@
                 [item setPostID:[hashtag objectForKey:@"postID"]];
                 [hashtagsAndPostsItems addObject:item];
                      /// not sure why he had this in here, it doesn't make sense if it doesn't have something in there why put it in their?
-//               if ([self.uniqueHashtags indexOfObject:hashtagAndPost.hasttag] == NSNotFound) {
-//                    [self.uniqueHashtags addObject:hashtagAndPost.hasttag];
-//                }
+                if ([uniqueHashtagsItems indexOfObject:[item hasttag]]== NSNotFound) {
+                    [uniqueHashtagsItems addObject:[item hasttag]];
+                }
             }
         }else{
             //TODO: not sure i did this part right might need to come back too.
