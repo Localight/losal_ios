@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LAHashtagViewController : UITableViewController
+@interface LAHashtagViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 @end

@@ -33,6 +33,8 @@
 #import "LADataLoader.h"
 #import "LANoticesStore.h"
 #import "KeychainItemWrapper.h"
+#import "LANoticeViewController.h"
+#import "LADetailNoticeViewController.h"
 #import <Security/Security.h>
 @interface LAFeedViewController ()
 
@@ -137,7 +139,7 @@
     UIButton *title = [UIButton buttonWithType:UIButtonTypeCustom];
     [title setTitle:@"#LOSAL" forState:UIControlStateNormal];
     title.frame = CGRectMake(0, 0, 70, 44);
-    [title.titleLabel setFont:[UIFont fontWithName:@"Roboto-Medium" size:24]];
+    [title.titleLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:24]];
     [title addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = title;
     
@@ -272,6 +274,8 @@
 {
     [[LAStoreManager defaultStore]setMoreResultsAvail:YES];
     
+    
+    //LAstoreManager.defualtstoer.setmoreresults
     UIView *currentTitleView = [[self navigationItem] titleView];
     
     UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
@@ -721,16 +725,16 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     [[self tableView]reloadData];
 }
 // not even sure this does anything
-//- (NSArray *)filterObjects:(NSArray *)objects
-//{
-//    NSMutableArray *filteredObjects = [[NSMutableArray alloc] init];
-//    
-//    for (LAPostItem *post in objects) {
-//        // Determine if postID is filters
-//        [filteredObjects addObject:post];
-//    }
-//    return [NSArray arrayWithArray:filteredObjects];
-//}
+- (NSArray *)filterObjects:(NSArray *)objects
+{
+    NSMutableArray *filteredObjects = [[NSMutableArray alloc] init];
+    
+    for (LAPostItem *post in objects) {
+        // Determine if postID is filters
+        [filteredObjects addObject:post];
+    }
+    return [NSArray arrayWithArray:filteredObjects];
+}
 
 #pragma mark - Social Manager Delegates
 
@@ -746,13 +750,22 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         [[self tableView] reloadData];
     });
 }
+#pragma mark NoticeViewController delegate
+- (void)showDetailViewItem:(LANoticeItem *)ourItem
+{
+    [self performSegueWithIdentifier:@"toDetailView" sender:self];
+    UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+    UIViewController *dtv = [storyboard instantiateViewControllerWithIdentifier:@"detailNotices"];
+    [self presentViewController:dtv animated:YES completion:^{
+        NSLog(@"showing detailView");
+    }];
+}
+// as part of the segue we will need the info from the delegate class
 
-- (void)instagramDidReceiveAnError {
-    NSLog(@"Instagram Error");
-}
-- (void)instagramDidLoad:(id)result {
-    NSLog(@"Received restul %@", result);
-}
+//- (void)wantsToCloseView
+//{
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 // this isn't even being used.
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

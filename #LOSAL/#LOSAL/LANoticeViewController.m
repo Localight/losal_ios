@@ -44,6 +44,7 @@
     [titleLabel setBackgroundColor:[UIColor clearColor]];
     [titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:25]];
 }
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     return [self init];
@@ -197,26 +198,30 @@
     return YES;
 }
 */
-
+- (void)dealloc
+{
+    self.delegate = nil;
+}
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)aTableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
  
+    // So here I would probably call a delegate method and pass data from the store using this class, and sending it to the
+    // Rootview controller, and then the root view controller in the method that got called would use the same info and
+    // Open up the detail view controllerd
     // probably create the pass here.
-    LADetailNoticeViewController *detailViewController = [[LADetailNoticeViewController alloc]init];
     
     NSArray *items = [[LANoticesStore defaultStore]allItems];
     
     LANoticeItem *selectedItem = [items objectAtIndex:[indexPath row]];
+    [[self delegate]showDetailViewItem:selectedItem];
+    
     
     // Give detail view controller a pointer to the item object in row
-    [detailViewController setItem:selectedItem];
     
     // Push it onto the top of the navigation controller's stack
-    [[self navigationController]pushViewController:detailViewController
-                                          animated:YES];
-    //[[self storyboard]instantiateViewControllerWithIdentifier:@"detailNotices"];
+        //[[self storyboard]instantiateViewControllerWithIdentifier:@"detailNotices"];
     
 //    if (!([cellName isEqualToString:@"Feed"]))//||[cellName isEqualToString:@"Logout"]
 //    {

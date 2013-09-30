@@ -109,6 +109,10 @@
 		6576740B17C55D2800EC2881 /* edmodo-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740A17C55D2800EC2881 /* edmodo-logo.png */; };
 		6576740D17C5615400EC2881 /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740C17C5615400EC2881 /* news.png */; };
 		6576740F17C5776E00EC2881 /* griffin-mascot.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740E17C5776E00EC2881 /* griffin-mascot.png */; };
+		6582FCE617F8F97900A9F51C /* RobotoSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6582FCE217F8F97900A9F51C /* RobotoSlab-Bold.ttf */; };
+		6582FCE717F8F97900A9F51C /* RobotoSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6582FCE317F8F97900A9F51C /* RobotoSlab-Light.ttf */; };
+		6582FCE817F8F97900A9F51C /* RobotoSlab-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6582FCE417F8F97900A9F51C /* RobotoSlab-Regular.ttf */; };
+		6582FCE917F8F97900A9F51C /* RobotoSlab-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6582FCE517F8F97900A9F51C /* RobotoSlab-Thin.ttf */; };
 		6588D02717A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
 		6588D02917A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
 		6588D02B17A4BCC500B6C498 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02A17A4BCC500B6C498 /* CoreGraphics.framework */; };
@@ -281,6 +285,10 @@
 		6576740A17C55D2800EC2881 /* edmodo-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edmodo-logo.png"; sourceTree = "<group>"; };
 		6576740C17C5615400EC2881 /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
 		6576740E17C5776E00EC2881 /* griffin-mascot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot.png"; sourceTree = "<group>"; };
+		6582FCE217F8F97900A9F51C /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Bold.ttf"; sourceTree = "<group>"; };
+		6582FCE317F8F97900A9F51C /* RobotoSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Light.ttf"; sourceTree = "<group>"; };
+		6582FCE417F8F97900A9F51C /* RobotoSlab-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Regular.ttf"; sourceTree = "<group>"; };
+		6582FCE517F8F97900A9F51C /* RobotoSlab-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Thin.ttf"; sourceTree = "<group>"; };
 		6588D02317A4BCC500B6C498 /* #LOSAL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "#LOSAL.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6588D02617A4BCC500B6C498 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6588D02817A4BCC500B6C498 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -520,6 +528,10 @@
 		6523AE2D17B4261000AFD830 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				6582FCE217F8F97900A9F51C /* RobotoSlab-Bold.ttf */,
+				6582FCE317F8F97900A9F51C /* RobotoSlab-Light.ttf */,
+				6582FCE417F8F97900A9F51C /* RobotoSlab-Regular.ttf */,
+				6582FCE517F8F97900A9F51C /* RobotoSlab-Thin.ttf */,
 				6525769517E7821E00BA43F7 /* icomoon.ttf */,
 				6523AE2E17B42A1E00AFD830 /* Roboto-Black.ttf */,
 				6523AE2F17B42A1E00AFD830 /* Roboto-BlackItalic.ttf */,
@@ -845,6 +857,7 @@
 				4397674617B1A89F0040C947 /* Instagram1.png in Resources */,
 				4397674C17B2A75C0040C947 /* placeholder.png in Resources */,
 				6523AE3A17B42A1E00AFD830 /* Roboto-Black.ttf in Resources */,
+				6582FCE917F8F97900A9F51C /* RobotoSlab-Thin.ttf in Resources */,
 				652576AC17E791F700BA43F7 /* AppIcon76x76.png in Resources */,
 				6523AE3B17B42A1E00AFD830 /* Roboto-BlackItalic.ttf in Resources */,
 				6523AE3C17B42A1E00AFD830 /* Roboto-Bold.ttf in Resources */,
@@ -865,6 +878,7 @@
 				6525769617E7821E00BA43F7 /* icomoon.ttf in Resources */,
 				6549236A17B9591A003F39E3 /* README.md in Resources */,
 				651F0C1417BAC1F00018794A /* photo2.jpg in Resources */,
+				6582FCE717F8F97900A9F51C /* RobotoSlab-Light.ttf in Resources */,
 				652576A817E791F700BA43F7 /* AppIcon40x40.png in Resources */,
 				6530907017BD87C400ADA359 /* facebook.png in Resources */,
 				6530907117BD87C400ADA359 /* instagramlike.png in Resources */,
@@ -903,7 +917,9 @@
 				65B2A35417D7D426004DA2FA /* dr-arnold-wht2.png in Resources */,
 				65B2A35617D7D42C004DA2FA /* localism-blk.png in Resources */,
 				656EA0F317D8E55B00EF0E42 /* iphone-sign-in.png in Resources */,
+				6582FCE817F8F97900A9F51C /* RobotoSlab-Regular.ttf in Resources */,
 				652576AA17E791F700BA43F7 /* AppIcon60x60.png in Resources */,
+				6582FCE617F8F97900A9F51C /* RobotoSlab-Bold.ttf in Resources */,
 				656EA0F517D8E62000EF0E42 /* close-circle.png in Resources */,
 				65032EF617DA3C49004683BB /* iphone-sign-in-01.png in Resources */,
 				65032EF717DA3C49004683BB /* iphone-sign-in-02.png in Resources */,

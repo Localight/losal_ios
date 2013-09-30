@@ -58,7 +58,7 @@
 
 - (IBAction)closeButtonPressed:(id)sender
 {
-    [self.delegate wantsToCloseView];
+    [[self delegate]wantsToCloseView];
 }
 
 - (IBAction)verifyUser:(id)sender

@@ -31,7 +31,7 @@
 {
     self = [super init];
     if(self) {
-        NSString *path = [self itemArchivePath];
+               NSString *path = [self itemArchivePath];
         allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
         
         // If the array hadn't been saved previously, create a new empty one
@@ -61,6 +61,7 @@
 //    [query whereKey:@"endDate" greaterThan:[NSDate date]];
     
     // PFObject *myNotices = [[PFObject alloc]init];
+    [query orderByDescending:@"ad"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *parseNoticeArray, NSError *error)
      {
          if (!error)
@@ -70,6 +71,7 @@
                  LANoticeItem *p = [[LANoticeItem alloc] initWithnoticeObject:parseNoticeObject
                                                                   NoticeTitle:[parseNoticeObject objectForKey:@"title"]
                                                                 noticeContent:[parseNoticeObject objectForKey:@"description"]];
+                
                  NSString *number = [parseNoticeObject objectForKey:@"ad"];
                  NSLog(@"%@", number);
                  [p setIsAnAd:[number intValue]];
@@ -81,8 +83,7 @@
                  [p setButtonString:[parseNoticeObject objectForKey:@"buttonLink"]];
                  [p setButtonText:[parseNoticeObject objectForKey:@"buttonText"]];
                  [p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
-                 
-                //[item setThumbnailDataFromImage:image];
+                                 //[item setThumbnailDataFromImage:image];
                  
                  // possible error will come from above.
                  // This does not require a network access.
@@ -91,6 +92,7 @@
 //                 [p setNoticeContent:[parseNoticeObject objectForKey:@"description"]];
                  //[p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
                  NSLog(@"image url %@", [parseNoticeObject objectForKey:@"image"]);
+                 
                  [allItems addObject:p];
              }
          }else{

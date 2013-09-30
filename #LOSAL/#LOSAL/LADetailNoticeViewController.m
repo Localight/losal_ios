@@ -9,7 +9,8 @@
 #import "LADetailNoticeViewController.h"
 #import "LANoticeItem.h"
 #import "LANoticesStore.h"
-#import "LAImageStore.h"
+#import "LAImageLoader.h"
+//#import "LAImageStore.h"
 //#import "LAImageStore.h"
 @implementation LADetailNoticeViewController
 
@@ -21,8 +22,21 @@
     [titleLabel setText:[_item noticeTitle]];
     [content setText:[_item noticeContent]];
     
+    [[LAImageLoader sharedManager]processImageDataWithURLString:[_item noticeImageUrl]
+                                                          forId:[[_item postObject]objectId]
+                                                       andBlock:^(UIImage *image)
+     {
+         [imageView setImage:image];
+    }];
     [[self navigationItem] setTitle:[_item noticeTitle]];
 }
+
+- (void)setItem:(LANoticeItem *)i
+{
+    _item = i;
+    [[self navigationItem] setTitle:[_item noticeTitle]];
+}
+
 //    // Create a NSDateFormatter that will turn a date into a simple date string
 //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 //    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];

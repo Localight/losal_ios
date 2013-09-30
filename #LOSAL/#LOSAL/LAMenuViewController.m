@@ -59,7 +59,7 @@
             NSString * newLastNameString = [[[[LAStoreManager defaultStore]currentUser]lastName] substringWithRange:NSMakeRange(0, 1)];
             NSString *newName = [NSString stringWithFormat:@"%@ %@.", [[[LAStoreManager defaultStore]currentUser]firstName], newLastNameString];
             [userNameLabel setText:newName];
-            [userNameLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:24]];
+            [userNameLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:24]];
         }else{
             NSString *newDisplayName = [NSString stringWithFormat:@"%@ %@",[[[LAStoreManager defaultStore]currentUser]prefix], [[[LAStoreManager defaultStore]currentUser]lastName]];
             [userNameLabel setText:newDisplayName];
@@ -102,7 +102,7 @@
     _menuItems = @[@"Feed", @"Links", @"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
   
     NSLog(@"this is the users's first name: %@", [[[LAStoreManager defaultStore]currentUser]firstName]);
-        [userNameLabel setFont:[UIFont fontWithName:@"Roboto-Regular" size:24]];
+        [userNameLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:24]];
     
         [userIcon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
         NSScanner *scanner = [NSScanner scannerWithString:[[[LAStoreManager defaultStore]currentUser]iconString]];
