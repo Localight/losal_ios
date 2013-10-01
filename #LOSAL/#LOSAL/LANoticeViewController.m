@@ -111,9 +111,6 @@
           {
               [[cell adImage]setImage:image];
           }];
-         
-
-        
     }else{
         [[cell adImage]setHidden:YES];
         [[cell titleLabel]setText:[p noticeTitle]];
@@ -198,6 +195,7 @@
     return YES;
 }
 */
+
 - (void)dealloc
 {
     self.delegate = nil;

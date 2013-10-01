@@ -146,7 +146,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
-    [[cell textLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:20]];
+    [[cell textLabel]setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:20]];
     [[cell textLabel]setBackgroundColor:[UIColor whiteColor]];
     return cell;
 }
@@ -211,6 +211,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
         
     } else{
+        // call method that would grab data from parse and fill mainpost items.
         anotherTopViewController = [[self storyboard]instantiateViewControllerWithIdentifier:cellName];
     }
     

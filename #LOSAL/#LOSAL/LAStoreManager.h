@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "LASettings.h"
 #import "LAPostItem.h"
+#import <Parse/Parse.h>
 @class LAUser;
 
 @interface LAStoreManager : NSObject
 {
-    NSMutableArray *likesItems;
+    
+    //contains an array of the filterd posts related to a hashtag
     NSMutableArray *hashtagsAndPostsItems;
     NSMutableArray *uniqueHashtagsItems;
-    NSMutableArray *postItems;
+    // contains an array of post for the main feed
     NSMutableArray *mainPostItems;
 }
 @property (nonatomic, strong)LAPostItem *lastPostInArray;
@@ -24,38 +26,32 @@
 @property (nonatomic) BOOL moreResultsAvail;
 @property (weak, nonatomic) id controller;
 @property (nonatomic, strong) LASettings *settings;
-
 //@property (nonatomic, strong) PFUser *user;
 @property (nonatomic, strong) LAUser *currentUser;
 
 + (LAStoreManager *)defaultStore;
-
-- (NSArray *)allLikeItems;
+- (void)sortHashTagsWithFilter:(NSString *)filter;
+- (void)fetchFromDate:(NSDate *)aDate;
+//       WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock;
 - (NSArray *)allHashtagAndPostItems;
-- (NSArray *)allUniqueHashtags;
-- (NSArray *)allPostItems;
 - (NSArray *)allMainPostItems;
+- (NSArray *)allUniqueHashtagsItems;
 //- (LAUser *)createUser;
-
+ 
 //- (void)trackOpen:(NSDictionary *)launchOptions;
+- (void)clearAllMainPostItems;
+
 - (void)processArray:(NSArray *)array;
-- (void)getHashTags;
+
 
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock;
-
-- (void)getFeedFromDate:(NSDate *)date WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock;
-- (BOOL)doesThisUserLike:(NSString *)postID;
-- (void)getFeedWithCompletion:(void (^)(NSArray *posts, NSError *error))completionBlock;
-- (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock;
 //- (void)saveUsersSocialIDs;
+- (void)getHashTags;
 
-- (void)saveUsersLike:(PFObject *)postObject;
-
-- (void)deleteUsersLike:(PFObject *)postObject;
 
 - (void)sendRegistrationRequestForPhoneNumber:(NSString *)phoneNumber;
 - (BOOL)verifyPhoneNumberIsValid:(NSString *)phoneNumber;
-- (void)reValidateUser;
+
 - (void)loginWithPhoneNumber;
 - (void)logout;
 

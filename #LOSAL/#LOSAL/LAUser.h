@@ -26,7 +26,7 @@
 @property (nonatomic, strong) NSString *grade;
 @property (nonatomic, strong) NSString *userCategory;
 @property (nonatomic, strong) NSString *prefix;
-
+@property (nonatomic, strong) NSString *filterPref;
 //@property (nonatomic, strong) NSString *displayName;
 @property (nonatomic, strong) NSString *twitterDisplayName;
 //@property (nonatomic, strong) NSString *facebookDisplayName;
@@ -35,6 +35,7 @@
 @property (nonatomic, strong) NSString *instagramUserID;
 @property (assign) BOOL userVerified;
 @property (assign) BOOL waitingForText;//
+@property (assign) BOOL isFilteredArray; 
 //@property (nonatomic, assign, getter=isUserVerifed) bool userVerified; // is the user signed in?
 @end
 

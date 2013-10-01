@@ -99,6 +99,7 @@
 		6530907917BD956E00ADA359 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530907817BD956E00ADA359 /* clock.png */; };
 		653160B617F5F37600BFE162 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 653160B517F5F37600BFE162 /* KeychainItemWrapper.m */; };
 		65381B1317F9E3070055F483 /* LAHashTagStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 65381B1217F9E3070055F483 /* LAHashTagStore.m */; };
+		65381B1617FA43060055F483 /* LALikesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 65381B1517FA43060055F483 /* LALikesStore.m */; };
 		6549236817B9591A003F39E3 /* do-git in Resources */ = {isa = PBXBuildFile; fileRef = 6549236417B9591A003F39E3 /* do-git */; };
 		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
 		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
@@ -274,6 +275,8 @@
 		653160B517F5F37600BFE162 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		65381B1117F9E3070055F483 /* LAHashTagStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAHashTagStore.h; sourceTree = "<group>"; };
 		65381B1217F9E3070055F483 /* LAHashTagStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAHashTagStore.m; sourceTree = "<group>"; };
+		65381B1417FA43060055F483 /* LALikesStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LALikesStore.h; sourceTree = "<group>"; };
+		65381B1517FA43060055F483 /* LALikesStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LALikesStore.m; sourceTree = "<group>"; };
 		6549236417B9591A003F39E3 /* do-git */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.csh; path = "do-git"; sourceTree = "<group>"; };
 		6549236517B9591A003F39E3 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
 		6549236617B9591A003F39E3 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
@@ -506,6 +509,8 @@
 		43DC44BA17A796DC005729D8 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				65381B1417FA43060055F483 /* LALikesStore.h */,
+				65381B1517FA43060055F483 /* LALikesStore.m */,
 				43DC44B517A79638005729D8 /* LAStoreManager.h */,
 				43DC44B617A79638005729D8 /* LAStoreManager.m */,
 			);
@@ -1001,6 +1006,7 @@
 				43F9622517CC0E38006F9AF4 /* LAHashtagAndPost.m in Sources */,
 				654A737A17CD4F24009A28B3 /* LADetailNoticeViewController.m in Sources */,
 				650B6B2F17CE740300F93BBD /* LAAboutViewController.m in Sources */,
+				65381B1617FA43060055F483 /* LALikesStore.m in Sources */,
 				65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */,
 				652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */,
 				65381B1317F9E3070055F483 /* LAHashTagStore.m in Sources */,

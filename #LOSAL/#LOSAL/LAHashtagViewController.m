@@ -45,13 +45,13 @@
 {
     // Return the number of rows in the section.
 //    return [self.storeManager.uniqueHashtags count];
-    return [[[LAStoreManager defaultStore]allUniqueHashtags]count];
+    return [[[LAStoreManager defaultStore]allHashtagAndPostItems]count];
 }
 -(NSString *)pickerView:(UIPickerView *)pickerView
             titleForRow:(NSInteger)row
            forComponent:(NSInteger)component
 {
-    return [[[LAStoreManager defaultStore]allUniqueHashtags] objectAtIndex:row];
+    return [[[LAStoreManager defaultStore]allHashtagAndPostItems] objectAtIndex:row];
 }
 - (void)pickerView:(UIPickerView *)pickerView
       didSelectRow:(NSInteger)row
@@ -95,7 +95,7 @@
     static NSString *CellIdentifier = @"hashtagCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    [cell.textLabel setText:[[[LAStoreManager defaultStore]allUniqueHashtags] objectAtIndex:[indexPath row]]];
+    [cell.textLabel setText:[[[LAStoreManager defaultStore]allHashtagAndPostItems] objectAtIndex:[indexPath row]]];
     
      //     [self.storeManager.uniqueHashtags objectAtIndex:indexPath.row]];
     

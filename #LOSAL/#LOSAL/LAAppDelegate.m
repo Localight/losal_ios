@@ -11,6 +11,7 @@
 #import "LASocialManager.h"
 #import "LANoticesStore.h"
 #import "KeychainItemWrapper.h"
+#import "LALikesStore.h"
 #import <Security/Security.h>
 @interface LAAppDelegate ()
 
@@ -48,11 +49,16 @@
     [[LAStoreManager defaultStore]getSettingsWithCompletion:^(NSError *error){
         NSLog(@"Settings complete");
     }];
-    //[[LANoticesStore defaultStore]updateEntries];
+    [[LANoticesStore defaultStore]updateEntries];
     // Will download hashtags for later use
-    [[LAStoreManager defaultStore]getHashTags];
+    
     
     self.socialManager = [LASocialManager sharedManager];
+    
+//                                 WithCompletion:^(NSArray *posts, NSError *error) {
+//                                     NSLog(@"Your first pull from the server");
+//                                 }];
+
     
     return YES;
 }
@@ -100,10 +106,11 @@
 //    [keychainItem setObject:@"username you are saving" forKey:kSecAttrAccount];
 //    [[[LAStoreManager defaultStore]currentUser]setPinNumberFromUrl:[keychainItem objectForKey:kSecValueData]];
      [[LAStoreManager defaultStore]loginWithPhoneNumber];
-    [[LAStoreManager defaultStore]getUserLikesWithCompletion:^(NSError *error) {
+    [[LALikesStore defaultStore]getUserLikesWithCompletion:^(NSError *error) {
         NSLog(@"getting the likes");
     }];
-    return [self.socialManager instagramhandleOpenURL:url];// doesn't make sense come back too.
+
+        return [self.socialManager instagramhandleOpenURL:url];// doesn't make sense come back too.
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

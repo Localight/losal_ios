@@ -34,6 +34,7 @@
 #import "LANoticesStore.h"
 #import "KeychainItemWrapper.h"
 #import "LANoticeViewController.h"
+#import "LALikesStore.h"
 #import "LADetailNoticeViewController.h"
 #import <Security/Security.h>
 @interface LAFeedViewController ()
@@ -61,7 +62,6 @@
 - (IBAction)likeButtonTapped:(id)sender;
 - (IBAction)revealMenu:(id)sender;
 - (IBAction)revealNotices:(id)sender;
-- (void)fetchEntries;
 - (NSString *)fuzzyTime:(NSString *)datetime;
 
 @end
@@ -82,14 +82,31 @@
     
     return self;
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //[[LAStoreManager defaultStore]getHashTags];
+    [[LAStoreManager defaultStore]fetchFromDate:nil];
+    [[LAStoreManager defaultStore]getHashTags];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self fetchEntries];
-    
-  //  &&[[[LAStoreManager defaultStore]currentUser]userVerified]
+////    if ([[[LAStoreManager defaultStore]currentUser]isFilteredArray])
+////    {
+////        [[LAStoreManager defaultStore]fetchFromDate:nil];
+////        
+//////                                     WithCompletion:^(NSArray *posts, NSError *error) {
+//////                                         NSLog(@"Your first pull from the server");
+//////                                     }];
+////
+////    }else{
+////        [[LAStoreManager defaultStore]fetchFromDate:[[[LAStoreManager defaultStore]lastPostInArray]postTime]];
+//////                                     WithCompletion:^(NSArray *posts, NSError *error) {
+//////                                         NSLog(@"Your first pull from the server");
+//////                                     }];
+////    }
+//  //  &&[[[LAStoreManager defaultStore]currentUser]userVerified]
     
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"firstTimeLaunchedKey"])
     {
@@ -213,6 +230,7 @@
                                                     cancelButtonTitle:nil
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:nil];
+    
     [actionSheet setActionSheetStyle:UIActionSheetStyleAutomatic];
     CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
     
@@ -226,13 +244,14 @@
    
     
     UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Close"]];
-    closeButton.momentary = YES;
-    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
-    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
-    closeButton.tintColor = [UIColor blackColor];
+    [closeButton setMomentary:YES];
+    [closeButton setFrame:CGRectMake(260, 7.0f, 50.0f, 30.0f)];
+    [closeButton setSegmentedControlStyle:UISegmentedControlStyleBar];
+    [closeButton setTintColor:[UIColor blackColor]];
     [closeButton addTarget:self
-                    action:@selector(dismissActionSheet:)
-          forControlEvents:UIControlEventValueChanged];
+                    action:@selector(dismissWithClickedButtonIndex:
+                                     animated:)
+          forControlEvents:UIControlEventEditingChanged];
     
     [actionSheet addSubview:closeButton];
     
@@ -241,17 +260,18 @@
     [actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
     
     
-    
-    LAHashtagViewController *hashtagController = [self.storyboard instantiateViewControllerWithIdentifier:@"Hashtags"];
-    
-    [self.navigationController pushViewController:hashtagController animated:YES];
+//    
+//    LAHashtagViewController *hashtagController = [self.storyboard instantiateViewControllerWithIdentifier:@"Hashtags"];
+//    
+//    [self.navigationController pushViewController:hashtagController animated:YES];
 }
-//-( void)dismissActionSheet:(UISegmentedControl*)sender{
-//     UIActionSheet actionSheet = (UIActionSheet)[sender superview];
-//     [actionSheet dismissWithClickedButtonIndex:0
-//                                       animated:YES];
-// }
 
+-(void)dismissActionSheet:(id)sender
+{
+    
+    UIActionSheet *actionSheet =  (UIActionSheet *)[(UIView *)sender superview];
+    [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+}
 -(void)receivedReloadNotification:(NSNotification *) notification
 {
     // [notification name] should always be @"TestNotification"
@@ -291,6 +311,8 @@
 //}
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [[LAStoreManager defaultStore]clearAllMainPostItems];
+    [[[LAStoreManager defaultStore]currentUser]setIsFilteredArray:NO];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 #pragma mark - Table View
@@ -310,56 +332,56 @@
     return [[[LAStoreManager defaultStore]allMainPostItems]count] + 1;
 }
 
-- (void)fetchEntries
-{
-    [[LAStoreManager defaultStore]setMoreResultsAvail:YES];
-    
-    
-    //LAstoreManager.defualtstoer.setmoreresults
-    UIView *currentTitleView = [[self navigationItem] titleView];
-    
-    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
-                                       initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-    [[self navigationItem] setTitleView:aiView];
-    
-    [aiView startAnimating];
-    
-    [[self navigationItem] setTitleView:currentTitleView];
-    [[LAStoreManager defaultStore]getFeedWithCompletion:^(NSArray *posts, NSError *error)
-     {
-         NSLog(@"Completion block called!");
-         if (!error)
-         {
-             //self.objects = [NSMutableArray arrayWithArray:posts];
-             //self.filteredObjects = [self filterObjects:self.objects];
-             static BOOL firstTime = YES;
-             if (firstTime) {
-                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
-                               withRowAnimation:UITableViewRowAnimationTop];
-                 firstTime = NO;
-             } else {
-                 [[self tableView] reloadData];
-             }
-             
-             NSLog(@"error is %@", error);
-             
-         } else {
-             // If things went bad, show an alert view
-             NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
-                                      [error localizedDescription]];
-             
-             // Create and show an alert view with this error displayed
-             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                          message:errorString
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-             [av show];
-             // If you come here you got the array
-             NSLog(@"results are %@", posts);
-         }
-     }];
-}
+//- (void)fetchEntries
+//{
+//    [[LAStoreManager defaultStore]setMoreResultsAvail:YES];
+//    
+//    
+//    //LAstoreManager.defualtstoer.setmoreresults
+//    UIView *currentTitleView = [[self navigationItem] titleView];
+//    
+//    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
+//                                       initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+//    [[self navigationItem] setTitleView:aiView];
+//    
+//    [aiView startAnimating];
+//    
+//    [[self navigationItem] setTitleView:currentTitleView];
+//    [[LAStoreManager defaultStore]getFeedWithCompletion:^(NSArray *posts, NSError *error)
+//     {
+//         NSLog(@"Completion block called!");
+//         if (!error)
+//         {
+//             //self.objects = [NSMutableArray arrayWithArray:posts];
+//             //self.filteredObjects = [self filterObjects:self.objects];
+//             static BOOL firstTime = YES;
+//             if (firstTime) {
+//                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
+//                               withRowAnimation:UITableViewRowAnimationTop];
+//                 firstTime = NO;
+//             } else {
+//                 [[self tableView] reloadData];
+//             }
+//             
+//             NSLog(@"error is %@", error);
+//             
+//         } else {
+//             // If things went bad, show an alert view
+//             NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
+//                                      [error localizedDescription]];
+//             
+//             // Create and show an alert view with this error displayed
+//             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
+//                                                          message:errorString
+//                                                         delegate:nil
+//                                                cancelButtonTitle:@"OK"
+//                                                otherButtonTitles:nil];
+//             [av show];
+//             // If you come here you got the array
+//             NSLog(@"results are %@", posts);
+//         }
+//     }];
+//}
 - (UITableViewCell *)configureCell:(NSIndexPath *)indexPath
 {
     // This method might need to be wittled down, I think some of this stuff doesn't belong here.
@@ -511,40 +533,48 @@
     NSLog(@"the current index path is %ld", (long)[indexPath row]);
     NSLog(@"the current size of the array is %lu",(unsigned long)[[[LAStoreManager defaultStore]allMainPostItems]count]);
     
+    // this possibly the method where we use the flag
     int a = ([[[LAStoreManager defaultStore]allMainPostItems]count]/5)*4;
+    
     NSLog(@"the row number has to be greater than than or equal to %d inorder to call for more data" ,a);
     // If scrolled beyond two thirds of the table, load next batch of data..
     if ([indexPath row] >= (([[[LAStoreManager defaultStore]allMainPostItems]count]/5) *4))
     {
-        NSLog(@"you number got bigger than or equal to the 2/3's of th posts");
-        if ( (![[LAStoreManager defaultStore]loading]) && [[LAStoreManager defaultStore]moreResultsAvail])
-        {
-            NSLog(@"if your seeing this message then you should be loading more data!");
-            [[LAStoreManager defaultStore]setLoading:YES];
-                      // loadRequest is the method that loads the next batch of data.
-            [[LAStoreManager defaultStore] getFeedFromDate:[[[LAStoreManager defaultStore]lastPostInArray]postTime] WithCompletion:^(NSArray *array, NSError *error)
-             {
-                 NSLog(@"Loaded more data");
-                 if (!error)
-                 {
-                     NSLog(@"got here");
-                     [[LAStoreManager defaultStore]processArray:array];
-                     [[NSNotificationCenter defaultCenter]
-                      postNotificationName:@"Reload"
-                      object:self];
-                     //            [self.delegate processArray:array];
-                 }else{
-                     NSLog(@"%@", error);
-                 }
-             }];
-            
-            
-        }else{
-            NSLog(@"something went wrong again!");
-        }
-    }else{
-        NSLog(@"if you make it here the row value was less than  5/4 of the array size. Current value of row is %d, and the current value of the array is: %d",[indexPath row], a);
+        [[LAStoreManager defaultStore]fetchFromDate:[[[LAStoreManager defaultStore]lastPostInArray]postTime]];
     }
+    
+//        NSLog(@"you number got bigger than or equal to the 2/3's of th posts");
+//        if ( (![[LAStoreManager defaultStore]loading]) && [[LAStoreManager defaultStore]moreResultsAvail])
+//        {
+//            NSLog(@"if your seeing this message then you should be loading more data!");
+//            [[LAStoreManager defaultStore]setLoading:YES];
+//                      // loadRequest is the method that loads the next batch of data.
+//           
+//            
+//            
+//            [[LAStoreManager defaultStore] getFeedFromDate:[[[LAStoreManager defaultStore]lastPostInArray]postTime] WithCompletion:^(NSArray *array, NSError *error)
+//             {
+//                 NSLog(@"Loaded more data");
+//                 if (!error)
+//                 {
+//                     NSLog(@"got here");
+//                     [[LAStoreManager defaultStore]processArray:array];
+//                     [[NSNotificationCenter defaultCenter]
+//                      postNotificationName:@"Reload"
+//                      object:self];
+//                     //            [self.delegate processArray:array];
+//                 }else{
+//                     NSLog(@"%@", error);
+//                 }
+//             }];
+//            
+//            
+//        }else{
+//            NSLog(@"something went wrong again!");
+//        }
+//    }else{
+//        NSLog(@"if you make it here the row value was less than  5/4 of the array size. Current value of row is %d, and the current value of the array is: %d",[indexPath row], a);
+//    }
     
     UITableViewCell *cell;
     
@@ -598,7 +628,8 @@
     return color;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat size;
     if (indexPath.row < [[[LAStoreManager defaultStore]allMainPostItems]count]) {
@@ -678,17 +709,18 @@
     
     return newImage;
 }
-- (void)processArray:(NSArray *)array {
-    if ([array count] > 0) {
-        [self.objects addObjectsFromArray:array];
-        //self.filteredObjects = [self filterObjects:self.objects];
-    } else {
-        self.moreResultsAvail = NO;
-    }
-    [self.tableView reloadData];
-    // Always remember to set loading to NO whenever you finish loading the data.
-    self.loading = NO;
-}
+//- (void)processArray:(NSArray *)array {
+//    if ([array count] > 0) {
+//    
+//        [self.objects addObjectsFromArray:array];
+//        //self.filteredObjects = [self filterObjects:self.objects];
+//    } else {
+//        self.moreResultsAvail = NO;
+//    }
+//    [self.tableView reloadData];
+//    // Always remember to set loading to NO whenever you finish loading the data.
+//    self.loading = NO;
+//}
 - (BOOL)tableView:(UITableView *)tableView
 canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -762,13 +794,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
             {
                 [postItem setIsLikedByThisUser:YES];
                 [self.socialManager likePostItem:postItem];
-                [[LAStoreManager defaultStore]saveUsersLike:[postItem postObject]];
+                [[LALikesStore defaultStore]saveUsersLike:[postItem postObject]];
+                
 
                 
             }else{
                 [postItem setIsLikedByThisUser:NO];
                 [self.socialManager unLikePostItem:postItem];
-                [[LAStoreManager defaultStore]deleteUsersLike:[postItem postObject]];
+                [[LALikesStore defaultStore]deleteUsersLike:[postItem postObject]];
             }
         }
     }
@@ -852,37 +885,24 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
       didSelectRow:(NSInteger)row
        inComponent:(NSInteger)component
 {
-    // this is where we will add the logic to load the array with different posts based on the hashtag search
-    //    NSLog(@"Selected Row %d", row);
-    //    switch(row)
-    //    {
-    //
-    //        case 0:
-    //            self.color.text = @"Blue #0000FF";
-    //            self.color.textColor = [UIColor colorWithRed:0.0f/255.0f green: 0.0f/255.0f blue:255.0f/255.0f alpha:255.0f/255.0f];
-    //            break;
-    //        case 1:
-    //            self.color.text = @"Green #00FF00";
-    //            self.color.textColor = [UIColor colorWithRed:0.0f/255.0f green: 255.0f/255.0f blue:0.0f/255.0f alpha:255.0f/255.0f];
-    //            break;
-    //        case 2:
-    //            self.color.text = @"Orange #FF681F";
-    //            self.color.textColor = [UIColor colorWithRed:205.0f/255.0f green:   140.0f/255.0f blue:31.0f/255.0f alpha:255.0f/255.0f];
-    //            break;
-    //        case 3:
-    //            self.color.text = @"Purple #FF00FF";
-    //            self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:   0.0f/255.0f blue:255.0f/255.0f alpha:255.0f/255.0f];
-    //            break;
-    //        case 4:
-    //            self.color.text = @"Red #FF0000";
-    //            self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:   0.0f/255.0f blue:0.0f/255.0f alpha:255.0f/255.0f];
-    //            break;
-    //        case 5:
-    //            self.color.text = @"Yellow #FFFF00";
-    //            self.color.textColor = [UIColor colorWithRed:255.0f/255.0f green:   255.0f/255.0f blue:0.0f/255.0f alpha:255.0f/255.0f];
-    //            break;
-    //    }
-
+    // I'm thinking that i'll create an array fill it with the post that have the hashtag associate with them.
+    // I'm thinking I will load the postarray with a new array, then clear it. each time a new hashtag is selected a new array
+    // is created and the old one is destroyed.
+    // I need to make sure that the main post itmes comes back some how though. for now, lets try to load an array of different items
+//    [[LAStoreManager defaultStore]clearAllMainPostItems];
+    [[[LAStoreManager defaultStore]currentUser]setIsFilteredArray:YES];
+    // clear the curent array call another method to load the filtered array.
+    
+    NSString *title = [[[LAStoreManager defaultStore]allUniqueHashtagsItems] objectAtIndex:row];
+    NSLog(@"Selected Row %d", row);
+    NSLog(@"%@",[[[LAStoreManager defaultStore]allUniqueHashtagsItems] objectAtIndex:row]);
+    // 1. clear the current array.
+    // from here you are going to send the string of whatever the cell was to the
+    // void(something.)..
+    // might get an error when converting object to title. not sure right now though
+    [[LAStoreManager defaultStore]sortHashTagsWithFilter:title];
+    
+    
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView
@@ -901,26 +921,28 @@ rowHeightForComponent:(NSInteger)component
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component
 {
-    return [[[LAStoreManager defaultStore]allUniqueHashtags] objectAtIndex:row];
+    
+    return [[[LAStoreManager defaultStore]allUniqueHashtagsItems] objectAtIndex:row];
 }
-
 - (NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component
 {
-    return [[[LAStoreManager defaultStore]allUniqueHashtags]count];
+    NSLog(@"The obejcts in the array %lu",(unsigned long)[[[LAStoreManager defaultStore]allUniqueHashtagsItems]count]);
+    
+    return [[[LAStoreManager defaultStore]allUniqueHashtagsItems]count];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"])
-    {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        //[[segue destinationViewController] setDetailItem:object];
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([[segue identifier] isEqualToString:@"showDetail"])
+//    {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        NSDate *object = _objects[indexPath.row];
+//        //[[segue destinationViewController] setDetailItem:object];
+//    }
+//}
 @end
