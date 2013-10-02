@@ -43,7 +43,7 @@
 
 @property (strong, nonatomic) LASocialManager *socialManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
-@property (strong, nonatomic) UIActionSheet *sheet;
+
 // The data source to be displayed in table ()
 //@property (strong, nonatomic) NSMutableArray *objects;
 //@property (strong, nonatomic) NSArray *filteredObjects;
@@ -57,6 +57,8 @@
 // noMoreResultsAvail indicates if there are no more search results.
 // Implement noMoreResultsAvail in your app.
 // For demo purpsoses here, noMoreResultsAvail = NO.
+
+@property (nonatomic, strong) UIActionSheet *actionSheet;
 
 
 - (IBAction)likeButtonTapped:(id)sender;
@@ -160,9 +162,9 @@
     [title addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = title;
     
-    [[[self view]layer]setShadowOpacity:0.75f];
-    [[[self view]layer]setShadowRadius:0.75f];
-    [[[self view]layer]setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
+    [[[self view]layer] setShadowOpacity:0.75f];
+    [[[self view]layer] setShadowRadius:0.75f];
+    [[[self view]layer] setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
     
     NSString *imageLight;
     NSString *imageDark;
@@ -190,7 +192,11 @@
     
     if (![self.slidingViewController.underRightViewController isKindOfClass:[LANoticeViewController class]])
     {
-        self.slidingViewController.underRightViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Notices"];
+        LANoticeViewController *noticeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Notices"];
+        
+        noticeVC.delegate = self;
+        
+        self.slidingViewController.underRightViewController = noticeVC;
     }
     //TODO: big TODO!! get the user to stay logged in. and store all his data.
     
@@ -224,14 +230,13 @@
 }
 - (IBAction) titleTap:(id) sender
 {
-    
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"HashTagFilter"
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"HashTagFilter"
                                                              delegate:nil
                                                     cancelButtonTitle:nil
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:nil];
     
-    [actionSheet setActionSheetStyle:UIActionSheetStyleAutomatic];
+    [self.actionSheet setActionSheetStyle:UIActionSheetStyleAutomatic];
     CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
     
     UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
@@ -240,30 +245,29 @@
     pickerView.dataSource = self;
     pickerView.delegate = self;
 
-    [actionSheet addSubview:pickerView];
+    [self.actionSheet addSubview:pickerView];
    
+    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 7.0f, 50.0f, 30.0f)];
+    [closeButton setTitle:@"Close" forState:UIControlStateNormal];
+    [closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [closeButton addTarget:self action:@selector(closeThisActionSheet) forControlEvents:UIControlEventTouchUpInside];
     
-    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Close"]];
-    [closeButton setMomentary:YES];
-    [closeButton setFrame:CGRectMake(260, 7.0f, 50.0f, 30.0f)];
-    [closeButton setSegmentedControlStyle:UISegmentedControlStyleBar];
-    [closeButton setTintColor:[UIColor blackColor]];
-    [closeButton addTarget:self
-                    action:@selector(dismissWithClickedButtonIndex:
-                                     animated:)
-          forControlEvents:UIControlEventEditingChanged];
+    [self.actionSheet addSubview:closeButton];
     
-    [actionSheet addSubview:closeButton];
+    [self.actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
     
-    [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
-    
-    [actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
     
     
 //    
 //    LAHashtagViewController *hashtagController = [self.storyboard instantiateViewControllerWithIdentifier:@"Hashtags"];
 //    
 //    [self.navigationController pushViewController:hashtagController animated:YES];
+}
+
+- (void)closeThisActionSheet
+{
+    [self.actionSheet dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 -(void)dismissActionSheet:(id)sender
@@ -836,9 +840,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 #pragma mark NoticeViewController delegate
 - (void)showDetailViewItem:(LANoticeItem *)ourItem
 {
-    [self performSegueWithIdentifier:@"toDetailView" sender:self];
-    UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
-    UIViewController *dtv = [storyboard instantiateViewControllerWithIdentifier:@"detailNotices"];
+//    [self performSegueWithIdentifier:@"toDetailView" sender:self];
+    
+    LADetailNoticeViewController *dtv = [self.storyboard instantiateViewControllerWithIdentifier:@"detailNotices"];
+    
+    dtv.item = ourItem;
+    
     [self presentViewController:dtv animated:YES completion:^{
         NSLog(@"showing detailView");
     }];

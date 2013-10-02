@@ -213,7 +213,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     NSArray *items = [[LANoticesStore defaultStore]allItems];
     
     LANoticeItem *selectedItem = [items objectAtIndex:[indexPath row]];
-    [[self delegate]showDetailViewItem:selectedItem];
+    [self.delegate showDetailViewItem:selectedItem];
     
     
     // Give detail view controller a pointer to the item object in row
