@@ -131,11 +131,13 @@
     
 }
 
-- (void)sortHashTagsWithFilter:(NSString *)filter{
-    
+- (void)sortHashTagsWithFilter:(NSString *)filter
+{
+   
     [[LAStoreManager defaultStore]clearAllMainPostItems];
 
-    for (filter in hashtagsAndPostsItems) {
+    for (filter in hashtagsAndPostsItems)
+    {
         
         LAHashtagAndPost *aPost = [[LAHashtagAndPost alloc]init];
         

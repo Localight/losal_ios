@@ -144,6 +144,7 @@
 		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
 		65EBCE2F17CD3103009138E8 /* social-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2E17CD3103009138E8 /* social-icon.png */; };
+		65F787E917FBC381001C0D3E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F787E817FBC381001C0D3E /* libTestFlight.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,6 +337,10 @@
 		65EBCDF817CC07B1009138E8 /* socrative-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "socrative-logo.png"; sourceTree = "<group>"; };
 		65EBCE2C17CC357C009138E8 /* A-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-plus.png"; sourceTree = "<group>"; };
 		65EBCE2E17CD3103009138E8 /* social-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-icon.png"; sourceTree = "<group>"; };
+		65F787E517FBC34D001C0D3E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		65F787E617FBC34D001C0D3E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		65F787E717FBC34D001C0D3E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		65F787E817FBC381001C0D3E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = ../libTestFlight.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +348,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65F787E917FBC381001C0D3E /* libTestFlight.a in Frameworks */,
 				43DC44C217A7A159005729D8 /* Security.framework in Frameworks */,
 				4358C00E17BC255600525BB8 /* Accounts.framework in Frameworks */,
 				4358C00C17BC216400525BB8 /* Social.framework in Frameworks */,
@@ -679,6 +685,10 @@
 				6588D03617A4BCC500B6C498 /* LAAppDelegate.m */,
 				653160B417F5F37600BFE162 /* KeychainItemWrapper.h */,
 				653160B517F5F37600BFE162 /* KeychainItemWrapper.m */,
+				65F787E517FBC34D001C0D3E /* TestFlight.h */,
+				65F787E617FBC34D001C0D3E /* TestFlight+AsyncLogging.h */,
+				65F787E717FBC34D001C0D3E /* TestFlight+ManualSessions.h */,
+				65F787E817FBC381001C0D3E /* libTestFlight.a */,
 				4397674717B1BCB50040C947 /* Model */,
 				4358C00317BBF9E200525BB8 /* Social Libraries */,
 				43DC44BA17A796DC005729D8 /* Store */,
@@ -834,7 +844,7 @@
 				ORGANIZATIONNAME = Localism;
 				TargetAttributes = {
 					6588D02217A4BCC500B6C498 = {
-						DevelopmentTeam = UAQU83P824;
+						DevelopmentTeam = V35E94V5X8;
 					};
 				};
 			};
@@ -1139,6 +1149,10 @@
 				GCC_PREFIX_HEADER = "#LOSAL/#LOSAL-Prefix.pch";
 				INFOPLIST_FILE = "#LOSAL/#LOSAL-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Great\\ Wolf/James\\ Stuff/Localism/losal_ios/#LOSAL",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1159,6 +1173,10 @@
 				GCC_PREFIX_HEADER = "#LOSAL/#LOSAL-Prefix.pch";
 				INFOPLIST_FILE = "#LOSAL/#LOSAL-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Great\\ Wolf/James\\ Stuff/Localism/losal_ios/#LOSAL",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

@@ -209,7 +209,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     // Rootview controller, and then the root view controller in the method that got called would use the same info and
     // Open up the detail view controllerd
     // probably create the pass here.
-    
+//    [TestFlight passCheckpoint:@"CHECKPOINT_NAME"];
     NSArray *items = [[LANoticesStore defaultStore]allItems];
     
     LANoticeItem *selectedItem = [items objectAtIndex:[indexPath row]];

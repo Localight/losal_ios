@@ -13,6 +13,7 @@
 #import "KeychainItemWrapper.h"
 #import "LALikesStore.h"
 #import <Security/Security.h>
+#import "TestFlight.h"
 @interface LAAppDelegate ()
 
 //@property (nonatomic, strong) LAStoreManager *storeManager;
@@ -22,7 +23,8 @@
 @implementation LAAppDelegate
 
 //static NSString * const firstTimeLaunchkey = @"hasLaunchedOnce";
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
    
 // const pointer
@@ -30,7 +32,7 @@
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES
 //                                            withAnimation:UIStatusBarAnimationNone];
-    
+    [TestFlight takeOff:@"b1e24abe-daf8-4c83-85c3-e62287818a1d"];
     [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg"
                   clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
     
