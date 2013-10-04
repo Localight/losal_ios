@@ -39,7 +39,7 @@
 #import <Security/Security.h>
 @interface LAFeedViewController ()
 
-#define  DEFAULT_ICON "\uE00C"
+#define  DEFAULT_ICON "\uE017"
 
 @property (strong, nonatomic) LASocialManager *socialManager;
 @property (strong, nonatomic) LAImageLoader *imageLoader;
@@ -159,7 +159,10 @@
     [title setTitle:@"#LOSAL" forState:UIControlStateNormal];
     title.frame = CGRectMake(0, 0, 70, 44);
     [title.titleLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:24]];
-    [title addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [title addTarget:self
+              action:@selector(titleTap:)
+    forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = title;
     
     [[[self view]layer] setShadowOpacity:0.75f];
@@ -617,20 +620,6 @@
     return cell;
 }
 
--(UIColor *)colorFromHexString:(NSString *)hexString {
-    UIColor *color;
-    if (hexString)
-    {
-    NSUInteger red, green, blue;
-    sscanf([hexString UTF8String], "#%02X%02X%02X", &red, &green, &blue);
-    
-    color = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
-        
-    }else{
-        color = [UIColor whiteColor];
-    }
-    return color;
-}
 
 -(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath

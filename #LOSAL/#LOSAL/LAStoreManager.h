@@ -44,6 +44,7 @@
 - (void)processArray:(NSArray *)array;
 
 
+
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock;
 //- (void)saveUsersSocialIDs;
 - (void)getHashTags;

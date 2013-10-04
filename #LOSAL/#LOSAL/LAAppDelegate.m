@@ -32,7 +32,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES
 //                                            withAnimation:UIStatusBarAnimationNone];
-    [TestFlight takeOff:@"b1e24abe-daf8-4c83-85c3-e62287818a1d"];
+    [TestFlight takeOff:@"81a4be3b-0bfa-4ed9-a551-02b3e262a9c3"];
     [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg"
                   clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
     

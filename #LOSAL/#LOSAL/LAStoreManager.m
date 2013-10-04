@@ -15,7 +15,7 @@
 #import "LALikesStore.h"
 
 @implementation LAStoreManager
-
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #pragma mark Singleton Methods
 
 + (LAStoreManager *)defaultStore
@@ -106,7 +106,7 @@
                     [item setUserFirstName:[user objectForKey:@"firstName"]];
                     [item setUserLastName:[user objectForKey:@"lastName"]];
                     [item setIconString:[user objectForKey:@"icon"]];
-                    [item setUserColorChoice:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
+                    [item setUserColorChoice:[self getUIColorObjectFromHexString:[user objectForKey:@"faveColor"] alpha:1]];
                     [item setUserCategory:[user objectForKey:@"userType"]];//find out what they are
                 }
                [hashtagsAndPostsItems addObject:item];
@@ -217,7 +217,8 @@
                         [postItem setUserFirstName:[user objectForKey:@"firstName"]];
                         [postItem setUserLastName:[user objectForKey:@"lastName"]];
                         [postItem setIconString:[user objectForKey:@"icon"]];
-                        [postItem setUserColorChoice:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
+                        [postItem setUserColorChoice:[self getUIColorObjectFromHexString:[user objectForKey:@"faveColor"] alpha:1]];
+                       // [postItem setUserColorChoice:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
                         [postItem setUserCategory:[user objectForKey:@"userType"]];//find out what they are
                     }
                     [mainPostItems addObject:postItem];
@@ -366,7 +367,10 @@
         if (user)
         {
             [_currentUser setIconString:[user objectForKey:@"icon"]];
-            [_currentUser setIconColor:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
+            NSLog(@"%@", [user objectForKey:@"faveColor"]);\
+            [_currentUser setIconColor:[self getUIColorObjectFromHexString:[user objectForKey:@"faveColor"]
+                                                                     alpha:1]];
+            //[_currentUser setIconColor:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
             
             [_currentUser setTwitterDisplayName:[user objectForKey:@"twitterID"]];
             [_currentUser setInstagramDisplayName:[user objectForKey:@"instagramID"]];
@@ -408,16 +412,36 @@
     
 }
 // this works fine.
--(UIColor *)colorFromHexString:(NSString *)hexString
+- (UIColor *)getUIColorObjectFromHexString:(NSString *)hexStr alpha:(CGFloat)alpha
 {
-    NSUInteger red, green, blue;
-    sscanf([hexString UTF8String], "#%02X%02X%02X", &red, &green, &blue);
+    // Convert hex string to an integer
+    unsigned int hexint = [self intFromHexString:hexStr];
     
-    UIColor *color = [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:1];
+    // Create color object, specifying alpha as well
+    UIColor *color =
+    [UIColor colorWithRed:((CGFloat) ((hexint & 0xFF0000) >> 16))/255
+                    green:((CGFloat) ((hexint & 0xFF00) >> 8))/255
+                     blue:((CGFloat) (hexint & 0xFF))/255
+                    alpha:alpha];
     
-    return (color);
+    return color;
 }
-// not sure if we ever get this.
+
+- (unsigned int)intFromHexString:(NSString *)hexStr
+{
+    unsigned int hexInt = 0;
+    
+    // Create scanner
+    NSScanner *scanner = [NSScanner scannerWithString:hexStr];
+    
+    // Tell scanner to skip the # character
+    [scanner setCharactersToBeSkipped:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
+    
+    // Scan hex value
+    [scanner scanHexInt:&hexInt];
+    
+    return hexInt;
+}
 - (void)logout {
     [PFUser logOut];
     self.currentUser = nil;
