@@ -18,5 +18,7 @@
 
 @property (nonatomic, strong) LANoticeItem *item;
 
+@property (weak, nonatomic) IBOutlet UINavigationItem *navyItem;
+
 @property (nonatomic, copy) void (^dismissBlock)(void);
 @end

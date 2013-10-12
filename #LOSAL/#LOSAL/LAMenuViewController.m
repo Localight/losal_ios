@@ -96,10 +96,10 @@
                   [NSURL URLWithString:@"http://m.socrative.com/student/#joinRoom"],@"Socrative",
                   [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
 //                  [NSURL URLWithString:@"webcal://losal.tandemcal.com/index.php?type=export&action=ical&export_type=now_to_infinity&schools=6&activities=15&event_status_types=1&limit=none&date_start=2013-08-28&page=2"] , @"Calendar",
-                  [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Aeries Portal",
+                  [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Grades",
                   nil];
     // the calendar will ask you if you want to subscribe.
-    _menuItems = @[@"Feed", @"Links", @"Aeries Portal",@"Socrative",@"Edmodo",@"About"];
+    _menuItems = @[@"Feed", @"Links", @"Grades",@"Socrative",@"Edmodo",@"About"];
   
     NSLog(@"this is the users's first name: %@", [[[LAStoreManager defaultStore]currentUser]firstName]);
         [userNameLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:24]];
@@ -176,7 +176,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         
          anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
         
-    }else if([cellName isEqualToString:@"Aeries Portal"]){
+    }else if([cellName isEqualToString:@"Grades"]){
         NSString *identifier = @"WebView";
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
         

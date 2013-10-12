@@ -104,6 +104,7 @@
 		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
 		6549236A17B9591A003F39E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6549236717B9591A003F39E3 /* README.md */; };
 		654A737A17CD4F24009A28B3 /* LADetailNoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654A737917CD4F24009A28B3 /* LADetailNoticeViewController.m */; };
+		6559E6431804FA4100EB0D87 /* social-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6559E6421804FA4100EB0D87 /* social-icon.png */; };
 		656EA0F317D8E55B00EF0E42 /* iphone-sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = 656EA0F217D8E55B00EF0E42 /* iphone-sign-in.png */; };
 		656EA0F517D8E62000EF0E42 /* close-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 656EA0F417D8E62000EF0E42 /* close-circle.png */; };
 		656FB82A17F38D8900629C46 /* LAImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FB82917F38D8900629C46 /* LAImageStore.m */; };
@@ -143,7 +144,6 @@
 		65C522ED17D109F900C5622C /* school-links.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C522EC17D109F900C5622C /* school-links.png */; };
 		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
-		65EBCE2F17CD3103009138E8 /* social-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2E17CD3103009138E8 /* social-icon.png */; };
 		65F787E917FBC381001C0D3E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F787E817FBC381001C0D3E /* libTestFlight.a */; };
 /* End PBXBuildFile section */
 
@@ -284,6 +284,7 @@
 		6549236717B9591A003F39E3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		654A737817CD4F24009A28B3 /* LADetailNoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LADetailNoticeViewController.h; sourceTree = "<group>"; };
 		654A737917CD4F24009A28B3 /* LADetailNoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LADetailNoticeViewController.m; sourceTree = "<group>"; };
+		6559E6421804FA4100EB0D87 /* social-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-icon.png"; sourceTree = "<group>"; };
 		656EA0F217D8E55B00EF0E42 /* iphone-sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-sign-in.png"; sourceTree = "<group>"; };
 		656EA0F417D8E62000EF0E42 /* close-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-circle.png"; sourceTree = "<group>"; };
 		656FB82817F38D8900629C46 /* LAImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAImageStore.h; sourceTree = "<group>"; };
@@ -336,7 +337,6 @@
 		65C522EC17D109F900C5622C /* school-links.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "school-links.png"; sourceTree = "<group>"; };
 		65EBCDF817CC07B1009138E8 /* socrative-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "socrative-logo.png"; sourceTree = "<group>"; };
 		65EBCE2C17CC357C009138E8 /* A-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "A-plus.png"; sourceTree = "<group>"; };
-		65EBCE2E17CD3103009138E8 /* social-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-icon.png"; sourceTree = "<group>"; };
 		65F787E517FBC34D001C0D3E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		65F787E617FBC34D001C0D3E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		65F787E717FBC34D001C0D3E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
@@ -586,8 +586,8 @@
 			isa = PBXGroup;
 			children = (
 				65C522EC17D109F900C5622C /* school-links.png */,
-				65EBCE2E17CD3103009138E8 /* social-icon.png */,
 				65EBCE2C17CC357C009138E8 /* A-plus.png */,
+				6559E6421804FA4100EB0D87 /* social-icon.png */,
 				65EBCDF817CC07B1009138E8 /* socrative-logo.png */,
 				43F9621417C6D7C7006F9AF4 /* menu-icon.png */,
 				6576740E17C5776E00EC2881 /* griffin-mascot.png */,
@@ -890,6 +890,7 @@
 				652576AF17E791F700BA43F7 /* iTunesArtwork@2x.png in Resources */,
 				6523AE4217B42A1E00AFD830 /* Roboto-MediumItalic.ttf in Resources */,
 				6523AE4317B42A1E00AFD830 /* Roboto-Regular.ttf in Resources */,
+				6559E6431804FA4100EB0D87 /* social-icon.png in Resources */,
 				6523AE4417B42A1E00AFD830 /* Roboto-Thin.ttf in Resources */,
 				652576AE17E791F700BA43F7 /* iTunesArtwork.png in Resources */,
 				6523AE4517B42A1E00AFD830 /* Roboto-ThinItalic.ttf in Resources */,
@@ -924,7 +925,6 @@
 				43F9621517C6D7C7006F9AF4 /* menu-icon.png in Resources */,
 				65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */,
 				65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */,
-				65EBCE2F17CD3103009138E8 /* social-icon.png in Resources */,
 				652576B117E7922E00BA43F7 /* Images.xcassets in Resources */,
 				65C522ED17D109F900C5622C /* school-links.png in Resources */,
 				65B2A33E17D551CD004DA2FA /* gradient-text.png in Resources */,

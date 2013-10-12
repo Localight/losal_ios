@@ -105,25 +105,30 @@
         [[cell thumbnailImage]setHidden:YES];
         [[cell briefDescriptionLabel]setHidden:YES];
         [[cell adImage]setHidden:NO];
-         [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
-                                                               forId:[[p postObject]objectId]
-                                                            andBlock:^(UIImage *image)
-          {
-              [[cell adImage]setImage:image];
-          }];
+//         NSData *data = [NSData dataWithContentsOfURL:[p noticeImageUrl]];
+//         UIImage *img = [[UIImage alloc]initWithData:data];
+//         CGSize size = [img size];
+//         [cell setThumbnailImage:img];
+//         
+//         [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
+//                                                               forId:[[p postObject]objectId]
+//                                                            andBlock:^(UIImage *image)
+//          {
+//              [[cell adImage]setImage:image];
+//          }];
     }else{
         [[cell adImage]setHidden:YES];
         [[cell titleLabel]setText:[p noticeTitle]];
         [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
         [[cell briefDescriptionLabel]setText:[p teaserText]];
         [[cell briefDescriptionLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
-        [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
-                                                              forId:[[p postObject]objectId]
-                                                           andBlock:^(UIImage *image)
-         {
-             [[cell thumbnailImage]setImage:image];
-         }];
-        
+//        [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
+//                                                              forId:[[p postObject]objectId]
+//                                                           andBlock:^(UIImage *image)
+//         {
+//             [[cell thumbnailImage]setImage:image];
+//         }];
+//        
 
     }
     

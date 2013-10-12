@@ -14,6 +14,22 @@
 //#import "LAImageStore.h"
 @implementation LADetailNoticeViewController
 
+//- (id)init
+//{
+//    self = [super init];
+//    if (self) {
+//        UINavigationItem *navyItem = [self navyItem];
+//        [navyItem setTitle:[_item noticeTitle]];
+//    }
+//    return self;
+//}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSLog(@"%@", _navyItem); 
+    [_navyItem setTitle:[_item noticeTitle]];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {

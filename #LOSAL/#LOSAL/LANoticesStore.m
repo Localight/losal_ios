@@ -82,7 +82,9 @@
                  [p setEndDate:[parseNoticeObject objectForKey:@"endDate"]];
                  [p setButtonString:[parseNoticeObject objectForKey:@"buttonLink"]];
                  [p setButtonText:[parseNoticeObject objectForKey:@"buttonText"]];
+                 
                  [p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
+                 
                                  //[item setThumbnailDataFromImage:image];
                  
                  // possible error will come from above.
@@ -102,6 +104,39 @@
          }];
 }
 
+-(UIImage *) getImageFromURL:(NSString *)fileURL
+{
+    UIImage * result;
+    
+    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    
+    result = [UIImage imageWithData:data];
+    
+    return result;
+}
+
+-(void) saveImage:(UIImage *)image
+     withFileName:(NSString *)imageName
+           ofType:(NSString *)extension
+      inDirectory:(NSString *)directoryPath
+{
+    if ([[extension lowercaseString] isEqualToString:@"png"])
+    {
+        [UIImagePNGRepresentation(image)writeToFile:[directoryPath
+                                                     stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", imageName, @"png"]]
+                                            options:NSAtomicWrite
+                                              error:nil];
+        
+    } else if ([[extension lowercaseString] isEqualToString:@"jpg"] || [[extension lowercaseString] isEqualToString:@"jpeg"]) {
+        [UIImageJPEGRepresentation(image, 1.0) writeToFile:[directoryPath
+                                                            stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", imageName, @"jpg"]]
+                                                   options:NSAtomicWrite
+                                                     error:nil];
+    } else {
+        NSLog(@"Image Save Failed\nExtension: (%@) is not recognized, use (PNG/JPG)", extension);
+    }
+}
+
 - (BOOL)saveChanges
 {
     // returns success or failure
@@ -110,7 +145,14 @@
     return [NSKeyedArchiver archiveRootObject:allItems
                                        toFile:path];
 }
-
+-(UIImage *) loadImage:(NSString *)fileName
+                ofType:(NSString *)extension
+           inDirectory:(NSString *)directoryPath
+{
+    UIImage * result = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@.%@", directoryPath, fileName, extension]];
+    
+    return result;
+}
 - (void)removeItem:(LANoticeItem *)p
 {
     //NSString *key = [p imageKey];

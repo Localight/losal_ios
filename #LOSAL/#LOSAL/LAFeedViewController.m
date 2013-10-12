@@ -94,21 +94,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-////    if ([[[LAStoreManager defaultStore]currentUser]isFilteredArray])
-////    {
-////        [[LAStoreManager defaultStore]fetchFromDate:nil];
-////        
-//////                                     WithCompletion:^(NSArray *posts, NSError *error) {
-//////                                         NSLog(@"Your first pull from the server");
-//////                                     }];
-////
-////    }else{
-////        [[LAStoreManager defaultStore]fetchFromDate:[[[LAStoreManager defaultStore]lastPostInArray]postTime]];
-//////                                     WithCompletion:^(NSArray *posts, NSError *error) {
-//////                                         NSLog(@"Your first pull from the server");
-//////                                     }];
-////    }
-//  //  &&[[[LAStoreManager defaultStore]currentUser]userVerified]
     
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"firstTimeLaunchedKey"])
     {
@@ -144,14 +129,18 @@
     UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     menuBtn.frame = CGRectMake(0, 0, 30, 30);
     [menuBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
-    [menuBtn addTarget:self action:@selector(revealMenu:) forControlEvents:UIControlEventTouchUpInside];
+    [menuBtn addTarget:self
+                action:@selector(revealMenu:)
+      forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithCustomView:menuBtn];
     UIButton *noticeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     noticeBtn.frame = CGRectMake(0, 0, 27, 27);
     [noticeBtn setBackgroundImage:[UIImage imageNamed:@"lightning.png"] forState:UIControlStateNormal];
-    [noticeBtn addTarget:self action:@selector(revealNotices:) forControlEvents:UIControlEventTouchUpInside];
+    [noticeBtn addTarget:self
+                  action:@selector(revealNotices:)
+        forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithCustomView:noticeBtn];
@@ -339,56 +328,6 @@
     return [[[LAStoreManager defaultStore]allMainPostItems]count] + 1;
 }
 
-//- (void)fetchEntries
-//{
-//    [[LAStoreManager defaultStore]setMoreResultsAvail:YES];
-//    
-//    
-//    //LAstoreManager.defualtstoer.setmoreresults
-//    UIView *currentTitleView = [[self navigationItem] titleView];
-//    
-//    UIActivityIndicatorView *aiView = [[UIActivityIndicatorView alloc]
-//                                       initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-//    [[self navigationItem] setTitleView:aiView];
-//    
-//    [aiView startAnimating];
-//    
-//    [[self navigationItem] setTitleView:currentTitleView];
-//    [[LAStoreManager defaultStore]getFeedWithCompletion:^(NSArray *posts, NSError *error)
-//     {
-//         NSLog(@"Completion block called!");
-//         if (!error)
-//         {
-//             //self.objects = [NSMutableArray arrayWithArray:posts];
-//             //self.filteredObjects = [self filterObjects:self.objects];
-//             static BOOL firstTime = YES;
-//             if (firstTime) {
-//                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
-//                               withRowAnimation:UITableViewRowAnimationTop];
-//                 firstTime = NO;
-//             } else {
-//                 [[self tableView] reloadData];
-//             }
-//             
-//             NSLog(@"error is %@", error);
-//             
-//         } else {
-//             // If things went bad, show an alert view
-//             NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
-//                                      [error localizedDescription]];
-//             
-//             // Create and show an alert view with this error displayed
-//             UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
-//                                                          message:errorString
-//                                                         delegate:nil
-//                                                cancelButtonTitle:@"OK"
-//                                                otherButtonTitles:nil];
-//             [av show];
-//             // If you come here you got the array
-//             NSLog(@"results are %@", posts);
-//         }
-//     }];
-//}
 - (UITableViewCell *)configureCell:(NSIndexPath *)indexPath
 {
     // This method might need to be wittled down, I think some of this stuff doesn't belong here.
@@ -550,39 +489,6 @@
         [[LAStoreManager defaultStore]fetchFromDate:[[[LAStoreManager defaultStore]lastPostInArray]postTime]];
     }
     
-//        NSLog(@"you number got bigger than or equal to the 2/3's of th posts");
-//        if ( (![[LAStoreManager defaultStore]loading]) && [[LAStoreManager defaultStore]moreResultsAvail])
-//        {
-//            NSLog(@"if your seeing this message then you should be loading more data!");
-//            [[LAStoreManager defaultStore]setLoading:YES];
-//                      // loadRequest is the method that loads the next batch of data.
-//           
-//            
-//            
-//            [[LAStoreManager defaultStore] getFeedFromDate:[[[LAStoreManager defaultStore]lastPostInArray]postTime] WithCompletion:^(NSArray *array, NSError *error)
-//             {
-//                 NSLog(@"Loaded more data");
-//                 if (!error)
-//                 {
-//                     NSLog(@"got here");
-//                     [[LAStoreManager defaultStore]processArray:array];
-//                     [[NSNotificationCenter defaultCenter]
-//                      postNotificationName:@"Reload"
-//                      object:self];
-//                     //            [self.delegate processArray:array];
-//                 }else{
-//                     NSLog(@"%@", error);
-//                 }
-//             }];
-//            
-//            
-//        }else{
-//            NSLog(@"something went wrong again!");
-//        }
-//    }else{
-//        NSLog(@"if you make it here the row value was less than  5/4 of the array size. Current value of row is %d, and the current value of the array is: %d",[indexPath row], a);
-//    }
-    
     UITableViewCell *cell;
     
     NSLog(@"the cell count is %lu", (unsigned long)[[[LAStoreManager defaultStore]allMainPostItems]count]);
@@ -702,18 +608,6 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
     
     return newImage;
 }
-//- (void)processArray:(NSArray *)array {
-//    if ([array count] > 0) {
-//    
-//        [self.objects addObjectsFromArray:array];
-//        //self.filteredObjects = [self filterObjects:self.objects];
-//    } else {
-//        self.moreResultsAvail = NO;
-//    }
-//    [self.tableView reloadData];
-//    // Always remember to set loading to NO whenever you finish loading the data.
-//    self.loading = NO;
-//}
 - (BOOL)tableView:(UITableView *)tableView
 canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -737,23 +631,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (IBAction)likeButtonTapped:(id)sender
 {
@@ -829,7 +706,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 #pragma mark NoticeViewController delegate
 - (void)showDetailViewItem:(LANoticeItem *)ourItem
 {
-//    [self performSegueWithIdentifier:@"toDetailView" sender:self];
+    
+    [self performSegueWithIdentifier:@"toDetailView" sender:self];
     
     LADetailNoticeViewController *dtv = [self.storyboard instantiateViewControllerWithIdentifier:@"detailNotices"];
     
@@ -839,51 +717,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         NSLog(@"showing detailView");
     }];
 }
-// as part of the segue we will need the info from the delegate class
-
-//- (void)wantsToCloseView
-//{
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-
-// this isn't even being used.
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([[segue identifier] isEqualToString:@"showDetail"])
-//    {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//      
-//        NSDate *object = _objects[indexPath.row];
-//        //[[segue destinationViewController] setDetailItem:object];
-//    }
-//}
-
-
-//- (BOOL)firstTimeLaunched
-//{
-//    #warning remove this before shipping!
-////    static BOOL firstTimeLaunch = YES;
-//    //TODO: consider using date as something to compare to.
-//    // any time the current date is further from the orginal date'
-//    // load as normal. this way the app only loads the screens once. 
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    BOOL firstTimeLaunch;
-//    if ([[NSUserDefaults standardUserDefaults]boolForKey:firstTimeLaunch]) {
-//        firstTimeLaunch =NO;
-//    }else{
-//        firstTimeLaunch =YES;
-//        [defaults setBool:NO forKey:firstTimeLaunchkey];
-//        [defaults synchronize];
-//    }
-//    return firstTimeLaunch;
-//}
 - (void)pickerView:(UIPickerView *)pickerView
       didSelectRow:(NSInteger)row
        inComponent:(NSInteger)component
 {
     // I'm thinking that i'll create an array fill it with the post that have the hashtag associate with them.
     // I'm thinking I will load the postarray with a new array, then clear it. each time a new hashtag is selected a new array
-    // is created and the old one is destroyed.
+    // is created and the old one is destroyed
     // I need to make sure that the main post itmes comes back some how though. for now, lets try to load an array of different items
 //    [[LAStoreManager defaultStore]clearAllMainPostItems];
     [[[LAStoreManager defaultStore]currentUser]setIsFilteredArray:YES];
@@ -932,13 +772,4 @@ numberOfRowsInComponent:(NSInteger)component
 {
     return 1;
 }
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([[segue identifier] isEqualToString:@"showDetail"])
-//    {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSDate *object = _objects[indexPath.row];
-//        //[[segue destinationViewController] setDetailItem:object];
-//    }
-//}
 @end
