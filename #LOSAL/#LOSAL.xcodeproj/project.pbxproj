@@ -124,7 +124,6 @@
 		6588D03717A4BCC500B6C498 /* LAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D03617A4BCC500B6C498 /* LAAppDelegate.m */; };
 		6588D04017A4BCC500B6C498 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6588D03E17A4BCC500B6C498 /* MainStoryboard.storyboard */; };
 		6588D04317A4BCC500B6C498 /* LAFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D04217A4BCC500B6C498 /* LAFeedViewController.m */; };
-		6588D04617A4BCC500B6C498 /* LADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6588D04517A4BCC500B6C498 /* LADetailViewController.m */; };
 		6588D04E17A4BCC500B6C498 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D04D17A4BCC500B6C498 /* SenTestingKit.framework */; };
 		6588D04F17A4BCC500B6C498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02617A4BCC500B6C498 /* UIKit.framework */; };
 		6588D05017A4BCC500B6C498 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6588D02817A4BCC500B6C498 /* Foundation.framework */; };
@@ -310,8 +309,6 @@
 		6588D03F17A4BCC500B6C498 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6588D04117A4BCC500B6C498 /* LAFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAFeedViewController.h; sourceTree = "<group>"; };
 		6588D04217A4BCC500B6C498 /* LAFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LAFeedViewController.m; sourceTree = "<group>"; };
-		6588D04417A4BCC500B6C498 /* LADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LADetailViewController.h; sourceTree = "<group>"; };
-		6588D04517A4BCC500B6C498 /* LADetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LADetailViewController.m; sourceTree = "<group>"; };
 		6588D04C17A4BCC500B6C498 /* #LOSALTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "#LOSALTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6588D04D17A4BCC500B6C498 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6588D05517A4BCC500B6C498 /* #LOSALTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "#LOSALTests-Info.plist"; sourceTree = "<group>"; };
@@ -418,8 +415,6 @@
 				43F9622117CC01B4006F9AF4 /* LAHashtagViewController.m */,
 				65381B1117F9E3070055F483 /* LAHashTagStore.h */,
 				65381B1217F9E3070055F483 /* LAHashTagStore.m */,
-				6588D04417A4BCC500B6C498 /* LADetailViewController.h */,
-				6588D04517A4BCC500B6C498 /* LADetailViewController.m */,
 				4358C00017BAF67700525BB8 /* LASocialNetworksView.h */,
 				4358C00117BAF67700525BB8 /* LASocialNetworksView.m */,
 			);
@@ -989,7 +984,6 @@
 				6588D03717A4BCC500B6C498 /* LAAppDelegate.m in Sources */,
 				6588D04317A4BCC500B6C498 /* LAFeedViewController.m in Sources */,
 				656FB82A17F38D8900629C46 /* LAImageStore.m in Sources */,
-				6588D04617A4BCC500B6C498 /* LADetailViewController.m in Sources */,
 				6588D06617A4BEBF00B6C498 /* LASplashViewController.m in Sources */,
 				6588D0AA17A4C02D00B6C498 /* ECSlidingViewController.m in Sources */,
 				6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */,

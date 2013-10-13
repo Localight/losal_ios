@@ -79,7 +79,8 @@
     }
 
 }
-- (IBAction)back:(id)sender {
+- (IBAction)back:(id)sender
+{
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 

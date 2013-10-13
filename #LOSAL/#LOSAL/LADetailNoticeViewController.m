@@ -10,6 +10,7 @@
 #import "LANoticeItem.h"
 #import "LANoticesStore.h"
 #import "LAImageLoader.h"
+#import "ECSlidingViewController.h"
 //#import "LAImageStore.h"
 //#import "LAImageStore.h"
 @implementation LADetailNoticeViewController
@@ -27,7 +28,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@", _navyItem); 
+    NSLog(@"%@", _navyItem);
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    backBtn.frame = CGRectMake(0, 0, 30, 30);
+    
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
+    
+    [backBtn addTarget:self
+                action:@selector(back:)
+      forControlEvents:UIControlEventTouchUpInside];
+     [_navyItem setLeftBarButtonItem:[[UIBarButtonItem alloc]initWithCustomView:backBtn]];
+    
     [_navyItem setTitle:[_item noticeTitle]];
 }
 
@@ -50,63 +63,13 @@
 - (void)setItem:(LANoticeItem *)i
 {
     _item = i;
+    
     [[self navigationItem] setTitle:[_item noticeTitle]];
 }
 
-//    // Create a NSDateFormatter that will turn a date into a simple date string
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-//    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    
-//    
-//    // Use filtered NSDate object to set dateLabel contents
-//    [dateLabel setText:[dateFormatter stringFromDate:[item dateCreated]]];
-    
-    // Change the navigation item to display name of item
-//     
-//    NSString *imageKey = [_item imageKey];
-//    if (imageKey) {
-//        // Get image for image key from image store
-//        UIImage *imageToDisplay =
-//        [[LAImageStore defaultImageStore] imageForKey:imageKey];
-//        // Use that image to put on the screen in imageView
-//        [imageView setImage:imageToDisplay];
-//    } else {
-//        // Clear the imageView
-//        [imageView setImage:nil];
-//    }
-
-//- (void)imagePickerController:(UIImagePickerController *)picker
-//didFinishPickingMediaWithInfo:(NSDictionary *)info
-//{
-//    // Get picked image from info dictionary
-//    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-//    
-//    [_item setThumbnailDataFromImage:image];
-//    
-//    // Create a CFUUID object - it knows how to create unique identifier strings
-//    CFUUIDRef newUniqueID = CFUUIDCreate (kCFAllocatorDefault);
-//    
-//    // Create a string from unique identifier
-//    CFStringRef newUniqueIDString =
-//    CFUUIDCreateString (kCFAllocatorDefault, newUniqueID);
-//    
-//    // Use that unique ID to set our item's imageKey
-//    NSString *key = (__bridge NSString *)newUniqueIDString;
-//    [_item setImageKey:key];
-//    
-//    
-//    // Store image in the BNRImageStore with this key
-//    [[LAImageStore defaultImageStore] setImage:image
-//                                         forKey:[_item imageKey]];
-//    
-//    CFRelease(newUniqueIDString);
-//    CFRelease(newUniqueID);
-//    
-//    // Put that image onto the screen in our image view
-//    [imageView setImage:image];
-//    
-//     [self dismissViewControllerAnimated:YES completion:nil];
-//}
+- (IBAction)back:(id)sender
+{
+    [self.slidingViewController anchorTopViewTo:ECRight];    
+}
 
 @end

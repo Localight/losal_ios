@@ -210,17 +210,28 @@
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
  
+    UIViewController *anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detailNotices"];
+    
+    LADetailNoticeViewController *dtv = (LADetailNoticeViewController *)anotherTopViewController;
+    
+    [dtv setItem:[[[LANoticesStore defaultStore]allItems]objectAtIndex:[indexPath row]]];
+    [aTableView deselectRowAtIndexPath:indexPath animated:YES];
+
     // So here I would probably call a delegate method and pass data from the store using this class, and sending it to the
     // Rootview controller, and then the root view controller in the method that got called would use the same info and
     // Open up the detail view controllerd
     // probably create the pass here.
 //    [TestFlight passCheckpoint:@"CHECKPOINT_NAME"];
-    NSArray *items = [[LANoticesStore defaultStore]allItems];
     
-    LANoticeItem *selectedItem = [items objectAtIndex:[indexPath row]];
-    [self.delegate showDetailViewItem:selectedItem];
-    
-    
+    [self.slidingViewController anchorTopViewOffScreenTo:ECLeft
+                                              animations:nil
+                                              onComplete:^{
+        CGRect frame = self.slidingViewController.topViewController.view.frame;
+        self.slidingViewController.topViewController = anotherTopViewController;
+        self.slidingViewController.topViewController.view.frame = frame;
+        [self.slidingViewController resetTopView];
+    }];
+
     // Give detail view controller a pointer to the item object in row
     
     // Push it onto the top of the navigation controller's stack
