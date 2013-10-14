@@ -18,8 +18,6 @@
 {
     
 }
-@property (weak, nonatomic) IBOutlet UINavigationItem *navyItem;
-
 //@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) id<LANoticeViewControllerDelegate>delegate;
 

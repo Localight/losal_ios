@@ -42,14 +42,23 @@
      [_navyItem setLeftBarButtonItem:[[UIBarButtonItem alloc]initWithCustomView:backBtn]];
     
     [_navyItem setTitle:[_item noticeTitle]];
+    if (![_item buttonText]) {
+        [_linkButton setTitle:[_item buttonText] forState:UIControlStateNormal];
+    }else{
+        [_linkButton setHidden:YES];
+    }
 }
+
+//TODO:setup the links if they have them. 
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
     [titleLabel setText:[_item noticeTitle]];
+    [titleLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:24]];
     [content setText:[_item noticeContent]];
+    [content setFont:[UIFont fontWithName:@"RobotoSlab-" size:16]];
     
     [[LAImageLoader sharedManager]processImageDataWithURLString:[_item noticeImageUrl]
                                                           forId:[[_item postObject]objectId]
@@ -66,10 +75,13 @@
     
     [[self navigationItem] setTitle:[_item noticeTitle]];
 }
-
+- (IBAction)toLink:(id)sender
+{
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[_item buttonLink]]];
+}
 - (IBAction)back:(id)sender
 {
-    [self.slidingViewController anchorTopViewTo:ECRight];    
+    [self.slidingViewController anchorTopViewTo:ECLeft];
 }
 
 @end

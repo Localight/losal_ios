@@ -80,7 +80,7 @@
                  [p setTeaserText:[parseNoticeObject objectForKey:@"teaser"]];
                  [p setStartDate:[parseNoticeObject objectForKey:@"startDate"]];
                  [p setEndDate:[parseNoticeObject objectForKey:@"endDate"]];
-                 [p setButtonString:[parseNoticeObject objectForKey:@"buttonLink"]];
+                 [p setButtonLink:[parseNoticeObject objectForKey:@"buttonLink"]];
                  [p setButtonText:[parseNoticeObject objectForKey:@"buttonText"]];
                  
                  [p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];

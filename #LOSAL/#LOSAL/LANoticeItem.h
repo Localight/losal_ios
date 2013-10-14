@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSString *noticeContent;
 @property (nonatomic, strong) NSString *interestField;
 @property (nonatomic, strong) NSString *audienceTypes;
-@property (nonatomic, strong) NSString *buttonString;
+@property (nonatomic, strong) NSString *buttonLink;
 @property (nonatomic, strong) NSString *buttonText;
 @property (nonatomic, strong) NSString *teaserText;
 @property (nonatomic, strong) NSString *startDate;

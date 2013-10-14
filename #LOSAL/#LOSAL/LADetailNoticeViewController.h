@@ -13,15 +13,16 @@
 {
     __weak IBOutlet UILabel *titleLabel;
     __weak IBOutlet UIImageView *imageView;
-    __weak IBOutlet UITextView *content;
-}
+    __weak IBOutlet UILabel *content;
+    }
 
 @property (nonatomic, strong) LANoticeItem *item;
 
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navyItem;
 
+@property (weak, nonatomic) IBOutlet UIButton *linkButton;
 
 @property (nonatomic, copy) void (^dismissBlock)(void);
-
+- (IBAction)toLink:(id)sender;
 @end

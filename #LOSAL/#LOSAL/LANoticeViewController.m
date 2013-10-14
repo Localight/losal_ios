@@ -21,8 +21,7 @@
 - (void)viewDidLoad
 { 
     [super viewDidLoad];
-    [_navyItem setTitle:@"Notices"];
-    
+        
     // Load the NIB files
    // UINib *nib = [UINib nibWithNibName:@"LANoticeItemCell" bundle:nil];
     //Register this NIB which contains the cell
@@ -122,36 +121,15 @@
         [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
         [[cell briefDescriptionLabel]setText:[p teaserText]];
         [[cell briefDescriptionLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
-//        [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
+//       [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
 //                                                              forId:[[p postObject]objectId]
 //                                                           andBlock:^(UIImage *image)
 //         {
 //             [[cell thumbnailImage]setImage:image];
 //         }];
-//        
-
     }
     
     
-
-//    if (![[p noticeImageUrl] length] == 0)
-//    {
-//        // Set image to nil, in case the cell was reused.
-//        //[cell setThumbnailImage:nil];
-//        [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
-//                                                              forId:[[p postObject]objectId]
-//                                                           andBlock:^(UIImage *image)
-//        {
-//                [[cell thumbnailImage]setImage:image];
-////             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
-////             {
-////                 [[cell thumbnailImage]setImage:image];
-////                 
-////             }
-//         
-//    } else {
-//        //[[cell thumbnailImage]setImage:nil];
-//    }
     return cell;
 }
 
@@ -209,60 +187,35 @@
 - (void)tableView:(UITableView *)aTableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
- 
-    UIViewController *anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detailNotices"];
+    LANoticeItem *p = [[[LANoticesStore defaultStore]allItems]objectAtIndex:[indexPath row]];
     
-    LADetailNoticeViewController *dtv = (LADetailNoticeViewController *)anotherTopViewController;
+    if ([p isAnAd]==1) {
+        
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[p buttonLink]]];
+        
+    }else{
+        
+        UIViewController *anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detailNotices"];
     
-    [dtv setItem:[[[LANoticesStore defaultStore]allItems]objectAtIndex:[indexPath row]]];
-    [aTableView deselectRowAtIndexPath:indexPath animated:YES];
+        LADetailNoticeViewController *dtv = (LADetailNoticeViewController *)anotherTopViewController;
+    
+        [dtv setItem:[[[LANoticesStore defaultStore]allItems]objectAtIndex:[indexPath row]]];
+        [aTableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    // So here I would probably call a delegate method and pass data from the store using this class, and sending it to the
-    // Rootview controller, and then the root view controller in the method that got called would use the same info and
-    // Open up the detail view controllerd
-    // probably create the pass here.
+        // So here I would probably call a delegate method and pass data from the store using this class, and sending it to the
+        // Rootview controller, and then the root view controller in the method that got called would use the same info and
+        // Open up the detail view controllerd
+        // probably create the pass here.
 //    [TestFlight passCheckpoint:@"CHECKPOINT_NAME"];
-    
-    [self.slidingViewController anchorTopViewOffScreenTo:ECLeft
+        [self.slidingViewController anchorTopViewOffScreenTo:ECLeft
                                               animations:nil
                                               onComplete:^{
         CGRect frame = self.slidingViewController.topViewController.view.frame;
         self.slidingViewController.topViewController = anotherTopViewController;
         self.slidingViewController.topViewController.view.frame = frame;
         [self.slidingViewController resetTopView];
-    }];
-
-    // Give detail view controller a pointer to the item object in row
-    
-    // Push it onto the top of the navigation controller's stack
-        //[[self storyboard]instantiateViewControllerWithIdentifier:@"detailNotices"];
-    
-//    if (!([cellName isEqualToString:@"Feed"]))//||[cellName isEqualToString:@"Logout"]
-//    {
-//        NSString *identifier = @"WebView";
-//        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-//        
-//        LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
-//        
-//        [webView setTitleName:cellName];
-//        [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
-//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//        
-//    }else if([cellName isEqualToString:@"Feed"]){
-//        
-//        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
-//        
-//    } else {
-//        //[[LAStoreManager sharedManager]logout];
-//    }
-//    
-//    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-//        CGRect frame = self.slidingViewController.topViewController.view.frame;
-//        self.slidingViewController.topViewController = anotherTopViewController;
-//        self.slidingViewController.topViewController.view.frame = frame;
-//        [self.slidingViewController resetTopView];
-//    }];
-//
+                                              }];
+    }
 }
 
 @end
