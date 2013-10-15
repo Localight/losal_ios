@@ -53,9 +53,7 @@
         dispatch_queue_t asyncQueue = dispatch_queue_create("com.myapp.asyncqueue", NULL);
         dispatch_async(asyncQueue, ^{
             NSError *error;
-            NSData *imageData = [NSData dataWithContentsOfURL:url
-                                                      options:NSDataReadingMappedIfSafe
-                                                        error:&error];
+            NSData *imageData = [NSData dataWithContentsOfURL:url options:NSDataReadingMappedIfSafe error:&error];
             
             UIImage *image = nil;
             if (error || [self isImageValid:imageData] == NO) {
@@ -74,7 +72,6 @@
         });
     }
 }
-
 // This method works well for jpegs, might need to modify for pngs
 - (BOOL)isImageValid:(NSData *)imageData {
     if ([imageData length] < 4) return NO;

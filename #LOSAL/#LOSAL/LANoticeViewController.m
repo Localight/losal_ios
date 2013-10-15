@@ -86,14 +86,17 @@
     
     // Get the new or recycled Cell
     // notes might need to alter the item to store different dates as strings
-    
-
+   
     LANoticeItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"NoticeCell"];
     if (cell == nil)
     {
         cell = [[LANoticeItemCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                  reuseIdentifier:@"NoticeCell"];
     }
+    [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl] forId:[[p postObject]objectId] andBlock:^(UIImage *image) {
+        [[cell thumbnailImage]setImage:image];
+    }];
+    
     [cell setController:self];
     [cell setTableView:tableView];
     

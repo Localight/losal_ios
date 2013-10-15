@@ -24,5 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *linkButton;
 
 @property (nonatomic, copy) void (^dismissBlock)(void);
+
 - (IBAction)toLink:(id)sender;
 @end
