@@ -10,26 +10,36 @@
 
 @interface LAImageLoader ()
 
-@property (nonatomic, strong) NSCache *imageCache;
 @end
 
 @implementation LAImageLoader
 
 + (id)sharedManager
 {
-    static LAImageLoader *sharedMyManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
-    });
+    static LAImageLoader *sharedMyManager= nil;
+    if (!sharedMyManager) {
+        
+        // Create the singleton
+        sharedMyManager = [[super allocWithZone:NULL] init];
+    }
     return sharedMyManager;
+    
 }
 
-- (id) init {
-    if (self = [super init]) {
-        self.imageCache = [[NSCache alloc] init];
-    }
++ (id)allocWithZone:(NSZone *)zone
+{
+    return [self sharedManager];
+}
+
+- (id) init
+{
+    self = [super init];
     
+    if (self)
+    {
+        _imageCache = [[NSCache alloc]init];
+        
+    }
     return self;
 }
 
@@ -37,14 +47,16 @@
                                 forId:(NSString *)imageId
                              andBlock:(void (^)(UIImage *image))processImage
 {
-    if (urlString == nil || [urlString length] == 0) {
-        processImage(nil);
-        return;
-    }
+    // so you are checking if an image got passed and didn't have an image string.
+    // is this necessary?
     
+    // first grab the url, because we know the images is coming from a url
     NSURL *url = [NSURL URLWithString:urlString];
     
+    // check to see if this image has been used all ready.
+    
     // Look for existing image
+    
     UIImage * image = [self.imageCache objectForKey:imageId];
     if (image != nil) {
         processImage(image);

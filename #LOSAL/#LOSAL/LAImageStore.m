@@ -14,6 +14,7 @@
 {
     return [self defaultImageStore];
 }
+
 + (LAImageStore *)defaultImageStore
 {
     static LAImageStore *defaultImageStore = nil;
