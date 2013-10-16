@@ -752,7 +752,7 @@ Learn more at Localism.co/schools</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-2W-6uO">
-                                <rect key="frame" x="20" y="127.99999999999999" width="40" height="40"/>
+                                <rect key="frame" x="20" y="128" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ke1-4N-cv3"/>
                                 </constraints>
