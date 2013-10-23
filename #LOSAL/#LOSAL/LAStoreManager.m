@@ -81,39 +81,55 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"HashTagsIndex"];
     
+    [query includeKey:@"postId"];
+    
+    [query includeKey:@"user"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *hashtagsArray, NSError *error)
     {
         if (!error)
         {
             for (PFObject *hashtag in hashtagsArray)
             {
+                
                 LAHashtagAndPost *item = [[LAHashtagAndPost alloc] init];
                 
                 [item setHashTag:[hashtag objectForKey:@"hashTags"]];
-                [item setPostObject:[hashtag objectForKey:@"postId"]];
-                [item setPostTime:[hashtag objectForKey:@"postTime"]];
-                [item setSocialNetwork:[hashtag objectForKey:@"socialNetworkName"]];
-                [item setSocialNetworkPostID:[hashtag objectForKey:@"socialNetworkPostID"]];
-                [item setText:[hashtag objectForKey:@"text"]];
-                [item setImageURLString:[hashtag objectForKey:@"url"]];
-                [item setIsLikedByThisUser:[[LALikesStore defaultStore]doesThisUserLike:[hashtag objectId]]];
+                NSLog(@"%@",item);
+                
+                item = [hashtag objectForKey:@"postId"];
+                NSLog(@"%@",item);
+                
                 
                 PFObject *user = [hashtag objectForKey:@"user"];
+                
                 if (user != nil)
                 {
                     [item setPrefix:[user objectForKey:@"prefix"]];//if they have a prefix
+                    NSLog(@"%@",item);
                     [item setGradeLevel:[user objectForKey:@"year"]];//if they have a grade.
+                    NSLog(@"%@",item);
                     [item setUserFirstName:[user objectForKey:@"firstName"]];
+                    NSLog(@"%@",item);
                     [item setUserLastName:[user objectForKey:@"lastName"]];
+                    NSLog(@"%@",item);
                     [item setIconString:[user objectForKey:@"icon"]];
+                    NSLog(@"%@",item);
                     [item setUserColorChoice:[self getUIColorObjectFromHexString:[user objectForKey:@"faveColor"] alpha:1]];
+                    NSLog(@"%@",item);
                     [item setUserCategory:[user objectForKey:@"userType"]];//find out what they are
+                } else{
+                    NSLog(@"No user for this account: %@", item);
                 }
-               [hashtagsAndPostsItems addObject:item];
-                if ([uniqueHashtagsItems indexOfObject:[item hashTag]]== NSNotFound) {
-                    NSLog(@"%@",[item hashTag]);
-                    [uniqueHashtagsItems addObject:[item hashTag]];
-                }
+                
+               // [item setIsLikedByThisUser:[[LALikesStore defaultStore]doesThisUserLike:[hashtag objectId]]];
+                
+                [hashtagsAndPostsItems addObject:item];
+                
+//                if ([uniqueHashtagsItems indexOfObject:[item hashTag]]== NSNotFound) {
+//                    NSLog(@"%@",[item hashTag]);
+//                    [uniqueHashtagsItems addObject:[item hashTag]];
+//                }
             }
             /// not sure why he had this in here, it doesn't make sense if it doesn't have something in there why put it in their?
             
