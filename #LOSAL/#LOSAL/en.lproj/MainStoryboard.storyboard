@@ -237,8 +237,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" restorationIdentifier="" text="Grades" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7S-Uk-G4S">
-                                            <rect key="frame" x="66" y="12" width="142" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" restorationIdentifier="" text="Grades" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7S-Uk-G4S">
+                                            <rect key="frame" x="63" y="11" width="142" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="142" id="NR0-8c-Rd1"/>
                                             </constraints>
@@ -733,13 +733,13 @@ Learn more at Localism.co/schools</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQ5-J7-98p">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQ5-J7-98p">
                                 <rect key="frame" x="0.0" y="0.0" width="321" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="wzr-JR-mPV"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20v-Ti-dDD">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20v-Ti-dDD">
                                 <rect key="frame" x="20" y="60" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Y8o-v2-bNb"/>
@@ -763,43 +763,7 @@ Learn more at Localism.co/schools</string>
                                     <action selector="flickrButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="HyX-vF-GW0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Instagram:                          @LosAlamitosHigh" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="206" translatesAutoresizingMaskIntoConstraints="NO" id="iLB-v9-BXO">
-                                <rect key="frame" x="80" y="59" width="206" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="Flickr:                                LosAlamitosHighSchool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="5dU-GJ-N09">
-                                <rect key="frame" x="80" y="123" width="230" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Facebook:                          LosAlamitosHighSchool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="JVa-YI-TPw">
-                                <rect key="frame" x="80" y="190" width="230" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter:                                @LosAlamitosHighSchool" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="jdo-yB-4Y3">
-                                <rect key="frame" x="80" y="259" width="230" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="YouTube:                         Griffin News 2013" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="xNa-PC-SsG">
-                                <rect key="frame" x="80" y="320" width="230" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Youtube:                           Principal Arnold" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="230" translatesAutoresizingMaskIntoConstraints="NO" id="XpW-c4-jKb">
-                                <rect key="frame" x="80" y="389" width="230" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCX-xa-BJz">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCX-xa-BJz">
                                 <rect key="frame" x="20" y="195" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Q0c-j3-vU8"/>
@@ -811,7 +775,7 @@ Learn more at Localism.co/schools</string>
                                     <action selector="facebookButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="ZBg-po-Heg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doQ-eg-kbH">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doQ-eg-kbH">
                                 <rect key="frame" x="20" y="264" width="40" height="40"/>
                                 <state key="normal" backgroundImage="twitterSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -820,7 +784,7 @@ Learn more at Localism.co/schools</string>
                                     <action selector="twitterButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="sAz-GG-vNw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arC-nN-2iS">
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arC-nN-2iS">
                                 <rect key="frame" x="20" y="325" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="aRF-Se-V36"/>
@@ -832,7 +796,7 @@ Learn more at Localism.co/schools</string>
                                     <action selector="youtubeButton1:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="SZV-81-tfr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-Kp-IPd">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-Kp-IPd">
                                 <rect key="frame" x="20" y="390" width="40" height="40"/>
                                 <state key="normal" backgroundImage="youtubeSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -841,53 +805,79 @@ Learn more at Localism.co/schools</string>
                                     <action selector="youtubeButton2:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="FKz-on-L9f"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="8lR-Sd-4mD">
+                                <rect key="frame" x="80" y="60" width="193" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Instagram: @LosAlamitosHighSchool">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="9qa-nZ-4b5">
+                                <rect key="frame" x="80" y="128" width="193" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Flickr: @LosAlamitosHighSchool">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sBX-hT-5wv">
+                                <rect key="frame" x="74" y="193" width="193" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Facebook: LosAlamitosHighSchool">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kqb-ei-aUR">
+                                <rect key="frame" x="80" y="262" width="193" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Twitter: @LosAlamitosHighSchool">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="k2l-6l-0PP">
+                                <rect key="frame" x="68" y="388" width="148" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="YouTube:  Principal Arnold">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fZT-Il-q7d">
+                                <rect key="frame" x="61" y="323" width="172" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="YouTube:  Griffin News 2013">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="20v-Ti-dDD" firstAttribute="top" secondItem="zQ5-J7-98p" secondAttribute="bottom" constant="16" id="24g-tB-Qyo"/>
-                            <constraint firstItem="5dU-GJ-N09" firstAttribute="top" secondItem="iLB-v9-BXO" secondAttribute="bottom" constant="23" id="2Vx-kj-1Ro"/>
-                            <constraint firstItem="JVa-YI-TPw" firstAttribute="trailing" secondItem="jdo-yB-4Y3" secondAttribute="trailing" id="6i5-Xg-ovV"/>
-                            <constraint firstItem="arC-nN-2iS" firstAttribute="centerY" secondItem="xNa-PC-SsG" secondAttribute="centerY" id="8Hi-M8-jQS"/>
                             <constraint firstItem="arC-nN-2iS" firstAttribute="trailing" secondItem="7Vb-Kp-IPd" secondAttribute="trailing" id="9li-RB-F4x"/>
                             <constraint firstItem="7Vb-Kp-IPd" firstAttribute="leading" secondItem="arC-nN-2iS" secondAttribute="leading" id="B1M-Ly-fmr"/>
                             <constraint firstItem="doQ-eg-kbH" firstAttribute="trailing" secondItem="arC-nN-2iS" secondAttribute="trailing" id="BM6-ii-09Y"/>
                             <constraint firstItem="zQ5-J7-98p" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" id="HG7-sL-jfi"/>
                             <constraint firstItem="20v-Ti-dDD" firstAttribute="leading" secondItem="Tei-2W-6uO" secondAttribute="leading" id="IDn-Pb-Klr"/>
-                            <constraint firstItem="xNa-PC-SsG" firstAttribute="trailing" secondItem="XpW-c4-jKb" secondAttribute="trailing" id="Ies-jo-gSY"/>
                             <constraint firstItem="zQ5-J7-98p" firstAttribute="centerX" secondItem="VEi-38-9Rk" secondAttribute="centerX" id="JIS-Ep-7FM"/>
-                            <constraint firstItem="5dU-GJ-N09" firstAttribute="leading" secondItem="JVa-YI-TPw" secondAttribute="leading" id="KNE-jI-Li9"/>
-                            <constraint firstItem="jdo-yB-4Y3" firstAttribute="leading" secondItem="JVa-YI-TPw" secondAttribute="leading" id="Ma7-fF-Fpf"/>
                             <constraint firstItem="Gr4-c3-o3k" firstAttribute="top" secondItem="7Vb-Kp-IPd" secondAttribute="bottom" constant="138" id="Myh-UB-Dxd"/>
                             <constraint firstItem="Tei-2W-6uO" firstAttribute="top" secondItem="20v-Ti-dDD" secondAttribute="bottom" constant="28" id="N4C-dM-sDq"/>
-                            <constraint firstItem="iLB-v9-BXO" firstAttribute="leading" secondItem="20v-Ti-dDD" secondAttribute="trailing" constant="20" id="NMU-tq-47S"/>
                             <constraint firstItem="doQ-eg-kbH" firstAttribute="centerY" secondItem="VEi-38-9Rk" secondAttribute="centerY" id="NPG-vg-RGu"/>
-                            <constraint firstAttribute="trailing" secondItem="5dU-GJ-N09" secondAttribute="trailing" constant="10" id="Oig-F8-I84"/>
-                            <constraint firstItem="xNa-PC-SsG" firstAttribute="trailing" secondItem="jdo-yB-4Y3" secondAttribute="trailing" id="PYc-9g-mPT"/>
                             <constraint firstItem="7Vb-Kp-IPd" firstAttribute="top" secondItem="arC-nN-2iS" secondAttribute="bottom" constant="25" id="Qv5-WW-zEB"/>
-                            <constraint firstItem="XpW-c4-jKb" firstAttribute="bottom" secondItem="7Vb-Kp-IPd" secondAttribute="bottom" id="RRQ-y0-UxJ"/>
                             <constraint firstItem="VCX-xa-BJz" firstAttribute="leading" secondItem="doQ-eg-kbH" secondAttribute="leading" id="Rxx-xN-HqT"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="centerY" secondItem="jdo-yB-4Y3" secondAttribute="centerY" id="UQ3-j7-cyX"/>
-                            <constraint firstItem="xNa-PC-SsG" firstAttribute="leading" secondItem="XpW-c4-jKb" secondAttribute="leading" id="VB2-85-vs0"/>
                             <constraint firstItem="20v-Ti-dDD" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" constant="20" symbolic="YES" id="XF2-Tn-Dak"/>
-                            <constraint firstItem="xNa-PC-SsG" firstAttribute="top" secondItem="jdo-yB-4Y3" secondAttribute="bottom" constant="11" id="Z7M-r0-axw"/>
                             <constraint firstItem="Tei-2W-6uO" firstAttribute="trailing" secondItem="VCX-xa-BJz" secondAttribute="trailing" id="a87-wB-O0E"/>
-                            <constraint firstItem="iLB-v9-BXO" firstAttribute="bottom" secondItem="20v-Ti-dDD" secondAttribute="bottom" id="b1o-nB-j8T"/>
-                            <constraint firstItem="JVa-YI-TPw" firstAttribute="top" secondItem="5dU-GJ-N09" secondAttribute="bottom" constant="17" id="bqt-KR-Z0O"/>
                             <constraint firstItem="20v-Ti-dDD" firstAttribute="trailing" secondItem="Tei-2W-6uO" secondAttribute="trailing" id="dYc-fr-ffr"/>
                             <constraint firstItem="arC-nN-2iS" firstAttribute="top" secondItem="doQ-eg-kbH" secondAttribute="bottom" constant="21" id="fXu-RZ-pGc"/>
                             <constraint firstItem="doQ-eg-kbH" firstAttribute="leading" secondItem="arC-nN-2iS" secondAttribute="leading" id="grz-h8-AFp"/>
                             <constraint firstItem="Tei-2W-6uO" firstAttribute="leading" secondItem="VCX-xa-BJz" secondAttribute="leading" id="jkD-Ks-Yos"/>
-                            <constraint firstItem="VCX-xa-BJz" firstAttribute="centerY" secondItem="JVa-YI-TPw" secondAttribute="centerY" id="jrv-2y-n3w"/>
                             <constraint firstItem="zQ5-J7-98p" firstAttribute="top" secondItem="VEi-38-9Rk" secondAttribute="top" id="lZj-QT-6QF"/>
-                            <constraint firstItem="iLB-v9-BXO" firstAttribute="top" secondItem="zQ5-J7-98p" secondAttribute="bottom" constant="15" id="m4Z-Qq-jiN"/>
-                            <constraint firstItem="5dU-GJ-N09" firstAttribute="centerY" secondItem="Tei-2W-6uO" secondAttribute="centerY" id="olC-zs-zOd"/>
                             <constraint firstItem="doQ-eg-kbH" firstAttribute="trailing" secondItem="VCX-xa-BJz" secondAttribute="trailing" id="p9N-c7-ZJ8"/>
-                            <constraint firstItem="JVa-YI-TPw" firstAttribute="trailing" secondItem="5dU-GJ-N09" secondAttribute="trailing" id="rd2-9f-uxq"/>
                             <constraint firstItem="doQ-eg-kbH" firstAttribute="top" secondItem="VCX-xa-BJz" secondAttribute="bottom" constant="29" id="t3x-aq-7j8"/>
-                            <constraint firstItem="jdo-yB-4Y3" firstAttribute="leading" secondItem="xNa-PC-SsG" secondAttribute="leading" id="u7b-Xi-czd"/>
                             <constraint firstItem="VCX-xa-BJz" firstAttribute="top" secondItem="Tei-2W-6uO" secondAttribute="bottom" constant="27" id="um9-8W-Tdu"/>
-                            <constraint firstItem="jdo-yB-4Y3" firstAttribute="top" secondItem="JVa-YI-TPw" secondAttribute="bottom" constant="19" id="wHF-o9-UgO"/>
-                            <constraint firstItem="iLB-v9-BXO" firstAttribute="leading" secondItem="5dU-GJ-N09" secondAttribute="leading" id="wfS-t4-sjA"/>
                         </constraints>
                     </view>
                     <keyCommands/>
@@ -1378,6 +1368,8 @@ Learn more at Localism.co/schools</string>
     <resources>
         <image name="A-plus.png" width="104" height="103"/>
         <image name="Default.png" width="640" height="960"/>
+        <image name="Default.png" width="640" height="960"/>
+        <image name="Default.png" width="640" height="960"/>
         <image name="close-circle.png" width="78" height="78"/>
         <image name="dr-arnold-wht2.png" width="222" height="328"/>
         <image name="edmodo-logo.png" width="294" height="314"/>
@@ -1391,6 +1383,7 @@ Learn more at Localism.co/schools</string>
         <image name="social-icon.png" width="156" height="115"/>
         <image name="socrative-logo.png" width="294" height="314"/>
         <image name="twitterSocialLink.png" width="92" height="92"/>
+        <image name="youtubeSocialLink.png" width="92" height="91"/>
         <image name="youtubeSocialLink.png" width="92" height="91"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

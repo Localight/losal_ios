@@ -143,7 +143,7 @@
 		65C522ED17D109F900C5622C /* school-links.png in Resources */ = {isa = PBXBuildFile; fileRef = 65C522EC17D109F900C5622C /* school-links.png */; };
 		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
-		65F787E917FBC381001C0D3E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65F787E817FBC381001C0D3E /* libTestFlight.a */; };
+		843A847B181053E400D7B8D1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A847A181053E400D7B8D1 /* libTestFlight.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -337,7 +337,7 @@
 		65F787E517FBC34D001C0D3E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		65F787E617FBC34D001C0D3E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		65F787E717FBC34D001C0D3E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		65F787E817FBC381001C0D3E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = ../libTestFlight.a; sourceTree = "<group>"; };
+		843A847A181053E400D7B8D1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,7 +345,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65F787E917FBC381001C0D3E /* libTestFlight.a in Frameworks */,
+				843A847B181053E400D7B8D1 /* libTestFlight.a in Frameworks */,
 				43DC44C217A7A159005729D8 /* Security.framework in Frameworks */,
 				4358C00E17BC255600525BB8 /* Accounts.framework in Frameworks */,
 				4358C00C17BC216400525BB8 /* Social.framework in Frameworks */,
@@ -683,7 +683,7 @@
 				65F787E517FBC34D001C0D3E /* TestFlight.h */,
 				65F787E617FBC34D001C0D3E /* TestFlight+AsyncLogging.h */,
 				65F787E717FBC34D001C0D3E /* TestFlight+ManualSessions.h */,
-				65F787E817FBC381001C0D3E /* libTestFlight.a */,
+				843A847A181053E400D7B8D1 /* libTestFlight.a */,
 				4397674717B1BCB50040C947 /* Model */,
 				4358C00317BBF9E200525BB8 /* Social Libraries */,
 				43DC44BA17A796DC005729D8 /* Store */,
@@ -1146,6 +1146,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Great\\ Wolf/James\\ Stuff/Localism/losal_ios/#LOSAL",
+					"/Users/admin/Documents/iOS\\ Projects/Localism/ChrisBranch/#LOSAL/#LOSAL",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1170,6 +1171,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Great\\ Wolf/James\\ Stuff/Localism/losal_ios/#LOSAL",
+					"/Users/admin/Documents/iOS\\ Projects/Localism/ChrisBranch/#LOSAL/#LOSAL",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
