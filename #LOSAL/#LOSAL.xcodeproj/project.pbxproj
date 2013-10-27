@@ -1145,8 +1145,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Great\\ Wolf/James\\ Stuff/Localism/losal_ios/#LOSAL",
-					"/Users/admin/Documents/iOS\\ Projects/Localism/ChrisBranch/#LOSAL/#LOSAL",
+					"\"$(SRCROOT)/TestFlightSDK2.0.2\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1170,8 +1169,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/Great\\ Wolf/James\\ Stuff/Localism/losal_ios/#LOSAL",
-					"/Users/admin/Documents/iOS\\ Projects/Localism/ChrisBranch/#LOSAL/#LOSAL",
+					"\"$(SRCROOT)/TestFlightSDK2.0.2\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
