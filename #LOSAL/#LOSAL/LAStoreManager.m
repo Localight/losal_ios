@@ -124,7 +124,8 @@
                 
                // [item setIsLikedByThisUser:[[LALikesStore defaultStore]doesThisUserLike:[hashtag objectId]]];
                 
-                [hashtagsAndPostsItems addObject:item];
+                if (item)
+                    [hashtagsAndPostsItems addObject:item];
                 
 //                if ([uniqueHashtagsItems indexOfObject:[item hashTag]]== NSNotFound) {
 //                    NSLog(@"%@",[item hashTag]);
