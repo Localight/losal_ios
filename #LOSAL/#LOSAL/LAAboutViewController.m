@@ -13,9 +13,6 @@
 #import "LAStoreManager.h"
 #import "KeychainItemWrapper.h"
 #import <Security/Security.h>
-@interface LAAboutViewController ()
-
-@end
 
 @implementation LAAboutViewController
 
@@ -27,11 +24,13 @@
     }
     return self;
 }
-- (IBAction)revealNotices:(id)sender
+- (void)revealNotices:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECLeft];
 }
-- (IBAction)back:(id)sender {
+
+- (void)back:(id)sender
+{
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
@@ -41,18 +40,7 @@
     
     [[self navyItem]setTitle:@"More Options"];
     
-    [_paragraph1 setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
-    [_paragraph2 setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
-    [_paragraph3 setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
-    [_paragraph4 setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
-    [_paragraph5 setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
-    
-    [_labelSuggestFeature setFont:[UIFont fontWithName:@"Roboto-Bold" size:16]];
-    [_helpLabel setFont:[UIFont fontWithName:@"Roboto-Bold" size:16]];
-    [_SafetySecurityLabel setFont:[UIFont fontWithName:@"Roboto-Bold" size:16]];
-    [_faqLabel setFont:[UIFont fontWithName:@"Roboto-Bold" size:16]];
-    [_copywriteLabel setFont:[UIFont fontWithName:@"Roboto-Bold" size:16]];
-
+    // TODO: use Roboto Regular/Bold for HTML text?
     
     UIButton *menuBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     menuBtn.frame = CGRectMake(0, 0, 30, 30);
@@ -76,15 +64,12 @@
         self.slidingViewController.underRightViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Notices"];
     }
     
-
+    NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"MoreOptions" ofType:@"html" ]]];
+	
+	[self.webView loadRequest:req];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+// TODO: create an entry UI point for this
 - (IBAction)ReVerify:(id)sender{
     //PFUser *currentUser = [PFUser currentUser];
     // if user wants to enter phone number
@@ -111,7 +96,8 @@
         //        UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Oops!" message:@"You are already Validated. Would you like to reValidate and the text message send agai?" delegate:nil cancelButtonTitle:@"Yes" otherButtonTitles:"No", ];
     } else {
         UIAlertView *prompt = [[UIAlertView alloc]initWithTitle:@"Oops!"
-                                                        message:@"It looks like you are already Verified and logged In."                                                        delegate:nil
+                                                        message:@"It looks like you are already Verified and logged In."
+                                                       delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil, nil];
         [prompt show];
@@ -130,4 +116,25 @@
     [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[keychainItem objectForKey:(__bridge id)(kSecAttrAccount)]];
         // name contains the entered value
 }
+
+#pragma mark UIWebViewDelegate Methods
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    // open the links outside of the app
+	NSURL *loadURL = [request URL];
+	if (([[loadURL scheme] isEqualToString: @"http"] || [[loadURL scheme] isEqualToString: @"mailto"])
+		&& (navigationType == UIWebViewNavigationTypeLinkClicked)) {
+		return ![[UIApplication sharedApplication] openURL:loadURL];
+	}
+    
+    // intercept the re-verify link to handle in Objective-C native code, don't allow the URL request to start
+    if ([[loadURL scheme] isEqualToString:@"localism"]) {
+        [self ReVerify:nil];
+        return NO;
+    }
+    
+	return YES;
+}
+
 @end

@@ -382,228 +382,10 @@
                         <viewControllerLayoutGuide type="bottom" id="JzE-aD-1RU"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="2Hg-Hc-z42">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="3342"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqF-Dz-T4N">
-                                <rect key="frame" x="-1" y="44" width="320" height="3298"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Suggest A Feature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRm-tY-Ybj">
-                                        <rect key="frame" x="20" y="210" width="152" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="Oxx-dV-NeQ"/>
-                                            <constraint firstAttribute="width" constant="152" id="Vgu-Se-4l7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8O-V4-jWK">
-                                        <rect key="frame" x="20" y="243" width="280" height="82"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">We want to make the #LOSAL APP the #BestAppEver!  Have an idea?  Email us!("Email us" links to  losalappideas@localism.zendesk.com)</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                                    </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Need Help?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sx5-lE-14d">
-                                        <rect key="frame" x="20" y="333" width="152" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="1Ah-Fq-Dxj"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmr-Xk-0X3">
-                                        <rect key="frame" x="20" y="362" width="280" height="116"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="116" id="3rW-bf-1cw"/>
-                                            <constraint firstAttribute="width" constant="280" id="VTd-jZ-qhV"/>
-                                        </constraints>
-                                        <string key="text">If you're having issues with the app or not sure how to use it, please email us and describe the issue in detail.  Note: This link will send some non-personal diagnostic info about your phone so we can troubleshoot any issues.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                                    </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Safety and Security" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4X-1C-aaj">
-                                        <rect key="frame" x="20" y="486" width="152" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="osj-uk-IsD"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQv-0H-Or6">
-                                        <rect key="frame" x="20" y="515" width="280" height="1306"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="qjC-Ce-3vO"/>
-                                            <constraint firstAttribute="height" constant="1306" id="yG7-yZ-ADg"/>
-                                        </constraints>
-                                        <string key="text">Do you need to report an emergency?  
-Click to call 911 now.  
-
-Not an emergency? 
-If you see something, say something:
-Call 562-391-2193 to reach Los Al USD's campus safety. 
-
-#LOSAL APP security
-This app is built on Localism's CEP and has the following security features:
-Only members of the school community who have been verified have full access to app content (level 1 access).  This level of access only displays students using an obfuscated "persona" format (avatar, first name and last initial), and the posts do not link to the students' real social media profiles.  
-For posts to appear in the app, they must be:
-- Photos that are already publicly available on the internet from Twitter, Instagram or Facebook
-- Tagged with #losal
-- Submitted by verified students (in-person verification at school) 
-- From students who have successfully completed two-factor authentication for their smartphone
-
-Level 2 access is for verified parents, faculty and staff.  Verification for adults includes in-person verification, and two-factor smartphone authentication.  Adults have the ability to see all posts and the obfuscated persona of the student, but they do not have the ability to "like" or "favorite" posts. 
-
-Level 3 access is for non-verified app users. They only see a photo wall in the social feed. They do not see textual content of posts or the obfuscated persona.
-
-Privacy and server security
-Localism Inc.'s CEP is 100% FERPA-compliant meeting or exceeding applicable provisions of the Family Educational Rights and Privacy Act (FERPA), 20 U.S.C. 1232g. Privacy and security measures are in place to protect user data and data transfer. The privacy and security of student data is our first priority. 
-See our privacy policy for more information.
-
-Privacy policy (English)
-(links to http://localism.co/losalapp/privacy/english/ )
-
-Política de privacidad (Español)
-(Links to http://localism.co/losalapp/privacy/espanol/ )</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                                    </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Frequently asked questions." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsx-Ju-WkZ">
-                                        <rect key="frame" x="20" y="1829" width="203" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Jbq-R8-iIi"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-x9-Hfu">
-                                        <rect key="frame" x="20" y="1858" width="280" height="999"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="Mm4-id-gP6"/>
-                                            <constraint firstAttribute="height" constant="999" id="VYx-pD-K3z"/>
-                                        </constraints>
-                                        <string key="text">How can I post to the app? 
-Verified students must do three things before posting to the app:  
-- Get verified at school (such as registration)
-- Confirm their phone by clicking a confirmation text message
-- Set their persona (avatar, etc.)
-- Activate at least one supported social network (only Twitter and Instagram are supported in this version, with Facebook to follow).
-
-Can parents submit posts to the app? 
-No, the social feed would probably be filled with parent posts and drown out student posts.  That said, a "parents corner" may be added to the app if there is interest.  You can vote for this feature and suggest others by emailing us! 
-(Links to losalappideas@localism.zendesk.com subject: Parents submitting to social feed)
-
-Can teachers submit posts to the app? 
-We are planning on it, and students have requested it. If you have want to voice your opinion, email us. 
-(Links to losalappideas@localism.zendesk.com Faculty submitting to social feed)
-
-Can the school see my other posts? 
-No. In fact only public posts that have been specifically tagged with #losal enter the system. The system does not index private posts.  That would be creepy!
-
-I made a post and submitted it by tagging it with #losal, but it didn't appear on the social feed. What gives?
-A variety of factors give more weight to post, and only posts that surpass a threshold are displayed in the feed. Weighting factors can include the amount of likes and relevance to selected campus keywords.  Additionally the platform ignores posts that contain common NSFS terms (Not Safe For School).  The purpose of the social feed is to connect the campus with posts from students about school life and activities.  The algorithm and automatic filtering has been tuned to yield these results. 
-
-</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                                    </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Copyright 2013 Localism Inc. All rights reserved." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24O-Pv-3ji">
-                                        <rect key="frame" x="36" y="3233" width="248" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="29" id="YUa-do-YlK"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="dr-arnold-wht2.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Gm-SU-tGd">
-                                        <rect key="frame" x="94" y="2865" width="132" height="182"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="182" id="HGf-fn-OeF"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="localism-blk.png" translatesAutoresizingMaskIntoConstraints="NO" id="loc-hM-hyL">
-                                        <rect key="frame" x="25" y="6" width="259" height="55"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPn-6h-wiN">
-                                        <rect key="frame" x="98" y="3195" width="113" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="ReVerify Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ReVerify:" destination="X02-i6-goS" eventType="touchUpInside" id="loo-uU-Vdf"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="lPG-hP-Kfe">
-                                        <rect key="frame" x="20" y="69" width="280" height="140"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" none="YES" link="YES" staticText="YES"/>
-                                        </accessibility>
-                                        <string key="text">The #LOSAL APP is managed as a service of Localism Inc. using the Localism! Community Engagement Platform (CEP).  Localism! is connecting and empowering local organizations through community-centric technology. 
-Learn more at Localism.co/schools</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="y4X-1C-aaj" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="486" id="2Mv-yv-qJX"/>
-                                    <constraint firstItem="v8O-V4-jWK" firstAttribute="top" secondItem="WRm-tY-Ybj" secondAttribute="bottom" constant="8" symbolic="YES" id="5YH-9Q-sCh"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="210" id="5fO-On-H0Y"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="sx5-lE-14d" secondAttribute="leading" id="6Qu-ja-ZfG"/>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="36" id="6p4-eP-IIn"/>
-                                    <constraint firstItem="Tsx-Ju-WkZ" firstAttribute="top" secondItem="JQv-0H-Or6" secondAttribute="bottom" constant="8" symbolic="YES" id="6zp-rd-WRj"/>
-                                    <constraint firstItem="y4X-1C-aaj" firstAttribute="top" secondItem="Hmr-Xk-0X3" secondAttribute="bottom" constant="8" symbolic="YES" id="95h-1S-wn4"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="Hmr-Xk-0X3" secondAttribute="leading" id="Cgb-iv-kpA"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="v8O-V4-jWK" secondAttribute="leading" id="Ddr-y5-RTl"/>
-                                    <constraint firstItem="Hmr-Xk-0X3" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" id="FJY-1r-00N"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="94" id="Fgf-vI-f9t"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="y4X-1C-aaj" secondAttribute="leading" id="GPd-Rq-lDT"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="3QJ-x9-Hfu" secondAttribute="leading" id="I0f-OL-ktG"/>
-                                    <constraint firstAttribute="trailing" secondItem="JQv-0H-Or6" secondAttribute="trailing" constant="20" id="JC1-Rr-yfE"/>
-                                    <constraint firstAttribute="trailing" secondItem="3QJ-x9-Hfu" secondAttribute="trailing" constant="20" id="JKi-Ub-8KN"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="centerX" secondItem="mqF-Dz-T4N" secondAttribute="centerX" id="JMJ-n1-6aJ"/>
-                                    <constraint firstItem="JQv-0H-Or6" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" id="MDI-ns-JqP"/>
-                                    <constraint firstAttribute="bottom" secondItem="WRm-tY-Ybj" secondAttribute="bottom" constant="3063" id="MJJ-Lw-EiR"/>
-                                    <constraint firstItem="loc-hM-hyL" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="6" id="Mga-vf-KCb"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="Tsx-Ju-WkZ" secondAttribute="leading" id="QhL-t3-AaU"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="trailing" secondItem="y4X-1C-aaj" secondAttribute="trailing" id="SJN-Uo-Lfy"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tsx-Ju-WkZ" secondAttribute="trailing" constant="97" id="TQc-ZQ-RhB"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="top" secondItem="3QJ-x9-Hfu" secondAttribute="bottom" constant="8" symbolic="YES" id="TaF-gz-fh2"/>
-                                    <constraint firstItem="loc-hM-hyL" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="25" id="Ud6-gL-lVP"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="2865" id="V8M-g4-KaJ"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="centerX" secondItem="v8O-V4-jWK" secondAttribute="centerX" id="VJ9-8t-ev5"/>
-                                    <constraint firstAttribute="trailing" secondItem="Hmr-Xk-0X3" secondAttribute="trailing" constant="20" id="VrY-uj-JuW"/>
-                                    <constraint firstItem="DPn-6h-wiN" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="98" id="Wl7-aw-iVs"/>
-                                    <constraint firstItem="sx5-lE-14d" firstAttribute="top" secondItem="v8O-V4-jWK" secondAttribute="bottom" constant="8" symbolic="YES" id="XyP-fb-h4M"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" symbolic="YES" id="Ypx-uS-X7k"/>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="centerX" secondItem="5Gm-SU-tGd" secondAttribute="centerX" id="Z0l-9U-y02"/>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="trailing" secondItem="loc-hM-hyL" secondAttribute="trailing" id="ZpY-vv-5Mc"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="JQv-0H-Or6" secondAttribute="leading" id="apq-XL-Z2D"/>
-                                    <constraint firstItem="Hmr-Xk-0X3" firstAttribute="top" secondItem="sx5-lE-14d" secondAttribute="bottom" constant="8" symbolic="YES" id="dzV-nD-LFE"/>
-                                    <constraint firstItem="JQv-0H-Or6" firstAttribute="top" secondItem="y4X-1C-aaj" secondAttribute="bottom" constant="8" symbolic="YES" id="hF4-fi-4eb"/>
-                                    <constraint firstAttribute="trailing" secondItem="WRm-tY-Ybj" secondAttribute="trailing" constant="148" id="hUr-Q4-gkW"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="trailing" secondItem="sx5-lE-14d" secondAttribute="trailing" id="m65-B4-PSL"/>
-                                    <constraint firstAttribute="bottom" secondItem="24O-Pv-3ji" secondAttribute="bottom" constant="36" id="pKv-DK-ph6"/>
-                                    <constraint firstItem="3QJ-x9-Hfu" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" id="rvN-oD-1OC"/>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="top" secondItem="DPn-6h-wiN" secondAttribute="bottom" constant="8" symbolic="YES" id="ryy-7G-VOE"/>
-                                    <constraint firstItem="loc-hM-hyL" firstAttribute="centerX" secondItem="DPn-6h-wiN" secondAttribute="centerX" id="zcJ-eP-a5g"/>
-                                </constraints>
-                            </scrollView>
-                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-un-5ba">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-un-5ba">
                                 <rect key="frame" x="-1" y="0.0" width="323" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="NxM-mf-VwI"/>
@@ -612,32 +394,25 @@ Learn more at Localism.co/schools</string>
                                     <navigationItem title="Title" id="6yC-WG-VGS"/>
                                 </items>
                             </navigationBar>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fW-eO-dEG">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="X02-i6-goS" id="yD9-OV-pZp"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="mqF-Dz-T4N" secondAttribute="trailing" constant="1" id="08a-Nx-mpi"/>
-                            <constraint firstItem="mqF-Dz-T4N" firstAttribute="leading" secondItem="2Hg-Hc-z42" secondAttribute="leading" constant="-1" id="G0l-ge-Min"/>
                             <constraint firstItem="Qcg-un-5ba" firstAttribute="top" secondItem="2Hg-Hc-z42" secondAttribute="top" id="L9u-nW-bLO"/>
-                            <constraint firstItem="Qcg-un-5ba" firstAttribute="bottom" secondItem="mqF-Dz-T4N" secondAttribute="top" id="NbW-OS-f6N"/>
                             <constraint firstItem="Qcg-un-5ba" firstAttribute="centerX" secondItem="2Hg-Hc-z42" secondAttribute="centerX" id="WNY-Y0-AcZ"/>
-                            <constraint firstItem="Qcg-un-5ba" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" id="WUR-DE-ext"/>
-                            <constraint firstItem="mqF-Dz-T4N" firstAttribute="centerY" secondItem="2Hg-Hc-z42" secondAttribute="centerY" constant="22" id="b1D-9o-gbZ"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="SafetySecurityLabel" destination="y4X-1C-aaj" id="0i2-MJ-mfW"/>
-                        <outlet property="copywriteLabel" destination="24O-Pv-3ji" id="WD7-aN-g98"/>
-                        <outlet property="faqLabel" destination="Tsx-Ju-WkZ" id="lPI-ai-Lgt"/>
-                        <outlet property="helpLabel" destination="sx5-lE-14d" id="d5T-me-Hrw"/>
-                        <outlet property="labelSuggestFeature" destination="WRm-tY-Ybj" id="WrS-ln-jHp"/>
                         <outlet property="navyItem" destination="6yC-WG-VGS" id="tnQ-9w-CuZ"/>
-                        <outlet property="paragraph2" destination="v8O-V4-jWK" id="yhg-Nm-wA8"/>
-                        <outlet property="paragraph3" destination="Hmr-Xk-0X3" id="hhN-y3-6Zy"/>
-                        <outlet property="paragraph4" destination="JQv-0H-Or6" id="ctO-3c-sMl"/>
-                        <outlet property="paragraph5" destination="3QJ-x9-Hfu" id="E78-nD-wHQ"/>
-                        <outlet property="prinicpalPhoto" destination="5Gm-SU-tGd" id="tv0-ki-7Ae"/>
-                        <outlet property="scroll" destination="mqF-Dz-T4N" id="vJG-cr-m3o"/>
+                        <outlet property="webView" destination="2fW-eO-dEG" id="zJl-yf-2Ho"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiF-la-jQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1079,7 +854,7 @@ Learn more at Localism.co/schools</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-pr-b8M">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-pr-b8M">
                                 <rect key="frame" x="260" y="20" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Wdz-zu-eZg"/>
@@ -1097,7 +872,7 @@ Learn more at Localism.co/schools</string>
                                     <action selector="closeButtonPressed:" destination="qcp-pC-bYb" eventType="touchUpInside" id="vVO-Ng-wh9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The #LOSAL App has special features for verified members of the Los Alamitos High School Community." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="203" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-Um-gK1">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="The #LOSAL App has special features for verified members of the Los Alamitos High School Community." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="203" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-Um-gK1">
                                 <rect key="frame" x="20" y="20" width="203" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="mfN-Lv-6qs"/>
@@ -1369,13 +1144,11 @@ Learn more at Localism.co/schools</string>
         <image name="A-plus.png" width="104" height="103"/>
         <image name="Default.png" width="640" height="960"/>
         <image name="close-circle.png" width="78" height="78"/>
-        <image name="dr-arnold-wht2.png" width="222" height="328"/>
         <image name="edmodo-logo.png" width="294" height="314"/>
         <image name="facebookSocialLink.png" width="92" height="92"/>
         <image name="flickrSocialLink.png" width="92" height="92"/>
         <image name="griffin-mascot.png" width="581" height="374"/>
         <image name="instagramSocialLink.png" width="92" height="92"/>
-        <image name="localism-blk.png" width="391" height="128"/>
         <image name="placeholder.png" width="450" height="450"/>
         <image name="school-links.png" width="120" height="133"/>
         <image name="social-icon.png" width="156" height="115"/>

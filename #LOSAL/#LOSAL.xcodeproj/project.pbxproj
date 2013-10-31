@@ -144,6 +144,8 @@
 		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
 		843A847B181053E400D7B8D1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A847A181053E400D7B8D1 /* libTestFlight.a */; };
+		C2C77B5518220FA0003201BD /* MoreOptions.html in Resources */ = {isa = PBXBuildFile; fileRef = C2C77B5418220FA0003201BD /* MoreOptions.html */; };
+		C2C77B571822127D003201BD /* localism-blk-smaller.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C77B561822127D003201BD /* localism-blk-smaller.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -338,6 +340,8 @@
 		65F787E617FBC34D001C0D3E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		65F787E717FBC34D001C0D3E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		843A847A181053E400D7B8D1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		C2C77B5418220FA0003201BD /* MoreOptions.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MoreOptions.html; sourceTree = "<group>"; };
+		C2C77B561822127D003201BD /* localism-blk-smaller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "localism-blk-smaller.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -708,7 +712,9 @@
 				656EA0F417D8E62000EF0E42 /* close-circle.png */,
 				656EA0F217D8E55B00EF0E42 /* iphone-sign-in.png */,
 				65B2A35517D7D42C004DA2FA /* localism-blk.png */,
+				C2C77B561822127D003201BD /* localism-blk-smaller.png */,
 				65B2A35317D7D426004DA2FA /* dr-arnold-wht2.png */,
+				C2C77B5418220FA0003201BD /* MoreOptions.html */,
 				43BE533E17C3BD7B008BE0E7 /* Background Images */,
 				6530907617BD8C7D00ADA359 /* Icons */,
 				43397B4417B93716003F4977 /* Mustache.png */,
@@ -920,10 +926,12 @@
 				43F9621517C6D7C7006F9AF4 /* menu-icon.png in Resources */,
 				65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */,
 				65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */,
+				C2C77B571822127D003201BD /* localism-blk-smaller.png in Resources */,
 				652576B117E7922E00BA43F7 /* Images.xcassets in Resources */,
 				65C522ED17D109F900C5622C /* school-links.png in Resources */,
 				65B2A33E17D551CD004DA2FA /* gradient-text.png in Resources */,
 				65B2A34017D55944004DA2FA /* dark-gradient.png in Resources */,
+				C2C77B5518220FA0003201BD /* MoreOptions.html in Resources */,
 				44C777D517D6739B0062FDF4 /* sign-in-01.png in Resources */,
 				44C777D617D6739B0062FDF4 /* sign-in-01@2x.png in Resources */,
 				44C777D717D6739B0062FDF4 /* sign-in-02.png in Resources */,

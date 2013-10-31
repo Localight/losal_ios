@@ -1,4 +1,4 @@
-![Mou icon](localism-blk.png)
+![Localism logo](localism-blk-smaller.png)
 
 The #LOSAL APP is managed as a service of Localism Inc. using the Localism! Community Engagement Platform (CEP).  Localism! is connecting and empowering local organizations through community-centric technology. 
 Learn more at [Localism.co/schools](http://localism.co/schools)
@@ -9,7 +9,7 @@ We want to make the #LOSAL APP the #BestAppEver!  Have an idea?  [Email us!](mai
 
 ###Need Help?
 
-If you're having issues with the app or not sure how to use it, please email us and describe the issue in detail.  Note: This link will send some non-personal diagnostic info about your phone so we can troubleshoot any issues.
+If you're having issues with the app or not sure how to use it, please [email us](mailto://losalappideas@localism.zendesk.com) and describe the issue in detail.  Note: This link will send some non-personal diagnostic info about your phone so we can troubleshoot any issues.
 
 ###Safety and Security
 
@@ -42,3 +42,17 @@ See our privacy policy for more information.
 [Privacy policy (English)](http://localism.co/losalapp/privacy/english/)
 
 [Política de privacidad (Español)](http://localism.co/losalapp/privacy/espanol/)
+
+###Reset App
+
+The #LOSAL App can be reset, which takes it back to the start screen and requests a mobile number for verification. [Touch here](localism://resetApp) to reset.
+
+###Thanks & Acknowledgements
+
+The Localism team would like to thank the following individuals for their vision, great support and friendship as we've brought the #LOSAL App to life for Android and iPhone!
+
+In order of appearance: LAHS staff and faculty including Principal Josh Arnold, Melissa Miller, Keely Hafer, Dan Bennett and Karissa Ferrell; Los Alamitos USD staff including Superintendent Sherry Kropp and Tina Dingillo, along with school board members Lisa Boyer, Karen Russell, David Boyer, Diana Hill, Meg Cutuli, and Jeff Barke; A HUGE applause goes out to ASB and the student volunteers who helped to get the app launched; A special shout out to Markus Manley and Robbie Brown from We Labs, along with the We Labs members who helped with feedback and testing; and finally to LB Tech and Executive Director John Grefe (Los Al alum!).
+
+The Localism app team: DW Ferrell, Joaquin Brown, James Hall, Joe Czubiak, Phoenix Singharatsavong, Justin Schottlaender and special help from Jeff Algera of Principal.LA.
+
+-> ![Localism logo](dr-arnold-wht2.png) <-
