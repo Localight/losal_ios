@@ -751,7 +751,7 @@ Learn more at Localism.co/schools</string>
                                     <action selector="instagramButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="Jlw-br-jZ7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-2W-6uO">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-2W-6uO">
                                 <rect key="frame" x="20" y="128" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ke1-4N-cv3"/>
@@ -1079,7 +1079,7 @@ Learn more at Localism.co/schools</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-pr-b8M">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-pr-b8M">
                                 <rect key="frame" x="260" y="20" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Wdz-zu-eZg"/>
@@ -1097,7 +1097,7 @@ Learn more at Localism.co/schools</string>
                                     <action selector="closeButtonPressed:" destination="qcp-pC-bYb" eventType="touchUpInside" id="vVO-Ng-wh9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="The #LOSAL App has special features for verified members of the Los Alamitos High School Community." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="203" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-Um-gK1">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The #LOSAL App has special features for verified members of the Los Alamitos High School Community." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="203" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-Um-gK1">
                                 <rect key="frame" x="20" y="20" width="203" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="mfN-Lv-6qs"/>
@@ -1368,8 +1368,6 @@ Learn more at Localism.co/schools</string>
     <resources>
         <image name="A-plus.png" width="104" height="103"/>
         <image name="Default.png" width="640" height="960"/>
-        <image name="Default.png" width="640" height="960"/>
-        <image name="Default.png" width="640" height="960"/>
         <image name="close-circle.png" width="78" height="78"/>
         <image name="dr-arnold-wht2.png" width="222" height="328"/>
         <image name="edmodo-logo.png" width="294" height="314"/>
@@ -1383,7 +1381,6 @@ Learn more at Localism.co/schools</string>
         <image name="social-icon.png" width="156" height="115"/>
         <image name="socrative-logo.png" width="294" height="314"/>
         <image name="twitterSocialLink.png" width="92" height="92"/>
-        <image name="youtubeSocialLink.png" width="92" height="91"/>
         <image name="youtubeSocialLink.png" width="92" height="91"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

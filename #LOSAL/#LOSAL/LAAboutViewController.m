@@ -39,7 +39,7 @@
 {
     [super viewDidLoad];
     
-    [[self navyItem]setTitle:@"About"];
+    [[self navyItem]setTitle:@"More Options"];
     
     [_paragraph1 setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
     [_paragraph2 setFont:[UIFont fontWithName:@"Roboto-Regular" size:14]];
