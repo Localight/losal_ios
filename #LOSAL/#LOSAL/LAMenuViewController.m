@@ -222,7 +222,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         [self.slidingViewController resetTopView];
     }];
 }
-- (IBAction)toSite:(id)sender {
+
+- (IBAction)toSite:(id)sender
+{
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"http://www.losal.org/lahs"]];
 
 }

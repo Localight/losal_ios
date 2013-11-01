@@ -109,7 +109,7 @@
                                 <constraint firstItem="VRl-ak-blM" firstAttribute="leading" secondItem="M1H-DK-Zq0" secondAttribute="trailing" constant="8" symbolic="YES" id="xEY-HF-Rbl"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" id="KkT-1r-FX6">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="KkT-1r-FX6">
                             <rect key="frame" x="0.0" y="343" width="320" height="197"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -148,7 +148,7 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="toSite:" destination="5GZ-xr-NU4" eventType="touchUpInside" id="uUK-dd-rSM"/>
+                                        <action selector="toSite:" destination="5GZ-xr-NU4" eventType="touchUpInside" id="xMy-lx-WYq"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -854,7 +854,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-pr-b8M">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-pr-b8M">
                                 <rect key="frame" x="260" y="20" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Wdz-zu-eZg"/>
@@ -872,7 +872,7 @@
                                     <action selector="closeButtonPressed:" destination="qcp-pC-bYb" eventType="touchUpInside" id="vVO-Ng-wh9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="The #LOSAL App has special features for verified members of the Los Alamitos High School Community." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="203" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-Um-gK1">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The #LOSAL App has special features for verified members of the Los Alamitos High School Community." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="203" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-Um-gK1">
                                 <rect key="frame" x="20" y="20" width="203" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="mfN-Lv-6qs"/>
