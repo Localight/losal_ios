@@ -61,6 +61,9 @@
     if (image != nil) {
         processImage(image);
     } else {
+        if (!url)
+            return;
+        
         dispatch_queue_t callerQueue = dispatch_get_main_queue();
         dispatch_queue_t asyncQueue = dispatch_queue_create("com.myapp.asyncqueue", NULL);
         dispatch_async(asyncQueue, ^{
