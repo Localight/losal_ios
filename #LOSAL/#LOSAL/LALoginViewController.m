@@ -63,17 +63,12 @@
 
 - (IBAction)verifyUser:(id)sender
 {
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:[_phoneNumber text]];
     
-    [query whereKey:@"username" equalTo:[_phoneNumber text] ];
-    
-    // glitch we need to come back too. with the log in.
-    // for some reason even if you enter the wrong number it gets and error, but still logs you in.
-    // need to come back to and fix for now, move on.
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         int count = 0;
-//        NSArray* scoreArray = [query findObjects];
-        if (!error)
+        if ((!error) && (objects.count > 0))
         {
             KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
                                                                                     accessGroup:nil];
@@ -105,6 +100,19 @@
                 [self verifyUser:sender];
             }
             [[[LAStoreManager defaultStore]currentUser]setUserVerified:NO];
+            
+            // see if this failed phone number exists in the FailedLogin table already
+            PFQuery *failedLoginQuery = [PFQuery queryWithClassName:@"FailedLogin"];
+            [failedLoginQuery whereKey:@"phoneNumber" equalTo:_phoneNumber.text];
+            
+            [failedLoginQuery findObjectsInBackgroundWithBlock:^(NSArray *failedLogins, NSError *failedLoginError) {
+                if (failedLogins.count == 0) {
+                    // this is a new phone number, so commit the failed phone number to the database table
+                    PFObject *failedLogin = [PFObject objectWithClassName:@"FailedLogin"];
+                    [failedLogin setObject:_phoneNumber.text forKey:@"phoneNumber"];
+                    [failedLogin saveEventually];
+                }
+            }];
             
             NSLog(@"This user does not have a number in the DataBase and the error is: %@, %@", error, [error userInfo]);
          }
