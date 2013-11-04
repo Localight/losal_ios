@@ -87,9 +87,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //[[LAStoreManager defaultStore]getHashTags];
-    [[LAStoreManager defaultStore]fetchFromDate:nil];
-    [[LAStoreManager defaultStore]getHashTags];
+
+    [[LAStoreManager defaultStore] fetchFromDate:nil];
+    [[LAStoreManager defaultStore] getHashTags];
 }
 - (void)viewDidLoad
 {

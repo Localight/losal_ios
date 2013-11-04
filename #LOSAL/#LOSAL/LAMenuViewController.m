@@ -95,11 +95,12 @@
     _sitesList = [NSDictionary dictionaryWithObjectsAndKeys:
                   [NSURL URLWithString:@"http://m.socrative.com/student/#joinRoom"],@"Socrative",
                   [NSURL URLWithString:@"https://www.edmodo.com/m/"], @"Edmodo",
+                  [NSURL URLWithString:@"http://losal.tandemcal.com/"], @"Calendar",
 //                  [NSURL URLWithString:@"webcal://losal.tandemcal.com/index.php?type=export&action=ical&export_type=now_to_infinity&schools=6&activities=15&event_status_types=1&limit=none&date_start=2013-08-28&page=2"] , @"Calendar",
                   [NSURL URLWithString:@"https://abi.losal.org/abi/LoginHome.asp"], @"Grades",
                   nil];
     // the calendar will ask you if you want to subscribe.
-    _menuItems = @[@"Feed", @"Links", @"Grades",@"Socrative",@"Edmodo",@"About"];
+    _menuItems = @[@"Feed", @"Links", @"Grades", @"Calendar", @"Socrative", @"Edmodo", @"About"];
   
     NSLog(@"this is the users's first name: %@", [[[LAStoreManager defaultStore]currentUser]firstName]);
         [userNameLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:24]];
@@ -165,18 +166,16 @@
     }];
 }
 
-- (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // this method was intended to change from view to view.
     NSString *cellName = [[self menuItems] objectAtIndex:[indexPath row]];
     UIViewController *anotherTopViewController;
     
     if ([cellName isEqualToString:@"Feed"]) {
-        
          anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
-        
-    }else if([cellName isEqualToString:@"Grades"]){
+    }
+    else if([cellName isEqualToString:@"Grades"]) {
         NSString *identifier = @"WebView";
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
         
@@ -185,8 +184,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         [webView setTitleName:cellName];
         [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    } else if([cellName isEqualToString:@"Socrative"]){
+    }
+    else if ([cellName isEqualToString:@"Calendar"]) {
         NSString *identifier = @"WebView";
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
         
@@ -195,8 +194,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         [webView setTitleName:cellName];
         [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
-    } else if([cellName isEqualToString:@"Edmodo"]){
+    }
+    else if([cellName isEqualToString:@"Socrative"]) {
         NSString *identifier = @"WebView";
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
         
@@ -205,12 +204,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         [webView setTitleName:cellName];
         [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+    else if([cellName isEqualToString:@"Edmodo"]) {
+        NSString *identifier = @"WebView";
+        anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
         
-    }else if([cellName isEqualToString:@"About"]){
+        LAWebViewController *webView = (LAWebViewController *)anotherTopViewController;
         
+        [webView setTitleName:cellName];
+        [webView setUrl:[_sitesList objectForKey:[[self menuItems]objectAtIndex:[indexPath row]]]];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+    else if([cellName isEqualToString:@"About"]) {
         anotherTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:cellName];
-        
-    } else{
+    }
+    else {
         // call method that would grab data from parse and fill mainpost items.
         anotherTopViewController = [[self storyboard]instantiateViewControllerWithIdentifier:cellName];
     }
