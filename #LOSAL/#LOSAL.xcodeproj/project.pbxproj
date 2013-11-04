@@ -145,6 +145,8 @@
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
 		843A847B181053E400D7B8D1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A847A181053E400D7B8D1 /* libTestFlight.a */; };
 		C2AD6E8218285368005A6754 /* calendar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8118285368005A6754 /* calendar-icon.png */; };
+		C2AD6E8418285C5C005A6754 /* griffin-mascot-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8318285C5C005A6754 /* griffin-mascot-small.png */; };
+		C2AD6E8618285D80005A6754 /* griffin-mascot-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */; };
 		C2C77B5518220FA0003201BD /* MoreOptions.html in Resources */ = {isa = PBXBuildFile; fileRef = C2C77B5418220FA0003201BD /* MoreOptions.html */; };
 		C2C77B571822127D003201BD /* localism-blk-smaller.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C77B561822127D003201BD /* localism-blk-smaller.png */; };
 /* End PBXBuildFile section */
@@ -342,6 +344,8 @@
 		65F787E717FBC34D001C0D3E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		843A847A181053E400D7B8D1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		C2AD6E8118285368005A6754 /* calendar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-icon.png"; sourceTree = "<group>"; };
+		C2AD6E8318285C5C005A6754 /* griffin-mascot-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot-small.png"; sourceTree = "<group>"; };
+		C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot-small@2x.png"; sourceTree = "<group>"; };
 		C2C77B5418220FA0003201BD /* MoreOptions.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MoreOptions.html; sourceTree = "<group>"; };
 		C2C77B561822127D003201BD /* localism-blk-smaller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "localism-blk-smaller.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -593,6 +597,8 @@
 				65EBCDF817CC07B1009138E8 /* socrative-logo.png */,
 				43F9621417C6D7C7006F9AF4 /* menu-icon.png */,
 				6576740E17C5776E00EC2881 /* griffin-mascot.png */,
+				C2AD6E8318285C5C005A6754 /* griffin-mascot-small.png */,
+				C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */,
 				6576740C17C5615400EC2881 /* news.png */,
 				6576740A17C55D2800EC2881 /* edmodo-logo.png */,
 				6576740617C55ACD00EC2881 /* lightning.png */,
@@ -884,11 +890,13 @@
 				6582FCE917F8F97900A9F51C /* RobotoSlab-Thin.ttf in Resources */,
 				652576AC17E791F700BA43F7 /* AppIcon76x76.png in Resources */,
 				6523AE3B17B42A1E00AFD830 /* Roboto-BlackItalic.ttf in Resources */,
+				C2AD6E8618285D80005A6754 /* griffin-mascot-small@2x.png in Resources */,
 				6523AE3C17B42A1E00AFD830 /* Roboto-Bold.ttf in Resources */,
 				6523AE3D17B42A1E00AFD830 /* Roboto-BoldItalic.ttf in Resources */,
 				6523AE3E17B42A1E00AFD830 /* Roboto-Italic.ttf in Resources */,
 				652576AB17E791F700BA43F7 /* AppIcon60x60@2x.png in Resources */,
 				6523AE3F17B42A1E00AFD830 /* Roboto-Light.ttf in Resources */,
+				C2AD6E8418285C5C005A6754 /* griffin-mascot-small.png in Resources */,
 				6523AE4017B42A1E00AFD830 /* Roboto-LightItalic.ttf in Resources */,
 				6523AE4117B42A1E00AFD830 /* Roboto-Medium.ttf in Resources */,
 				652576AF17E791F700BA43F7 /* iTunesArtwork@2x.png in Resources */,
