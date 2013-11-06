@@ -47,8 +47,7 @@
                                              selector:@selector(receivedDismissNotification:)
                                                  name:@"DissmisView"
                                                object:nil];
-    
-        
+
 //    self.appDelegate = (LAAppDelegate *)[[UIApplication sharedApplication] delegate];
 //    self.appDelegate.loginViewController = self;
 }
@@ -63,6 +62,9 @@
 
 - (IBAction)verifyUser:(id)sender
 {
+    // clear the keyboard if necessary
+    [self.phoneNumber resignFirstResponder];
+
     PFQuery *query = [PFUser query];
     [query whereKey:@"username" equalTo:[_phoneNumber text]];
     

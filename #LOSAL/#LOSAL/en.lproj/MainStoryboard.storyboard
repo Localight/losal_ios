@@ -892,33 +892,22 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Get the full experience! Enter your mobile number." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-NR-7EO">
-                                <rect key="frame" x="20" y="211" width="280" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="9wM-dU-Cxw"/>
-                                    <constraint firstAttribute="height" constant="65" id="Olr-YV-u6q"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="Qph-0F-EMd"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Get the full experience! Enter your mobile number." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-NR-7EO">
+                                <rect key="frame" x="20" y="134" width="280" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="(XXX) XXX-XXXX" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JZ4-uw-F2o">
-                                <rect key="frame" x="20" y="294" width="280" height="53"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="(XXX) XXX-XXXX" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZ4-uw-F2o">
+                                <rect key="frame" x="20" y="206" width="185" height="53"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="awV-JW-ItU"/>
-                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7r-hl-sHc">
-                                <rect key="frame" x="97" y="397" width="126" height="47"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7r-hl-sHc">
+                                <rect key="frame" x="213" y="207" width="87" height="52"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="i33-3d-iys"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Verify">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -934,18 +923,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eZb-pr-b8M" firstAttribute="trailing" secondItem="JZ4-uw-F2o" secondAttribute="trailing" id="5dO-0Z-rRS"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="centerX" secondItem="JZ4-uw-F2o" secondAttribute="centerX" id="IRn-2m-afn"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="97" id="RaT-Mk-txL"/>
-                            <constraint firstItem="EzY-NR-7EO" firstAttribute="top" secondItem="I2p-Um-gK1" secondAttribute="bottom" constant="71" id="YU6-p5-fOM"/>
-                            <constraint firstItem="JZ4-uw-F2o" firstAttribute="top" secondItem="EzY-NR-7EO" secondAttribute="bottom" constant="18" id="aQJ-Ue-4iu"/>
                             <constraint firstItem="I2p-Um-gK1" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="20" symbolic="YES" id="aTu-Ta-I8K"/>
-                            <constraint firstItem="JZ4-uw-F2o" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="20" symbolic="YES" id="b5s-i5-GPR"/>
-                            <constraint firstItem="EzY-NR-7EO" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="20" id="eIK-RM-sZN"/>
                             <constraint firstItem="eZb-pr-b8M" firstAttribute="leading" secondItem="I2p-Um-gK1" secondAttribute="trailing" constant="37" id="ekt-X7-PX7"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="trailing" secondItem="I2p-Um-gK1" secondAttribute="trailing" id="g82-DE-c7c"/>
-                            <constraint firstAttribute="trailing" secondItem="EzY-NR-7EO" secondAttribute="trailing" constant="20" id="gSb-95-0dm"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="top" secondItem="JZ4-uw-F2o" secondAttribute="bottom" constant="50" id="n3a-r2-WhZ"/>
                             <constraint firstItem="eZb-pr-b8M" firstAttribute="top" secondItem="I2p-Um-gK1" secondAttribute="top" id="wgC-me-SmI"/>
                             <constraint firstAttribute="trailing" secondItem="eZb-pr-b8M" secondAttribute="trailing" constant="20" symbolic="YES" id="zrV-xE-Nxm"/>
                         </constraints>
