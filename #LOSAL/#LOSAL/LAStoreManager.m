@@ -42,6 +42,8 @@
         uniqueHashtagsItems = [[NSMutableArray alloc]init];
         mainPostItems = [[NSMutableArray alloc]init];
         _currentUser = [[LAUser alloc]init];
+        
+        
     }
     return self;
 }
@@ -82,7 +84,6 @@
     PFQuery *query = [PFQuery queryWithClassName:@"HashTagsIndex"];
     
     [query includeKey:@"postId"];
-    
     [query includeKey:@"user"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *hashtagsArray, NSError *error)
@@ -127,10 +128,10 @@
                 if (item)
                     [hashtagsAndPostsItems addObject:item];
                 
-//                if ([uniqueHashtagsItems indexOfObject:[item hashTag]]== NSNotFound) {
-//                    NSLog(@"%@",[item hashTag]);
-//                    [uniqueHashtagsItems addObject:[item hashTag]];
-//                }
+                NSString *thisHashTag = [hashtag objectForKey:@"hashTags"];
+                
+                if ([uniqueHashtagsItems indexOfObject:thisHashTag] == NSNotFound)
+                    [uniqueHashtagsItems addObject:thisHashTag];
             }
             /// not sure why he had this in here, it doesn't make sense if it doesn't have something in there why put it in their?
             

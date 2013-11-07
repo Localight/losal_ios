@@ -210,19 +210,22 @@
 {
     return YES;
 }
+
 - (IBAction)revealMenu:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
+
 - (IBAction)revealNotices:(id)sender
 {
     NSLog(@"%lu", (unsigned long)[[[LANoticesStore defaultStore]allItems]count]);
     
     [self.slidingViewController anchorTopViewTo:ECLeft];
 }
+
 - (IBAction) titleTap:(id) sender
 {
-    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"HashTagFilter"
+    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Filter by Hashtag"
                                                              delegate:nil
                                                     cancelButtonTitle:nil
                                                destructiveButtonTitle:nil
@@ -721,6 +724,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
       didSelectRow:(NSInteger)row
        inComponent:(NSInteger)component
 {
+    // TODO: special-case handling for index 0, which is a no-filter
+    if (row == 0) {
+        [[[LAStoreManager defaultStore] currentUser] setIsFilteredArray:NO];
+        
+        
+        return;
+    }
+    
     // I'm thinking that i'll create an array fill it with the post that have the hashtag associate with them.
     // I'm thinking I will load the postarray with a new array, then clear it. each time a new hashtag is selected a new array
     // is created and the old one is destroyed
@@ -741,14 +752,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     
 }
 
-- (CGFloat)pickerView:(UIPickerView *)pickerView
-    widthForComponent:(NSInteger)component
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
 {
     return 200;
 }
 
-- (CGFloat)pickerView:(UIPickerView *)pickerView
-rowHeightForComponent:(NSInteger)component
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
 {
     return 50;
 }
@@ -757,19 +766,20 @@ rowHeightForComponent:(NSInteger)component
              titleForRow:(NSInteger)row
             forComponent:(NSInteger)component
 {
+    if (row == 0)
+        return @"All Hashtags";
     
-    return [[[LAStoreManager defaultStore]allUniqueHashtagsItems] objectAtIndex:row];
+    return [[LAStoreManager defaultStore] allUniqueHashtagsItems][row - 1];
 }
-- (NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    NSLog(@"The obejcts in the array %lu",(unsigned long)[[[LAStoreManager defaultStore]allUniqueHashtagsItems]count]);
-    
-    return [[[LAStoreManager defaultStore]allUniqueHashtagsItems]count];
+    return [[[LAStoreManager defaultStore] allUniqueHashtagsItems] count] + 1;
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
+
 @end
