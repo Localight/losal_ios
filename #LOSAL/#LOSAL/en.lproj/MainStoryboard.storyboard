@@ -518,17 +518,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQ5-J7-98p">
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQ5-J7-98p">
                                 <rect key="frame" x="0.0" y="0.0" width="321" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="wzr-JR-mPV"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20v-Ti-dDD">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20v-Ti-dDD">
                                 <rect key="frame" x="20" y="60" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="Y8o-v2-bNb"/>
-                                </constraints>
                                 <state key="normal" backgroundImage="instagramSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -536,11 +533,8 @@
                                     <action selector="instagramButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="Jlw-br-jZ7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-2W-6uO">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-2W-6uO">
                                 <rect key="frame" x="20" y="128" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Ke1-4N-cv3"/>
-                                </constraints>
                                 <state key="normal" backgroundImage="flickrSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -548,11 +542,8 @@
                                     <action selector="flickrButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="HyX-vF-GW0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCX-xa-BJz">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCX-xa-BJz">
                                 <rect key="frame" x="20" y="195" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Q0c-j3-vU8"/>
-                                </constraints>
                                 <state key="normal" backgroundImage="facebookSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -560,7 +551,7 @@
                                     <action selector="facebookButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="ZBg-po-Heg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doQ-eg-kbH">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doQ-eg-kbH">
                                 <rect key="frame" x="20" y="264" width="40" height="40"/>
                                 <state key="normal" backgroundImage="twitterSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -569,11 +560,8 @@
                                     <action selector="twitterButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="sAz-GG-vNw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arC-nN-2iS">
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arC-nN-2iS">
                                 <rect key="frame" x="20" y="325" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="aRF-Se-V36"/>
-                                </constraints>
                                 <state key="normal" backgroundImage="youtubeSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -581,7 +569,7 @@
                                     <action selector="youtubeButton1:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="SZV-81-tfr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-Kp-IPd">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-Kp-IPd">
                                 <rect key="frame" x="20" y="390" width="40" height="40"/>
                                 <state key="normal" backgroundImage="youtubeSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -641,28 +629,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="20v-Ti-dDD" firstAttribute="top" secondItem="zQ5-J7-98p" secondAttribute="bottom" constant="16" id="24g-tB-Qyo"/>
-                            <constraint firstItem="arC-nN-2iS" firstAttribute="trailing" secondItem="7Vb-Kp-IPd" secondAttribute="trailing" id="9li-RB-F4x"/>
-                            <constraint firstItem="7Vb-Kp-IPd" firstAttribute="leading" secondItem="arC-nN-2iS" secondAttribute="leading" id="B1M-Ly-fmr"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="trailing" secondItem="arC-nN-2iS" secondAttribute="trailing" id="BM6-ii-09Y"/>
                             <constraint firstItem="zQ5-J7-98p" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" id="HG7-sL-jfi"/>
-                            <constraint firstItem="20v-Ti-dDD" firstAttribute="leading" secondItem="Tei-2W-6uO" secondAttribute="leading" id="IDn-Pb-Klr"/>
                             <constraint firstItem="zQ5-J7-98p" firstAttribute="centerX" secondItem="VEi-38-9Rk" secondAttribute="centerX" id="JIS-Ep-7FM"/>
-                            <constraint firstItem="Gr4-c3-o3k" firstAttribute="top" secondItem="7Vb-Kp-IPd" secondAttribute="bottom" constant="138" id="Myh-UB-Dxd"/>
-                            <constraint firstItem="Tei-2W-6uO" firstAttribute="top" secondItem="20v-Ti-dDD" secondAttribute="bottom" constant="28" id="N4C-dM-sDq"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="centerY" secondItem="VEi-38-9Rk" secondAttribute="centerY" id="NPG-vg-RGu"/>
-                            <constraint firstItem="7Vb-Kp-IPd" firstAttribute="top" secondItem="arC-nN-2iS" secondAttribute="bottom" constant="25" id="Qv5-WW-zEB"/>
-                            <constraint firstItem="VCX-xa-BJz" firstAttribute="leading" secondItem="doQ-eg-kbH" secondAttribute="leading" id="Rxx-xN-HqT"/>
-                            <constraint firstItem="20v-Ti-dDD" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" constant="20" symbolic="YES" id="XF2-Tn-Dak"/>
-                            <constraint firstItem="Tei-2W-6uO" firstAttribute="trailing" secondItem="VCX-xa-BJz" secondAttribute="trailing" id="a87-wB-O0E"/>
-                            <constraint firstItem="20v-Ti-dDD" firstAttribute="trailing" secondItem="Tei-2W-6uO" secondAttribute="trailing" id="dYc-fr-ffr"/>
-                            <constraint firstItem="arC-nN-2iS" firstAttribute="top" secondItem="doQ-eg-kbH" secondAttribute="bottom" constant="21" id="fXu-RZ-pGc"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="leading" secondItem="arC-nN-2iS" secondAttribute="leading" id="grz-h8-AFp"/>
-                            <constraint firstItem="Tei-2W-6uO" firstAttribute="leading" secondItem="VCX-xa-BJz" secondAttribute="leading" id="jkD-Ks-Yos"/>
                             <constraint firstItem="zQ5-J7-98p" firstAttribute="top" secondItem="VEi-38-9Rk" secondAttribute="top" id="lZj-QT-6QF"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="trailing" secondItem="VCX-xa-BJz" secondAttribute="trailing" id="p9N-c7-ZJ8"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="top" secondItem="VCX-xa-BJz" secondAttribute="bottom" constant="29" id="t3x-aq-7j8"/>
-                            <constraint firstItem="VCX-xa-BJz" firstAttribute="top" secondItem="Tei-2W-6uO" secondAttribute="bottom" constant="27" id="um9-8W-Tdu"/>
                         </constraints>
                     </view>
                     <keyCommands/>
