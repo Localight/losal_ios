@@ -11,37 +11,25 @@
 #import "LANoticesStore.h"
 #import "LAImageLoader.h"
 #import "ECSlidingViewController.h"
-//#import "LAImageStore.h"
-//#import "LAImageStore.h"
-@implementation LADetailNoticeViewController
 
-//- (id)init
-//{
-//    self = [super init];
-//    if (self) {
-//        UINavigationItem *navyItem = [self navyItem];
-//        [navyItem setTitle:[_item noticeTitle]];
-//    }
-//    return self;
-//}
+@implementation LADetailNoticeViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     NSLog(@"%@", _navyItem);
     
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    backBtn.frame = CGRectMake(0, 0, 30, 30);
-    
-    [backBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
-    
-    [backBtn addTarget:self
-                action:@selector(back:)
+    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    closeBtn.frame = CGRectMake(0, 0, 25, 25);
+    [closeBtn setBackgroundImage:[UIImage imageNamed:@"183_x-circle"] forState:UIControlStateNormal];
+    [closeBtn addTarget:self
+                action:@selector(close:)
       forControlEvents:UIControlEventTouchUpInside];
-     [_navyItem setLeftBarButtonItem:[[UIBarButtonItem alloc]initWithCustomView:backBtn]];
+    
+    [_navyItem setLeftBarButtonItem:[[UIBarButtonItem alloc]initWithCustomView:closeBtn]];
     
     [_navyItem setTitle:[_item noticeTitle]];
+    
     if (![_item buttonText]) {
         [_linkButton setTitle:[_item buttonText] forState:UIControlStateNormal];
     }else{
@@ -75,13 +63,20 @@
     
     [[self navigationItem] setTitle:[_item noticeTitle]];
 }
+
 - (IBAction)toLink:(id)sender
 {
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[_item buttonLink]]];
 }
+
 - (IBAction)back:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECLeft];
+}
+
+- (void)close:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

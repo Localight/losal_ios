@@ -144,6 +144,10 @@
 		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
 		843A847B181053E400D7B8D1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A847A181053E400D7B8D1 /* libTestFlight.a */; };
+		C246F3DE182E1A2B00F58C2C /* 183_x-circle-(alt).png in Resources */ = {isa = PBXBuildFile; fileRef = C246F3DA182E1A2B00F58C2C /* 183_x-circle-(alt).png */; };
+		C246F3DF182E1A2B00F58C2C /* 183_x-circle-(alt)@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C246F3DB182E1A2B00F58C2C /* 183_x-circle-(alt)@2x.png */; };
+		C246F3E0182E1A2B00F58C2C /* 183_x-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = C246F3DC182E1A2B00F58C2C /* 183_x-circle.png */; };
+		C246F3E1182E1A2B00F58C2C /* 183_x-circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C246F3DD182E1A2B00F58C2C /* 183_x-circle@2x.png */; };
 		C2AD6E8218285368005A6754 /* calendar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8118285368005A6754 /* calendar-icon.png */; };
 		C2AD6E8418285C5C005A6754 /* griffin-mascot-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8318285C5C005A6754 /* griffin-mascot-small.png */; };
 		C2AD6E8618285D80005A6754 /* griffin-mascot-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */; };
@@ -343,6 +347,10 @@
 		65F787E617FBC34D001C0D3E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		65F787E717FBC34D001C0D3E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		843A847A181053E400D7B8D1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		C246F3DA182E1A2B00F58C2C /* 183_x-circle-(alt).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "183_x-circle-(alt).png"; sourceTree = "<group>"; };
+		C246F3DB182E1A2B00F58C2C /* 183_x-circle-(alt)@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "183_x-circle-(alt)@2x.png"; sourceTree = "<group>"; };
+		C246F3DC182E1A2B00F58C2C /* 183_x-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "183_x-circle.png"; sourceTree = "<group>"; };
+		C246F3DD182E1A2B00F58C2C /* 183_x-circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "183_x-circle@2x.png"; sourceTree = "<group>"; };
 		C2AD6E8118285368005A6754 /* calendar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-icon.png"; sourceTree = "<group>"; };
 		C2AD6E8318285C5C005A6754 /* griffin-mascot-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot-small.png"; sourceTree = "<group>"; };
 		C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot-small@2x.png"; sourceTree = "<group>"; };
@@ -605,6 +613,10 @@
 				6530907817BD956E00ADA359 /* clock.png */,
 				6588D0B117A4C9CE00B6C498 /* menuBtn.png */,
 				4397674B17B2A75C0040C947 /* placeholder.png */,
+				C246F3DA182E1A2B00F58C2C /* 183_x-circle-(alt).png */,
+				C246F3DB182E1A2B00F58C2C /* 183_x-circle-(alt)@2x.png */,
+				C246F3DC182E1A2B00F58C2C /* 183_x-circle.png */,
+				C246F3DD182E1A2B00F58C2C /* 183_x-circle@2x.png */,
 				6530907717BD8CA500ADA359 /* SocialMediaIcons */,
 			);
 			name = Icons;
@@ -885,6 +897,7 @@
 				6588D04017A4BCC500B6C498 /* MainStoryboard.storyboard in Resources */,
 				6588D0B217A4C9CE00B6C498 /* menuBtn.png in Resources */,
 				4397674617B1A89F0040C947 /* Instagram1.png in Resources */,
+				C246F3DE182E1A2B00F58C2C /* 183_x-circle-(alt).png in Resources */,
 				4397674C17B2A75C0040C947 /* placeholder.png in Resources */,
 				6523AE3A17B42A1E00AFD830 /* Roboto-Black.ttf in Resources */,
 				6582FCE917F8F97900A9F51C /* RobotoSlab-Thin.ttf in Resources */,
@@ -895,6 +908,7 @@
 				6523AE3D17B42A1E00AFD830 /* Roboto-BoldItalic.ttf in Resources */,
 				6523AE3E17B42A1E00AFD830 /* Roboto-Italic.ttf in Resources */,
 				652576AB17E791F700BA43F7 /* AppIcon60x60@2x.png in Resources */,
+				C246F3DF182E1A2B00F58C2C /* 183_x-circle-(alt)@2x.png in Resources */,
 				6523AE3F17B42A1E00AFD830 /* Roboto-Light.ttf in Resources */,
 				C2AD6E8418285C5C005A6754 /* griffin-mascot-small.png in Resources */,
 				6523AE4017B42A1E00AFD830 /* Roboto-LightItalic.ttf in Resources */,
@@ -938,8 +952,10 @@
 				C2AD6E8218285368005A6754 /* calendar-icon.png in Resources */,
 				65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */,
 				65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */,
+				C246F3E1182E1A2B00F58C2C /* 183_x-circle@2x.png in Resources */,
 				C2C77B571822127D003201BD /* localism-blk-smaller.png in Resources */,
 				652576B117E7922E00BA43F7 /* Images.xcassets in Resources */,
+				C246F3E0182E1A2B00F58C2C /* 183_x-circle.png in Resources */,
 				65C522ED17D109F900C5622C /* school-links.png in Resources */,
 				65B2A33E17D551CD004DA2FA /* gradient-text.png in Resources */,
 				65B2A34017D55944004DA2FA /* dark-gradient.png in Resources */,

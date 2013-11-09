@@ -48,39 +48,23 @@
 {
     return [self init];
 }
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-#pragma mark - Table view data source
+#pragma mark - Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    int i;
-    if ([[[LANoticesStore defaultStore]allItems]count] > 0) {
-        i = 1;
-    } else {
-        i = 0;
-    }
-    return i;
-}
-- (void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    //[[LANoticesStore defaultStore]fetchEntries];
-    
+    if ([[[LANoticesStore defaultStore]allItems]count] > 0)
+        return 1;
+    else
+        return 0;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return [[[LANoticesStore defaultStore]allItems]count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LANoticeItem *p = [[[LANoticesStore defaultStore]allItems]objectAtIndex:[indexPath row]];
     
@@ -89,10 +73,9 @@
    
     LANoticeItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"NoticeCell"];
     if (cell == nil)
-    {
         cell = [[LANoticeItemCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                  reuseIdentifier:@"NoticeCell"];
-    }
+
     [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl] forId:[[p postObject]objectId] andBlock:^(UIImage *image) {
         [[cell thumbnailImage]setImage:image];
     }];
@@ -136,59 +119,7 @@
     return cell;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    //test the placement of this a little bit
-        //[[self tableView] reloadData];
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-- (void)dealloc
-{
-    self.delegate = nil;
-}
-#pragma mark - Table view delegate
-- (void)tableView:(UITableView *)aTableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LANoticeItem *p = [[[LANoticesStore defaultStore]allItems]objectAtIndex:[indexPath row]];
     
@@ -204,6 +135,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     
         [dtv setItem:[[[LANoticesStore defaultStore]allItems]objectAtIndex:[indexPath row]]];
         [aTableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        // show the detail notice VC modally
+        [self presentViewController:dtv animated:YES completion:nil];
+        
+        /* #DEPREC remaining
 
         // So here I would probably call a delegate method and pass data from the store using this class, and sending it to the
         // Rootview controller, and then the root view controller in the method that got called would use the same info and
@@ -218,7 +154,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
         self.slidingViewController.topViewController.view.frame = frame;
         [self.slidingViewController resetTopView];
                                               }];
+         
+         */
     }
+}
+
+- (void)dealloc
+{
+    self.delegate = nil;
 }
 
 @end
