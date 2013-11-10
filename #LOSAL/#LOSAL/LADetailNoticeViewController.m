@@ -11,6 +11,7 @@
 #import "LANoticesStore.h"
 #import "LAImageLoader.h"
 #import "ECSlidingViewController.h"
+#import "UIImage+Resize.h"
 
 @implementation LADetailNoticeViewController
 
@@ -52,8 +53,9 @@
                                                           forId:[[_item postObject]objectId]
                                                        andBlock:^(UIImage *image)
      {
-         [imageView setImage:image];
+         [imageView setImage:[image resizedImage:imageView.frame.size interpolationQuality:kCGInterpolationDefault]];
     }];
+    
     [[self navigationItem] setTitle:[_item noticeTitle]];
 }
 

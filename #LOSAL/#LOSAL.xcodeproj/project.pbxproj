@@ -149,6 +149,9 @@
 		C246F3E0182E1A2B00F58C2C /* 183_x-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = C246F3DC182E1A2B00F58C2C /* 183_x-circle.png */; };
 		C246F3E1182E1A2B00F58C2C /* 183_x-circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C246F3DD182E1A2B00F58C2C /* 183_x-circle@2x.png */; };
 		C246F3E4182F5FD200F58C2C /* LAUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = C246F3E3182F5FD200F58C2C /* LAUtilities.m */; };
+		C246F3E7182F663B00F58C2C /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = C246F3E6182F663B00F58C2C /* UIImage+Resize.m */; };
+		C246F3EC182F66FC00F58C2C /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = C246F3E9182F66FC00F58C2C /* UIImage+Alpha.m */; };
+		C246F3ED182F66FC00F58C2C /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = C246F3EB182F66FC00F58C2C /* UIImage+RoundedCorner.m */; };
 		C2AD6E8218285368005A6754 /* calendar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8118285368005A6754 /* calendar-icon.png */; };
 		C2AD6E8418285C5C005A6754 /* griffin-mascot-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8318285C5C005A6754 /* griffin-mascot-small.png */; };
 		C2AD6E8618285D80005A6754 /* griffin-mascot-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */; };
@@ -354,6 +357,12 @@
 		C246F3DD182E1A2B00F58C2C /* 183_x-circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "183_x-circle@2x.png"; sourceTree = "<group>"; };
 		C246F3E2182F5FD200F58C2C /* LAUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAUtilities.h; sourceTree = "<group>"; };
 		C246F3E3182F5FD200F58C2C /* LAUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAUtilities.m; sourceTree = "<group>"; };
+		C246F3E5182F663B00F58C2C /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		C246F3E6182F663B00F58C2C /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		C246F3E8182F66FC00F58C2C /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		C246F3E9182F66FC00F58C2C /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		C246F3EA182F66FC00F58C2C /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		C246F3EB182F66FC00F58C2C /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		C2AD6E8118285368005A6754 /* calendar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-icon.png"; sourceTree = "<group>"; };
 		C2AD6E8318285C5C005A6754 /* griffin-mascot-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot-small.png"; sourceTree = "<group>"; };
 		C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot-small@2x.png"; sourceTree = "<group>"; };
@@ -474,6 +483,12 @@
 				43F9621217C6B444006F9AF4 /* LADataLoader.m */,
 				C246F3E2182F5FD200F58C2C /* LAUtilities.h */,
 				C246F3E3182F5FD200F58C2C /* LAUtilities.m */,
+				C246F3E5182F663B00F58C2C /* UIImage+Resize.h */,
+				C246F3E6182F663B00F58C2C /* UIImage+Resize.m */,
+				C246F3E8182F66FC00F58C2C /* UIImage+Alpha.h */,
+				C246F3E9182F66FC00F58C2C /* UIImage+Alpha.m */,
+				C246F3EA182F66FC00F58C2C /* UIImage+RoundedCorner.h */,
+				C246F3EB182F66FC00F58C2C /* UIImage+RoundedCorner.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1044,14 +1059,17 @@
 				4358C00A17BBFB9000525BB8 /* LASocialManager.m in Sources */,
 				436507F517C291DA0088D62F /* LASettings.m in Sources */,
 				43249B8F17C522D00063197B /* LAWebViewController.m in Sources */,
+				C246F3E7182F663B00F58C2C /* UIImage+Resize.m in Sources */,
 				43249B9817C689AF0063197B /* LAColor+Hex.m in Sources */,
 				43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */,
 				43F9621F17CBD003006F9AF4 /* LANoticeViewController.m in Sources */,
 				43F9622217CC01B4006F9AF4 /* LAHashtagViewController.m in Sources */,
+				C246F3EC182F66FC00F58C2C /* UIImage+Alpha.m in Sources */,
 				43F9622517CC0E38006F9AF4 /* LAHashtagAndPost.m in Sources */,
 				654A737A17CD4F24009A28B3 /* LADetailNoticeViewController.m in Sources */,
 				650B6B2F17CE740300F93BBD /* LAAboutViewController.m in Sources */,
 				65381B1617FA43060055F483 /* LALikesStore.m in Sources */,
+				C246F3ED182F66FC00F58C2C /* UIImage+RoundedCorner.m in Sources */,
 				C246F3E4182F5FD200F58C2C /* LAUtilities.m in Sources */,
 				65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */,
 				652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */,
