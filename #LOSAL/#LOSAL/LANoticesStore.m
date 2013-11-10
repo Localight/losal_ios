@@ -74,7 +74,7 @@
                 
                  NSString *number = [parseNoticeObject objectForKey:@"ad"];
                  NSLog(@"%@", number);
-                 [p setIsAnAd:[number intValue]];
+                 [p setIsAnAd:[number boolValue]];
                  [p setInterestField:[parseNoticeObject objectForKey:@"audienceInterests"]];
                  [p setAudienceTypes:[parseNoticeObject objectForKey:@"audienceTypes"]];
                  [p setTeaserText:[parseNoticeObject objectForKey:@"teaser"]];

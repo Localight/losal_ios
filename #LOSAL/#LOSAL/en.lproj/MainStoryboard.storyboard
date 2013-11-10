@@ -917,7 +917,7 @@
         <scene sceneID="IsI-72-gIS">
             <objects>
                 <tableViewController storyboardIdentifier="Notices" title="Notices" id="eGL-aH-Myv" customClass="LANoticeViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="oAp-yk-z9U">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="oAp-yk-z9U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -941,18 +941,11 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huc-Or-VRz">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="320" id="dEW-kE-htd"/>
-                                            </constraints>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huc-Or-VRz">
+                                            <rect key="frame" x="0.0" y="0.0" width="270" height="77"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="huc-Or-VRz" firstAttribute="leading" secondItem="Z03-rm-Ql6" secondAttribute="leading" id="BYx-nr-ZMn"/>
-                                        <constraint firstItem="huc-Or-VRz" firstAttribute="bottom" secondItem="Z03-rm-Ql6" secondAttribute="bottom" id="jdq-KU-plk"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <constraints>
                                     <constraint firstItem="Z03-rm-Ql6" firstAttribute="bottom" secondItem="gU2-GG-zgj" secondAttribute="bottom" id="4Rf-ED-nI7"/>

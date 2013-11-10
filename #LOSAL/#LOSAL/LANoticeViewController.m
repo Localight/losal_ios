@@ -14,6 +14,7 @@
 #import "LANoticeItemCell.h"
 //#import "LAImageStore.h"
 #import "LAImageLoader.h"
+#import "UIImage+Resize.h"
 
 @implementation LANoticeViewController
 
@@ -73,10 +74,14 @@
                                  reuseIdentifier:@"NoticeCell"];
 
     [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl] forId:[[p postObject]objectId] andBlock:^(UIImage *image) {
-        [[cell thumbnailImage]setImage:image];
+        
+        if (p.isAnAd)
+            [[cell adImage] setImage:[image resizedImage:cell.adImage.frame.size interpolationQuality:kCGInterpolationDefault]];
+        else
+            [[cell thumbnailImage] setImage:image];
     }];
         
-     if ([p isAnAd]== 1) {
+     if ([p isAnAd]) {
          [[cell titleLabel]setHidden:YES];
 //        [[cell titleLabel]setText:@"this should be an ad"];
 //        [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
@@ -114,7 +119,7 @@
 {
     LANoticeItem *p = [[[LANoticesStore defaultStore]allItems]objectAtIndex:[indexPath row]];
     
-    if ([p isAnAd]==1) {
+    if ([p isAnAd]) {
         
         [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[p buttonLink]]];
         
