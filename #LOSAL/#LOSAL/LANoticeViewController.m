@@ -15,13 +15,12 @@
 //#import "LAImageStore.h"
 #import "LAImageLoader.h"
 
-
 @implementation LANoticeViewController
 
 - (void)viewDidLoad
 { 
     [super viewDidLoad];
-        
+    
     // prevent empty rows from filling rest of table
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     

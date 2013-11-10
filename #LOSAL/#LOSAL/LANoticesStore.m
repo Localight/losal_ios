@@ -9,7 +9,7 @@
 #import "LANoticesStore.h"
 #import "LANoticeItem.h"
 #import "LAImageStore.h"
-//#import "LAImageStore.h"
+#import "LAUtilities.h"
 #import <Parse/Parse.h>
 @implementation LANoticesStore
 
@@ -83,7 +83,9 @@
                  [p setButtonLink:[parseNoticeObject objectForKey:@"buttonLink"]];
                  [p setButtonText:[parseNoticeObject objectForKey:@"buttonText"]];
                  
-                 [p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
+                 NSString *rawNoticeImageURL = [parseNoticeObject objectForKey:@"image"];
+                 
+                 [p setNoticeImageUrl:[LAUtilities cleanedURLStringFromString:rawNoticeImageURL]];
                  
                                  //[item setThumbnailDataFromImage:image];
                  
