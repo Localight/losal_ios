@@ -44,9 +44,9 @@
     [super viewWillAppear:animated];
     
     [titleLabel setText:[_item noticeTitle]];
-    [titleLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:24]];
+    [titleLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:18]];
     [content setText:[_item noticeContent]];
-    [content setFont:[UIFont fontWithName:@"RobotoSlab-" size:16]];
+    [content setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:13]];
     
     [[LAImageLoader sharedManager]processImageDataWithURLString:[_item noticeImageUrl]
                                                           forId:[[_item postObject]objectId]

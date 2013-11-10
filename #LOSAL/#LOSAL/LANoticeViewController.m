@@ -22,11 +22,8 @@
 { 
     [super viewDidLoad];
         
-    // Load the NIB files
-   // UINib *nib = [UINib nibWithNibName:@"LANoticeItemCell" bundle:nil];
-    //Register this NIB which contains the cell
-   // [[self tableView]registerNib:nib forCellReuseIdentifier:@"LANoticeItemCell"];
-
+    // prevent empty rows from filling rest of table
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.peekLeftAmount = 50.0f;
     [self.slidingViewController setAnchorLeftPeekAmount:self.peekLeftAmount];
@@ -79,16 +76,12 @@
     [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl] forId:[[p postObject]objectId] andBlock:^(UIImage *image) {
         [[cell thumbnailImage]setImage:image];
     }];
-    
-    [cell setController:self];
-    [cell setTableView:tableView];
-    
+        
      if ([p isAnAd]== 1) {
          [[cell titleLabel]setHidden:YES];
 //        [[cell titleLabel]setText:@"this should be an ad"];
 //        [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
         [[cell thumbnailImage]setHidden:YES];
-        [[cell briefDescriptionLabel]setHidden:YES];
         [[cell adImage]setHidden:NO];
 //         NSData *data = [NSData dataWithContentsOfURL:[p noticeImageUrl]];
 //         UIImage *img = [[UIImage alloc]initWithData:data];
@@ -105,8 +98,7 @@
         [[cell adImage]setHidden:YES];
         [[cell titleLabel]setText:[p noticeTitle]];
         [[cell titleLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
-        [[cell briefDescriptionLabel]setText:[p teaserText]];
-        [[cell briefDescriptionLabel]setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
+        
 //       [[LAImageLoader sharedManager]processImageDataWithURLString:[p noticeImageUrl]
 //                                                              forId:[[p postObject]objectId]
 //                                                           andBlock:^(UIImage *image)
@@ -138,24 +130,6 @@
         
         // show the detail notice VC modally
         [self presentViewController:dtv animated:YES completion:nil];
-        
-        /* #DEPREC remaining
-
-        // So here I would probably call a delegate method and pass data from the store using this class, and sending it to the
-        // Rootview controller, and then the root view controller in the method that got called would use the same info and
-        // Open up the detail view controllerd
-        // probably create the pass here.
-//    [TestFlight passCheckpoint:@"CHECKPOINT_NAME"];
-        [self.slidingViewController anchorTopViewOffScreenTo:ECLeft
-                                              animations:nil
-                                              onComplete:^{
-        CGRect frame = self.slidingViewController.topViewController.view.frame;
-        self.slidingViewController.topViewController = anotherTopViewController;
-        self.slidingViewController.topViewController.view.frame = frame;
-        [self.slidingViewController resetTopView];
-                                              }];
-         
-         */
     }
 }
 

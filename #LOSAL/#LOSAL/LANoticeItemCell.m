@@ -9,6 +9,5 @@
 #import "LANoticeItemCell.h"
 
 @implementation LANoticeItemCell
-@synthesize controller;
-@synthesize tableView;
+
 @end

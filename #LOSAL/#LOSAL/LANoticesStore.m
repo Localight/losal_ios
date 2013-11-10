@@ -90,9 +90,6 @@
                  // possible error will come from above.
                  // This does not require a network access.
                  NSLog(@"notices looks like %@", parseNoticeObject);
-//                 [p setNoticeTitle:[parseNoticeObject objectForKey:@"title"]];
-//                 [p setNoticeContent:[parseNoticeObject objectForKey:@"description"]];
-                 //[p setNoticeImageUrl:[parseNoticeObject objectForKey:@"image"]];
                  NSLog(@"image url %@", [parseNoticeObject objectForKey:@"image"]);
                  
                  [allItems addObject:p];

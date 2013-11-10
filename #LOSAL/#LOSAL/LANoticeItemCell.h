@@ -11,17 +11,8 @@
 @interface LANoticeItemCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel *briefDescriptionLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImage;
-
-@property (weak, nonatomic) id controller;
-
-@property (weak, nonatomic) UITableView *tableView;
-
 @property (weak, nonatomic) IBOutlet UIImageView *adImage;
 
 @end
