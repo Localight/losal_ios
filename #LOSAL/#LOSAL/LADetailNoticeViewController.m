@@ -31,7 +31,7 @@
     
     [_navyItem setTitle:[_item noticeTitle]];
     
-    if (![_item buttonText]) {
+    if ([_item buttonText]) {
         [_linkButton setTitle:[_item buttonText] forState:UIControlStateNormal];
     }else{
         [_linkButton setHidden:YES];
