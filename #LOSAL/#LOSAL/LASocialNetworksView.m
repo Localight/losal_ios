@@ -12,7 +12,6 @@
 @interface LASocialNetworksView () 
 
 @property (nonatomic, strong) LASocialManager *socialManager;
-@property (nonatomic, strong) UIButton *instagramButton;
 
 - (void)instagram;
 
@@ -24,8 +23,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.alpha = 0;
-        self.backgroundColor = [UIColor blackColor];
+        self.alpha = 0.5;
+        self.backgroundColor = [UIColor colorWithRed:0.22f green:0.22f blue:0.22f alpha:1.00f];
         
         self.layer.cornerRadius = 10;
         self.layer.masksToBounds = YES;
@@ -35,52 +34,54 @@
         self.socialManager.delegate = self;
         
         // Title Label
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, frame.size.width-40, 20)];
-        label.text = @"Activate your social networks";
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(55, 25, 170, 20)];
+        label.text = @"Connect Instagram";
         [label setBackgroundColor:[UIColor clearColor]];
         label.textAlignment = NSTextAlignmentCenter;
         [label setTextColor:[UIColor whiteColor]];
-        [label setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+        [label setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:15]];
         [self addSubview:label];
         
-        // Blue line 1
-        UIView *blueLine1 = [[UIView alloc] initWithFrame:CGRectMake(40, 40, frame.size.width-80, 1)];
-        [blueLine1 setBackgroundColor:[UIColor blueColor]];
-        [self addSubview:blueLine1];
+        // Instagram icon
+        UIImageView *instagramIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"instagramSocialLink"]];
+        CGSize instagramIconSize = CGSizeMake(46, 46);
+        instagramIcon.frame = CGRectMake(frame.size.width/2 - instagramIconSize.width/2, 53, instagramIconSize.width, instagramIconSize.height);
+        [self addSubview:instagramIcon];
         
-        // Instagram
-        self.instagramButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.instagramButton.frame = CGRectMake(frame.size.width/2, 55, frame.size.width/2 - 20, 40);
-        [self.instagramButton setTitle:@"Instagram" forState:UIControlStateNormal];
-        [self.instagramButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-        [self setButton:self.instagramButton active:[self.socialManager instagramSessionIsValid]];
-        [self.instagramButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
-        [self.instagramButton addTarget:self action:@selector(instagram) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.instagramButton];
+        // bounding box tap button for Instagram label + logo
+        UIButton *boundingBox = [UIButton buttonWithType:UIButtonTypeCustom];
+        boundingBox.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.size.width, 80);
+        [boundingBox setBackgroundColor:[UIColor clearColor]];
+        [boundingBox addTarget:self action:@selector(instagram) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:boundingBox];
         
-        // Blue line 2
-        UIView *blueLine2 = [[UIView alloc] initWithFrame:CGRectMake(40, 110, frame.size.width-80, 1)];
-        [blueLine2 setBackgroundColor:[UIColor blueColor]];
-        [self addSubview:blueLine2];
+        // Blue line
+        UIView *blueLine = [[UIView alloc] initWithFrame:CGRectMake(40, 110, frame.size.width-80, 1)];
+        [blueLine setBackgroundColor:[UIColor colorWithRed:0.20f green:0.71f blue:0.90f alpha:1.00f]];
+        [self addSubview:blueLine];
         
         // Privacy note
-        UITextView *privacyView = [[UITextView alloc] initWithFrame:CGRectMake(30, 120, frame.size.width-60, 60)];
+        UITextView *privacyView = [[UITextView alloc] initWithFrame:CGRectMake(30, 115, frame.size.width-60, 60)];
         [privacyView setText:@"The #LOSAL APP uses Localism! to protect your privacy and unite our community. Your private information is not shared."];
         [privacyView setBackgroundColor:[UIColor clearColor]];
         [privacyView setTextAlignment:NSTextAlignmentCenter];
-        [privacyView setTextColor:[UIColor grayColor]];
+        [privacyView setTextColor:[UIColor whiteColor]];
         [privacyView setFont:[UIFont fontWithName:@"Roboto-Light" size:10]];
         [privacyView setEditable:NO];
         [self addSubview:privacyView];
         
         // Close button
         UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        closeButton.frame = CGRectMake(10, 190, frame.size.width - 20, 35);
-        [closeButton setTitle:@"Close" forState:UIControlStateNormal];
-        [closeButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+        closeButton.frame = CGRectMake(frame.size.width - 35, 10, 25, 25);
+        [closeButton setBackgroundImage:[UIImage imageNamed:@"183_x-circle"] forState:UIControlStateNormal];
         [closeButton addTarget:self action:@selector(hide) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:closeButton];
         
+        // Localism logo
+        UIImageView *localismLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"localism-wht-smaller"]];
+        CGSize localismLogoSize = CGSizeMake(150, 49);
+        localismLogo.frame = CGRectMake(frame.size.width/2 - localismLogoSize.width/2, 180, localismLogoSize.width, localismLogoSize.height);
+        [self addSubview:localismLogo];
     }
     return self;
 }
@@ -88,7 +89,6 @@
 #pragma UI Methods
 - (void)show
 {
-    NSLog(@"show");
     self.transform = CGAffineTransformMakeScale(0.1, 0.1);
     self.alpha = 0;
     
@@ -105,58 +105,54 @@
 
 - (void)hide
 {
-    NSLog(@"hide");
-    
     [UIView animateWithDuration:.4 animations:^{
         self.transform = CGAffineTransformMakeScale(0.1, 0.1);
         self.alpha = 0;
     }];
 }
-- (void)setButton:(UIButton *)button active:(BOOL)active {
-    dispatch_queue_t callerQueue = dispatch_get_main_queue();
-    dispatch_async(callerQueue, ^{
-        if (active) {
-            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-        } else {
-            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-        }
-    });
-}
-
-- (void)displayAlertMessage:(NSString *)alertMessage {
-    dispatch_queue_t callerQueue = dispatch_get_main_queue();
-    dispatch_async(callerQueue, ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!"
-                                                     message:alertMessage
-                                                    delegate:nil
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil];
-        [alertView show];
-    });
-}
 
 #pragma INSTAGRAM
-- (void)instagram {
+- (void)instagram
+{
     if ([self.socialManager instagramSessionIsValid]) {
         [self.socialManager instagramLogout];
     } else {
         [self.socialManager instagramLogin];
     }
 }
+
 #pragma INSTAGRAM Delegates
-- (void)instagramDidLogin {
-    [self setButton:self.instagramButton active:YES];
+- (void)instagramDidLogin
+{
+    // we've successfully paired with Instagram, hide this view & report success
+    [self hide];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Connected to Instagram"
+                                                        message:@"You've successfully connected #LOSAL to Instagram."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
 }
-- (void)instagramDidLogout {
-    [self setButton:self.instagramButton active:NO];
+
+- (void)instagramDidLogout
+{
+    // note: we're not currently handling Instagram logouts anywhere
 }
-- (void)instagramDidLoad:(id)result {
-    NSLog(@"Received restul %@", result);
+
+- (void)instagramDidLoad:(id)result
+{
+    NSLog(@"Received result %@", result);
 }
-- (void)instagramDidReceiveAnError {
-    [self displayAlertMessage:@"Something went wrong. Press OK and retry to try again."];
+
+- (void)instagramDidReceiveAnError
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Instagram Failure"
+                                                        message:@"Failed to connect #LOSAL to Instagram."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
 }
 
 @end

@@ -651,34 +651,28 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         
         LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
         
-        if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO)
-        {
-            LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 80, self.view.bounds.size.width - 40, 230)];
-            
-            
-           
+        if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO) {
+            LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 80, self.view.bounds.size.width - 40, 250)];
+
             [self.navigationController.view addSubview:socialView];
             
             [socialView show];
         } else {
             LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
             
-            if (![postItem isLikedByThisUser])
-            {
+            if (![postItem isLikedByThisUser]) {
                 [postItem setIsLikedByThisUser:YES];
                 [self.socialManager likePostItem:postItem];
                 [[LALikesStore defaultStore]saveUsersLike:[postItem postObject]];
-                
-
-                
-            }else{
+            } else {
                 [postItem setIsLikedByThisUser:NO];
                 [self.socialManager unLikePostItem:postItem];
                 [[LALikesStore defaultStore]deleteUsersLike:[postItem postObject]];
             }
         }
     }
-    [[self tableView]reloadData];
+    
+    [[self tableView] reloadData];
 }
 // not even sure this does anything
 - (NSArray *)filterObjects:(NSArray *)objects

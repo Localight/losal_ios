@@ -152,6 +152,7 @@
 		C246F3E7182F663B00F58C2C /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = C246F3E6182F663B00F58C2C /* UIImage+Resize.m */; };
 		C246F3EC182F66FC00F58C2C /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = C246F3E9182F66FC00F58C2C /* UIImage+Alpha.m */; };
 		C246F3ED182F66FC00F58C2C /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = C246F3EB182F66FC00F58C2C /* UIImage+RoundedCorner.m */; };
+		C24D02FC18333EE900E1CA4F /* localism-wht-smaller.png in Resources */ = {isa = PBXBuildFile; fileRef = C24D02FB18333EE900E1CA4F /* localism-wht-smaller.png */; };
 		C2AD6E8218285368005A6754 /* calendar-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8118285368005A6754 /* calendar-icon.png */; };
 		C2AD6E8418285C5C005A6754 /* griffin-mascot-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8318285C5C005A6754 /* griffin-mascot-small.png */; };
 		C2AD6E8618285D80005A6754 /* griffin-mascot-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */; };
@@ -363,6 +364,7 @@
 		C246F3E9182F66FC00F58C2C /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		C246F3EA182F66FC00F58C2C /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		C246F3EB182F66FC00F58C2C /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		C24D02FB18333EE900E1CA4F /* localism-wht-smaller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "localism-wht-smaller.png"; sourceTree = "<group>"; };
 		C2AD6E8118285368005A6754 /* calendar-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-icon.png"; sourceTree = "<group>"; };
 		C2AD6E8318285C5C005A6754 /* griffin-mascot-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot-small.png"; sourceTree = "<group>"; };
 		C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot-small@2x.png"; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 				656EA0F217D8E55B00EF0E42 /* iphone-sign-in.png */,
 				65B2A35517D7D42C004DA2FA /* localism-blk.png */,
 				C2C77B561822127D003201BD /* localism-blk-smaller.png */,
+				C24D02FB18333EE900E1CA4F /* localism-wht-smaller.png */,
 				65B2A35317D7D426004DA2FA /* dr-arnold-wht2.png */,
 				C2C77B5418220FA0003201BD /* MoreOptions.html */,
 				43BE533E17C3BD7B008BE0E7 /* Background Images */,
@@ -951,6 +954,7 @@
 				6530907117BD87C400ADA359 /* instagramlike.png in Resources */,
 				6530907217BD87C400ADA359 /* instagram.png in Resources */,
 				6530907317BD87C400ADA359 /* twitter.png in Resources */,
+				C24D02FC18333EE900E1CA4F /* localism-wht-smaller.png in Resources */,
 				6530907417BD87C400ADA359 /* twitterlike.png in Resources */,
 				6530907517BD87C400ADA359 /* facebooklike.png in Resources */,
 				6530907917BD956E00ADA359 /* clock.png in Resources */,
