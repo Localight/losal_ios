@@ -216,7 +216,7 @@
                     //                 NSLog(@"post looks like %@", post);
                     LAPostItem *postItem = [[LAPostItem alloc] init];
                  
-                    //               [postItem setPostObject:post];
+                    [postItem setPostObject:post];
                     [postItem setPostTime:[post objectForKey:@"postTime"]];
                     [postItem setSocialNetwork:[post objectForKey:@"socialNetworkName"]];
                     [postItem setSocialNetworkPostID:[post objectForKey:@"socialNetworkPostID"]];
