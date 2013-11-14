@@ -720,14 +720,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         NSLog(@"showing detailView");
     }];
 }
-- (void)pickerView:(UIPickerView *)pickerView
-      didSelectRow:(NSInteger)row
-       inComponent:(NSInteger)component
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     // TODO: special-case handling for index 0, which is a no-filter
     if (row == 0) {
         [[[LAStoreManager defaultStore] currentUser] setIsFilteredArray:NO];
-        
         
         return;
     }
@@ -740,16 +738,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     [[[LAStoreManager defaultStore]currentUser]setIsFilteredArray:YES];
     // clear the curent array call another method to load the filtered array.
     
-    NSString *title = [[[LAStoreManager defaultStore]allUniqueHashtagsItems] objectAtIndex:row];
-    NSLog(@"Selected Row %d", row);
-    NSLog(@"%@",[[[LAStoreManager defaultStore]allUniqueHashtagsItems] objectAtIndex:row]);
+    NSString *title = [[LAStoreManager defaultStore] allUniqueHashtagsItems][row - 1];
+    
     // 1. clear the current array.
     // from here you are going to send the string of whatever the cell was to the
     // void(something.)..
     // might get an error when converting object to title. not sure right now though
     [[LAStoreManager defaultStore]sortHashTagsWithFilter:title];
-    
-    
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
@@ -762,12 +757,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     return 50;
 }
 
-- (NSString *)pickerView:(UIPickerView *)pickerView
-             titleForRow:(NSInteger)row
-            forComponent:(NSInteger)component
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     if (row == 0)
-        return @"All Hashtags";
+        return @"#LOSAL";
     
     return [[LAStoreManager defaultStore] allUniqueHashtagsItems][row - 1];
 }
