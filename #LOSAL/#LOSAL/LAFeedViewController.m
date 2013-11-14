@@ -652,7 +652,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
         
         if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO) {
-            LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 80, self.view.bounds.size.width - 40, 250)];
+            
+            SocialNetworkType socialNetworkType = SocialNetwork_Twitter;
+            if ([postItem.socialNetwork isEqualToString:@"Twitter"])
+                socialNetworkType = SocialNetwork_Twitter;
+            else if ([postItem.socialNetwork isEqualToString:@"Instagram"])
+                socialNetworkType = SocialNetwork_Instagram;
+            
+            LASocialNetworksView *socialView = [[LASocialNetworksView alloc] initWithFrame:CGRectMake(20, 80, self.view.bounds.size.width - 40, 250) socialNetworkType:socialNetworkType];
 
             [self.navigationController.view addSubview:socialView];
             
