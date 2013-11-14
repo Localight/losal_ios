@@ -340,10 +340,9 @@
     
     LAPostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    if (!cell){
+    if (!cell)
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                  reuseIdentifier:cellIdentifier];
-    }
     
     // this sets up the image if an image is present
     
@@ -367,8 +366,11 @@
         // if it's  tweet set the message image to nil
     } else {
         [[cell postImage]setImage:nil];
-//        [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-iphone4"]]];
+        
+        // ensure no gradient image appears on the no-image tweet
+        [cell.messageArea setBackgroundColor:[UIColor clearColor]];
     }
+    
     NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
     unsigned int code;
     [scanner scanHexInt:&code];
@@ -476,8 +478,7 @@
     return cell;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"the current index path is %ld", (long)[indexPath row]);
     NSLog(@"the current size of the array is %lu",(unsigned long)[[[LAStoreManager defaultStore]allMainPostItems]count]);
@@ -529,9 +530,7 @@
     return cell;
 }
 
-
--(CGFloat)tableView:(UITableView *)tableView
-heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat size;
     if (indexPath.row < [[[LAStoreManager defaultStore]allMainPostItems]count]) {
@@ -540,7 +539,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
         //[_objects objectAtIndex:[indexPath row]];
         
         if ([postItem imageURLString] == 0) {
-            size = 150;
+            size = 105;
         } else {
             UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:370];
             
