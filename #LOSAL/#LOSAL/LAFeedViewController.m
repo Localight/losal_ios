@@ -59,7 +59,7 @@
 // For demo purpsoses here, noMoreResultsAvail = NO.
 
 @property (nonatomic, strong) UIActionSheet *actionSheet;
-
+@property (nonatomic, strong) NSString *currentHashtagFilter;
 
 - (IBAction)likeButtonTapped:(id)sender;
 - (IBAction)revealMenu:(id)sender;
@@ -88,7 +88,7 @@
 {
     [super viewWillAppear:animated];
 
-    [[LAStoreManager defaultStore] fetchFromDate:nil];
+    [[LAStoreManager defaultStore] fetchFromDate:nil matchingHashtagFilter:nil];
     [[LAStoreManager defaultStore] getHashTags];
 }
 - (void)viewDidLoad
@@ -144,16 +144,27 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                               initWithCustomView:noticeBtn];
-    UIButton *title = [UIButton buttonWithType:UIButtonTypeCustom];
-    [title setTitle:@"#LOSAL" forState:UIControlStateNormal];
-    title.frame = CGRectMake(0, 0, 70, 44);
-    [title.titleLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:24]];
+
+    UIView *titleViewContainer = [[UIView alloc] initWithFrame:CGRectMake(80, 0, 160, 44)];
+    titleViewContainer.backgroundColor = [UIColor clearColor];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 1, 110, 40)];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.text = @"LOSAL";
+    titleLabel.textAlignment = NSTextAlignmentLeft;
+    titleLabel.font = [UIFont fontWithName:@"RobotoSlab-Regular" size:24];
+    titleLabel.textColor = [UIColor whiteColor];
     
-    [title addTarget:self
-              action:@selector(titleTap:)
-    forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.titleView = title;
+    UIImageView *selectorImage = [[UIImageView alloc] initWithFrame:CGRectMake(29, 14, 20, 20)];
+    [selectorImage setImage:[UIImage imageNamed:@"hashfilter"]];
     
+    [titleViewContainer addSubview:titleLabel];
+    [titleViewContainer addSubview:selectorImage];
+    
+    UITapGestureRecognizer *titleGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titleTap:)];
+    [titleViewContainer addGestureRecognizer:titleGR];
+    
+    self.navigationItem.titleView = titleViewContainer;
+
     [[[self view]layer] setShadowOpacity:0.75f];
     [[[self view]layer] setShadowRadius:0.75f];
     [[[self view]layer] setShadowColor:(__bridge CGColorRef)([UIColor blackColor])];
@@ -223,7 +234,7 @@
     [self.slidingViewController anchorTopViewTo:ECLeft];
 }
 
-- (IBAction) titleTap:(id) sender
+- (IBAction)titleTap:(id) sender
 {
     self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Filter by Hashtag"
                                                              delegate:nil
@@ -489,9 +500,7 @@
     NSLog(@"the row number has to be greater than than or equal to %d inorder to call for more data" ,a);
     // If scrolled beyond two thirds of the table, load next batch of data..
     if ([indexPath row] >= (([[[LAStoreManager defaultStore]allMainPostItems]count]/5) *4))
-    {
-        [[LAStoreManager defaultStore]fetchFromDate:[[[LAStoreManager defaultStore]lastPostInArray]postTime]];
-    }
+        [[LAStoreManager defaultStore]fetchFromDate:[[[LAStoreManager defaultStore]lastPostInArray]postTime] matchingHashtagFilter:self.currentHashtagFilter];
     
     UITableViewCell *cell;
     
@@ -723,28 +732,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    // TODO: special-case handling for index 0, which is a no-filter
-    if (row == 0) {
-        [[[LAStoreManager defaultStore] currentUser] setIsFilteredArray:NO];
-        
-        return;
-    }
+    NSString *title = nil;
     
-    // I'm thinking that i'll create an array fill it with the post that have the hashtag associate with them.
-    // I'm thinking I will load the postarray with a new array, then clear it. each time a new hashtag is selected a new array
-    // is created and the old one is destroyed
-    // I need to make sure that the main post itmes comes back some how though. for now, lets try to load an array of different items
-//    [[LAStoreManager defaultStore]clearAllMainPostItems];
-    [[[LAStoreManager defaultStore]currentUser]setIsFilteredArray:YES];
-    // clear the curent array call another method to load the filtered array.
+    if (row > 0)
+        title = [[LAStoreManager defaultStore] allUniqueHashtagsItems][row - 1];
     
-    NSString *title = [[LAStoreManager defaultStore] allUniqueHashtagsItems][row - 1];
+    self.currentHashtagFilter = title;
     
-    // 1. clear the current array.
-    // from here you are going to send the string of whatever the cell was to the
-    // void(something.)..
-    // might get an error when converting object to title. not sure right now though
-    [[LAStoreManager defaultStore]sortHashTagsWithFilter:title];
+    // user has selected a hashtag from the picker, so clear the feed and re-query from Parse with
+    // hashtag filter applied, or a nil-filter applied for all posts
+    [[LAStoreManager defaultStore] clearAllMainPostItems];
+    [[LAStoreManager defaultStore] fetchFromDate:nil matchingHashtagFilter:title];
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component

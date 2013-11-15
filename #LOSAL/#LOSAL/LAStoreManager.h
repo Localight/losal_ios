@@ -31,7 +31,7 @@
 
 + (LAStoreManager *)defaultStore;
 - (void)sortHashTagsWithFilter:(NSString *)filter;
-- (void)fetchFromDate:(NSDate *)aDate;
+- (void)fetchFromDate:(NSDate *)aDate matchingHashtagFilter:(NSString *)hashtagFilter;
 //       WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock;
 - (NSArray *)allHashtagAndPostItems;
 - (NSArray *)allMainPostItems;

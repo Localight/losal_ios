@@ -144,6 +144,8 @@
 		65EBCDF917CC07B1009138E8 /* socrative-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCDF817CC07B1009138E8 /* socrative-logo.png */; };
 		65EBCE2D17CC357C009138E8 /* A-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 65EBCE2C17CC357C009138E8 /* A-plus.png */; };
 		843A847B181053E400D7B8D1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843A847A181053E400D7B8D1 /* libTestFlight.a */; };
+		C2112CCF1836A0E60069CE8E /* hashfilter.png in Resources */ = {isa = PBXBuildFile; fileRef = C2112CCD1836A0E60069CE8E /* hashfilter.png */; };
+		C2112CD01836A0E60069CE8E /* hashfilter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2112CCE1836A0E60069CE8E /* hashfilter@2x.png */; };
 		C246F3DE182E1A2B00F58C2C /* 183_x-circle-(alt).png in Resources */ = {isa = PBXBuildFile; fileRef = C246F3DA182E1A2B00F58C2C /* 183_x-circle-(alt).png */; };
 		C246F3DF182E1A2B00F58C2C /* 183_x-circle-(alt)@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C246F3DB182E1A2B00F58C2C /* 183_x-circle-(alt)@2x.png */; };
 		C246F3E0182E1A2B00F58C2C /* 183_x-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = C246F3DC182E1A2B00F58C2C /* 183_x-circle.png */; };
@@ -352,6 +354,8 @@
 		65F787E617FBC34D001C0D3E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		65F787E717FBC34D001C0D3E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		843A847A181053E400D7B8D1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		C2112CCD1836A0E60069CE8E /* hashfilter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hashfilter.png; sourceTree = "<group>"; };
+		C2112CCE1836A0E60069CE8E /* hashfilter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hashfilter@2x.png"; sourceTree = "<group>"; };
 		C246F3DA182E1A2B00F58C2C /* 183_x-circle-(alt).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "183_x-circle-(alt).png"; sourceTree = "<group>"; };
 		C246F3DB182E1A2B00F58C2C /* 183_x-circle-(alt)@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "183_x-circle-(alt)@2x.png"; sourceTree = "<group>"; };
 		C246F3DC182E1A2B00F58C2C /* 183_x-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "183_x-circle.png"; sourceTree = "<group>"; };
@@ -757,6 +761,8 @@
 				65B2A35517D7D42C004DA2FA /* localism-blk.png */,
 				C2C77B561822127D003201BD /* localism-blk-smaller.png */,
 				C24D02FB18333EE900E1CA4F /* localism-wht-smaller.png */,
+				C2112CCD1836A0E60069CE8E /* hashfilter.png */,
+				C2112CCE1836A0E60069CE8E /* hashfilter@2x.png */,
 				65B2A35317D7D426004DA2FA /* dr-arnold-wht2.png */,
 				C2C77B5418220FA0003201BD /* MoreOptions.html */,
 				43BE533E17C3BD7B008BE0E7 /* Background Images */,
@@ -924,6 +930,7 @@
 				4397674C17B2A75C0040C947 /* placeholder.png in Resources */,
 				6523AE3A17B42A1E00AFD830 /* Roboto-Black.ttf in Resources */,
 				6582FCE917F8F97900A9F51C /* RobotoSlab-Thin.ttf in Resources */,
+				C2112CD01836A0E60069CE8E /* hashfilter@2x.png in Resources */,
 				652576AC17E791F700BA43F7 /* AppIcon76x76.png in Resources */,
 				6523AE3B17B42A1E00AFD830 /* Roboto-BlackItalic.ttf in Resources */,
 				C2AD6E8618285D80005A6754 /* griffin-mascot-small@2x.png in Resources */,
@@ -957,6 +964,7 @@
 				C24D02FC18333EE900E1CA4F /* localism-wht-smaller.png in Resources */,
 				6530907417BD87C400ADA359 /* twitterlike.png in Resources */,
 				6530907517BD87C400ADA359 /* facebooklike.png in Resources */,
+				C2112CCF1836A0E60069CE8E /* hashfilter.png in Resources */,
 				6530907917BD956E00ADA359 /* clock.png in Resources */,
 				43BE532F17C2EDA4008BE0E7 /* griffin-dance-bg-1.png in Resources */,
 				43BE533117C2EE15008BE0E7 /* dark-griffin-dance-bg-1.png in Resources */,

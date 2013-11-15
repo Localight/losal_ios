@@ -75,24 +75,22 @@
     }
     completionBlock(error);
 }
+
 //What makes the most sense, if for us to pass a type of string and then pass that it in as a parameter. We know we are going t
 // to need some kind of sort..
 #pragma mark Posts
 // this loads all the hashtags and the posts objects as pfobjcts
-- (void)getHashTags{
-    
+- (void)getHashTags
+{
     PFQuery *query = [PFQuery queryWithClassName:@"HashTagsIndex"];
     
     [query includeKey:@"postId"];
     [query includeKey:@"user"];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *hashtagsArray, NSError *error)
-    {
-        if (!error)
-        {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *hashtagsArray, NSError *error) {
+        if (!error) {
             for (PFObject *hashtag in hashtagsArray)
             {
-                
                 LAHashtagAndPost *item = [[LAHashtagAndPost alloc] init];
                 
                 [item setHashTag:[hashtag objectForKey:@"hashTags"]];
@@ -101,11 +99,9 @@
                 item = [hashtag objectForKey:@"postId"];
                 NSLog(@"%@",item);
                 
-                
                 PFObject *user = [hashtag objectForKey:@"user"];
                 
-                if (user != nil)
-                {
+                if (user != nil) {
                     [item setPrefix:[user objectForKey:@"prefix"]];//if they have a prefix
                     NSLog(@"%@",item);
                     [item setGradeLevel:[user objectForKey:@"year"]];//if they have a grade.
@@ -119,7 +115,7 @@
                     [item setUserColorChoice:[self getUIColorObjectFromHexString:[user objectForKey:@"faveColor"] alpha:1]];
                     NSLog(@"%@",item);
                     [item setUserCategory:[user objectForKey:@"userType"]];//find out what they are
-                } else{
+                } else {
                     NSLog(@"No user for this account: %@", item);
                 }
                 
@@ -135,7 +131,7 @@
             }
             /// not sure why he had this in here, it doesn't make sense if it doesn't have something in there why put it in their?
             
-        }else{
+        } else {
             //TODO: not sure i did this part right might need to come back too.
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -146,105 +142,77 @@
             [errorAlertView show];
         }
     }];
-    
 }
 
-- (void)sortHashTagsWithFilter:(NSString *)filter
-{
-   
-    [[LAStoreManager defaultStore]clearAllMainPostItems];
-
-    for (filter in hashtagsAndPostsItems)
-    {
-        
-        LAHashtagAndPost *aPost = [[LAHashtagAndPost alloc]init];
-        
-        LAPostItem *postItem = [[LAPostItem alloc]init];
-        [postItem setPostTime: [aPost postTime]];
-        [postItem setSocialNetworkPostID:[aPost socialNetworkPostID]];
-        [postItem setSocialNetwork:[aPost socialNetwork]];
-        [postItem setText:[aPost text]];
-        [postItem setImageURLString:[aPost imageURLString]];
-        [postItem setIsLikedByThisUser:[aPost isLikedByThisUser]];
-        [postItem setPrefix:[aPost prefix]];
-        [postItem setGradeLevel:[aPost gradeLevel]];
-        [postItem setUserFirstName:[aPost userFirstName]];
-        [postItem setUserLastName:[aPost userLastName]];
-        [postItem setIconString:[aPost iconString]];
-        [postItem setUserColorChoice:[aPost userColorChoice]];
-        [postItem setUserCategory:[aPost userCategory]];
-        
-        [mainPostItems addObject:postItem];
-    }
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"Reload"
-     object:self];
-    _lastPostInArray  = [mainPostItems lastObject];
-}
 - (void)clearAllMainPostItems
 {
     [mainPostItems removeAllObjects];
 }
-- (void)fetchFromDate:(NSDate *)aDate
+
+- (void)fetchFromDate:(NSDate *)aDate matchingHashtagFilter:(NSString *)hashtagFilter
 //       WithCompletion:(void(^)(NSArray *posts, NSError *error))completionBlock
 {
-    if (!aDate){
+    if (!aDate)
         aDate= [NSDate date];
-    }
-        PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
-        [query orderByDescending:@"postTime"];
-        // what the hell is this for?
-        NSTimeInterval interval =  [[[LAStoreManager defaultStore]settings]queryIntervalDays] * -1 * 24 * 60 * 60;
-        NSLog(@"%f",interval);
     
-        NSDate *endDate = [aDate dateByAddingTimeInterval:interval];
+    PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
+    [query orderByDescending:@"postTime"];
+    // what the hell is this for?
+    NSTimeInterval interval =  [[[LAStoreManager defaultStore]settings]queryIntervalDays] * -1 * 24 * 60 * 60;
+    NSLog(@"%f",interval);
     
-        [query whereKey:@"postTime" lessThan:aDate];
-        [query whereKey:@"postTime" greaterThan:endDate];
-        [query whereKey:@"status" equalTo:@"1"];
-        [query includeKey:@"user"];
+    NSDate *endDate = [aDate dateByAddingTimeInterval:interval];
     
-        // populate the array with post items, and then.. just hold onto it till we need it.
-        [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
-        {
-            if (!error)
-            {
-                NSLog(@"parse was queried at %@ and the size of the array is %lu.",[NSDate date], (unsigned long)[posts count]);
-                for (PFObject *post in posts)
-                {
-                    // This does not require a network access.
-                    //                 NSLog(@"post looks like %@", post);
-                    LAPostItem *postItem = [[LAPostItem alloc] init];
+    [query whereKey:@"postTime" lessThan:aDate];
+    [query whereKey:@"postTime" greaterThan:endDate];
+    [query whereKey:@"status" equalTo:@"1"];
+    [query includeKey:@"user"];
+    
+    // if a hashtag filter is set, use it
+    if (hashtagFilter)
+        [query whereKey:@"text" containsString:hashtagFilter];
+    
+    // populate the array with post items, and then.. just hold onto it till we need it.
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
+     {
+         if (!error)
+         {
+             NSLog(@"parse was queried at %@ and the size of the array is %lu.",[NSDate date], (unsigned long)[posts count]);
+             for (PFObject *post in posts)
+             {
+                 // This does not require a network access.
+                 //                 NSLog(@"post looks like %@", post);
+                 LAPostItem *postItem = [[LAPostItem alloc] init];
                  
-                    [postItem setPostObject:post];
-                    [postItem setPostTime:[post objectForKey:@"postTime"]];
-                    [postItem setSocialNetwork:[post objectForKey:@"socialNetworkName"]];
-                    [postItem setSocialNetworkPostID:[post objectForKey:@"socialNetworkPostID"]];
-                    [postItem setText:[post objectForKey:@"text"]];
-                    [postItem setImageURLString:[post objectForKey:@"url"]];
-                    [postItem setIsLikedByThisUser:[[LALikesStore defaultStore]doesThisUserLike:[post objectId]]];
+                 [postItem setPostObject:post];
+                 [postItem setPostTime:[post objectForKey:@"postTime"]];
+                 [postItem setSocialNetwork:[post objectForKey:@"socialNetworkName"]];
+                 [postItem setSocialNetworkPostID:[post objectForKey:@"socialNetworkPostID"]];
+                 [postItem setText:[post objectForKey:@"text"]];
+                 [postItem setImageURLString:[post objectForKey:@"url"]];
+                 [postItem setIsLikedByThisUser:[[LALikesStore defaultStore]doesThisUserLike:[post objectId]]];
                  
-                    PFObject *user = [post objectForKey:@"user"];
-                    if (user != nil)
-                    {
-                        //                     NSLog(@"user is %@", user);
-                        // postItem.postUser = [[LAUser alloc] init];
-                        [postItem setPrefix:[user objectForKey:@"prefix"]];//if they have a prefix
-                        [postItem setGradeLevel:[user objectForKey:@"year"]];//if they have a grade.
-                        // the following sets up the user's display name.
-                        [postItem setUserFirstName:[user objectForKey:@"firstName"]];
-                        [postItem setUserLastName:[user objectForKey:@"lastName"]];
-                        [postItem setIconString:[user objectForKey:@"icon"]];
-                        [postItem setUserColorChoice:[self getUIColorObjectFromHexString:[user objectForKey:@"faveColor"] alpha:1]];
-                       // [postItem setUserColorChoice:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
-                        [postItem setUserCategory:[user objectForKey:@"userType"]];//find out what they are
-                    }
-                    [mainPostItems addObject:postItem];
-                }
-                NSLog(@"the size of the mainpostitems is now from outside the block:%lu",(unsigned long)[mainPostItems count]);
-            }else {
-                // If things went bad, show an alert view
-                NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
+                 PFObject *user = [post objectForKey:@"user"];
+                 if (user != nil)
+                 {
+                     //                     NSLog(@"user is %@", user);
+                     // postItem.postUser = [[LAUser alloc] init];
+                     [postItem setPrefix:[user objectForKey:@"prefix"]];//if they have a prefix
+                     [postItem setGradeLevel:[user objectForKey:@"year"]];//if they have a grade.
+                     // the following sets up the user's display name.
+                     [postItem setUserFirstName:[user objectForKey:@"firstName"]];
+                     [postItem setUserLastName:[user objectForKey:@"lastName"]];
+                     [postItem setIconString:[user objectForKey:@"icon"]];
+                     [postItem setUserColorChoice:[self getUIColorObjectFromHexString:[user objectForKey:@"faveColor"] alpha:1]];
+                     // [postItem setUserColorChoice:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
+                     [postItem setUserCategory:[user objectForKey:@"userType"]];//find out what they are
+                 }
+                 [mainPostItems addObject:postItem];
+             }
+             NSLog(@"the size of the mainpostitems is now from outside the block:%lu",(unsigned long)[mainPostItems count]);
+         }else {
+             // If things went bad, show an alert view
+             NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
                                       [error localizedDescription]];
              
              // Create and show an alert view with this error displayed
@@ -257,13 +225,11 @@
              // If you come here you got the array
              NSLog(@"results are %@", posts);
          }
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"Reload"
-             object:self];
-            _lastPostInArray  = [mainPostItems lastObject];
-        }];
-   
+         [[NSNotificationCenter defaultCenter] postNotificationName:@"Reload" object:self];
+         _lastPostInArray  = [mainPostItems lastObject];
+     }];
 }
+
 - (void)processArray:(NSMutableArray *)array
 {
     if ([array count] > 0)
