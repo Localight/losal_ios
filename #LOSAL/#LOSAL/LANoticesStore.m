@@ -10,10 +10,12 @@
 #import "LANoticeItem.h"
 #import "LAImageStore.h"
 #import "LAUtilities.h"
+#import "LAStoreManager.h"
 #import <Parse/Parse.h>
+
 @implementation LANoticesStore
 
-+(LANoticesStore *)defaultStore
++ (LANoticesStore *)defaultStore
 {
     static LANoticesStore *defaultStore = nil;
     if(!defaultStore)
@@ -40,6 +42,7 @@
     }
     return self;
 }
+
 - (NSString *)itemArchivePath
 {
     NSArray *documentDirectories =
@@ -94,7 +97,26 @@
                  NSLog(@"notices looks like %@", parseNoticeObject);
                  NSLog(@"image url %@", [parseNoticeObject objectForKey:@"image"]);
                  
-                 [allItems addObject:p];
+                 if (![p isAnAd])
+                     // if this is not an ad, always add the object to the array
+                     [allItems addObject:p];
+                 else {
+                     // if this is an ad, determine if it's the correct targeted audience according
+                     // to current user type
+                     BOOL targetedAudienceMatch = NO;
+                     NSString *userCategory = [[[LAStoreManager defaultStore] currentUser] userCategory];
+
+                     if (([[p audienceTypes] isEqualToString:@"Students"]) &&
+                         ([userCategory isEqualToString:@"Student"]))
+                         targetedAudienceMatch = YES;
+                     
+                     if ((![[p audienceTypes] isEqualToString:@"Students"]) &&
+                         (![userCategory isEqualToString:@"Student"]))
+                         targetedAudienceMatch = YES;
+                     
+                     if (targetedAudienceMatch)
+                         [allItems addObject:p];
+                 }
              }
          }else{
                  // Log details of the failure
