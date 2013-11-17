@@ -13,9 +13,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "KeychainItemWrapper.h"
 #import <Security/Security.h>
+
 @interface LALoginViewController ()
 
 @property (strong, nonatomic) LAAppDelegate *appDelegate;
+
+@property (weak) IBOutlet UIImageView *messageTouchImage;
+
 @end
 
 @implementation LALoginViewController
@@ -78,10 +82,18 @@
             [keychainItem setObject:[_phoneNumber text] forKey:(__bridge id)(kSecAttrAccount)];
             
             [[_verifyUserButton titleLabel]setText:@"Retry"];
+            
+            // change the Retry button appearance to appear disabled
+            [_verifyUserButton setBackgroundColor:[UIColor colorWithRed:0.25f green:0.24f blue:0.24f alpha:1.00f]];
+            [_verifyUserButton.titleLabel setTextColor:[UIColor colorWithRed:0.95f green:0.95f blue:0.95f alpha:1.00f]];
+            
+            [_messageTouchImage setHidden:NO];
+            
             NSLog(@"This user has a number in the DataBase");
+            
             [_validUserLabel setText:@"Thanks! You will receive a text message from (562)-320-8034. Click the text link to complete the process."];\
             [_validUserLabel setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
-            [_mobileNumberPrompt setText:@"No text message? Email us and we'll see what the deal is, or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
+            [_mobileNumberPrompt setText:@"No text message? Email us or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
             [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
 //          [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:[_phoneNumber text]];
             [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[keychainItem objectForKey:(__bridge id)(kSecAttrAccount)]];

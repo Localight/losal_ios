@@ -160,6 +160,7 @@
 		C2AD6E8618285D80005A6754 /* griffin-mascot-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */; };
 		C2C77B5518220FA0003201BD /* MoreOptions.html in Resources */ = {isa = PBXBuildFile; fileRef = C2C77B5418220FA0003201BD /* MoreOptions.html */; };
 		C2C77B571822127D003201BD /* localism-blk-smaller.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C77B561822127D003201BD /* localism-blk-smaller.png */; };
+		C2ECD6801838A04C005F4A3D /* click-sms-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECD67F1838A04C005F4A3D /* click-sms-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -374,6 +375,7 @@
 		C2AD6E8518285D80005A6754 /* griffin-mascot-small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "griffin-mascot-small@2x.png"; sourceTree = "<group>"; };
 		C2C77B5418220FA0003201BD /* MoreOptions.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MoreOptions.html; sourceTree = "<group>"; };
 		C2C77B561822127D003201BD /* localism-blk-smaller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "localism-blk-smaller.png"; sourceTree = "<group>"; };
+		C2ECD67F1838A04C005F4A3D /* click-sms-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "click-sms-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -763,6 +765,7 @@
 				C24D02FB18333EE900E1CA4F /* localism-wht-smaller.png */,
 				C2112CCD1836A0E60069CE8E /* hashfilter.png */,
 				C2112CCE1836A0E60069CE8E /* hashfilter@2x.png */,
+				C2ECD67F1838A04C005F4A3D /* click-sms-icon.png */,
 				65B2A35317D7D426004DA2FA /* dr-arnold-wht2.png */,
 				C2C77B5418220FA0003201BD /* MoreOptions.html */,
 				43BE533E17C3BD7B008BE0E7 /* Background Images */,
@@ -935,6 +938,7 @@
 				6523AE3B17B42A1E00AFD830 /* Roboto-BlackItalic.ttf in Resources */,
 				C2AD6E8618285D80005A6754 /* griffin-mascot-small@2x.png in Resources */,
 				6523AE3C17B42A1E00AFD830 /* Roboto-Bold.ttf in Resources */,
+				C2ECD6801838A04C005F4A3D /* click-sms-icon.png in Resources */,
 				6523AE3D17B42A1E00AFD830 /* Roboto-BoldItalic.ttf in Resources */,
 				6523AE3E17B42A1E00AFD830 /* Roboto-Italic.ttf in Resources */,
 				652576AB17E791F700BA43F7 /* AppIcon60x60@2x.png in Resources */,

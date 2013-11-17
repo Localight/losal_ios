@@ -861,7 +861,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Get the full experience! Enter your mobile number." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-NR-7EO">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Get the full experience! Enter your mobile number." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-NR-7EO">
                                 <rect key="frame" x="20" y="134" width="280" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -889,6 +889,10 @@
                                     <action selector="verifyUser:" destination="qcp-pC-bYb" eventType="touchUpInside" id="2GA-wX-oDu"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="click-sms-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="q95-Aj-doh">
+                                <rect key="frame" x="100" y="279" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -903,6 +907,7 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="messageTouchImage" destination="q95-Aj-doh" id="A7s-5K-Ar3"/>
                         <outlet property="mobileNumberPrompt" destination="EzY-NR-7EO" id="whS-Fy-xHx"/>
                         <outlet property="phoneNumber" destination="JZ4-uw-F2o" id="a51-a0-SEA"/>
                         <outlet property="validUserLabel" destination="I2p-Um-gK1" id="15k-2e-ekG"/>
@@ -1070,6 +1075,7 @@
         <image name="A-plus.png" width="104" height="103"/>
         <image name="Default.png" width="640" height="960"/>
         <image name="calendar-icon.png" width="294" height="314"/>
+        <image name="click-sms-icon.png" width="180" height="180"/>
         <image name="close-circle.png" width="78" height="78"/>
         <image name="edmodo-logo.png" width="294" height="314"/>
         <image name="facebookSocialLink.png" width="92" height="92"/>
