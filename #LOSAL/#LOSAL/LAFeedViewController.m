@@ -236,39 +236,34 @@
 
 - (IBAction)titleTap:(id) sender
 {
-    self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Filter by Hashtag"
-                                                             delegate:nil
-                                                    cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:nil];
-    
-    [self.actionSheet setActionSheetStyle:UIActionSheetStyleAutomatic];
-    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
-    
-    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
-    
-    pickerView.showsSelectionIndicator = YES;
-    pickerView.dataSource = self;
-    pickerView.delegate = self;
-
-    [self.actionSheet addSubview:pickerView];
-   
-    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 7.0f, 50.0f, 30.0f)];
-    [closeButton setTitle:@"Close" forState:UIControlStateNormal];
-    [closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [closeButton addTarget:self action:@selector(closeThisActionSheet) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.actionSheet addSubview:closeButton];
+    if (!self.actionSheet) {
+        self.actionSheet = [[UIActionSheet alloc] initWithTitle:@"Filter by Hashtag"
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:nil];
+        
+        [self.actionSheet setActionSheetStyle:UIActionSheetStyleAutomatic];
+        
+        CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+        UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
+        
+        pickerView.showsSelectionIndicator = YES;
+        pickerView.dataSource = self;
+        pickerView.delegate = self;
+        
+        [self.actionSheet addSubview:pickerView];
+        
+        UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 7.0f, 50.0f, 30.0f)];
+        [closeButton setTitle:@"Close" forState:UIControlStateNormal];
+        [closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [closeButton addTarget:self action:@selector(closeThisActionSheet) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.actionSheet addSubview:closeButton];
+    }
     
     [self.actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
-    
     [self.actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
-    
-    
-//    
-//    LAHashtagViewController *hashtagController = [self.storyboard instantiateViewControllerWithIdentifier:@"Hashtags"];
-//    
-//    [self.navigationController pushViewController:hashtagController animated:YES];
 }
 
 - (void)closeThisActionSheet
