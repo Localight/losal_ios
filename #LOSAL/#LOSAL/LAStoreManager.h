@@ -46,7 +46,7 @@
 
 
 - (void)getSettingsWithCompletion:(void(^)(NSError *error))completionBlock;
-//- (void)saveUsersSocialIDs;
+- (void)saveUsersSocialIDs;
 - (void)getHashTags;
 
 

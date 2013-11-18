@@ -265,20 +265,20 @@
 }
 
 #pragma mark User
-//- (void)saveUsersSocialIDs
-//{
-//    if (self.currentUser.twitterID != nil) {
-//        [[PFUser currentUser] setObject:self.currentUser.twitterID forKey:@"twitterID"];
-//    }
-//    if (self.currentUser.facebookID != nil) {
-//        [[PFUser currentUser] setObject:self.currentUser.facebookID forKey:@"facebookID"];
-//    }
-//    if (self.currentUser.instagramID != nil) {
-//        [[PFUser currentUser] setObject:self.currentUser.instagramID forKey:@"instagramID"];
-//    }
-//    
-//    [[PFUser currentUser]saveEventually];
-//}
+- (void)saveUsersSocialIDs
+{
+    if (self.currentUser.twitterUserID) {
+        [[PFUser currentUser] setObject:self.currentUser.twitterDisplayName forKey:@"twitterID"];
+        [[PFUser currentUser] setObject:self.currentUser.twitterUserID forKey:@"userTwitterId"];
+    }
+    
+    if (self.currentUser.instagramUserID) {
+        [[PFUser currentUser] setObject:self.currentUser.instagramDisplayName forKey:@"instagramID"];
+        [[PFUser currentUser] setObject:self.currentUser.instagramUserID forKey:@"userInstagramId"];
+    }
+    
+    [[PFUser currentUser] saveEventually];
+}
 
 // change flag for number verified here. 
 - (BOOL)verifyPhoneNumberIsValid:(NSString *)phoneNumber
@@ -337,7 +337,6 @@
 
 - (void)loginWithPhoneNumber
 {
-
     KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
                                                                             accessGroup:nil];
     //TODO: come back to and make all of the user attributes NSDefualts.
@@ -357,9 +356,11 @@
             //[_currentUser setIconColor:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
             
             [_currentUser setTwitterDisplayName:[user objectForKey:@"twitterID"]];
+            [_currentUser setTwitterUserID:[user objectForKey:@"userTwitterId"]];
+            
             [_currentUser setInstagramDisplayName:[user objectForKey:@"instagramID"]];
-            [_currentUser setTwitterUserID:[user objectForKey:@"userInstagramId"]];
-            [_currentUser setInstagramUserID:[user objectForKey:@"userTwitterId"]];
+            [_currentUser setInstagramUserID:[user objectForKey:@"userInstagramId"]];
+            
             [_currentUser setUserCategory:[user objectForKey:@"userType"]];
             
             [_currentUser setObjectID:[user objectForKey:@"objectID"]];
