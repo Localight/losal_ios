@@ -43,10 +43,6 @@ See our privacy policy for more information.
 
 [Política de privacidad (Español)](http://localism.co/losalapp/privacy/espanol/)
 
-###Reset App
-
-The #LOSAL App can be reset, which takes it back to the start screen and requests a mobile number for verification. [Touch here](localism://resetApp) to reset.
-
 ###Thanks & Acknowledgements
 
 The Localism team would like to thank the following individuals for their vision, great support and friendship as we've brought the #LOSAL App to life for Android and iPhone!

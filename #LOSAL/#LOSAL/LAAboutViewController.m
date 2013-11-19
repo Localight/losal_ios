@@ -56,20 +56,18 @@
     
     [_navyItem setRightBarButtonItem:[[UIBarButtonItem alloc]initWithCustomView:noticeBtn]];
     
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]])
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
-    }
     
-    if (![self.slidingViewController.underRightViewController isKindOfClass:[LANoticeViewController class]]) {
+    if (![self.slidingViewController.underRightViewController isKindOfClass:[LANoticeViewController class]])
         self.slidingViewController.underRightViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Notices"];
-    }
     
     NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"MoreOptions" ofType:@"html" ]]];
 	
 	[self.webView loadRequest:req];
 }
 
-// TODO: create an entry UI point for this
+// note: this method is no longer called anywhere
 - (IBAction)ReVerify:(id)sender{
     //PFUser *currentUser = [PFUser currentUser];
     // if user wants to enter phone number
