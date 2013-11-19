@@ -157,10 +157,8 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Posts"];
     [query orderByDescending:@"postTime"];
-    // what the hell is this for?
+
     NSTimeInterval interval =  [[[LAStoreManager defaultStore]settings]queryIntervalDays] * -1 * 24 * 60 * 60;
-    NSLog(@"%f",interval);
-    
     NSDate *endDate = [aDate dateByAddingTimeInterval:interval];
     
     [query whereKey:@"postTime" lessThan:aDate];
@@ -175,8 +173,7 @@
     // populate the array with post items, and then.. just hold onto it till we need it.
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error)
      {
-         if (!error)
-         {
+         if (!error) {
              NSLog(@"parse was queried at %@ and the size of the array is %lu.",[NSDate date], (unsigned long)[posts count]);
              for (PFObject *post in posts)
              {
@@ -193,8 +190,7 @@
                  [postItem setIsLikedByThisUser:[[LALikesStore defaultStore]doesThisUserLike:[post objectId]]];
                  
                  PFObject *user = [post objectForKey:@"user"];
-                 if (user != nil)
-                 {
+                 if (user != nil) {
                      //                     NSLog(@"user is %@", user);
                      // postItem.postUser = [[LAUser alloc] init];
                      [postItem setPrefix:[user objectForKey:@"prefix"]];//if they have a prefix
@@ -207,6 +203,7 @@
                      // [postItem setUserColorChoice:[self colorFromHexString:[user objectForKey:@"faveColor"]]];
                      [postItem setUserCategory:[user objectForKey:@"userType"]];//find out what they are
                  }
+                 
                  [mainPostItems addObject:postItem];
              }
              NSLog(@"the size of the mainpostitems is now from outside the block:%lu",(unsigned long)[mainPostItems count]);

@@ -367,7 +367,6 @@
                  [[cell postImage]setImage:image];
                  [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-iphone4"]]];
                  //[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]
-                 //[cell.postImage setImage:image];
              }}];
         // if it's  tweet set the message image to nil
     } else {
@@ -405,29 +404,27 @@
     NSLog(@"%@", [postItem userFirstName]);
     
     // set up the icons for users of type students
-    if ([postItem userFirstName] == nil){
+    if ([postItem userFirstName] == nil) {
         [[cell userNameLabel]setText:@"Unknown"];
         [[cell userNameLabel]setTextColor:[UIColor whiteColor]];
         [[cell icon]setText:@DEFAULT_ICON];
         [[cell icon]setTextColor:[UIColor whiteColor]];
-        
-        
-    }else if([[postItem userCategory]isEqualToString:@"Student"])
-    {
+        [[cell dateAndGradeLabel] setText:[NSString stringWithFormat:@"%@", [self fuzzyTime:[df stringFromDate:timePosted]]]];
+    }
+    else if ([[postItem userCategory]isEqualToString:@"Student"]) {
         NSString * newLastNameString = [[postItem userLastName] substringWithRange:NSMakeRange(0, 1)];
         NSString *newName = [NSString stringWithFormat:@"%@ %@.", [postItem userFirstName], newLastNameString];
         [[cell userNameLabel]setText:newName];
         [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem gradeLevel]]];
-    }else{
+    }
+    else {
         NSString *newDisplayName = [NSString stringWithFormat:@"%@ %@", [postItem prefix], [postItem userLastName]];
         
         [[cell userNameLabel]setText:newDisplayName];
         [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@ | %@", [self fuzzyTime:[df stringFromDate:timePosted]], [postItem userCategory]]];
-        
     }
     
-    if (![[[LAStoreManager defaultStore]currentUser]userVerified])
-    {
+    if (![[[LAStoreManager defaultStore]currentUser]userVerified]) {
         [[cell icon]setHidden:YES];
         [[cell timeImage]setHidden:YES];
         [[cell userNameLabel]setHidden:YES];
@@ -436,6 +433,7 @@
         [[cell likeImage]setHidden:YES];
         [[cell dateAndGradeLabel]setText:[NSString stringWithFormat:@"%@_______________________", [self fuzzyTime:[df stringFromDate:timePosted]]]];
     }
+    
     if (![[[[LAStoreManager defaultStore]currentUser]userCategory] isEqualToString:@"Student"]) {
         [[cell socialMediaImage]setHidden:YES];
         [[cell likeImage]setHidden:YES];
