@@ -14,22 +14,14 @@
 #import "LAMenuViewController.h"
 #import "LANoticeViewController.h"
 #import "LAHashtagViewController.h"
-
 #import "LAStoreManager.h"
 #import "LASocialManager.h"
-
 #import "LAImageLoader.h"
-
 #import "LAPostCell.h"
-
 #import "LAPostItem.h"
-
 #import "LAImage+Color.h"
-
 #import "NSDate-Utilities.h"
-
 #import "LASocialNetworksView.h"
-
 #import "LADataLoader.h"
 #import "LANoticesStore.h"
 #import "KeychainItemWrapper.h"
@@ -37,6 +29,7 @@
 #import "LALikesStore.h"
 #import "LADetailNoticeViewController.h"
 #import <Security/Security.h>
+
 @interface LAFeedViewController ()
 
 #define  DEFAULT_ICON "\uE017"
@@ -354,17 +347,16 @@
     
     LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
     
-    if (![[postItem imageURLString]length] == 0)
-    {
+    if (![[postItem imageURLString]length] == 0) {
         // Set image to nil, in case the cell was reused.
         [cell.postImage setImage:nil];
         [self.imageLoader processImageDataWithURLString:postItem.imageURLString
                                                   forId:postItem.postObject.objectId // why do we need to object ID?
                                                andBlock:^(UIImage *image)
          {
-             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
-             {
+             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
                  [[cell postImage]setImage:image];
+                 
                  [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-iphone4"]]];
                  //[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-text"]]
              }}];
