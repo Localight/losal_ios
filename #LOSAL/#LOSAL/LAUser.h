@@ -34,8 +34,7 @@
 @property (nonatomic, strong) NSString *twitterUserID;
 @property (nonatomic, strong) NSString *instagramUserID;
 @property (assign) BOOL userVerified;
-@property (assign) BOOL waitingForText;//
-@property (assign) BOOL isFilteredArray; 
-//@property (nonatomic, assign, getter=isUserVerifed) bool userVerified; // is the user signed in?
+@property (assign) BOOL waitingForText;
+@property (assign) BOOL isFilteredArray;
 @end
 

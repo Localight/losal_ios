@@ -366,19 +366,15 @@
             [_currentUser setPrefix:[user objectForKey:@"prefix"]];
             [_currentUser setUserVerified:YES];
             
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"Reload"
-             object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Reload" object:self];
             
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"updateUserDisplay"
-             object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"updateUserDisplay" object:self];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"updateNotices" object:self];
             
             NSLog(@"the user logged in.");
             
-            [[NSNotificationCenter defaultCenter]
-             postNotificationName:@"DissmisView"
-             object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DissmisView" object:self];
 
         }else{
             NSLog(@"whoops, something happened.");

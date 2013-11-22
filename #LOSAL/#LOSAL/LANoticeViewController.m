@@ -22,6 +22,11 @@
 { 
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedUpdateNotification:)
+                                                 name:@"updateNotices"
+                                               object:nil];
+    
     // prevent empty rows from filling rest of table
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -44,6 +49,14 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     return [self init];
+}
+
+- (void)receivedUpdateNotification:(NSNotification *)notification
+{
+    if ([[notification name] isEqualToString:@"updateNotices"])
+        [[LANoticesStore defaultStore] updateEntries];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - Table view methods

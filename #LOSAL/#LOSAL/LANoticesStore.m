@@ -57,6 +57,9 @@
 
 - (void)updateEntries
 {
+    // empty the entries in case this gets re-fired
+    [allItems removeAllObjects];
+    
     // we will change this method to update, with in it, we will make sure to check the dates of the posts
       PFQuery *query = [PFQuery queryWithClassName:@"Notifications"];
     //[query orderByDescending:@"createAt"];

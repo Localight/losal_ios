@@ -46,12 +46,12 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFUser enableAutomaticUser];
     [[PFUser currentUser] saveInBackground];
-    //[[LAStoreManager defaultStore]createUser];
-    
+
     [[LAStoreManager defaultStore]getSettingsWithCompletion:^(NSError *error){
         NSLog(@"Settings complete");
     }];
-    [[LANoticesStore defaultStore]updateEntries];
+    
+    [[LANoticesStore defaultStore] updateEntries];
     // Will download hashtags for later use
     
     
