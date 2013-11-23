@@ -23,12 +23,8 @@
 @implementation LAAppDelegate
 
 //static NSString * const firstTimeLaunchkey = @"hasLaunchedOnce";
-- (BOOL)application:(UIApplication *)application
-didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   
-// const pointer
-    
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES
 //                                            withAnimation:UIStatusBarAnimationNone];
@@ -41,19 +37,16 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [defaultACL setPublicReadAccess:YES];
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
-//    self.storeManager = [LAStoreManager sharedManager];
-    
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFUser enableAutomaticUser];
     [[PFUser currentUser] saveInBackground];
 
-    [[LAStoreManager defaultStore]getSettingsWithCompletion:^(NSError *error){
+    [[LAStoreManager defaultStore] getSettingsWithCompletion:^(NSError *error){
         NSLog(@"Settings complete");
     }];
     
     [[LANoticesStore defaultStore] updateEntries];
     // Will download hashtags for later use
-    
     
     self.socialManager = [LASocialManager sharedManager];
     
@@ -72,14 +65,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     return [self.socialManager instagramhandleOpenURL:url];
 }
 
-
-
--(BOOL)application:(UIApplication *)application
-           openURL:(NSURL *)url
- sourceApplication:(NSString *)sourceApplication
-        annotation:(id)annotation {
-    
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
     NSLog(@"url from open is %@", url);
+    
+    // determine if the URL string is coming from Instagram, if it is, then don't attempt to log the user in
+    NSArray *bundleIdentifierSplit = [url.absoluteString componentsSeparatedByString:@"localism.losal"];
+    if (bundleIdentifierSplit.count < 2)
+        return [self.socialManager instagramhandleOpenURL:url];
     
     // here is where we could add the get pin fromUrl and save it.
     // I'm thinking about passing the url to the store and from the store passing it to the LAUser
@@ -107,12 +103,14 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 //                                 selector:@selector(handleUserLogin:error:)];
 //    [keychainItem setObject:@"username you are saving" forKey:kSecAttrAccount];
 //    [[[LAStoreManager defaultStore]currentUser]setPinNumberFromUrl:[keychainItem objectForKey:kSecValueData]];
-     [[LAStoreManager defaultStore]loginWithPhoneNumber];
-    [[LALikesStore defaultStore]getUserLikesWithCompletion:^(NSError *error) {
+    
+    [[LAStoreManager defaultStore] loginWithPhoneNumber];
+    
+    [[LALikesStore defaultStore] getUserLikesWithCompletion:^(NSError *error) {
         NSLog(@"getting the likes");
     }];
 
-        return [self.socialManager instagramhandleOpenURL:url];// doesn't make sense come back too.
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
