@@ -28,6 +28,5 @@
 @property (nonatomic, strong) NSString *displayName;
 @property (nonatomic, strong) NSString *prefix;
 @property (assign) BOOL isLikedByThisUser;
-//Cloned values.. Identical information that post items contain.
-// this is used for when we want to display info about the posts
+
 @end

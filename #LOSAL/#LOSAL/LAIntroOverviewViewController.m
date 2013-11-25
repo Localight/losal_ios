@@ -8,15 +8,13 @@
 
 #import "LAIntroOverviewViewController.h"
 
-#import "LALoginViewController.h"
-
 @interface LAIntroOverviewViewController ()
 
 @property (nonatomic, weak) IBOutlet UIScrollView *pagingScrollView;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 
 @property (nonatomic, strong) NSMutableArray *contentArray;
-@property (nonatomic, strong) LALoginViewController *introVC;
+@property (nonatomic, strong) LALoginViewController *loginVC;
 
 @end
 
@@ -29,8 +27,9 @@
     _contentArray = [NSMutableArray array];
 
     CGRect scrollFrame = self.view.bounds;
-    //[_pageControl setPageIndicatorTintColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
+
     [_pageControl setCurrentPageIndicatorTintColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
+    
     // view 1 - intro image
     UIImage *introImage = [UIImage imageNamed:@"iphone-sign-in-01"];
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:introImage];
@@ -49,9 +48,9 @@
     
     UIView *v = [[UIView alloc] initWithFrame:scrollFrame];
     v.backgroundColor = [UIColor greenColor];
-    self.introVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
-    self.introVC.delegate = self;
-    [v addSubview:self.introVC.view];
+    self.loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
+    self.loginVC.delegate = self;
+    [v addSubview:self.loginVC.view];
     [self.pagingScrollView addSubview:v];
     scrollFrame.origin.x += v.frame.size.width;
     
@@ -64,7 +63,7 @@
     [self.pageControl setCurrentPage:page];
 }
 
-#pragma mark IntroVC delegate
+#pragma mark Login delegate
 - (void)wantsToCloseView
 {
     [self dismissViewControllerAnimated:YES completion:nil];

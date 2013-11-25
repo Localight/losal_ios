@@ -10,8 +10,4 @@
 
 @interface LAAboutViewController : UIViewController <UIWebViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UINavigationItem *navyItem;
-@property (strong, nonatomic) IBOutlet UIWebView *webView;
-
-- (IBAction)ReVerify:(id)sender;
 @end

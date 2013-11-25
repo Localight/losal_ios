@@ -19,6 +19,10 @@
 @property (strong, nonatomic) LAAppDelegate *appDelegate;
 
 @property (weak) IBOutlet UIImageView *messageTouchImage;
+@property (weak, nonatomic) IBOutlet UILabel *validUserLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mobileNumberPrompt;
+@property (weak, nonatomic) IBOutlet UIButton *verifyUserButton;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 
 @end
 
@@ -36,32 +40,22 @@
 {
     [super viewDidLoad];
     
-//    [_validUserLabel setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
-//    [_mobileNumberPrompt setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
-//    [_phoneNumber setBackgroundColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
-    [[_phoneNumber layer]setBorderWidth:2];
-    
-    [[_phoneNumber layer]setBorderColor:[[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]CGColor]];
-    
+    [[_phoneNumber layer] setBorderWidth:2];
+    [[_phoneNumber layer] setBorderColor:[[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]CGColor]];
     [_phoneNumber setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
+    [_phoneNumber setValue:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    
     [_verifyUserButton setBackgroundColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
-    [_phoneNumber setValue:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]
-                forKeyPath:@"_placeholderLabel.textColor"];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedDismissNotification:)
                                                  name:@"DissmisView"
                                                object:nil];
-
-//    self.appDelegate = (LAAppDelegate *)[[UIApplication sharedApplication] delegate];
-//    self.appDelegate.loginViewController = self;
 }
-//- (IBAction)skip:(id)sender {
-//    [self dismiss];
-//}
 
 - (IBAction)closeButtonPressed:(id)sender
 {
-    [[self delegate]wantsToCloseView];
+    [[self delegate] wantsToCloseView];
 }
 
 - (IBAction)verifyUser:(id)sender
@@ -74,8 +68,7 @@
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         int count = 0;
-        if ((!error) && (objects.count > 0))
-        {
+        if ((!error) && (objects.count > 0)) {
             KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
                                                                                     accessGroup:nil];
             
@@ -95,24 +88,22 @@
             [_validUserLabel setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
             [_mobileNumberPrompt setText:@"No text message? Email us or click ""retry"" below. Otherwise click ""x"" in the right corner to close the screen."];
             [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
-//          [[[LAStoreManager defaultStore]currentUser]setPhoneNumber:[_phoneNumber text]];
+
             [[LAStoreManager defaultStore]sendRegistrationRequestForPhoneNumber:[keychainItem objectForKey:(__bridge id)(kSecAttrAccount)]];
-            NSLog(@"the next step");
-            
             [[[LAStoreManager defaultStore]currentUser]setUserVerified:YES];
-        }else{
+        }
+        else {
             [_mobileNumberPrompt setText:@"Enter your mobile number"];
             
             [_validUserLabel setText:@"Oops! Did you miss the app registration? Your number wasn't recognized. Email us for access or retry below."];
             [_validUserLabel setTextColor:[UIColor colorWithRed:0.251 green:0.78 blue:0.949 alpha:1]];
             [_mobileNumberPrompt setTextColor:[UIColor whiteColor]];
             
-            NSLog(@"did we get here?");
-//            [_verifyUserButton setHidden:YES];
             while (count > 2) {
                 count ++;
                 [self verifyUser:sender];
             }
+            
             [[[LAStoreManager defaultStore]currentUser]setUserVerified:NO];
             
             // see if this failed phone number exists in the FailedLogin table already
@@ -131,7 +122,6 @@
             NSLog(@"This user does not have a number in the DataBase and the error is: %@, %@", error, [error userInfo]);
          }
     }];
-    //[[self presentingViewController] dismissViewControllerAnimated:YES completion:_dismissBlock];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -139,26 +129,11 @@
     [_phoneNumber resignFirstResponder];
     return YES;
 }
-//- (IBAction)back:(id)sender {
-//    
-//    self.sendButton.hidden = NO;
-//    self.phoneNumber.hidden = NO;
-//    
-//    self.backButton.hidden = YES;
-//}
 
-- (IBAction)backgroundTapped:(id)sender{
+- (IBAction)backgroundTapped:(id)sender
+{
     [[self view]endEditing:YES];
 }
-
-// come back to if we might need to fix or undo.
-//- (void)loginWithPin:(NSString *)pin
-//{
-//    if ([[LAStoreManager sharedManager]loginWithPhoneNumber:[_phoneNumber text] pinNumber:pin])
-//    {
-//        [self dismiss];
-//    }
-//}
 
 - (void)dismiss
 {
@@ -167,15 +142,14 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)receivedDismissNotification:(NSNotification *) notification
+- (void)receivedDismissNotification:(NSNotification *) notification
 {
-    if ([[notification name] isEqualToString:@"DissmisView"])
-    {
+    if ([[notification name] isEqualToString:@"DissmisView"]) {
         [self.delegate wantsToCloseView];
         [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
-        
 }
+
 - (void)dealloc
 {
     self.delegate = nil;

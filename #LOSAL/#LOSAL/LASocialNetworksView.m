@@ -107,7 +107,7 @@
         [self linkTwitter];
 }
 
-#pragma UI Methods
+#pragma mark UI Methods
 - (void)show
 {
     self.transform = CGAffineTransformMakeScale(0.1, 0.1);

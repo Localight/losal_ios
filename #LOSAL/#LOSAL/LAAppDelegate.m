@@ -14,25 +14,24 @@
 #import "LALikesStore.h"
 #import <Security/Security.h>
 #import "TestFlight.h"
+
 @interface LAAppDelegate ()
 
-//@property (nonatomic, strong) LAStoreManager *storeManager;
 @property (nonatomic, strong) LASocialManager *socialManager;
 
 @end
+
 @implementation LAAppDelegate
 
-//static NSString * const firstTimeLaunchkey = @"hasLaunchedOnce";
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES
-//                                            withAnimation:UIStatusBarAnimationNone];
     [TestFlight takeOff:@"81a4be3b-0bfa-4ed9-a551-02b3e262a9c3"];
     [Parse setApplicationId:@"zFi294oXTVT6vj6Tfed5heeF6XPmutl0y1Rf7syg"
                   clientKey:@"jyL9eoOizsJqQK5KtADNX5ILpjgSdP6jW9Lz1nAU"];
     
     PFACL *defaultACL = [PFACL ACL];
+    
     // Enable public read access by default, with any newly created PFObjects belonging to the current user
     [defaultACL setPublicReadAccess:YES];
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
@@ -46,22 +45,14 @@
     }];
     
     [[LANoticesStore defaultStore] updateEntries];
-    // Will download hashtags for later use
     
     self.socialManager = [LASocialManager sharedManager];
-    
-//                                 WithCompletion:^(NSArray *posts, NSError *error) {
-//                                     NSLog(@"Your first pull from the server");
-//                                 }];
 
-    
     return YES;
 }
 
-// YOU NEED TO CAPTURE igAPPID:// schema
--(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    
-    NSLog(@"url from handel is %@", url);
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
     return [self.socialManager instagramhandleOpenURL:url];
 }
 
@@ -70,39 +61,21 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    NSLog(@"url from open is %@", url);
-    
     // determine if the URL string is coming from Instagram, if it is, then don't attempt to log the user in
     NSArray *bundleIdentifierSplit = [url.absoluteString componentsSeparatedByString:@"localism.losal"];
     if (bundleIdentifierSplit.count < 2)
         return [self.socialManager instagramhandleOpenURL:url];
     
-    // here is where we could add the get pin fromUrl and save it.
-    // I'm thinking about passing the url to the store and from the store passing it to the LAUser
     NSString *urlString = [url absoluteString];
     NSRange pinRange = [urlString rangeOfString:@"//"];
     NSInteger start = pinRange.location + pinRange.length;
     NSInteger length = [urlString length] - start;
     NSString *pinString = [urlString substringWithRange:NSMakeRange(start, length)];
     
-    NSLog(@"we caught the website thing");
-    
-//    [[LAStoreManager sharedManager]setUserVerified:YES];
-    // We se the user's password to the pinstring then log in using the LAUser info.
-    NSLog(@"%@",pinString);
-    
-    // This is where we would use store the user password and username with the key thing, then from here on out call the keychain method
     KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
                                                                             accessGroup:nil];
     
     [keychainItem setObject:pinString forKey:(__bridge id)kSecValueData];
-    
-//    [PFUser logInWithUsernameInBackground:[keychainItem objectForKey:(__bridge id)(kSecAttrAccount)]
-//                                 password:[keychainItem objectForKey:(__bridge id)(kSecValueData)]
-//                                   target:self
-//                                 selector:@selector(handleUserLogin:error:)];
-//    [keychainItem setObject:@"username you are saving" forKey:kSecAttrAccount];
-//    [[[LAStoreManager defaultStore]currentUser]setPinNumberFromUrl:[keychainItem objectForKey:kSecValueData]];
     
     [[LAStoreManager defaultStore] loginWithPhoneNumber];
     
@@ -122,7 +95,6 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

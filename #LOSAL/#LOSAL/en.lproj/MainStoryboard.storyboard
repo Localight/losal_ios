@@ -373,7 +373,6 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="namViewContainter" destination="OD9-Lh-Lsj" id="0Y4-gi-VKD"/>
                         <outlet property="tableView" destination="F1D-DP-Fjb" id="YRM-zi-XYi"/>
                         <outlet property="userIcon" destination="M1H-DK-Zq0" id="rDd-J3-yiz"/>
                         <outlet property="userNameLabel" destination="VRl-ak-blM" id="fFF-hW-FaJ"/>

@@ -9,17 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "LADetailNoticeViewController.h"
 #import "LANoticeItem.h"
+
 @protocol LANoticeViewControllerDelegate <NSObject>
 
 - (void)showDetailViewItem:(LANoticeItem *)ourItem;
 
 @end
+
 @interface LANoticeViewController :UITableViewController
-{
-    
-}
-//@property (nonatomic, weak) IBOutlet UITableView *tableView;
+
 @property (nonatomic, weak) id<LANoticeViewControllerDelegate>delegate;
 
-@property (nonatomic, assign) CGFloat peekLeftAmount;
 @end

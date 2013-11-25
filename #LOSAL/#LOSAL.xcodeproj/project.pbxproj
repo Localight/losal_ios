@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		43249B8F17C522D00063197B /* LAWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43249B8E17C522D00063197B /* LAWebViewController.m */; };
-		43249B9817C689AF0063197B /* LAColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 43249B9717C689AF0063197B /* LAColor+Hex.m */; };
 		43397B4317B93582003F4977 /* LAImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4217B93582003F4977 /* LAImage+Color.m */; };
 		43397B4517B93716003F4977 /* Mustache.png in Resources */ = {isa = PBXBuildFile; fileRef = 43397B4417B93716003F4977 /* Mustache.png */; };
 		43397B4817B95FBC003F4977 /* LALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43397B4717B95FBB003F4977 /* LALoginViewController.m */; };
@@ -41,10 +40,8 @@
 		43DC44C217A7A159005729D8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C117A7A159005729D8 /* Security.framework */; };
 		43DC44C417A7A186005729D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C317A7A186005729D8 /* SystemConfiguration.framework */; };
 		43DC44C617A7A1BE005729D8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */; };
-		43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9621217C6B444006F9AF4 /* LADataLoader.m */; };
 		43F9621517C6D7C7006F9AF4 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43F9621417C6D7C7006F9AF4 /* menu-icon.png */; };
 		43F9621F17CBD003006F9AF4 /* LANoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */; };
-		43F9622217CC01B4006F9AF4 /* LAHashtagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9622117CC01B4006F9AF4 /* LAHashtagViewController.m */; };
 		43F9622517CC0E38006F9AF4 /* LAHashtagAndPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9622417CC0E38006F9AF4 /* LAHashtagAndPost.m */; };
 		44C777CD17D66EBC0062FDF4 /* LAIntroOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C777CC17D66EBB0062FDF4 /* LAIntroOverviewViewController.m */; };
 		44C777D517D6739B0062FDF4 /* sign-in-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C777D117D6739B0062FDF4 /* sign-in-01.png */; };
@@ -98,7 +95,6 @@
 		6530907517BD87C400ADA359 /* facebooklike.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530906F17BD87C400ADA359 /* facebooklike.png */; };
 		6530907917BD956E00ADA359 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6530907817BD956E00ADA359 /* clock.png */; };
 		653160B617F5F37600BFE162 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 653160B517F5F37600BFE162 /* KeychainItemWrapper.m */; };
-		65381B1317F9E3070055F483 /* LAHashTagStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 65381B1217F9E3070055F483 /* LAHashTagStore.m */; };
 		65381B1617FA43060055F483 /* LALikesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 65381B1517FA43060055F483 /* LALikesStore.m */; };
 		6549236817B9591A003F39E3 /* do-git in Resources */ = {isa = PBXBuildFile; fileRef = 6549236417B9591A003F39E3 /* do-git */; };
 		6549236917B9591A003F39E3 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549236617B9591A003F39E3 /* NSDate-Utilities.m */; };
@@ -107,7 +103,6 @@
 		6559E6431804FA4100EB0D87 /* social-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6559E6421804FA4100EB0D87 /* social-icon.png */; };
 		656EA0F317D8E55B00EF0E42 /* iphone-sign-in.png in Resources */ = {isa = PBXBuildFile; fileRef = 656EA0F217D8E55B00EF0E42 /* iphone-sign-in.png */; };
 		656EA0F517D8E62000EF0E42 /* close-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 656EA0F417D8E62000EF0E42 /* close-circle.png */; };
-		656FB82A17F38D8900629C46 /* LAImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FB82917F38D8900629C46 /* LAImageStore.m */; };
 		6576740717C55ACD00EC2881 /* lightning.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740617C55ACD00EC2881 /* lightning.png */; };
 		6576740B17C55D2800EC2881 /* edmodo-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740A17C55D2800EC2881 /* edmodo-logo.png */; };
 		6576740D17C5615400EC2881 /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = 6576740C17C5615400EC2881 /* news.png */; };
@@ -176,8 +171,6 @@
 /* Begin PBXFileReference section */
 		43249B8D17C522D00063197B /* LAWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAWebViewController.h; sourceTree = "<group>"; };
 		43249B8E17C522D00063197B /* LAWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAWebViewController.m; sourceTree = "<group>"; };
-		43249B9617C689AE0063197B /* LAColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LAColor+Hex.h"; sourceTree = "<group>"; };
-		43249B9717C689AF0063197B /* LAColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LAColor+Hex.m"; sourceTree = "<group>"; };
 		43397B4117B93582003F4977 /* LAImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LAImage+Color.h"; sourceTree = "<group>"; };
 		43397B4217B93582003F4977 /* LAImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LAImage+Color.m"; sourceTree = "<group>"; };
 		43397B4417B93716003F4977 /* Mustache.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mustache.png; sourceTree = "<group>"; };
@@ -222,13 +215,9 @@
 		43DC44C117A7A159005729D8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		43DC44C317A7A186005729D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		43DC44C517A7A1BE005729D8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		43F9621117C6B444006F9AF4 /* LADataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LADataLoader.h; sourceTree = "<group>"; };
-		43F9621217C6B444006F9AF4 /* LADataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LADataLoader.m; sourceTree = "<group>"; };
 		43F9621417C6D7C7006F9AF4 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
 		43F9621C17CBCFF2006F9AF4 /* LANoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LANoticeViewController.h; sourceTree = "<group>"; };
 		43F9621D17CBCFF2006F9AF4 /* LANoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LANoticeViewController.m; sourceTree = "<group>"; };
-		43F9622017CC01B4006F9AF4 /* LAHashtagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAHashtagViewController.h; sourceTree = "<group>"; };
-		43F9622117CC01B4006F9AF4 /* LAHashtagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAHashtagViewController.m; sourceTree = "<group>"; };
 		43F9622317CC0E38006F9AF4 /* LAHashtagAndPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAHashtagAndPost.h; sourceTree = "<group>"; };
 		43F9622417CC0E38006F9AF4 /* LAHashtagAndPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAHashtagAndPost.m; sourceTree = "<group>"; };
 		44C777CB17D66EBB0062FDF4 /* LAIntroOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAIntroOverviewViewController.h; sourceTree = "<group>"; };
@@ -290,8 +279,6 @@
 		6530907817BD956E00ADA359 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		653160B417F5F37600BFE162 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		653160B517F5F37600BFE162 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
-		65381B1117F9E3070055F483 /* LAHashTagStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAHashTagStore.h; sourceTree = "<group>"; };
-		65381B1217F9E3070055F483 /* LAHashTagStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAHashTagStore.m; sourceTree = "<group>"; };
 		65381B1417FA43060055F483 /* LALikesStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LALikesStore.h; sourceTree = "<group>"; };
 		65381B1517FA43060055F483 /* LALikesStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LALikesStore.m; sourceTree = "<group>"; };
 		6549236417B9591A003F39E3 /* do-git */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.csh; path = "do-git"; sourceTree = "<group>"; };
@@ -303,8 +290,6 @@
 		6559E6421804FA4100EB0D87 /* social-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "social-icon.png"; sourceTree = "<group>"; };
 		656EA0F217D8E55B00EF0E42 /* iphone-sign-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-sign-in.png"; sourceTree = "<group>"; };
 		656EA0F417D8E62000EF0E42 /* close-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-circle.png"; sourceTree = "<group>"; };
-		656FB82817F38D8900629C46 /* LAImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAImageStore.h; sourceTree = "<group>"; };
-		656FB82917F38D8900629C46 /* LAImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAImageStore.m; sourceTree = "<group>"; };
 		6576740617C55ACD00EC2881 /* lightning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightning.png; sourceTree = "<group>"; };
 		6576740A17C55D2800EC2881 /* edmodo-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edmodo-logo.png"; sourceTree = "<group>"; };
 		6576740C17C5615400EC2881 /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
@@ -449,10 +434,6 @@
 				6588D04217A4BCC500B6C498 /* LAFeedViewController.m */,
 				651F0C0E17B9FBC20018794A /* LAPostCell.h */,
 				651F0C0F17B9FBC20018794A /* LAPostCell.m */,
-				43F9622017CC01B4006F9AF4 /* LAHashtagViewController.h */,
-				43F9622117CC01B4006F9AF4 /* LAHashtagViewController.m */,
-				65381B1117F9E3070055F483 /* LAHashTagStore.h */,
-				65381B1217F9E3070055F483 /* LAHashTagStore.m */,
 				4358C00017BAF67700525BB8 /* LASocialNetworksView.h */,
 				4358C00117BAF67700525BB8 /* LASocialNetworksView.m */,
 			);
@@ -472,8 +453,6 @@
 				652F518C17D00DCA004DD0DA /* LANoticesStore.m */,
 				652F519117D02124004DD0DA /* LANoticeItemCell.h */,
 				652F519217D02124004DD0DA /* LANoticeItemCell.m */,
-				656FB82817F38D8900629C46 /* LAImageStore.h */,
-				656FB82917F38D8900629C46 /* LAImageStore.m */,
 			);
 			name = Notices;
 			sourceTree = "<group>";
@@ -485,10 +464,6 @@
 				4378F37717B2DF1F00DEBE6A /* LAImageLoader.m */,
 				43397B4117B93582003F4977 /* LAImage+Color.h */,
 				43397B4217B93582003F4977 /* LAImage+Color.m */,
-				43249B9617C689AE0063197B /* LAColor+Hex.h */,
-				43249B9717C689AF0063197B /* LAColor+Hex.m */,
-				43F9621117C6B444006F9AF4 /* LADataLoader.h */,
-				43F9621217C6B444006F9AF4 /* LADataLoader.m */,
 				C246F3E2182F5FD200F58C2C /* LAUtilities.h */,
 				C246F3E3182F5FD200F58C2C /* LAUtilities.m */,
 				C246F3E5182F663B00F58C2C /* UIImage+Resize.h */,
@@ -1055,7 +1030,6 @@
 				6588D03317A4BCC500B6C498 /* main.m in Sources */,
 				6588D03717A4BCC500B6C498 /* LAAppDelegate.m in Sources */,
 				6588D04317A4BCC500B6C498 /* LAFeedViewController.m in Sources */,
-				656FB82A17F38D8900629C46 /* LAImageStore.m in Sources */,
 				6588D06617A4BEBF00B6C498 /* LASplashViewController.m in Sources */,
 				6588D0AA17A4C02D00B6C498 /* ECSlidingViewController.m in Sources */,
 				6588D0AB17A4C02D00B6C498 /* UIImage+ImageWithUIView.m in Sources */,
@@ -1076,10 +1050,7 @@
 				436507F517C291DA0088D62F /* LASettings.m in Sources */,
 				43249B8F17C522D00063197B /* LAWebViewController.m in Sources */,
 				C246F3E7182F663B00F58C2C /* UIImage+Resize.m in Sources */,
-				43249B9817C689AF0063197B /* LAColor+Hex.m in Sources */,
-				43F9621317C6B444006F9AF4 /* LADataLoader.m in Sources */,
 				43F9621F17CBD003006F9AF4 /* LANoticeViewController.m in Sources */,
-				43F9622217CC01B4006F9AF4 /* LAHashtagViewController.m in Sources */,
 				C246F3EC182F66FC00F58C2C /* UIImage+Alpha.m in Sources */,
 				43F9622517CC0E38006F9AF4 /* LAHashtagAndPost.m in Sources */,
 				654A737A17CD4F24009A28B3 /* LADetailNoticeViewController.m in Sources */,
@@ -1089,7 +1060,6 @@
 				C246F3E4182F5FD200F58C2C /* LAUtilities.m in Sources */,
 				65ADBBEF17CFFCFC0070C57C /* LANoticeItem.m in Sources */,
 				652F518D17D00DCA004DD0DA /* LANoticesStore.m in Sources */,
-				65381B1317F9E3070055F483 /* LAHashTagStore.m in Sources */,
 				652F519317D02124004DD0DA /* LANoticeItemCell.m in Sources */,
 				44C777CD17D66EBC0062FDF4 /* LAIntroOverviewViewController.m in Sources */,
 				65032F0717DA81A0004683BB /* LASchoolLinksViewController.m in Sources */,

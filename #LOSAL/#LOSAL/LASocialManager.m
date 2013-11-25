@@ -15,7 +15,6 @@
 
 #define INSTAGRAM_ID @"64392b8719fb49f59f71213ed640fb68"
 
-//@property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) Instagram *instagram;
 @property (nonatomic, strong) ACAccount *twitterAccount;
 @property (nonatomic, strong) ACAccount *facebookAccount;
@@ -32,6 +31,7 @@
     });
     return sharedMyManager;
 }
+
 - (id)init
 {
     if (self = [super init]) {
@@ -39,8 +39,6 @@
                                                     delegate:nil];
         self.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
         self.instagram.sessionDelegate = self;
-        
-//        self.storeManager = [LAStoreManager sharedManager];
     }
     return self;
 }
@@ -207,16 +205,17 @@
     }
 }
 
-#pragma - FACEBOOK
-- (BOOL)facebookSessionIsValid {
-    if (self.facebookAccount != nil) {
+#pragma mark - FACEBOOK
+- (BOOL)facebookSessionIsValid
+{
+    if (self.facebookAccount != nil)
         return YES;
-    } else {
-        return NO;
-    }
+
+    return NO;
 }
 
-- (void)facebookLogin {
+- (void)facebookLogin
+{
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         //  Step 1:  Obtain access to the user's Twitter accounts
         ACAccountStore *accountStore = [[ACAccountStore alloc] init];
@@ -248,12 +247,14 @@
     }
 }
 
--(void)facebookLogout {
+- (void)facebookLogout
+{
     self.facebookAccount = nil;
     [self.delegate facebookDidLogout];
 }
 
-- (void) facebookLikePost:(NSString *)postID {
+- (void) facebookLikePost:(NSString *)postID
+{
     //  Step 0: Check that the user has local Twitter accounts
     if (self.facebookSessionIsValid) {
         NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
@@ -295,73 +296,82 @@
                 }
             }
         }];
-        
     }
 }
 
-#pragma - INSTAGRAM
--(BOOL)instagramhandleOpenURL:(NSURL *)url {
+#pragma mark - INSTAGRAM
+- (BOOL)instagramhandleOpenURL:(NSURL *)url
+{
     return ([self.instagram handleOpenURL:url]);
 }
 
-- (BOOL)instagramSessionIsValid {
+- (BOOL)instagramSessionIsValid
+{
     return [self.instagram isSessionValid];
 }
 
--(void)instagramLikePost:(NSString *)postID {
+- (void)instagramLikePost:(NSString *)postID
+{
     [self instagramSetLikeTo:YES forPost:postID];
 }
 
--(void)instagramUnLikePost:(NSString *)postID {
+- (void)instagramUnLikePost:(NSString *)postID
+{
     [self instagramSetLikeTo:NO forPost:postID];
 }
 
--(void)instagramSetLikeTo:(BOOL)isLIked forPost:(NSString *)postID {
-    
+- (void)instagramSetLikeTo:(BOOL)isLIked forPost:(NSString *)postID
+{
     NSString *methodName = [NSString stringWithFormat:@"/media/%@/likes", postID];
     NSMutableDictionary *emptyParams = [[NSMutableDictionary alloc] init];
     NSString *method;
-    if (isLIked) {
+    
+    if (isLIked)
         method = @"POST";
-    } else {
+    else
         method = @"DEL";
-    }
+    
     [self.instagram requestWithMethodName:methodName params:emptyParams httpMethod:@"POST" delegate:self];
 }
 
-- (void)instagramLogin {
+- (void)instagramLogin
+{
     [self.instagram authorize:[NSArray arrayWithObjects:@"likes", nil]];
 }
 
-- (void)instagramLogout {
+- (void)instagramLogout
+{
     [self.instagram logout];
 }
 
-#pragma - INSTAGRAM IGSessionDelegate
--(void)igDidLogin {
-    NSLog(@"Instagram did login");
-    // here i can store accessToken
+#pragma mark - INSTAGRAM IGSessionDelegate
+- (void)igDidLogin
+{
     [[NSUserDefaults standardUserDefaults] setObject:self.instagram.accessToken forKey:@"accessToken"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
-    [self.delegate instagramDidLogin];
     
+    [self.delegate instagramDidLogin];
 }
 
--(void)igDidLogout {
+- (void)igDidLogout
+{
     [self.delegate instagramDidLogout];
 }
 
--(void)igDidNotLogin:(BOOL)cancelled {
+- (void)igDidNotLogin:(BOOL)cancelled
+{
     NSLog(@"Instagram did not login");
     
     [self.delegate instagramDidReceiveAnError];
 }
 
-- (void)request:(IGRequest *)request didFailWithError:(NSError *)error {
+- (void)request:(IGRequest *)request didFailWithError:(NSError *)error
+{
     [self.delegate instagramDidReceiveAnError];
 }
 
-- (void)request:(IGRequest *)request didLoad:(id)result {
+- (void)request:(IGRequest *)request didLoad:(id)result
+{
     NSLog(@"Instagram did load: %@", result);
 
     [self.delegate instagramDidLoad:result];

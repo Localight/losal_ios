@@ -9,15 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LAMenuViewController : UITableViewController
-{
-    __weak IBOutlet UIView *namViewContainter;
-    __weak IBOutlet UILabel *userIcon;
-    __weak IBOutlet UILabel *userNameLabel;
-    
-}
-// Come back to, and work on.
-
-- (IBAction)toSite:(id)sender;
-
 
 @end

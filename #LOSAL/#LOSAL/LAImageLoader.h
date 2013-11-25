@@ -9,10 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface LAImageLoader : NSObject
-{
-    
-}
-@property (nonatomic, strong) NSCache *imageCache;
 
 + (id)sharedManager;
 

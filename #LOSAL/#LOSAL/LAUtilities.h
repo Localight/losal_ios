@@ -11,5 +11,7 @@
 @interface LAUtilities : NSObject
 
 + (NSString *)cleanedURLStringFromString:(NSString *)baseString;
++ (UIColor *)getUIColorObjectFromHexString:(NSString *)hexStr alpha:(CGFloat)alpha;
++ (unsigned int)intFromHexString:(NSString *)hexStr;
 
 @end

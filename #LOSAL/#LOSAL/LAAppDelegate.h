@@ -10,9 +10,8 @@
 #import "LALoginViewController.h"
 
 @interface LAAppDelegate : UIResponder <UIApplicationDelegate>
-//blah blah
+
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) LALoginViewController *loginViewController;
 
 @end
-// asdfasdfasdsdas
