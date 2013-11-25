@@ -10,7 +10,6 @@
 #import "LANoticeItem.h"
 #import "LAUtilities.h"
 #import "LAStoreManager.h"
-#import <Parse/Parse.h>
 
 @implementation LANoticesStore
 

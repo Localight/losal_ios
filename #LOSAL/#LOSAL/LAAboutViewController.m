@@ -10,9 +10,6 @@
 #import "ECSlidingViewController.h"
 #import "LAMenuViewController.h"
 #import "LANoticeViewController.h"
-#import "LAStoreManager.h"
-#import "KeychainItemWrapper.h"
-#import <Security/Security.h>
 
 @interface LAAboutViewController ()
 
@@ -81,12 +78,9 @@
 {
     // open the links outside of the app
 	NSURL *loadURL = [request URL];
-	if (([[loadURL scheme] isEqualToString: @"http"] || [[loadURL scheme] isEqualToString: @"mailto"])
-		&& (navigationType == UIWebViewNavigationTypeLinkClicked)) {
-		return ![[UIApplication sharedApplication] openURL:loadURL];
-	}
-    
-	return YES;
+
+    return !(([[loadURL scheme] isEqualToString: @"http"] || [[loadURL scheme] isEqualToString: @"mailto"])
+    && (navigationType == UIWebViewNavigationTypeLinkClicked)) || ![[UIApplication sharedApplication] openURL:loadURL];
 }
 
 @end

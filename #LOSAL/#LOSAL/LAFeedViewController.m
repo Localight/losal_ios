@@ -14,16 +14,10 @@
 #import "LAStoreManager.h"
 #import "LAImageLoader.h"
 #import "LAPostCell.h"
-#import "LAPostItem.h"
 #import "LAImage+Color.h"
 #import "NSDate-Utilities.h"
 #import "LASocialNetworksView.h"
-#import "LANoticesStore.h"
-#import "KeychainItemWrapper.h"
-#import "LANoticeViewController.h"
 #import "LALikesStore.h"
-#import "LADetailNoticeViewController.h"
-#import <Security/Security.h>
 
 @interface LAFeedViewController ()
 
@@ -434,7 +428,7 @@
         // using postItem because cell hasn't been made yet.
         LAPostItem *postItem =[[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
 
-        if ([postItem imageURLString] == 0) {
+        if ([postItem imageURLString] == nil) {
             size = 105;
         } else {
             UIImage *image = [self imageWithImage:[UIImage imageNamed:@"Instagram1"] scaledToWidth:370];
@@ -520,8 +514,7 @@
     if (indexPath) {
         LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
         
-        if ([self.socialManager isSessionValidForNetwork:postItem.socialNetwork] == NO) {
-            
+        if (![self.socialManager isSessionValidForNetwork:postItem.socialNetwork]) {
             SocialNetworkType socialNetworkType = SocialNetwork_Twitter;
             if ([postItem.socialNetwork isEqualToString:@"Twitter"])
                 socialNetworkType = SocialNetwork_Twitter;
@@ -534,8 +527,6 @@
             
             [socialView show];
         } else {
-            LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
-            
             if (![postItem isLikedByThisUser]) {
                 [postItem setIsLikedByThisUser:YES];
                 [self.socialManager likePostItem:postItem];

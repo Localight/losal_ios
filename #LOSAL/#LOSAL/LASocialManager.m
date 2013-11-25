@@ -48,9 +48,7 @@
 {
     if ([socialNetwork isEqualToString:@"Twitter"]) return [self twitterSessionIsValid];
     if ([socialNetwork isEqualToString:@"Facebook"]) return [self facebookSessionIsValid];
-    if ([socialNetwork isEqualToString:@"Instagram"]) return [self instagramSessionIsValid];
-    
-    return NO;
+    return [socialNetwork isEqualToString:@"Instagram"] && [self instagramSessionIsValid];
 }
 
 - (void)likePostItem:(LAPostItem *)postItem
@@ -76,10 +74,7 @@
 #pragma mark - TWITTER
 - (BOOL)twitterSessionIsValid
 {
-    if ([[LAStoreManager defaultStore] currentUser].twitterUserID != nil)
-        return YES;
-
-    return NO;
+    return [[LAStoreManager defaultStore] currentUser].twitterUserID != nil;
 }
 
 - (void)twitterLogin
@@ -208,10 +203,7 @@
 #pragma mark - FACEBOOK
 - (BOOL)facebookSessionIsValid
 {
-    if (self.facebookAccount != nil)
-        return YES;
-
-    return NO;
+    return self.facebookAccount != nil;
 }
 
 - (void)facebookLogin

@@ -8,7 +8,6 @@
 
 #import "LADetailNoticeViewController.h"
 #import "LANoticeItem.h"
-#import "LANoticesStore.h"
 #import "LAImageLoader.h"
 #import "ECSlidingViewController.h"
 #import "UIImage+Resize.h"

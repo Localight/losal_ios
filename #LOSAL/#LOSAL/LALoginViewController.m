@@ -9,10 +9,7 @@
 #import "LALoginViewController.h"
 #import "LAStoreManager.h"
 #import "LAAppDelegate.h"
-#import "LAIntroOverviewViewController.h"
-#import <QuartzCore/QuartzCore.h>
 #import "KeychainItemWrapper.h"
-#import <Security/Security.h>
 
 @interface LALoginViewController ()
 

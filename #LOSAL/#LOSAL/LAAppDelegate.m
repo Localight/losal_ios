@@ -12,7 +12,6 @@
 #import "LANoticesStore.h"
 #import "KeychainItemWrapper.h"
 #import "LALikesStore.h"
-#import <Security/Security.h>
 #import "TestFlight.h"
 
 @interface LAAppDelegate ()

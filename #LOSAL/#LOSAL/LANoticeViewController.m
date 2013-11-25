@@ -11,7 +11,6 @@
 #import "LANoticeItemCell.h"
 #import "LANoticeItem.h"
 #import "LANoticesStore.h"
-#import "LANoticeItemCell.h"
 #import "LAImageLoader.h"
 #import "UIImage+Resize.h"
 

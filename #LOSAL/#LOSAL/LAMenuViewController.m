@@ -10,7 +10,6 @@
 #import "LAStoreManager.h"
 #import "ECSlidingViewController.h"
 #import "LAWebViewController.h"
-#import "LAUser.h"
 
 @interface LAMenuViewController ()
 

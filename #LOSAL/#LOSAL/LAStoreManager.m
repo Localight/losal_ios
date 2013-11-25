@@ -8,9 +8,7 @@
 
 #import "LAStoreManager.h"
 #import "LAHashtagAndPost.h"
-#import "LAUser.h"
 #import "KeychainItemWrapper.h"
-#import <Security/Security.h>
 #import "LALikesStore.h"
 #import "LAUtilities.h"
 
