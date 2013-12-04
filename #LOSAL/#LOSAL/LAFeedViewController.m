@@ -19,6 +19,7 @@
 #import "LASocialNetworksView.h"
 #import "LALikesStore.h"
 #import "LACalendarSyncView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LAFeedViewController ()
 
@@ -276,8 +277,14 @@
 
 - (UITableViewCell *)configureCell:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"postCell";
+    static NSString *cellIdentifier = @"postCell";
+    static NSDateFormatter *df = nil;
     LAPostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (!df) {
+        df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    }
     
     if (!cell)
         cell = [[LAPostCell alloc] initWithStyle:UITableViewCellStyleSubtitle
@@ -285,24 +292,27 @@
     
     // this sets up the image if an image is present
     
-    LAPostItem *postItem = [[[LAStoreManager defaultStore]allMainPostItems]objectAtIndex:[indexPath row]];
+    LAPostItem *postItem = [[LAStoreManager defaultStore] allMainPostItems][indexPath.row];
     
-    if (![[postItem imageURLString]length] == 0) {
+    if (postItem.imageURLString) {
         // Set image to nil, in case the cell was reused.
         [cell.postImage setImage:nil];
+        
+        [cell.messageArea setBackgroundColor:[UIColor blackColor]];
+        cell.messageArea.alpha = 0.8f;
+        
         [self.imageLoader processImageDataWithURLString:postItem.imageURLString
                                                   forId:postItem.postObject.objectId
                                                andBlock:^(UIImage *image) {
-             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
-                 [[cell postImage]setImage:image];
-                 [[cell messageArea]setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"gradient-iphone4"]]];
-             }}];
+             if ([self.tableView.indexPathsForVisibleRows containsObject:indexPath])
+                 [[cell postImage] setImage:image];
+        }];
     }
     else {
-        [[cell postImage]setImage:nil];
+        [[cell postImage] setImage:nil];
         
-        // ensure no gradient image appears on the no-image tweet
         [cell.messageArea setBackgroundColor:[UIColor clearColor]];
+        cell.messageArea.alpha = 1.0f;
     }
     
     NSScanner *scanner = [NSScanner scannerWithString:[postItem iconString]];
@@ -310,23 +320,13 @@
     [scanner scanHexInt:&code];
     [[cell icon]setText:[NSString stringWithFormat:@"%C",(unsigned short)code]];
     [[cell icon]setTextColor:[postItem userColorChoice]];
-    [[cell icon]setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
 
-    // TODO: create NSUserdefaults?
-    [[cell userNameLabel]setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
-    [[cell messageArea] setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
-    [[cell dateAndGradeLabel] setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
-    
     UIImage *ago = [[UIImage imageNamed:@"clock"]imageWithOverlayColor:[UIColor whiteColor]];
     [[cell timeImage] setImage:ago];
     
-    // TODO: convert this date formatter to static usage
     NSDate *timePosted = [postItem postTime];
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    [df setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
 
     [[cell messageArea] setText:[postItem text]];
-    [[cell messageArea] setTextColor:[UIColor whiteColor]];
     
     // set up the icons for users of type students
     if ([postItem userFirstName] == nil) {

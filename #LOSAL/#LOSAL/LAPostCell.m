@@ -19,10 +19,15 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+- (void)layoutSubviews
 {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    [super layoutSubviews];
+    
+    [self.icon setFont:[UIFont fontWithName:@"icomoon" size:30.0f]];
+    [self.userNameLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+    [self.messageArea setFont:[UIFont fontWithName:@"Roboto-Regular" size:15]];
+    [self.dateAndGradeLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:11]];
+    [self.messageArea setTextColor:[UIColor whiteColor]];
 }
+
 @end
