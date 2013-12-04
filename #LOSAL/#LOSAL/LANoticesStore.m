@@ -60,11 +60,10 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Notifications"];
     
-    /* note: kept for #REFERENCE, in case we throttle notices by date on the iOS side
-     [query orderByDescending:@"createAt"];
-     [query whereKey:@"startDate" lessThan:[NSDate date]];
-     [query whereKey:@"endDate" greaterThan:[NSDate date]];
-     */
+    // only show current notices
+    [query orderByDescending:@"createAt"];
+    [query whereKey:@"startDate" lessThan:[NSDate date]];
+    [query whereKey:@"endDate" greaterThan:[NSDate date]];
     
     [query orderByDescending:@"ad"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *parseNoticeArray, NSError *error) {
