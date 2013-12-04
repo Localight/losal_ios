@@ -18,6 +18,7 @@
 #import "NSDate-Utilities.h"
 #import "LASocialNetworksView.h"
 #import "LALikesStore.h"
+#import "LACalendarSyncView.h"
 
 @interface LAFeedViewController ()
 
@@ -74,6 +75,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedReloadNotification:)
                                                  name:@"Reload"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didDismissLogin:)
+                                                 name:@"didDismissLogin"
                                                object:nil];
     
     // Set up splash to dimmed background animation
@@ -220,6 +226,22 @@
 {
     if ([[notification name] isEqualToString:@"Reload"])
         [[self tableView]reloadData];
+}
+
+- (void)didDismissLogin:(NSNotification *)notification
+{
+    // if we haven't presented the calendar sync option before, do so now
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"presentedCalendarSync"]) {
+        BOOL loginSuccess = ([[[LAStoreManager defaultStore] currentUser] userVerified]);
+        
+        LACalendarSyncView *calendarSyncView = [[LACalendarSyncView alloc] initWithFrame:CGRectMake(20, 80, self.view.bounds.size.width - 40, 340)
+                                                                            loginSuccess:loginSuccess];
+        [self.navigationController.view addSubview:calendarSyncView];
+        [calendarSyncView show];
+        
+        // mark it such that this view won't be displayed again
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"presentedCalendarSync"];
+    }
 }
 
 - (void)didReceiveMemoryWarning

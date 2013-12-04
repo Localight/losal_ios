@@ -257,7 +257,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"Reload" object:self];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"updateUserDisplay" object:self];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"updateNotices" object:self];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"DissmisView" object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"loggedInDismiss" object:self];
 
         }
         else {

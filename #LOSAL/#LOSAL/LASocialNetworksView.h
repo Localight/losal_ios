@@ -17,8 +17,6 @@ typedef enum SocialNetworkType : NSInteger {
 @interface LASocialNetworksView : UIView <LASocialManagerDelegate>
 
 - (id)initWithFrame:(CGRect)frame socialNetworkType:(SocialNetworkType)socialNetworkType;
-
 - (void)show;
-- (void)hide;
 
 @end

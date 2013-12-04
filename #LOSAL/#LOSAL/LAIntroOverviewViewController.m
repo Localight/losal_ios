@@ -67,6 +67,12 @@
 - (void)wantsToCloseView
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    double delayInSeconds = 0.5;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"didDismissLogin" object:nil];
+    });
 }
 
 @end

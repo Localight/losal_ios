@@ -73,32 +73,32 @@
 
 - (IBAction)instagramButton:(id)sender
 {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"http://instagram.com/LosAlamitosHigh"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://instagram.com/LosAlamitosHigh"]];
 }
 
 - (IBAction)flickrButton:(id)sender
 {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"http://www.flickr.com/photos/97669165@N06/"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.flickr.com/photos/97669165@N06/"]];
 }
 
 - (IBAction)facebookButton:(id)sender
 {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"http://www.facebook.com/losalamitoshighschool"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.facebook.com/losalamitoshighschool"]];
 }
 
 - (IBAction)twitterButton:(id)sender
 {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"https://twitter.com/LosAlamitosHigh"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://twitter.com/LosAlamitosHigh"]];
 }
 
 - (IBAction)youtubeButton1:(id)sender
 {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"http://www.youtube.com/user/GriffinNews2013"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.youtube.com/user/GriffinNews2013"]];
 }
 
 - (IBAction)youtubeButton2:(id)sender
 {
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString: @"http://www.youtube.com/user/josharnold67"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.youtube.com/user/josharnold67"]];
 }
 
 @end

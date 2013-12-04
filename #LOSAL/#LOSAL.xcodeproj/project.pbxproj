@@ -155,6 +155,8 @@
 		C2C77B5518220FA0003201BD /* MoreOptions.html in Resources */ = {isa = PBXBuildFile; fileRef = C2C77B5418220FA0003201BD /* MoreOptions.html */; };
 		C2C77B571822127D003201BD /* localism-blk-smaller.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C77B561822127D003201BD /* localism-blk-smaller.png */; };
 		C2ECD6801838A04C005F4A3D /* click-sms-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECD67F1838A04C005F4A3D /* click-sms-icon.png */; };
+		C2FD8370184E753600ED8F86 /* LACalendarSyncView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FD836F184E753600ED8F86 /* LACalendarSyncView.m */; };
+		C2FD8372184E79AB00ED8F86 /* calendar-blue-dot.png in Resources */ = {isa = PBXBuildFile; fileRef = C2FD8371184E79AB00ED8F86 /* calendar-blue-dot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,6 +361,9 @@
 		C2C77B5418220FA0003201BD /* MoreOptions.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = MoreOptions.html; sourceTree = "<group>"; };
 		C2C77B561822127D003201BD /* localism-blk-smaller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "localism-blk-smaller.png"; sourceTree = "<group>"; };
 		C2ECD67F1838A04C005F4A3D /* click-sms-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "click-sms-icon.png"; sourceTree = "<group>"; };
+		C2FD836E184E753600ED8F86 /* LACalendarSyncView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LACalendarSyncView.h; sourceTree = "<group>"; };
+		C2FD836F184E753600ED8F86 /* LACalendarSyncView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LACalendarSyncView.m; sourceTree = "<group>"; };
+		C2FD8371184E79AB00ED8F86 /* calendar-blue-dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-blue-dot.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,8 +437,6 @@
 				6588D04217A4BCC500B6C498 /* LAFeedViewController.m */,
 				651F0C0E17B9FBC20018794A /* LAPostCell.h */,
 				651F0C0F17B9FBC20018794A /* LAPostCell.m */,
-				4358C00017BAF67700525BB8 /* LASocialNetworksView.h */,
-				4358C00117BAF67700525BB8 /* LASocialNetworksView.m */,
 			);
 			name = "Main Feed";
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 			isa = PBXGroup;
 			children = (
 				6525769B17E791F700BA43F7 /* LOSAL App Icon [Squared] */,
+				C2FD8371184E79AB00ED8F86 /* calendar-blue-dot.png */,
 				65032EF817DA7F30004683BB /* instagramSocialLink.png */,
 				65032EF917DA7F30004683BB /* flickrSocialLink.png */,
 				65032EFA17DA7F30004683BB /* facebookSocialLink.png */,
@@ -801,6 +805,10 @@
 				43397B4717B95FBB003F4977 /* LALoginViewController.m */,
 				44C777CB17D66EBB0062FDF4 /* LAIntroOverviewViewController.h */,
 				44C777CC17D66EBB0062FDF4 /* LAIntroOverviewViewController.m */,
+				4358C00017BAF67700525BB8 /* LASocialNetworksView.h */,
+				4358C00117BAF67700525BB8 /* LASocialNetworksView.m */,
+				C2FD836E184E753600ED8F86 /* LACalendarSyncView.h */,
+				C2FD836F184E753600ED8F86 /* LACalendarSyncView.m */,
 			);
 			name = "On-Boarding ";
 			sourceTree = "<group>";
@@ -945,6 +953,7 @@
 				43BE533117C2EE15008BE0E7 /* dark-griffin-dance-bg-1.png in Resources */,
 				43BE533517C3BA9A008BE0E7 /* Default-568h@2x.png in Resources */,
 				65951E2017EFAE790072A2C3 /* gradient-iphone4.png in Resources */,
+				C2FD8372184E79AB00ED8F86 /* calendar-blue-dot.png in Resources */,
 				6525769A17E787EA00BA43F7 /* gradientlosal2.png in Resources */,
 				43BE533717C3BB36008BE0E7 /* Default@2x.png in Resources */,
 				43BE533917C3BB96008BE0E7 /* Default.png in Resources */,
@@ -1048,6 +1057,7 @@
 				C246F3E7182F663B00F58C2C /* UIImage+Resize.m in Sources */,
 				43F9621F17CBD003006F9AF4 /* LANoticeViewController.m in Sources */,
 				C246F3EC182F66FC00F58C2C /* UIImage+Alpha.m in Sources */,
+				C2FD8370184E753600ED8F86 /* LACalendarSyncView.m in Sources */,
 				43F9622517CC0E38006F9AF4 /* LAHashtagAndPost.m in Sources */,
 				654A737A17CD4F24009A28B3 /* LADetailNoticeViewController.m in Sources */,
 				650B6B2F17CE740300F93BBD /* LAAboutViewController.m in Sources */,

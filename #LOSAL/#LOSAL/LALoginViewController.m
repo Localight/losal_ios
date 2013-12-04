@@ -10,6 +10,7 @@
 #import "LAStoreManager.h"
 #import "LAAppDelegate.h"
 #import "KeychainItemWrapper.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LALoginViewController ()
 
@@ -46,13 +47,13 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receivedDismissNotification:)
-                                                 name:@"DissmisView"
+                                                 name:@"loggedInDismiss"
                                                object:nil];
 }
 
 - (IBAction)closeButtonPressed:(id)sender
 {
-    [[self delegate] wantsToCloseView];
+    [self.delegate wantsToCloseView];
 }
 
 - (IBAction)verifyUser:(id)sender
@@ -132,16 +133,9 @@
     [[self view]endEditing:YES];
 }
 
-- (void)dismiss
-{
-    self.appDelegate.loginViewController = nil;
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)receivedDismissNotification:(NSNotification *) notification
 {
-    if ([[notification name] isEqualToString:@"DissmisView"]) {
+    if ([[notification name] isEqualToString:@"loggedInDismiss"]) {
         [self.delegate wantsToCloseView];
         [[NSNotificationCenter defaultCenter] removeObserver:self];
     }
