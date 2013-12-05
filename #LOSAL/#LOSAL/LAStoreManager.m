@@ -221,13 +221,12 @@
     NSData *requestData = [NSData dataWithBytes:[requestString UTF8String]length:[requestString length]];
     [request setHTTPBody:requestData];
     
+    __weak typeof(self)weakSelf = self;
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:queue
                            completionHandler:^(NSURLResponse *response, NSData *reply, NSError *error) {
-        NSString *replyString = [[NSString alloc] initWithBytes:[reply bytes]
-                                                         length:[reply length]
-                                                       encoding: NSASCIIStringEncoding];
-        NSLog(@"Reply: %@", replyString);
+                               // we've successfully sent the text message request, so mark state as awaiting confirmation
+                               weakSelf.awaitingTextMessageLoginResponse = YES;
     }];
 }
 
@@ -237,6 +236,7 @@
                                                                             accessGroup:nil];
     //TODO: come back to and make all of the user attributes NSDefualts.
     
+    __weak typeof(self)weakSelf = self;
     [PFUser logInWithUsernameInBackground:[keychainItem objectForKey:(__bridge id)kSecAttrAccount]
                                  password:[keychainItem objectForKey:(__bridge id)(kSecValueData)]
                                     block:^(PFUser *user, NSError *error) {
@@ -259,6 +259,8 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"updateNotices" object:self];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"loggedInDismiss" object:self];
 
+            // we've successfully logged the user in, so mark the state as no longer awaiting confirmation
+            weakSelf.awaitingTextMessageLoginResponse = NO;
         }
         else {
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"

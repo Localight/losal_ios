@@ -74,6 +74,10 @@
     KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin"
                                                                             accessGroup:nil];
     
+    // return early if the app isn't awaiting login/setup
+    if (![[LAStoreManager defaultStore] awaitingTextMessageLoginResponse])
+        return YES;
+    
     [keychainItem setObject:pinString forKey:(__bridge id)kSecValueData];
     
     [[LAStoreManager defaultStore] loginWithPhoneNumber];

@@ -25,6 +25,8 @@
 @property (nonatomic, strong) LASettings *settings;
 @property (nonatomic, strong) LAUser *currentUser;
 
+@property BOOL awaitingTextMessageLoginResponse;
+
 + (LAStoreManager *)defaultStore;
 
 - (void)fetchFromDate:(NSDate *)aDate matchingHashtagFilter:(NSString *)hashtagFilter;
