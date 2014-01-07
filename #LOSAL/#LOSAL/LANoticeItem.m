@@ -9,57 +9,48 @@
 #import "LANoticeItem.h"
 
 @implementation LANoticeItem
+
 - (id)initWithnoticeObject:(PFObject *)object
                NoticeTitle:(NSString *)title
              noticeContent:(NSString *)content
 {
     self = [super init];
-    
-    // Did the superclass's designated initializer succeed?
-    if(self) {
-        // Give the instance variables initial values
+    if (self) {
         [self setPostObject:object];
         [self setNoticeTitle:title];
         [self setNoticeContent:content];
-        
-        
-       //fill in date when you know where you are getting it from.
     }
-    
-    // Return the address of the newly initialized object
-    return self;
 
+    return self;
 }
+
 - (UIImage *)thumbnail
 {
-    // If there is no thumbnailData, then I have no thumbnail to return
-    if (!_thumbnailData) {
+    if (!_thumbnailData)
         return nil;
-    }
-    // If i have not yet created my thumbnail image from my data, do so now.
-    if (!_thumbnail) {
+
+    if (!_thumbnail)
         // create the image from the data
         _thumbnail = [UIImage imageWithData:_thumbnailData];
-    }
+
     return _thumbnail;
 }
+
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:_noticeTitle forKey:@"noticeTitle"];
     [aCoder encodeObject:_noticeContent forKey:@"noticeContent"];
     [aCoder encodeObject:_imageKey forKey:@"imageKey"];
     [aCoder encodeObject:_thumbnailData forKey:@"thumbnailData"];
-    
 }
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         [self setNoticeTitle:[aDecoder decodeObjectForKey:@"noticeTitle"]];
         [self setNoticeContent:[aDecoder decodeObjectForKey:@"noticeContent"]];
         [self setImageKey:[aDecoder decodeObjectForKey:@"imageKey"]];
-       // _dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
         _thumbnailData = [aDecoder decodeObjectForKey:@"thumbnailData"];
     }
     return self;
@@ -106,10 +97,6 @@
     
     // Cleanup image context resources, we're done
     UIGraphicsEndImageContext();
-}
-- (void)dealloc
-{
-    NSLog(@"Destroyed: %@ ", self);
 }
 
 @end

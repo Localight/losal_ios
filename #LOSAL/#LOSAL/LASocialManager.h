@@ -38,6 +38,7 @@
 - (void)instagramLogin;
 - (void)instagramLogout;
 - (void)instagramUnLikePost:(NSString *)postID;
+
 @end
 
 @protocol LASocialManagerDelegate <NSObject>
@@ -55,6 +56,7 @@
 - (void)instagramDidLogout;
 - (void)instagramDidReceiveAnError;
 - (void)instagramDidLoad:(id)result;
+
 @end
 
 

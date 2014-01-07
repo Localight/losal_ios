@@ -12,20 +12,20 @@
 @interface LASocialNetworksView () 
 
 @property (nonatomic, strong) LASocialManager *socialManager;
-@property (nonatomic, strong) UIButton *instagramButton;
-
-- (void)instagram;
+@property SocialNetworkType socialNetwork;
 
 @end
 
 @implementation LASocialNetworksView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame socialNetworkType:(SocialNetworkType)socialNetworkType
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.alpha = 0;
-        self.backgroundColor = [UIColor blackColor];
+        self.socialNetwork = socialNetworkType;
+        
+        self.alpha = 0.5;
+        self.backgroundColor = [UIColor colorWithRed:0.22f green:0.22f blue:0.22f alpha:1.00f];
         
         self.layer.cornerRadius = 10;
         self.layer.masksToBounds = YES;
@@ -34,61 +34,82 @@
         self.socialManager = [LASocialManager sharedManager];
         self.socialManager.delegate = self;
         
-        // Title Label
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, frame.size.width-40, 20)];
-        label.text = @"Activate your social networks";
+        NSString *socialTitle = nil;
+        NSString *socialIconFileName = nil;
+        
+        if (self.socialNetwork == SocialNetwork_Instagram) {
+            socialTitle = @"Connect Instagram";
+            socialIconFileName = @"instagramSocialLink";
+        }
+        else if (self.socialNetwork == SocialNetwork_Twitter) {
+            socialTitle = @"Connect Twitter";
+            socialIconFileName = @"twitterSocialLink";
+        }
+        
+        // title Label
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(55, 25, 170, 20)];
+        label.text = socialTitle;
         [label setBackgroundColor:[UIColor clearColor]];
         label.textAlignment = NSTextAlignmentCenter;
         [label setTextColor:[UIColor whiteColor]];
-        [label setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+        [label setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:15]];
         [self addSubview:label];
         
-        // Blue line 1
-        UIView *blueLine1 = [[UIView alloc] initWithFrame:CGRectMake(40, 40, frame.size.width-80, 1)];
-        [blueLine1 setBackgroundColor:[UIColor blueColor]];
-        [self addSubview:blueLine1];
+        // social icon
+        UIImageView *socialIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:socialIconFileName]];
+        CGSize socialIconSize = CGSizeMake(46, 46);
+        socialIcon.frame = CGRectMake(frame.size.width/2 - socialIconSize.width/2, 53, socialIconSize.width, socialIconSize.height);
+        [self addSubview:socialIcon];
         
-        // Instagram
-        self.instagramButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.instagramButton.frame = CGRectMake(frame.size.width/2, 55, frame.size.width/2 - 20, 40);
-        [self.instagramButton setTitle:@"Instagram" forState:UIControlStateNormal];
-        [self.instagramButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-        [self setButton:self.instagramButton active:[self.socialManager instagramSessionIsValid]];
-        [self.instagramButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:17]];
-        [self.instagramButton addTarget:self action:@selector(instagram) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:self.instagramButton];
+        // bounding box tap button for social label + logo
+        UIButton *boundingBox = [UIButton buttonWithType:UIButtonTypeCustom];
+        boundingBox.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.size.width, 80);
+        [boundingBox setBackgroundColor:[UIColor clearColor]];
+        [boundingBox addTarget:self action:@selector(linkWithSocialService) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:boundingBox];
         
-        // Blue line 2
-        UIView *blueLine2 = [[UIView alloc] initWithFrame:CGRectMake(40, 110, frame.size.width-80, 1)];
-        [blueLine2 setBackgroundColor:[UIColor blueColor]];
-        [self addSubview:blueLine2];
+        // blue line
+        UIView *blueLine = [[UIView alloc] initWithFrame:CGRectMake(40, 110, frame.size.width-80, 1)];
+        [blueLine setBackgroundColor:[UIColor colorWithRed:0.20f green:0.71f blue:0.90f alpha:1.00f]];
+        [self addSubview:blueLine];
         
-        // Privacy note
-        UITextView *privacyView = [[UITextView alloc] initWithFrame:CGRectMake(30, 120, frame.size.width-60, 60)];
+        // privacy note
+        UITextView *privacyView = [[UITextView alloc] initWithFrame:CGRectMake(30, 115, frame.size.width-60, 60)];
         [privacyView setText:@"The #LOSAL APP uses Localism! to protect your privacy and unite our community. Your private information is not shared."];
         [privacyView setBackgroundColor:[UIColor clearColor]];
         [privacyView setTextAlignment:NSTextAlignmentCenter];
-        [privacyView setTextColor:[UIColor grayColor]];
+        [privacyView setTextColor:[UIColor whiteColor]];
         [privacyView setFont:[UIFont fontWithName:@"Roboto-Light" size:10]];
         [privacyView setEditable:NO];
         [self addSubview:privacyView];
         
-        // Close button
+        // close button
         UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        closeButton.frame = CGRectMake(10, 190, frame.size.width - 20, 35);
-        [closeButton setTitle:@"Close" forState:UIControlStateNormal];
-        [closeButton.titleLabel setFont:[UIFont fontWithName:@"Roboto-Light" size:15]];
+        closeButton.frame = CGRectMake(frame.size.width - 35, 10, 25, 25);
+        [closeButton setBackgroundImage:[UIImage imageNamed:@"183_x-circle"] forState:UIControlStateNormal];
         [closeButton addTarget:self action:@selector(hide) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:closeButton];
         
+        // Localism logo
+        UIImageView *localismLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"localism-wht-smaller"]];
+        CGSize localismLogoSize = CGSizeMake(150, 49);
+        localismLogo.frame = CGRectMake(frame.size.width/2 - localismLogoSize.width/2, 180, localismLogoSize.width, localismLogoSize.height);
+        [self addSubview:localismLogo];
     }
     return self;
 }
 
-#pragma UI Methods
+- (void)linkWithSocialService
+{
+    if (self.socialNetwork == SocialNetwork_Instagram)
+        [self linkInstagram];
+    else if (self.socialNetwork == SocialNetwork_Twitter)
+        [self linkTwitter];
+}
+
+#pragma mark UI Methods
 - (void)show
 {
-    NSLog(@"show");
     self.transform = CGAffineTransformMakeScale(0.1, 0.1);
     self.alpha = 0;
     
@@ -105,58 +126,89 @@
 
 - (void)hide
 {
-    NSLog(@"hide");
-    
     [UIView animateWithDuration:.4 animations:^{
         self.transform = CGAffineTransformMakeScale(0.1, 0.1);
         self.alpha = 0;
     }];
 }
-- (void)setButton:(UIButton *)button active:(BOOL)active {
-    dispatch_queue_t callerQueue = dispatch_get_main_queue();
-    dispatch_async(callerQueue, ^{
-        if (active) {
-            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
-        } else {
-            [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-        }
-    });
-}
 
-- (void)displayAlertMessage:(NSString *)alertMessage {
-    dispatch_queue_t callerQueue = dispatch_get_main_queue();
-    dispatch_async(callerQueue, ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!"
-                                                     message:alertMessage
-                                                    delegate:nil
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil];
-        [alertView show];
-    });
-}
-
-#pragma INSTAGRAM
-- (void)instagram {
-    if ([self.socialManager instagramSessionIsValid]) {
+- (void)linkInstagram
+{
+    if ([self.socialManager instagramSessionIsValid])
         [self.socialManager instagramLogout];
-    } else {
+    else
         [self.socialManager instagramLogin];
-    }
 }
-#pragma INSTAGRAM Delegates
-- (void)instagramDidLogin {
-    [self setButton:self.instagramButton active:YES];
+
+- (void)linkTwitter
+{
+    if ([self.socialManager twitterSessionIsValid])
+        [self.socialManager twitterLogout];
+    else
+        [self.socialManager twitterLogin];
 }
-- (void)instagramDidLogout {
-    [self setButton:self.instagramButton active:NO];
+
+#pragma mark Instagram Delegate Methods
+- (void)instagramDidLogin
+{
+    // we've successfully paired with Instagram, hide this view & report success
+    [self hide];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Connected to Instagram"
+                                                        message:@"You've successfully connected #LOSAL to Instagram."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
 }
-- (void)instagramDidLoad:(id)result {
-    NSLog(@"Received restul %@", result);
+
+- (void)instagramDidLogout
+{
+    // note: we're not currently handling Instagram logouts anywhere
 }
-- (void)instagramDidReceiveAnError {
-    [self displayAlertMessage:@"Something went wrong. Press OK and retry to try again."];
+
+- (void)instagramDidLoad:(id)result
+{
+    NSLog(@"Received result %@", result);
+}
+
+- (void)instagramDidReceiveAnError
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Instagram Failure"
+                                                        message:@"Failed to connect #LOSAL to Instagram."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+#pragma mark Twitter Delegate Methods
+- (void)twitterDidLogin
+{
+    // we've successfully paired with Twitter, hide this view & report success
+    [self hide];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Connected to Twitter"
+                                                        message:@"You've successfully connected #LOSAL to Twitter."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
+
+- (void)twitterDidLogout
+{
+    // note: we're not currently handling Twitter logouts anywhere
+}
+
+- (void)twitterDidReceiveAnError:(NSString *)errorMessage
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Twitter Failure"
+                                                        message:errorMessage
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+    [alertView show];
 }
 
 @end

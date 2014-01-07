@@ -16,20 +16,7 @@
 
 @interface LALoginViewController : UIViewController<UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *validUserLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mobileNumberPrompt;
-
 @property (nonatomic, weak) id<LALoginViewControllerDelegate>delegate;
-@property (weak, nonatomic) IBOutlet UIButton *verifyUserButton;
-
-@property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
-
 @property (nonatomic, copy) void (^dismissBlock)(void);
-- (IBAction)closeButtonPressed:(id)sender;
-- (IBAction)verifyUser:(id)sender;
-- (void)receivedDismissNotification:(NSNotification *) notification;
-- (IBAction)backgroundTapped:(id)sender;
-
-//- (void)loginWithPin:(NSString *)pin;
 
 @end

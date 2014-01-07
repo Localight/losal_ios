@@ -10,18 +10,4 @@
 
 @interface LASchoolLinksViewController : UIViewController
 
-- (IBAction)instagramButton:(id)sender;
-
-- (IBAction)flickrButton:(id)sender;
-
-- (IBAction)facebookButton:(id)sender;
-
-- (IBAction)twitterButton:(id)sender;
-
-- (IBAction)youtubeButton1:(id)sender;
-
-- (IBAction)youtubeButton2:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UINavigationItem *navyItem;
-
 @end

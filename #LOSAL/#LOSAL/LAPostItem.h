@@ -29,5 +29,4 @@
 @property (nonatomic, strong) NSString *prefix;
 @property (assign) BOOL isLikedByThisUser;
 
-
 @end

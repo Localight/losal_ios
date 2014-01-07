@@ -9,35 +9,32 @@
 #import "LALikesStore.h"
 #import "LAStoreManager.h"
 
+@interface LALikesStore ()
+
+@property (nonatomic, strong) NSMutableArray *likeItems;
+
+@end
+
 @implementation LALikesStore
 
 + (LALikesStore *)defaultStore
 {
-    static LALikesStore *defaultStore = nil;
-    if(!defaultStore)
-        defaultStore = [[super allocWithZone:nil] init];
+    static LALikesStore *_sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedInstance = [[LALikesStore alloc] init];
+    });
     
-    return defaultStore;
-}
-+ (id)allocWithZone:(NSZone *)zone
-{
-    return [self defaultStore];
+    return _sharedInstance;
 }
 
 - (id)init
 {
     self = [super init];
-    if (self)
-    {
-        likeItems = [[NSMutableArray alloc]init];
+    if (self) {
+        _likeItems = [[NSMutableArray alloc] init];
     }
     return self;
-}
-
-- (NSArray *)allLikeItems
-{
-    return likeItems;
-    
 }
 
 //TODO: rename this unlikepost, and change accordingly
@@ -53,6 +50,7 @@
         }
     }];
 }
+
 //TODO: consoalidate this to another part
 - (void)saveUsersLike:(PFObject *)postObject
 {
@@ -76,19 +74,17 @@
 #pragma mark Likes
 - (BOOL)doesThisUserLike:(NSString *)postID
 {
-    BOOL doesUserLikePost = [likeItems containsObject:postID];
+    BOOL doesUserLikePost = [self.likeItems containsObject:postID];
     
     return doesUserLikePost;
 }
 
-- (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock
+- (void)getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock
 {
     // Now get all likes for user if user is already set
     PFQuery *likesQuery = [PFQuery queryWithClassName:@"Likes"];
-    //         [query whereKey:@"username" equalTo:phoneNumber];
     
-    if ([[[LAStoreManager defaultStore]currentUser]userVerified])
-    {
+    if ([[[LAStoreManager defaultStore]currentUser]userVerified]) {
         [likesQuery whereKey:@"userID" equalTo:[PFUser currentUser]];
         
         [likesQuery findObjectsInBackgroundWithBlock:^(NSArray *likes, NSError *error) {
@@ -98,16 +94,14 @@
                 {
                     PFObject *post = [like objectForKey:@"postID"];
                     
-                    [likeItems addObject:[post objectId]];
+                    [self.likeItems addObject:[post objectId]];
                 }
                 completionBlock(error);
             }
         }];
-    } else{
+    } else {
         NSLog(@"user isn't verifed no ""likes"" for you");
     }
-    
 }
-
 
 @end

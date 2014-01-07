@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YMN-k4-Y3m">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Splash View Controller-->
@@ -72,7 +72,7 @@
         <scene sceneID="41t-83-9wZ">
             <objects>
                 <viewController storyboardIdentifier="Menu" id="5GZ-xr-NU4" customClass="LAMenuViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="F1D-DP-Fjb">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="F1D-DP-Fjb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,58 +109,35 @@
                                 <constraint firstItem="VRl-ak-blM" firstAttribute="leading" secondItem="M1H-DK-Zq0" secondAttribute="trailing" constant="8" symbolic="YES" id="xEY-HF-Rbl"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" id="KkT-1r-FX6">
-                            <rect key="frame" x="0.0" y="343" width="320" height="197"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="KkT-1r-FX6">
+                            <rect key="frame" x="0.0" y="387" width="320" height="197"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Los Alamitos High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-EM-GwR">
-                                    <rect key="frame" x="48" y="118" width="155" height="21"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="21" id="XTD-9v-RHq"/>
-                                        <constraint firstAttribute="width" constant="155" id="ie8-nO-hFN"/>
-                                    </constraints>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Los Alamitos High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWN-EM-GwR">
+                                    <rect key="frame" x="48" y="79" width="155" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Go Griffins!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weV-vp-pry">
-                                    <rect key="frame" x="77" y="134" width="98" height="21"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="98" id="XsT-X5-Z7F"/>
-                                        <constraint firstAttribute="height" constant="21" id="rQh-UN-s3V"/>
-                                    </constraints>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Go Griffins!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weV-vp-pry">
+                                    <rect key="frame" x="77" y="94" width="98" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yro-aE-uQb">
-                                    <rect key="frame" x="37" y="7" width="157" height="103"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="103" id="gaE-cu-Xc0"/>
-                                        <constraint firstAttribute="width" constant="157" id="m4w-xD-CQB"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" image="griffin-mascot.png">
-                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMX-np-CUa">
+                                    <rect key="frame" x="59" y="0.0" width="117" height="75"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" image="griffin-mascot-small.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
-                                    <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
                                     <connections>
-                                        <action selector="toSite:" destination="5GZ-xr-NU4" eventType="touchUpInside" id="uUK-dd-rSM"/>
+                                        <action selector="toSite:" destination="5GZ-xr-NU4" eventType="touchUpInside" id="cbB-pA-FVr"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="weV-vp-pry" secondAttribute="bottom" constant="42" id="4Jw-Pw-1mE"/>
-                                <constraint firstItem="weV-vp-pry" firstAttribute="centerX" secondItem="aWN-EM-GwR" secondAttribute="centerX" id="8wA-1x-WTI"/>
-                                <constraint firstItem="aWN-EM-GwR" firstAttribute="leading" secondItem="KkT-1r-FX6" secondAttribute="leading" constant="48" id="9yL-fa-dc2"/>
-                                <constraint firstItem="Yro-aE-uQb" firstAttribute="leading" secondItem="KkT-1r-FX6" secondAttribute="leading" constant="38" id="K84-Ep-fGS"/>
-                                <constraint firstItem="Yro-aE-uQb" firstAttribute="top" secondItem="KkT-1r-FX6" secondAttribute="top" constant="12" id="QgR-4T-nrS"/>
-                                <constraint firstAttribute="bottom" secondItem="aWN-EM-GwR" secondAttribute="bottom" constant="58" id="XRt-nW-xNL"/>
-                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Feed" id="pEq-GW-5WG">
@@ -263,8 +240,41 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Socrative" id="3aM-NI-0Gi">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Calendar" id="cAI-su-59U">
                                 <rect key="frame" x="0.0" y="211" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cAI-su-59U" id="qfh-si-jfa">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" restorationIdentifier="" text="Calendar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTc-xD-32b">
+                                            <rect key="frame" x="63" y="11" width="142" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="142" id="6n0-Y2-mjx"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="calendar-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="K7Y-Uv-A4h">
+                                            <rect key="frame" x="20" y="4" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="Wdk-gr-M2O"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="K7Y-Uv-A4h" firstAttribute="leading" secondItem="qfh-si-jfa" secondAttribute="leading" constant="20" symbolic="YES" id="25e-lT-few"/>
+                                        <constraint firstItem="sTc-xD-32b" firstAttribute="leading" secondItem="K7Y-Uv-A4h" secondAttribute="trailing" constant="11" id="AOs-E7-fqy"/>
+                                        <constraint firstItem="K7Y-Uv-A4h" firstAttribute="top" secondItem="qfh-si-jfa" secondAttribute="top" constant="4" id="RJU-uZ-8FI"/>
+                                        <constraint firstItem="K7Y-Uv-A4h" firstAttribute="centerY" secondItem="qfh-si-jfa" secondAttribute="centerY" id="bgd-Ac-ILJ"/>
+                                        <constraint firstItem="sTc-xD-32b" firstAttribute="top" secondItem="qfh-si-jfa" secondAttribute="top" constant="12" id="mf8-9C-dlG"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Socrative" id="3aM-NI-0Gi">
+                                <rect key="frame" x="0.0" y="255" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3aM-NI-0Gi" id="HX2-JB-gge">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -297,7 +307,7 @@
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Edmodo" id="umy-Jj-lN8">
-                                <rect key="frame" x="0.0" y="255" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="299" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="umy-Jj-lN8" id="ScQ-k5-sRs">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -332,7 +342,7 @@
                                 </constraints>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="About" id="usm-Vc-6mR">
-                                <rect key="frame" x="0.0" y="299" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="343" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="usm-Vc-6mR" id="kI5-gX-V1F">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -363,7 +373,6 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="namViewContainter" destination="OD9-Lh-Lsj" id="0Y4-gi-VKD"/>
                         <outlet property="tableView" destination="F1D-DP-Fjb" id="YRM-zi-XYi"/>
                         <outlet property="userIcon" destination="M1H-DK-Zq0" id="rDd-J3-yiz"/>
                         <outlet property="userNameLabel" destination="VRl-ak-blM" id="fFF-hW-FaJ"/>
@@ -382,228 +391,10 @@
                         <viewControllerLayoutGuide type="bottom" id="JzE-aD-1RU"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="2Hg-Hc-z42">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="3342"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqF-Dz-T4N">
-                                <rect key="frame" x="-1" y="44" width="320" height="3298"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Suggest A Feature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRm-tY-Ybj">
-                                        <rect key="frame" x="20" y="210" width="152" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="Oxx-dV-NeQ"/>
-                                            <constraint firstAttribute="width" constant="152" id="Vgu-Se-4l7"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8O-V4-jWK">
-                                        <rect key="frame" x="20" y="243" width="280" height="82"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <string key="text">We want to make the #LOSAL APP the #BestAppEver!  Have an idea?  Email us!("Email us" links to  losalappideas@localism.zendesk.com)</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                                    </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Need Help?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sx5-lE-14d">
-                                        <rect key="frame" x="20" y="333" width="152" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="1Ah-Fq-Dxj"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmr-Xk-0X3">
-                                        <rect key="frame" x="20" y="362" width="280" height="116"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="116" id="3rW-bf-1cw"/>
-                                            <constraint firstAttribute="width" constant="280" id="VTd-jZ-qhV"/>
-                                        </constraints>
-                                        <string key="text">If you're having issues with the app or not sure how to use it, please email us and describe the issue in detail.  Note: This link will send some non-personal diagnostic info about your phone so we can troubleshoot any issues.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                                    </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Safety and Security" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4X-1C-aaj">
-                                        <rect key="frame" x="20" y="486" width="152" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="osj-uk-IsD"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQv-0H-Or6">
-                                        <rect key="frame" x="20" y="515" width="280" height="1306"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="qjC-Ce-3vO"/>
-                                            <constraint firstAttribute="height" constant="1306" id="yG7-yZ-ADg"/>
-                                        </constraints>
-                                        <string key="text">Do you need to report an emergency?  
-Click to call 911 now.  
-
-Not an emergency? 
-If you see something, say something:
-Call 562-391-2193 to reach Los Al USD's campus safety. 
-
-#LOSAL APP security
-This app is built on Localism's CEP and has the following security features:
-Only members of the school community who have been verified have full access to app content (level 1 access).  This level of access only displays students using an obfuscated "persona" format (avatar, first name and last initial), and the posts do not link to the students' real social media profiles.  
-For posts to appear in the app, they must be:
-- Photos that are already publicly available on the internet from Twitter, Instagram or Facebook
-- Tagged with #losal
-- Submitted by verified students (in-person verification at school) 
-- From students who have successfully completed two-factor authentication for their smartphone
-
-Level 2 access is for verified parents, faculty and staff.  Verification for adults includes in-person verification, and two-factor smartphone authentication.  Adults have the ability to see all posts and the obfuscated persona of the student, but they do not have the ability to "like" or "favorite" posts. 
-
-Level 3 access is for non-verified app users. They only see a photo wall in the social feed. They do not see textual content of posts or the obfuscated persona.
-
-Privacy and server security
-Localism Inc.'s CEP is 100% FERPA-compliant meeting or exceeding applicable provisions of the Family Educational Rights and Privacy Act (FERPA), 20 U.S.C. 1232g. Privacy and security measures are in place to protect user data and data transfer. The privacy and security of student data is our first priority. 
-See our privacy policy for more information.
-
-Privacy policy (English)
-(links to http://localism.co/losalapp/privacy/english/ )
-
-Política de privacidad (Español)
-(Links to http://localism.co/losalapp/privacy/espanol/ )</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                                    </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Frequently asked questions." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsx-Ju-WkZ">
-                                        <rect key="frame" x="20" y="1829" width="203" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Jbq-R8-iIi"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QJ-x9-Hfu">
-                                        <rect key="frame" x="20" y="1858" width="280" height="999"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="280" id="Mm4-id-gP6"/>
-                                            <constraint firstAttribute="height" constant="999" id="VYx-pD-K3z"/>
-                                        </constraints>
-                                        <string key="text">How can I post to the app? 
-Verified students must do three things before posting to the app:  
-- Get verified at school (such as registration)
-- Confirm their phone by clicking a confirmation text message
-- Set their persona (avatar, etc.)
-- Activate at least one supported social network (only Twitter and Instagram are supported in this version, with Facebook to follow).
-
-Can parents submit posts to the app? 
-No, the social feed would probably be filled with parent posts and drown out student posts.  That said, a "parents corner" may be added to the app if there is interest.  You can vote for this feature and suggest others by emailing us! 
-(Links to losalappideas@localism.zendesk.com subject: Parents submitting to social feed)
-
-Can teachers submit posts to the app? 
-We are planning on it, and students have requested it. If you have want to voice your opinion, email us. 
-(Links to losalappideas@localism.zendesk.com Faculty submitting to social feed)
-
-Can the school see my other posts? 
-No. In fact only public posts that have been specifically tagged with #losal enter the system. The system does not index private posts.  That would be creepy!
-
-I made a post and submitted it by tagging it with #losal, but it didn't appear on the social feed. What gives?
-A variety of factors give more weight to post, and only posts that surpass a threshold are displayed in the feed. Weighting factors can include the amount of likes and relevance to selected campus keywords.  Additionally the platform ignores posts that contain common NSFS terms (Not Safe For School).  The purpose of the social feed is to connect the campus with posts from students about school life and activities.  The algorithm and automatic filtering has been tuned to yield these results. 
-
-</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
-                                    </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Copyright 2013 Localism Inc. All rights reserved." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24O-Pv-3ji">
-                                        <rect key="frame" x="36" y="3233" width="248" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="29" id="YUa-do-YlK"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="dr-arnold-wht2.png" translatesAutoresizingMaskIntoConstraints="NO" id="5Gm-SU-tGd">
-                                        <rect key="frame" x="94" y="2865" width="132" height="182"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="182" id="HGf-fn-OeF"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="localism-blk.png" translatesAutoresizingMaskIntoConstraints="NO" id="loc-hM-hyL">
-                                        <rect key="frame" x="25" y="6" width="259" height="55"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPn-6h-wiN">
-                                        <rect key="frame" x="98" y="3195" width="113" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="ReVerify Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="ReVerify:" destination="X02-i6-goS" eventType="touchUpInside" id="loo-uU-Vdf"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="lPG-hP-Kfe">
-                                        <rect key="frame" x="20" y="69" width="280" height="140"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <accessibility key="accessibilityConfiguration">
-                                            <accessibilityTraits key="traits" none="YES" link="YES" staticText="YES"/>
-                                        </accessibility>
-                                        <string key="text">The #LOSAL APP is managed as a service of Localism Inc. using the Localism! Community Engagement Platform (CEP).  Localism! is connecting and empowering local organizations through community-centric technology. 
-Learn more at Localism.co/schools</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="y4X-1C-aaj" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="486" id="2Mv-yv-qJX"/>
-                                    <constraint firstItem="v8O-V4-jWK" firstAttribute="top" secondItem="WRm-tY-Ybj" secondAttribute="bottom" constant="8" symbolic="YES" id="5YH-9Q-sCh"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="210" id="5fO-On-H0Y"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="sx5-lE-14d" secondAttribute="leading" id="6Qu-ja-ZfG"/>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="36" id="6p4-eP-IIn"/>
-                                    <constraint firstItem="Tsx-Ju-WkZ" firstAttribute="top" secondItem="JQv-0H-Or6" secondAttribute="bottom" constant="8" symbolic="YES" id="6zp-rd-WRj"/>
-                                    <constraint firstItem="y4X-1C-aaj" firstAttribute="top" secondItem="Hmr-Xk-0X3" secondAttribute="bottom" constant="8" symbolic="YES" id="95h-1S-wn4"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="Hmr-Xk-0X3" secondAttribute="leading" id="Cgb-iv-kpA"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="v8O-V4-jWK" secondAttribute="leading" id="Ddr-y5-RTl"/>
-                                    <constraint firstItem="Hmr-Xk-0X3" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" id="FJY-1r-00N"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="94" id="Fgf-vI-f9t"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="y4X-1C-aaj" secondAttribute="leading" id="GPd-Rq-lDT"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="3QJ-x9-Hfu" secondAttribute="leading" id="I0f-OL-ktG"/>
-                                    <constraint firstAttribute="trailing" secondItem="JQv-0H-Or6" secondAttribute="trailing" constant="20" id="JC1-Rr-yfE"/>
-                                    <constraint firstAttribute="trailing" secondItem="3QJ-x9-Hfu" secondAttribute="trailing" constant="20" id="JKi-Ub-8KN"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="centerX" secondItem="mqF-Dz-T4N" secondAttribute="centerX" id="JMJ-n1-6aJ"/>
-                                    <constraint firstItem="JQv-0H-Or6" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" id="MDI-ns-JqP"/>
-                                    <constraint firstAttribute="bottom" secondItem="WRm-tY-Ybj" secondAttribute="bottom" constant="3063" id="MJJ-Lw-EiR"/>
-                                    <constraint firstItem="loc-hM-hyL" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="6" id="Mga-vf-KCb"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="Tsx-Ju-WkZ" secondAttribute="leading" id="QhL-t3-AaU"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="trailing" secondItem="y4X-1C-aaj" secondAttribute="trailing" id="SJN-Uo-Lfy"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tsx-Ju-WkZ" secondAttribute="trailing" constant="97" id="TQc-ZQ-RhB"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="top" secondItem="3QJ-x9-Hfu" secondAttribute="bottom" constant="8" symbolic="YES" id="TaF-gz-fh2"/>
-                                    <constraint firstItem="loc-hM-hyL" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="25" id="Ud6-gL-lVP"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="top" secondItem="mqF-Dz-T4N" secondAttribute="top" constant="2865" id="V8M-g4-KaJ"/>
-                                    <constraint firstItem="5Gm-SU-tGd" firstAttribute="centerX" secondItem="v8O-V4-jWK" secondAttribute="centerX" id="VJ9-8t-ev5"/>
-                                    <constraint firstAttribute="trailing" secondItem="Hmr-Xk-0X3" secondAttribute="trailing" constant="20" id="VrY-uj-JuW"/>
-                                    <constraint firstItem="DPn-6h-wiN" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="98" id="Wl7-aw-iVs"/>
-                                    <constraint firstItem="sx5-lE-14d" firstAttribute="top" secondItem="v8O-V4-jWK" secondAttribute="bottom" constant="8" symbolic="YES" id="XyP-fb-h4M"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" symbolic="YES" id="Ypx-uS-X7k"/>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="centerX" secondItem="5Gm-SU-tGd" secondAttribute="centerX" id="Z0l-9U-y02"/>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="trailing" secondItem="loc-hM-hyL" secondAttribute="trailing" id="ZpY-vv-5Mc"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="leading" secondItem="JQv-0H-Or6" secondAttribute="leading" id="apq-XL-Z2D"/>
-                                    <constraint firstItem="Hmr-Xk-0X3" firstAttribute="top" secondItem="sx5-lE-14d" secondAttribute="bottom" constant="8" symbolic="YES" id="dzV-nD-LFE"/>
-                                    <constraint firstItem="JQv-0H-Or6" firstAttribute="top" secondItem="y4X-1C-aaj" secondAttribute="bottom" constant="8" symbolic="YES" id="hF4-fi-4eb"/>
-                                    <constraint firstAttribute="trailing" secondItem="WRm-tY-Ybj" secondAttribute="trailing" constant="148" id="hUr-Q4-gkW"/>
-                                    <constraint firstItem="WRm-tY-Ybj" firstAttribute="trailing" secondItem="sx5-lE-14d" secondAttribute="trailing" id="m65-B4-PSL"/>
-                                    <constraint firstAttribute="bottom" secondItem="24O-Pv-3ji" secondAttribute="bottom" constant="36" id="pKv-DK-ph6"/>
-                                    <constraint firstItem="3QJ-x9-Hfu" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" constant="20" id="rvN-oD-1OC"/>
-                                    <constraint firstItem="24O-Pv-3ji" firstAttribute="top" secondItem="DPn-6h-wiN" secondAttribute="bottom" constant="8" symbolic="YES" id="ryy-7G-VOE"/>
-                                    <constraint firstItem="loc-hM-hyL" firstAttribute="centerX" secondItem="DPn-6h-wiN" secondAttribute="centerX" id="zcJ-eP-a5g"/>
-                                </constraints>
-                            </scrollView>
-                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-un-5ba">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcg-un-5ba">
                                 <rect key="frame" x="-1" y="0.0" width="323" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="NxM-mf-VwI"/>
@@ -612,32 +403,25 @@ Learn more at Localism.co/schools</string>
                                     <navigationItem title="Title" id="6yC-WG-VGS"/>
                                 </items>
                             </navigationBar>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fW-eO-dEG">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="X02-i6-goS" id="yD9-OV-pZp"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="mqF-Dz-T4N" secondAttribute="trailing" constant="1" id="08a-Nx-mpi"/>
-                            <constraint firstItem="mqF-Dz-T4N" firstAttribute="leading" secondItem="2Hg-Hc-z42" secondAttribute="leading" constant="-1" id="G0l-ge-Min"/>
                             <constraint firstItem="Qcg-un-5ba" firstAttribute="top" secondItem="2Hg-Hc-z42" secondAttribute="top" id="L9u-nW-bLO"/>
-                            <constraint firstItem="Qcg-un-5ba" firstAttribute="bottom" secondItem="mqF-Dz-T4N" secondAttribute="top" id="NbW-OS-f6N"/>
                             <constraint firstItem="Qcg-un-5ba" firstAttribute="centerX" secondItem="2Hg-Hc-z42" secondAttribute="centerX" id="WNY-Y0-AcZ"/>
-                            <constraint firstItem="Qcg-un-5ba" firstAttribute="leading" secondItem="mqF-Dz-T4N" secondAttribute="leading" id="WUR-DE-ext"/>
-                            <constraint firstItem="mqF-Dz-T4N" firstAttribute="centerY" secondItem="2Hg-Hc-z42" secondAttribute="centerY" constant="22" id="b1D-9o-gbZ"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="SafetySecurityLabel" destination="y4X-1C-aaj" id="0i2-MJ-mfW"/>
-                        <outlet property="copywriteLabel" destination="24O-Pv-3ji" id="WD7-aN-g98"/>
-                        <outlet property="faqLabel" destination="Tsx-Ju-WkZ" id="lPI-ai-Lgt"/>
-                        <outlet property="helpLabel" destination="sx5-lE-14d" id="d5T-me-Hrw"/>
-                        <outlet property="labelSuggestFeature" destination="WRm-tY-Ybj" id="WrS-ln-jHp"/>
                         <outlet property="navyItem" destination="6yC-WG-VGS" id="tnQ-9w-CuZ"/>
-                        <outlet property="paragraph2" destination="v8O-V4-jWK" id="yhg-Nm-wA8"/>
-                        <outlet property="paragraph3" destination="Hmr-Xk-0X3" id="hhN-y3-6Zy"/>
-                        <outlet property="paragraph4" destination="JQv-0H-Or6" id="ctO-3c-sMl"/>
-                        <outlet property="paragraph5" destination="3QJ-x9-Hfu" id="E78-nD-wHQ"/>
-                        <outlet property="prinicpalPhoto" destination="5Gm-SU-tGd" id="tv0-ki-7Ae"/>
-                        <outlet property="scroll" destination="mqF-Dz-T4N" id="vJG-cr-m3o"/>
+                        <outlet property="webView" destination="2fW-eO-dEG" id="zJl-yf-2Ho"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jiF-la-jQW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -733,17 +517,14 @@ Learn more at Localism.co/schools</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQ5-J7-98p">
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQ5-J7-98p">
                                 <rect key="frame" x="0.0" y="0.0" width="321" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="wzr-JR-mPV"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20v-Ti-dDD">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20v-Ti-dDD">
                                 <rect key="frame" x="20" y="60" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="Y8o-v2-bNb"/>
-                                </constraints>
                                 <state key="normal" backgroundImage="instagramSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -751,11 +532,8 @@ Learn more at Localism.co/schools</string>
                                     <action selector="instagramButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="Jlw-br-jZ7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-2W-6uO">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tei-2W-6uO">
                                 <rect key="frame" x="20" y="128" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Ke1-4N-cv3"/>
-                                </constraints>
                                 <state key="normal" backgroundImage="flickrSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -763,11 +541,8 @@ Learn more at Localism.co/schools</string>
                                     <action selector="flickrButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="HyX-vF-GW0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCX-xa-BJz">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCX-xa-BJz">
                                 <rect key="frame" x="20" y="195" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Q0c-j3-vU8"/>
-                                </constraints>
                                 <state key="normal" backgroundImage="facebookSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -775,7 +550,7 @@ Learn more at Localism.co/schools</string>
                                     <action selector="facebookButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="ZBg-po-Heg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doQ-eg-kbH">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doQ-eg-kbH">
                                 <rect key="frame" x="20" y="264" width="40" height="40"/>
                                 <state key="normal" backgroundImage="twitterSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -784,11 +559,8 @@ Learn more at Localism.co/schools</string>
                                     <action selector="twitterButton:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="sAz-GG-vNw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arC-nN-2iS">
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arC-nN-2iS">
                                 <rect key="frame" x="20" y="325" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="aRF-Se-V36"/>
-                                </constraints>
                                 <state key="normal" backgroundImage="youtubeSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -796,7 +568,7 @@ Learn more at Localism.co/schools</string>
                                     <action selector="youtubeButton1:" destination="yUa-Bh-pnl" eventType="touchUpInside" id="SZV-81-tfr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-Kp-IPd">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-Kp-IPd">
                                 <rect key="frame" x="20" y="390" width="40" height="40"/>
                                 <state key="normal" backgroundImage="youtubeSocialLink.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -856,28 +628,9 @@ Learn more at Localism.co/schools</string>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="20v-Ti-dDD" firstAttribute="top" secondItem="zQ5-J7-98p" secondAttribute="bottom" constant="16" id="24g-tB-Qyo"/>
-                            <constraint firstItem="arC-nN-2iS" firstAttribute="trailing" secondItem="7Vb-Kp-IPd" secondAttribute="trailing" id="9li-RB-F4x"/>
-                            <constraint firstItem="7Vb-Kp-IPd" firstAttribute="leading" secondItem="arC-nN-2iS" secondAttribute="leading" id="B1M-Ly-fmr"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="trailing" secondItem="arC-nN-2iS" secondAttribute="trailing" id="BM6-ii-09Y"/>
                             <constraint firstItem="zQ5-J7-98p" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" id="HG7-sL-jfi"/>
-                            <constraint firstItem="20v-Ti-dDD" firstAttribute="leading" secondItem="Tei-2W-6uO" secondAttribute="leading" id="IDn-Pb-Klr"/>
                             <constraint firstItem="zQ5-J7-98p" firstAttribute="centerX" secondItem="VEi-38-9Rk" secondAttribute="centerX" id="JIS-Ep-7FM"/>
-                            <constraint firstItem="Gr4-c3-o3k" firstAttribute="top" secondItem="7Vb-Kp-IPd" secondAttribute="bottom" constant="138" id="Myh-UB-Dxd"/>
-                            <constraint firstItem="Tei-2W-6uO" firstAttribute="top" secondItem="20v-Ti-dDD" secondAttribute="bottom" constant="28" id="N4C-dM-sDq"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="centerY" secondItem="VEi-38-9Rk" secondAttribute="centerY" id="NPG-vg-RGu"/>
-                            <constraint firstItem="7Vb-Kp-IPd" firstAttribute="top" secondItem="arC-nN-2iS" secondAttribute="bottom" constant="25" id="Qv5-WW-zEB"/>
-                            <constraint firstItem="VCX-xa-BJz" firstAttribute="leading" secondItem="doQ-eg-kbH" secondAttribute="leading" id="Rxx-xN-HqT"/>
-                            <constraint firstItem="20v-Ti-dDD" firstAttribute="leading" secondItem="VEi-38-9Rk" secondAttribute="leading" constant="20" symbolic="YES" id="XF2-Tn-Dak"/>
-                            <constraint firstItem="Tei-2W-6uO" firstAttribute="trailing" secondItem="VCX-xa-BJz" secondAttribute="trailing" id="a87-wB-O0E"/>
-                            <constraint firstItem="20v-Ti-dDD" firstAttribute="trailing" secondItem="Tei-2W-6uO" secondAttribute="trailing" id="dYc-fr-ffr"/>
-                            <constraint firstItem="arC-nN-2iS" firstAttribute="top" secondItem="doQ-eg-kbH" secondAttribute="bottom" constant="21" id="fXu-RZ-pGc"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="leading" secondItem="arC-nN-2iS" secondAttribute="leading" id="grz-h8-AFp"/>
-                            <constraint firstItem="Tei-2W-6uO" firstAttribute="leading" secondItem="VCX-xa-BJz" secondAttribute="leading" id="jkD-Ks-Yos"/>
                             <constraint firstItem="zQ5-J7-98p" firstAttribute="top" secondItem="VEi-38-9Rk" secondAttribute="top" id="lZj-QT-6QF"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="trailing" secondItem="VCX-xa-BJz" secondAttribute="trailing" id="p9N-c7-ZJ8"/>
-                            <constraint firstItem="doQ-eg-kbH" firstAttribute="top" secondItem="VCX-xa-BJz" secondAttribute="bottom" constant="29" id="t3x-aq-7j8"/>
-                            <constraint firstItem="VCX-xa-BJz" firstAttribute="top" secondItem="Tei-2W-6uO" secondAttribute="bottom" constant="27" id="um9-8W-Tdu"/>
                         </constraints>
                     </view>
                     <keyCommands/>
@@ -912,7 +665,7 @@ Learn more at Localism.co/schools</string>
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="358"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="HKZ-Gn-0BW">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="placeholder.png" translatesAutoresizingMaskIntoConstraints="NO" id="HKZ-Gn-0BW">
                                             <rect key="frame" x="10" y="48" width="300" height="300"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Qz-Qk-Ivo">
@@ -1079,7 +832,7 @@ Learn more at Localism.co/schools</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-pr-b8M">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZb-pr-b8M">
                                 <rect key="frame" x="260" y="20" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Wdz-zu-eZg"/>
@@ -1097,7 +850,7 @@ Learn more at Localism.co/schools</string>
                                     <action selector="closeButtonPressed:" destination="qcp-pC-bYb" eventType="touchUpInside" id="vVO-Ng-wh9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="The #LOSAL App has special features for verified members of the Los Alamitos High School Community." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="203" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-Um-gK1">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The #LOSAL App has special features for verified members of the Los Alamitos High School Community." lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="203" translatesAutoresizingMaskIntoConstraints="NO" id="I2p-Um-gK1">
                                 <rect key="frame" x="20" y="20" width="203" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="mfN-Lv-6qs"/>
@@ -1107,33 +860,22 @@ Learn more at Localism.co/schools</string>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Get the full experience! Enter your mobile number." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-NR-7EO">
-                                <rect key="frame" x="20" y="211" width="280" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="9wM-dU-Cxw"/>
-                                    <constraint firstAttribute="height" constant="65" id="Olr-YV-u6q"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="Qph-0F-EMd"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Get the full experience! Enter your mobile number." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="EzY-NR-7EO">
+                                <rect key="frame" x="20" y="134" width="280" height="65"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="(XXX) XXX-XXXX" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JZ4-uw-F2o">
-                                <rect key="frame" x="20" y="294" width="280" height="53"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="(XXX) XXX-XXXX" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZ4-uw-F2o">
+                                <rect key="frame" x="20" y="206" width="185" height="53"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="awV-JW-ItU"/>
-                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7r-hl-sHc">
-                                <rect key="frame" x="97" y="397" width="126" height="47"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7r-hl-sHc">
+                                <rect key="frame" x="213" y="207" width="87" height="52"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="i33-3d-iys"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Verify">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1146,21 +888,15 @@ Learn more at Localism.co/schools</string>
                                     <action selector="verifyUser:" destination="qcp-pC-bYb" eventType="touchUpInside" id="2GA-wX-oDu"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="click-sms-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="q95-Aj-doh">
+                                <rect key="frame" x="100" y="279" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eZb-pr-b8M" firstAttribute="trailing" secondItem="JZ4-uw-F2o" secondAttribute="trailing" id="5dO-0Z-rRS"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="centerX" secondItem="JZ4-uw-F2o" secondAttribute="centerX" id="IRn-2m-afn"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="97" id="RaT-Mk-txL"/>
-                            <constraint firstItem="EzY-NR-7EO" firstAttribute="top" secondItem="I2p-Um-gK1" secondAttribute="bottom" constant="71" id="YU6-p5-fOM"/>
-                            <constraint firstItem="JZ4-uw-F2o" firstAttribute="top" secondItem="EzY-NR-7EO" secondAttribute="bottom" constant="18" id="aQJ-Ue-4iu"/>
                             <constraint firstItem="I2p-Um-gK1" firstAttribute="top" secondItem="ReM-FO-bdQ" secondAttribute="top" constant="20" symbolic="YES" id="aTu-Ta-I8K"/>
-                            <constraint firstItem="JZ4-uw-F2o" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="20" symbolic="YES" id="b5s-i5-GPR"/>
-                            <constraint firstItem="EzY-NR-7EO" firstAttribute="leading" secondItem="ReM-FO-bdQ" secondAttribute="leading" constant="20" id="eIK-RM-sZN"/>
                             <constraint firstItem="eZb-pr-b8M" firstAttribute="leading" secondItem="I2p-Um-gK1" secondAttribute="trailing" constant="37" id="ekt-X7-PX7"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="trailing" secondItem="I2p-Um-gK1" secondAttribute="trailing" id="g82-DE-c7c"/>
-                            <constraint firstAttribute="trailing" secondItem="EzY-NR-7EO" secondAttribute="trailing" constant="20" id="gSb-95-0dm"/>
-                            <constraint firstItem="y7r-hl-sHc" firstAttribute="top" secondItem="JZ4-uw-F2o" secondAttribute="bottom" constant="50" id="n3a-r2-WhZ"/>
                             <constraint firstItem="eZb-pr-b8M" firstAttribute="top" secondItem="I2p-Um-gK1" secondAttribute="top" id="wgC-me-SmI"/>
                             <constraint firstAttribute="trailing" secondItem="eZb-pr-b8M" secondAttribute="trailing" constant="20" symbolic="YES" id="zrV-xE-Nxm"/>
                         </constraints>
@@ -1170,6 +906,7 @@ Learn more at Localism.co/schools</string>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="messageTouchImage" destination="q95-Aj-doh" id="A7s-5K-Ar3"/>
                         <outlet property="mobileNumberPrompt" destination="EzY-NR-7EO" id="whS-Fy-xHx"/>
                         <outlet property="phoneNumber" destination="JZ4-uw-F2o" id="a51-a0-SEA"/>
                         <outlet property="validUserLabel" destination="I2p-Um-gK1" id="15k-2e-ekG"/>
@@ -1184,7 +921,7 @@ Learn more at Localism.co/schools</string>
         <scene sceneID="IsI-72-gIS">
             <objects>
                 <tableViewController storyboardIdentifier="Notices" title="Notices" id="eGL-aH-Myv" customClass="LANoticeViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="oAp-yk-z9U">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="77" sectionHeaderHeight="22" sectionFooterHeight="22" id="oAp-yk-z9U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1196,56 +933,31 @@ Learn more at Localism.co/schools</string>
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z03-rm-Ql6">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Z03-rm-Ql6">
                                             <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="2nF-AQ-Q5D"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title of Notice" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysl-2W-F9I">
-                                            <rect key="frame" x="78" y="0.0" width="222" height="26"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Title of Notice" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="172" translatesAutoresizingMaskIntoConstraints="NO" id="Ysl-2W-F9I">
+                                            <rect key="frame" x="78" y="0.0" width="172" height="67"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="first line of post" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="222" translatesAutoresizingMaskIntoConstraints="NO" id="rUX-GF-XeA">
-                                            <rect key="frame" x="78" y="26" width="222" height="38"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="38" id="BG4-eB-3zB"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huc-Or-VRz">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="320" id="dEW-kE-htd"/>
-                                            </constraints>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huc-Or-VRz">
+                                            <rect key="frame" x="0.0" y="0.0" width="270" height="77"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="Ysl-2W-F9I" firstAttribute="leading" secondItem="Z03-rm-Ql6" secondAttribute="trailing" constant="8" symbolic="YES" id="3CF-ei-TL3"/>
-                                        <constraint firstItem="Ysl-2W-F9I" firstAttribute="top" secondItem="huc-Or-VRz" secondAttribute="top" id="9Yw-ZD-472"/>
-                                        <constraint firstItem="huc-Or-VRz" firstAttribute="leading" secondItem="Z03-rm-Ql6" secondAttribute="leading" id="BYx-nr-ZMn"/>
-                                        <constraint firstItem="rUX-GF-XeA" firstAttribute="top" secondItem="Ysl-2W-F9I" secondAttribute="bottom" id="K78-Y8-FPG"/>
-                                        <constraint firstItem="Ysl-2W-F9I" firstAttribute="top" secondItem="Z03-rm-Ql6" secondAttribute="top" id="cDD-fx-aWD"/>
-                                        <constraint firstItem="huc-Or-VRz" firstAttribute="bottom" secondItem="Z03-rm-Ql6" secondAttribute="bottom" id="jdq-KU-plk"/>
-                                        <constraint firstItem="Ysl-2W-F9I" firstAttribute="trailing" secondItem="rUX-GF-XeA" secondAttribute="trailing" id="wUt-f5-kQa"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <constraints>
                                     <constraint firstItem="Z03-rm-Ql6" firstAttribute="bottom" secondItem="gU2-GG-zgj" secondAttribute="bottom" id="4Rf-ED-nI7"/>
                                     <constraint firstItem="Z03-rm-Ql6" firstAttribute="top" secondItem="gU2-GG-zgj" secondAttribute="top" id="L2W-MX-1nu"/>
-                                    <constraint firstItem="rUX-GF-XeA" firstAttribute="top" secondItem="gU2-GG-zgj" secondAttribute="top" constant="26" id="Uhs-DZ-uUN"/>
-                                    <constraint firstItem="rUX-GF-XeA" firstAttribute="leading" secondItem="Z03-rm-Ql6" secondAttribute="trailing" constant="8" symbolic="YES" id="ZpN-Wl-pol"/>
                                     <constraint firstItem="Z03-rm-Ql6" firstAttribute="leading" secondItem="gU2-GG-zgj" secondAttribute="leading" id="iZG-Ci-yAy"/>
-                                    <constraint firstAttribute="trailing" secondItem="rUX-GF-XeA" secondAttribute="trailing" constant="20" id="xhv-yd-Lc7"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="adImage" destination="huc-Or-VRz" id="rvI-Z5-Kgm"/>
-                                    <outlet property="briefDescriptionLabel" destination="rUX-GF-XeA" id="cXy-Yi-iOc"/>
                                     <outlet property="thumbnailImage" destination="Z03-rm-Ql6" id="JeR-FB-6DS"/>
                                     <outlet property="titleLabel" destination="Ysl-2W-F9I" id="iLg-w5-rac"/>
                                 </connections>
@@ -1274,27 +986,24 @@ Learn more at Localism.co/schools</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEf-PS-nU3">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AEf-PS-nU3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crz-r1-G8Q">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="crz-r1-G8Q">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="265"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="265" id="oU4-N1-CL5"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="a3m-Mv-JdM">
-                                        <rect key="frame" x="20" y="273" width="280" height="27"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="285" translatesAutoresizingMaskIntoConstraints="NO" id="a3m-Mv-JdM">
+                                        <rect key="frame" x="15" y="273" width="285" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="27" id="LXX-z3-iNx"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6w8-4w-6JX">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6w8-4w-6JX">
                                         <rect key="frame" x="220" y="518" width="80" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
@@ -1303,9 +1012,12 @@ Learn more at Localism.co/schools</string>
                                         <state key="normal" title="Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="toLink:" destination="UaJ-BV-dCn" eventType="touchUpInside" id="Wrt-aX-kYK"/>
+                                        </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="285" translatesAutoresizingMaskIntoConstraints="NO" id="7vd-XX-nq3">
-                                        <rect key="frame" x="15" y="308" width="285" height="202"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="285" translatesAutoresizingMaskIntoConstraints="NO" id="7vd-XX-nq3">
+                                        <rect key="frame" x="15" y="302" width="285" height="208"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="202" id="2U0-Tk-kC0"/>
@@ -1318,16 +1030,9 @@ Learn more at Localism.co/schools</string>
                                 <constraints>
                                     <constraint firstItem="6w8-4w-6JX" firstAttribute="top" secondItem="7vd-XX-nq3" secondAttribute="bottom" constant="8" symbolic="YES" id="3HR-eN-Scc"/>
                                     <constraint firstItem="7vd-XX-nq3" firstAttribute="trailing" secondItem="6w8-4w-6JX" secondAttribute="trailing" id="6IK-3l-e4a"/>
-                                    <constraint firstItem="a3m-Mv-JdM" firstAttribute="leading" secondItem="AEf-PS-nU3" secondAttribute="leading" constant="20" symbolic="YES" id="9Se-rt-4AN"/>
-                                    <constraint firstItem="a3m-Mv-JdM" firstAttribute="top" secondItem="crz-r1-G8Q" secondAttribute="bottom" constant="8" symbolic="YES" id="B93-yQ-ou0"/>
-                                    <constraint firstItem="7vd-XX-nq3" firstAttribute="top" secondItem="a3m-Mv-JdM" secondAttribute="bottom" constant="8" symbolic="YES" id="I6P-dC-TWq"/>
-                                    <constraint firstItem="a3m-Mv-JdM" firstAttribute="centerX" secondItem="AEf-PS-nU3" secondAttribute="centerX" id="JNZ-vy-sCF"/>
                                     <constraint firstItem="7vd-XX-nq3" firstAttribute="leading" secondItem="AEf-PS-nU3" secondAttribute="leading" constant="15" id="JaB-wi-f7O"/>
                                     <constraint firstItem="crz-r1-G8Q" firstAttribute="leading" secondItem="AEf-PS-nU3" secondAttribute="leading" id="Puh-ND-g7h"/>
                                     <constraint firstAttribute="bottom" secondItem="6w8-4w-6JX" secondAttribute="bottom" constant="20" symbolic="YES" id="RjA-vS-8s3"/>
-                                    <constraint firstItem="crz-r1-G8Q" firstAttribute="centerX" secondItem="a3m-Mv-JdM" secondAttribute="centerX" id="oaF-z8-k6J"/>
-                                    <constraint firstAttribute="trailing" secondItem="a3m-Mv-JdM" secondAttribute="trailing" constant="20" symbolic="YES" id="pph-8P-urS"/>
-                                    <constraint firstItem="a3m-Mv-JdM" firstAttribute="trailing" secondItem="7vd-XX-nq3" secondAttribute="trailing" id="ynY-NW-2k3"/>
                                     <constraint firstItem="crz-r1-G8Q" firstAttribute="top" secondItem="AEf-PS-nU3" secondAttribute="top" id="zEo-Xw-M4o"/>
                                 </constraints>
                             </scrollView>
@@ -1368,22 +1073,19 @@ Learn more at Localism.co/schools</string>
     <resources>
         <image name="A-plus.png" width="104" height="103"/>
         <image name="Default.png" width="640" height="960"/>
-        <image name="Default.png" width="640" height="960"/>
-        <image name="Default.png" width="640" height="960"/>
+        <image name="calendar-icon.png" width="294" height="314"/>
+        <image name="click-sms-icon.png" width="180" height="180"/>
         <image name="close-circle.png" width="78" height="78"/>
-        <image name="dr-arnold-wht2.png" width="222" height="328"/>
         <image name="edmodo-logo.png" width="294" height="314"/>
         <image name="facebookSocialLink.png" width="92" height="92"/>
         <image name="flickrSocialLink.png" width="92" height="92"/>
-        <image name="griffin-mascot.png" width="581" height="374"/>
+        <image name="griffin-mascot-small.png" width="117" height="75"/>
         <image name="instagramSocialLink.png" width="92" height="92"/>
-        <image name="localism-blk.png" width="391" height="128"/>
         <image name="placeholder.png" width="450" height="450"/>
         <image name="school-links.png" width="120" height="133"/>
         <image name="social-icon.png" width="156" height="115"/>
         <image name="socrative-logo.png" width="294" height="314"/>
         <image name="twitterSocialLink.png" width="92" height="92"/>
-        <image name="youtubeSocialLink.png" width="92" height="91"/>
         <image name="youtubeSocialLink.png" width="92" height="91"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

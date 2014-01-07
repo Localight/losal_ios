@@ -8,11 +8,6 @@
 
 #import "LASplashViewController.h"
 
-
-//@interface LASplashViewController ()
-//
-//@end
-
 @implementation LASplashViewController
 
 - (void)viewDidLoad
@@ -22,6 +17,7 @@
     self.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Feed"];
     // this tells the splash screen which view to load after the app has loaded.
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

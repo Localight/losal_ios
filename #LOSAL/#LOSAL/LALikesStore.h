@@ -10,21 +10,12 @@
 #import <Parse/Parse.h>
 
 @interface LALikesStore : NSObject
-{
-    // contains an array of the post this user has liked
-    NSMutableArray *likeItems;
-}
 
 + (LALikesStore *)defaultStore;
 
-- (NSArray *)allLikeItems;
-
-- (void) getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock;
-//- (void)saveUsersSocialIDs;
-
+- (void)getUserLikesWithCompletion:(void(^)(NSError *error))completionBlock;
 - (void)saveUsersLike:(PFObject *)postObject;
-
 - (void)deleteUsersLike:(PFObject *)postObject;
-
 - (BOOL)doesThisUserLike:(NSString *)postID;
+
 @end

@@ -16,10 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *icon;
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 @property (weak, nonatomic) IBOutlet UILabel *messageArea;
-//@property (weak, nonatomic) IBOutlet UITextView *messageArea;
 @property (weak, nonatomic) IBOutlet UIImageView *likeImage;
 @property (weak, nonatomic) IBOutlet UIImageView *socialMediaImage;
 @property (weak, nonatomic) IBOutlet UIImageView *timeImage;
 
-- (IBAction)showImage:(id)sender;
 @end

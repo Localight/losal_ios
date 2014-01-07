@@ -7,27 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class LANoticeItem;
 
 @interface LANoticesStore : NSObject
-{
-    NSMutableArray *allItems;
-}
+
+@property (nonatomic, strong) NSMutableArray *allItems;
 
 + (LANoticesStore *)defaultStore;
 
-- (void)removeItem:(LANoticeItem *)p;
-
-- (NSArray *)allItems;
-
-//- (LANoticeItem *)createItem;
-
-- (void)moveItemAtIndex:(int)from
-                toIndex:(int)to;
-
-- (NSString *)itemArchivePath;
-
-- (BOOL)saveChanges;
-
 - (void)updateEntries;
+
 @end

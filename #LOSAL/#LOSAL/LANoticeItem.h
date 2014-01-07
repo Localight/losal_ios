@@ -8,13 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+
 @interface LANoticeItem : NSObject<NSCoding>
-{
-    
-}
-- (id)initWithnoticeObject:(PFObject *)object
-               NoticeTitle:(NSString *)title
-             noticeContent:(NSString *)content;
              
 @property (nonatomic, strong) NSString *noticeTitle;
 @property (nonatomic, strong) NSString *noticeContent;
@@ -25,8 +20,8 @@
 @property (nonatomic, strong) NSString *teaserText;
 @property (nonatomic, strong) NSString *startDate;
 @property (nonatomic, strong) NSString *endDate;
-@property (nonatomic) int isAnAd;
-@property (nonatomic, readonly, strong) NSDate *dateRecieved;//could also be dateMessageSent
+@property BOOL isAnAd;
+@property (nonatomic, readonly, strong) NSDate *dateRecieved;
 
 @property (nonatomic, strong) UIImage *thumbnail;
 
@@ -37,5 +32,11 @@
 @property (nonatomic, strong) NSString *noticeImageUrl;
 @property (nonatomic, strong) PFObject *postObject;
 @property (nonatomic, strong) PFFile *photoFile;
+
+- (id)initWithnoticeObject:(PFObject *)object
+               NoticeTitle:(NSString *)title
+             noticeContent:(NSString *)content;
+
 - (void)setThumbnailDataFromImage:(UIImage *)image;
+
 @end

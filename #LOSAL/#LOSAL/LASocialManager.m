@@ -15,7 +15,6 @@
 
 #define INSTAGRAM_ID @"64392b8719fb49f59f71213ed640fb68"
 
-//@property (strong, nonatomic) LAStoreManager *storeManager;
 @property (strong, nonatomic) Instagram *instagram;
 @property (nonatomic, strong) ACAccount *twitterAccount;
 @property (nonatomic, strong) ACAccount *facebookAccount;
@@ -32,6 +31,7 @@
     });
     return sharedMyManager;
 }
+
 - (id)init
 {
     if (self = [super init]) {
@@ -39,88 +39,61 @@
                                                     delegate:nil];
         self.instagram.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
         self.instagram.sessionDelegate = self;
-        
-//        self.storeManager = [LAStoreManager sharedManager];
     }
     return self;
 }
 
-#pragma - GENERAL
+#pragma mark - GENERAL
 - (BOOL)isSessionValidForNetwork:(NSString *)socialNetwork
 {
-   
-    if ([socialNetwork isEqualToString:@"Twitter"])
-    {
-        return [self twitterSessionIsValid];
-        
-    } else if ([socialNetwork isEqualToString:@"Facebook"])
-    {
-        return [self facebookSessionIsValid];
-        
-    } else if ([socialNetwork isEqualToString:@"Instagram"])
-    {
-        return [self instagramSessionIsValid];
-    }
+    if ([socialNetwork isEqualToString:@"Twitter"]) return [self twitterSessionIsValid];
+    if ([socialNetwork isEqualToString:@"Facebook"]) return [self facebookSessionIsValid];
+    return [socialNetwork isEqualToString:@"Instagram"] && [self instagramSessionIsValid];
 }
 
 - (void)likePostItem:(LAPostItem *)postItem
 {
     if ([postItem.socialNetwork isEqualToString:@"Twitter"])
-    {
         [self twitterFavoriteTweet:postItem.socialNetworkPostID];
-        
-    } else if ([postItem.socialNetwork isEqualToString:@"Facebook"])
-    {
+    else if ([postItem.socialNetwork isEqualToString:@"Facebook"])
         [self facebookLikePost:postItem.socialNetworkPostID];
-    } else if ([postItem.socialNetwork isEqualToString:@"Instagram"])
-    {
+    else if ([postItem.socialNetwork isEqualToString:@"Instagram"])
         [self instagramLikePost:postItem.socialNetworkPostID];
-    }
-}
-- (void)unLikePostItem:(LAPostItem *)postItem {
-    if ([postItem.socialNetwork isEqualToString:@"Twitter"]) {
-        [self twitterUnFavoriteTweet:postItem.socialNetworkPostID];
-    } else if ([postItem.socialNetwork isEqualToString:@"Facebook"]) {
-        [self facebookLikePost:postItem.socialNetworkPostID];
-    } else if ([postItem.socialNetwork isEqualToString:@"Instagram"]) {
-        [self instagramUnLikePost:postItem.socialNetworkPostID];
-    }
 }
 
-#pragma - TWITTER
+- (void)unLikePostItem:(LAPostItem *)postItem
+{
+    if ([postItem.socialNetwork isEqualToString:@"Twitter"])
+        [self twitterUnFavoriteTweet:postItem.socialNetworkPostID];
+    else if ([postItem.socialNetwork isEqualToString:@"Facebook"])
+        [self facebookLikePost:postItem.socialNetworkPostID];
+    else if ([postItem.socialNetwork isEqualToString:@"Instagram"])
+        [self instagramUnLikePost:postItem.socialNetworkPostID];
+}
+
+#pragma mark - TWITTER
 - (BOOL)twitterSessionIsValid
 {
-    bool isValid;
-    if ([[LAStoreManager defaultStore]currentUser].twitterUserID != nil){
-        isValid = YES;
-    } else {
-        isValid = NO;
-    }
-    return isValid;
+    return [[LAStoreManager defaultStore] currentUser].twitterUserID != nil;
 }
 
-- (void)twitterLogin {
+- (void)twitterLogin
+{
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-        //  Step 1:  Obtain access to the user's Twitter accounts
+        //  obtain access to the user's Twitter accounts
         ACAccountStore *accountStore = [[ACAccountStore alloc] init];
-        ACAccountType *twitterAccountType = [accountStore
-                                             accountTypeWithAccountTypeIdentifier:
-                                             ACAccountTypeIdentifierTwitter];
+        ACAccountType *twitterAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
 
         [accountStore requestAccessToAccountsWithType:twitterAccountType
                                               options:NULL
-                                           completion:^(BOOL granted, NSError *error)
-         {
+                                           completion:^(BOOL granted, NSError *error) {
              if (granted) {
-                 //  Step 2:  Create a request
-                 NSArray *twitterAccounts =
-                 [accountStore accountsWithAccountType:twitterAccountType];
-                 self.twitterAccount = [twitterAccounts objectAtIndex:0];
-                 [[LAStoreManager defaultStore]currentUser].twitterUserID = self.twitterAccount.username;
+                 NSArray *twitterAccounts = [accountStore accountsWithAccountType:twitterAccountType];
+                 self.twitterAccount = twitterAccounts[0];
                  
-//                 [[LAStoreManager sharedManager]getUser].twitterID = self.twitterAccount.username;
-                 // shouldn't need this with the changes i've made, but just incase.
-//                 [[LAStoreManager sharedManager]saveUsersSocialIDs];
+                 [[LAStoreManager defaultStore] currentUser].twitterDisplayName = self.twitterAccount.username;
+                 [[LAStoreManager defaultStore] currentUser].twitterUserID = self.twitterAccount.identifier;
+                 [[LAStoreManager defaultStore] saveUsersSocialIDs];
     
                  [self.delegate twitterDidLogin];
              } else {
@@ -131,19 +104,24 @@
     }
 }
 
--(void)twitterLogout {
+- (void)twitterLogout
+{
     self.twitterAccount = nil;
     [self.delegate twitterDidLogout];
 }
 
-- (void) twitterFavoriteTweet:(NSString *)tweetID {
+- (void)twitterFavoriteTweet:(NSString *)tweetID
+{
     [self twitterSetFavoriteTo:YES forTweet:tweetID];
 }
-- (void) twitterUnFavoriteTweet:(NSString *)tweetID {
+
+- (void)twitterUnFavoriteTweet:(NSString *)tweetID
+{
     [self twitterSetFavoriteTo:NO forTweet:tweetID];
 }
 
-- (void) twitterSetFavoriteTo:(BOOL)isFavorite forTweet:(NSString *)tweetID {
+- (void)twitterSetFavoriteTo:(BOOL)isFavorite forTweet:(NSString *)tweetID
+{
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         //  Step 1:  Obtain access to the user's Twitter accounts
         ACAccountStore *accountStore = [[ACAccountStore alloc] init];
@@ -222,16 +200,14 @@
     }
 }
 
-#pragma - FACEBOOK
-- (BOOL)facebookSessionIsValid {
-    if (self.facebookAccount != nil) {
-        return YES;
-    } else {
-        return NO;
-    }
+#pragma mark - FACEBOOK
+- (BOOL)facebookSessionIsValid
+{
+    return self.facebookAccount != nil;
 }
 
-- (void)facebookLogin {
+- (void)facebookLogin
+{
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         //  Step 1:  Obtain access to the user's Twitter accounts
         ACAccountStore *accountStore = [[ACAccountStore alloc] init];
@@ -263,12 +239,14 @@
     }
 }
 
--(void)facebookLogout {
+- (void)facebookLogout
+{
     self.facebookAccount = nil;
     [self.delegate facebookDidLogout];
 }
 
-- (void) facebookLikePost:(NSString *)postID {
+- (void) facebookLikePost:(NSString *)postID
+{
     //  Step 0: Check that the user has local Twitter accounts
     if (self.facebookSessionIsValid) {
         NSURL *url = [NSURL URLWithString:@"https://api.twitter.com"
@@ -310,73 +288,82 @@
                 }
             }
         }];
-        
     }
 }
 
-#pragma - INSTAGRAM
--(BOOL)instagramhandleOpenURL:(NSURL *)url {
+#pragma mark - INSTAGRAM
+- (BOOL)instagramhandleOpenURL:(NSURL *)url
+{
     return ([self.instagram handleOpenURL:url]);
 }
 
-- (BOOL)instagramSessionIsValid {
+- (BOOL)instagramSessionIsValid
+{
     return [self.instagram isSessionValid];
 }
 
--(void)instagramLikePost:(NSString *)postID {
+- (void)instagramLikePost:(NSString *)postID
+{
     [self instagramSetLikeTo:YES forPost:postID];
 }
 
--(void)instagramUnLikePost:(NSString *)postID {
+- (void)instagramUnLikePost:(NSString *)postID
+{
     [self instagramSetLikeTo:NO forPost:postID];
 }
 
--(void)instagramSetLikeTo:(BOOL)isLIked forPost:(NSString *)postID {
-    
+- (void)instagramSetLikeTo:(BOOL)isLIked forPost:(NSString *)postID
+{
     NSString *methodName = [NSString stringWithFormat:@"/media/%@/likes", postID];
     NSMutableDictionary *emptyParams = [[NSMutableDictionary alloc] init];
     NSString *method;
-    if (isLIked) {
+    
+    if (isLIked)
         method = @"POST";
-    } else {
+    else
         method = @"DEL";
-    }
+    
     [self.instagram requestWithMethodName:methodName params:emptyParams httpMethod:@"POST" delegate:self];
 }
 
-- (void)instagramLogin {
+- (void)instagramLogin
+{
     [self.instagram authorize:[NSArray arrayWithObjects:@"likes", nil]];
 }
 
-- (void)instagramLogout {
+- (void)instagramLogout
+{
     [self.instagram logout];
 }
 
-#pragma - INSTAGRAM IGSessionDelegate
--(void)igDidLogin {
-    NSLog(@"Instagram did login");
-    // here i can store accessToken
+#pragma mark - INSTAGRAM IGSessionDelegate
+- (void)igDidLogin
+{
     [[NSUserDefaults standardUserDefaults] setObject:self.instagram.accessToken forKey:@"accessToken"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
-    [self.delegate instagramDidLogin];
     
+    [self.delegate instagramDidLogin];
 }
 
--(void)igDidLogout {
+- (void)igDidLogout
+{
     [self.delegate instagramDidLogout];
 }
 
--(void)igDidNotLogin:(BOOL)cancelled {
+- (void)igDidNotLogin:(BOOL)cancelled
+{
     NSLog(@"Instagram did not login");
     
     [self.delegate instagramDidReceiveAnError];
 }
 
-- (void)request:(IGRequest *)request didFailWithError:(NSError *)error {
+- (void)request:(IGRequest *)request didFailWithError:(NSError *)error
+{
     [self.delegate instagramDidReceiveAnError];
 }
 
-- (void)request:(IGRequest *)request didLoad:(id)result {
+- (void)request:(IGRequest *)request didLoad:(id)result
+{
     NSLog(@"Instagram did load: %@", result);
 
     [self.delegate instagramDidLoad:result];

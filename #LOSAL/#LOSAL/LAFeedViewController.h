@@ -7,15 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LADataLoader.h"
 #import "LANoticeViewController.h"
-// 1. Forward declaration of ChildViewControllerDelegate - this just declares
-// that a ChildViewControllerDelegate type exists so that we can use it
-// later.
+#import "LASocialManager.h"
 
-@interface LAFeedViewController : UITableViewController<LANoticeViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
-{
-
-}
+@interface LAFeedViewController : UITableViewController<LANoticeViewControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, LASocialManagerDelegate>
 
 @end

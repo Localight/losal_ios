@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "LASocialManager.h"
 
+typedef enum SocialNetworkType : NSInteger {
+    SocialNetwork_Instagram,
+    SocialNetwork_Twitter
+} SocialNetworkType;
+
 @interface LASocialNetworksView : UIView <LASocialManagerDelegate>
 
+- (id)initWithFrame:(CGRect)frame socialNetworkType:(SocialNetworkType)socialNetworkType;
 - (void)show;
-- (void)hide;
 
 @end

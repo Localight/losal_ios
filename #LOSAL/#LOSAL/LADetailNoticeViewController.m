@@ -8,64 +8,57 @@
 
 #import "LADetailNoticeViewController.h"
 #import "LANoticeItem.h"
-#import "LANoticesStore.h"
 #import "LAImageLoader.h"
 #import "ECSlidingViewController.h"
-//#import "LAImageStore.h"
-//#import "LAImageStore.h"
-@implementation LADetailNoticeViewController
+#import "UIImage+Resize.h"
 
-//- (id)init
-//{
-//    self = [super init];
-//    if (self) {
-//        UINavigationItem *navyItem = [self navyItem];
-//        [navyItem setTitle:[_item noticeTitle]];
-//    }
-//    return self;
-//}
+@interface LADetailNoticeViewController ()
+
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UILabel *content;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navyItem;
+@property (weak, nonatomic) IBOutlet UIButton *linkButton;
+
+@end
+
+@implementation LADetailNoticeViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@", _navyItem);
     
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    backBtn.frame = CGRectMake(0, 0, 30, 30);
-    
-    [backBtn setBackgroundImage:[UIImage imageNamed:@"menu-icon.png"] forState:UIControlStateNormal];
-    
-    [backBtn addTarget:self
-                action:@selector(back:)
+    UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    closeBtn.frame = CGRectMake(0, 0, 25, 25);
+    [closeBtn setBackgroundImage:[UIImage imageNamed:@"183_x-circle"] forState:UIControlStateNormal];
+    [closeBtn addTarget:self
+                action:@selector(close:)
       forControlEvents:UIControlEventTouchUpInside];
-     [_navyItem setLeftBarButtonItem:[[UIBarButtonItem alloc]initWithCustomView:backBtn]];
     
+    [_navyItem setLeftBarButtonItem:[[UIBarButtonItem alloc]initWithCustomView:closeBtn]];
     [_navyItem setTitle:[_item noticeTitle]];
-    if (![_item buttonText]) {
+    
+    if ([_item buttonText])
         [_linkButton setTitle:[_item buttonText] forState:UIControlStateNormal];
-    }else{
+    else
         [_linkButton setHidden:YES];
-    }
 }
-
-//TODO:setup the links if they have them. 
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [titleLabel setText:[_item noticeTitle]];
-    [titleLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:24]];
-    [content setText:[_item noticeContent]];
-    [content setFont:[UIFont fontWithName:@"RobotoSlab-" size:16]];
+    [self.titleLabel setText:[_item noticeTitle]];
+    [self.titleLabel setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:18]];
+    [self.content setText:[_item noticeContent]];
+    [self.content setFont:[UIFont fontWithName:@"RobotoSlab-Regular" size:13]];
     
     [[LAImageLoader sharedManager]processImageDataWithURLString:[_item noticeImageUrl]
                                                           forId:[[_item postObject]objectId]
-                                                       andBlock:^(UIImage *image)
-     {
-         [imageView setImage:image];
-    }];
+                                                       andBlock:^(UIImage *image) {
+         [self.imageView setImage:[image resizedImage:self.imageView.frame.size interpolationQuality:kCGInterpolationDefault]];
+     }];
+    
     [[self navigationItem] setTitle:[_item noticeTitle]];
 }
 
@@ -75,13 +68,20 @@
     
     [[self navigationItem] setTitle:[_item noticeTitle]];
 }
+
 - (IBAction)toLink:(id)sender
 {
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[_item buttonLink]]];
 }
+
 - (IBAction)back:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECLeft];
+}
+
+- (void)close:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

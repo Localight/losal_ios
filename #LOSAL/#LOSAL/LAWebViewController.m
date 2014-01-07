@@ -10,7 +10,12 @@
 #import "ECSlidingViewController.h"
 #import "LAMenuViewController.h"
 #import "LANoticeViewController.h"
+
 @interface LAWebViewController ()
+
+@property (weak, nonatomic) IBOutlet UIWebView *webview;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navyItem;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
@@ -24,11 +29,13 @@
     }
     return self;
 }
+
 - (BOOL)webView:(UIWebView *)wv shouldStartLoadWithRequest:(NSURLRequest *)rq
 {
     [_spinner startAnimating];
     return YES;
 }
+
 - (IBAction)revealNotices:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECLeft];
@@ -43,12 +50,13 @@
 {
     [_spinner stopAnimating];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [_navyItem setTitle:_titleName];
   
-    [[self webview]setDelegate:self];
+    [[self webview] setDelegate:self];
     
     NSURLRequest *requestURL = [NSURLRequest requestWithURL:_url];
     [_webview loadRequest:requestURL];
@@ -70,15 +78,13 @@
     
     [_navyItem setRightBarButtonItem:[[UIBarButtonItem alloc]initWithCustomView:noticeBtn]];
     
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]]) {
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[LAMenuViewController class]])
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
-    }
     
-    if (![self.slidingViewController.underRightViewController isKindOfClass:[LANoticeViewController class]]) {
+    if (![self.slidingViewController.underRightViewController isKindOfClass:[LANoticeViewController class]])
         self.slidingViewController.underRightViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Notices"];
-    }
-
 }
+
 - (IBAction)back:(id)sender
 {
     [self.slidingViewController anchorTopViewTo:ECRight];
