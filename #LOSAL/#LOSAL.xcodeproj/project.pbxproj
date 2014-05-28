@@ -1185,7 +1185,7 @@
 		6588D05F17A4BCC500B6C498 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Localism Inc. (V35E94V5X8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1202,7 +1202,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos7.0;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1211,7 +1212,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Localism Inc. (V35E94V5X8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Localism Inc. (V35E94V5X8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1225,9 +1226,10 @@
 					"\"$(SRCROOT)/TestFlightSDK2.0.2\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F9957A48-9179-463A-B838-10E293EC1855";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F9957A48-9179-463A-B838-10E293EC1855";
-				SDKROOT = iphoneos7.0;
+				PROVISIONING_PROFILE = "14C5B8FC-F659-4418-9873-6F075E545EA6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "14C5B8FC-F659-4418-9873-6F075E545EA6";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
